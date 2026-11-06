@@ -1,0 +1,68 @@
+/**
+ * Drive the Pololu 3pi+ 2040 from a laptop over BLE using an HM-10 module.
+ *
+ * Wiring: HM-10 TX -> GP29, HM-10 RX -> GP28, VCC -> 3V3, GND -> GND.
+ * Commands (single characters sent over BLE): f = forward, b = backward,
+ * l = spin left, r = spin right, s = stop.
+ */
+target C {
+  platform: {
+    name: "rp2040",
+    board: "pololu_3pi_2040_robot"
+  },
+  single-threaded: true
+}
+
+import Motors from "lib/Motors.lf"
+
+preamble {=
+  #include "hardware/uart.h"
+  #include "hardware/gpio.h"
+=}
+
+/** Polls UART0 (the HM-10) every 10 ms and outputs one received character. */
+reactor Bluetooth {
+  output cmd: char
+  timer poll(0, 10 msec)
+
+  reaction(startup) {=
+    uart_init(uart0, 9600);
+    gpio_set_function(28, GPIO_FUNC_UART);  // GP28 = TX -> HM-10 RX
+    gpio_set_function(29, GPIO_FUNC_UART);  // GP29 = RX <- HM-10 TX
+  =}
+
+  reaction(poll) -> cmd {=
+    if (uart_is_readable(uart0)) {
+      lf_set(cmd, uart_getc(uart0));
+    }
+  =}
+}
+
+/** Turns command characters into motor power (-1.0 to 1.0). */
+reactor Robot {
+  input cmd: char
+
+  motor = new Motors();
+
+  reaction(startup) -> motor.left_power, motor.right_power {=
+    lf_set(motor.left_power, 0.0f);
+    lf_set(motor.right_power, 0.0f);
+  =}
+
+  reaction(cmd) -> motor.left_power, motor.right_power {=
+    float s = 0.1f;  // 30% power; keep low for the first test
+    switch (cmd->value) {
+      case 'f': lf_set(motor.left_power,  s);    lf_set(motor.right_power,  s);    break;
+      case 'b': lf_set(motor.left_power, -s);    lf_set(motor.right_power, -s);    break;
+      case 'l': lf_set(motor.left_power, -s);    lf_set(motor.right_power,  s);    break;
+      case 'r': lf_set(motor.left_power,  s);    lf_set(motor.right_power, -s);    break;
+      case 's': lf_set(motor.left_power,  0.0f); lf_set(motor.right_power, 0.0f);  break;
+    }
+  =}
+}
+
+main reactor {
+  bt = new Bluetooth()
+  robot = new Robot()
+  bt.cmd -> robot.cmd
+}
