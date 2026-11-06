@@ -3,7 +3,7 @@ set(CMAKE_HOST_SYSTEM_NAME "Darwin")
 set(CMAKE_HOST_SYSTEM_VERSION "24.6.0")
 set(CMAKE_HOST_SYSTEM_PROCESSOR "arm64")
 
-include("/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/cmake/preload/toolchains/pico_arm_cortex_m0plus_gcc.cmake")
+include("/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/cmake/preload/toolchains/pico_arm_cortex_m0plus_gcc.cmake")
 
 set(CMAKE_SYSTEM "PICO")
 set(CMAKE_SYSTEM_NAME "PICO")

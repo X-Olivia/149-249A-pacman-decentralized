@@ -1,4 +1,4 @@
-// Padded and checksummed version of: /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build/pico-sdk/src/rp2040/boot_stage2/bs2_default.bin
+// Padded and checksummed version of: /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build/pico-sdk/src/rp2040/boot_stage2/bs2_default.bin
 
 .cpu cortex-m0plus
 .thumb

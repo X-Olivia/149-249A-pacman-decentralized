@@ -4,7 +4,7 @@
 
 // based on PICO_CONFIG_HEADER_FILES:
 
-#include "/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/boards/include/boards/pico.h"
-#include "/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h"
+#include "/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/boards/include/boards/pico.h"
+#include "/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h"
 
 // based on PICO_RP2040_CONFIG_HEADER_FILES:

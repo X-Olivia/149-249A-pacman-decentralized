@@ -1,8 +1,8 @@
-# Install script for directory: /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_sync
+# Install script for directory: /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_sync
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template")
+  set(CMAKE_INSTALL_PREFIX "/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -40,6 +40,6 @@ endif()
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
 if(CMAKE_INSTALL_LOCAL_ONLY)
-  file(WRITE "/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build/pico-sdk/src/common/pico_sync/install_local_manifest.txt"
+  file(WRITE "/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build/pico-sdk/src/common/pico_sync/install_local_manifest.txt"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
 endif()

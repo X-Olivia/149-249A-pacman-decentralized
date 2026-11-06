@@ -4,7 +4,7 @@
 # compile CXX with /nix/store/pi6q1cgwibsbrsjhfr9hrn8hjax5pk8l-clang-wrapper-19.1.7/bin/clang++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/tools/pioasm -I/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/tools/pioasm/gen -I/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build/pioasm
+CXX_INCLUDES = -I/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/tools/pioasm -I/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/tools/pioasm/gen -I/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build/pioasm
 
 CXX_FLAGSarm64 = -O3 -DNDEBUG -std=gnu++11 -arch arm64 -isysroot /nix/store/vi99jclwrgwcc9bz3ifnp35n6cbisz0a-apple-sdk-11.3/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk -mmacosx-version-min=11.3
 

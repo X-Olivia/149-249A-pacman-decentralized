@@ -57,10 +57,10 @@ RM = /nix/store/56yrf9xmbg15z2qwz6qgylybrg4fik97-cmake-3.31.6/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive
+CMAKE_SOURCE_DIR = /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build
+CMAKE_BINARY_DIR = /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -132,14 +132,14 @@ install/strip/fast: preinstall/fast
 
 # The main all target
 all: cmake_check_build_system
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(CMAKE_COMMAND) -E cmake_progress_start /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build/CMakeFiles /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build/robot//CMakeFiles/progress.marks
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 robot/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build/CMakeFiles 0
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(CMAKE_COMMAND) -E cmake_progress_start /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build/CMakeFiles /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build/robot//CMakeFiles/progress.marks
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 robot/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 robot/clean
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 robot/clean
 .PHONY : clean
 
 # The main clean target
@@ -148,22 +148,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 robot/preinstall
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 robot/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 robot/preinstall
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 robot/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 robot/CMakeFiles/robot.dir/rule:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 robot/CMakeFiles/robot.dir/rule
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 robot/CMakeFiles/robot.dir/rule
 .PHONY : robot/CMakeFiles/robot.dir/rule
 
 # Convenience name for target.
@@ -172,12 +172,12 @@ robot: robot/CMakeFiles/robot.dir/rule
 
 # fast build rule for target.
 robot/fast:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/build
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/build
 .PHONY : robot/fast
 
 # Convenience name for target.
 robot/CMakeFiles/robot_qtr_sensor_counter_pio_h.dir/rule:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 robot/CMakeFiles/robot_qtr_sensor_counter_pio_h.dir/rule
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 robot/CMakeFiles/robot_qtr_sensor_counter_pio_h.dir/rule
 .PHONY : robot/CMakeFiles/robot_qtr_sensor_counter_pio_h.dir/rule
 
 # Convenience name for target.
@@ -186,12 +186,12 @@ robot_qtr_sensor_counter_pio_h: robot/CMakeFiles/robot_qtr_sensor_counter_pio_h.
 
 # fast build rule for target.
 robot_qtr_sensor_counter_pio_h/fast:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot_qtr_sensor_counter_pio_h.dir/build.make robot/CMakeFiles/robot_qtr_sensor_counter_pio_h.dir/build
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot_qtr_sensor_counter_pio_h.dir/build.make robot/CMakeFiles/robot_qtr_sensor_counter_pio_h.dir/build
 .PHONY : robot_qtr_sensor_counter_pio_h/fast
 
 # Convenience name for target.
 robot/CMakeFiles/robot_quadrature_encoder_pio_h.dir/rule:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 robot/CMakeFiles/robot_quadrature_encoder_pio_h.dir/rule
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 robot/CMakeFiles/robot_quadrature_encoder_pio_h.dir/rule
 .PHONY : robot/CMakeFiles/robot_quadrature_encoder_pio_h.dir/rule
 
 # Convenience name for target.
@@ -200,1303 +200,1303 @@ robot_quadrature_encoder_pio_h: robot/CMakeFiles/robot_quadrature_encoder_pio_h.
 
 # fast build rule for target.
 robot_quadrature_encoder_pio_h/fast:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot_quadrature_encoder_pio_h.dir/build.make robot/CMakeFiles/robot_quadrature_encoder_pio_h.dir/build
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot_quadrature_encoder_pio_h.dir/build.make robot/CMakeFiles/robot_quadrature_encoder_pio_h.dir/build
 .PHONY : robot_quadrature_encoder_pio_h/fast
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/hardware_claim/claim.o: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/hardware_claim/claim.c.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/hardware_claim/claim.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/hardware_claim/claim.o: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/hardware_claim/claim.c.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/hardware_claim/claim.o
 
 # target to build an object file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/hardware_claim/claim.c.o:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/hardware_claim/claim.c.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/hardware_claim/claim.c.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/hardware_claim/claim.c.o:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/hardware_claim/claim.c.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/hardware_claim/claim.c.o
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/hardware_claim/claim.i: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/hardware_claim/claim.c.i
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/hardware_claim/claim.i
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/hardware_claim/claim.i: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/hardware_claim/claim.c.i
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/hardware_claim/claim.i
 
 # target to preprocess a source file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/hardware_claim/claim.c.i:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/hardware_claim/claim.c.i
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/hardware_claim/claim.c.i
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/hardware_claim/claim.c.i:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/hardware_claim/claim.c.i
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/hardware_claim/claim.c.i
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/hardware_claim/claim.s: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/hardware_claim/claim.c.s
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/hardware_claim/claim.s
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/hardware_claim/claim.s: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/hardware_claim/claim.c.s
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/hardware_claim/claim.s
 
 # target to generate assembly for a file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/hardware_claim/claim.c.s:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/hardware_claim/claim.c.s
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/hardware_claim/claim.c.s
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/hardware_claim/claim.c.s:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/hardware_claim/claim.c.s
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/hardware_claim/claim.c.s
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_sync/critical_section.o: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_sync/critical_section.c.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_sync/critical_section.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_sync/critical_section.o: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_sync/critical_section.c.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_sync/critical_section.o
 
 # target to build an object file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_sync/critical_section.c.o:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_sync/critical_section.c.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_sync/critical_section.c.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_sync/critical_section.c.o:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_sync/critical_section.c.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_sync/critical_section.c.o
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_sync/critical_section.i: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_sync/critical_section.c.i
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_sync/critical_section.i
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_sync/critical_section.i: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_sync/critical_section.c.i
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_sync/critical_section.i
 
 # target to preprocess a source file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_sync/critical_section.c.i:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_sync/critical_section.c.i
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_sync/critical_section.c.i
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_sync/critical_section.c.i:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_sync/critical_section.c.i
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_sync/critical_section.c.i
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_sync/critical_section.s: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_sync/critical_section.c.s
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_sync/critical_section.s
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_sync/critical_section.s: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_sync/critical_section.c.s
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_sync/critical_section.s
 
 # target to generate assembly for a file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_sync/critical_section.c.s:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_sync/critical_section.c.s
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_sync/critical_section.c.s
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_sync/critical_section.c.s:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_sync/critical_section.c.s
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_sync/critical_section.c.s
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_sync/lock_core.o: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_sync/lock_core.c.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_sync/lock_core.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_sync/lock_core.o: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_sync/lock_core.c.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_sync/lock_core.o
 
 # target to build an object file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_sync/lock_core.c.o:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_sync/lock_core.c.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_sync/lock_core.c.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_sync/lock_core.c.o:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_sync/lock_core.c.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_sync/lock_core.c.o
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_sync/lock_core.i: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_sync/lock_core.c.i
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_sync/lock_core.i
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_sync/lock_core.i: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_sync/lock_core.c.i
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_sync/lock_core.i
 
 # target to preprocess a source file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_sync/lock_core.c.i:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_sync/lock_core.c.i
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_sync/lock_core.c.i
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_sync/lock_core.c.i:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_sync/lock_core.c.i
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_sync/lock_core.c.i
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_sync/lock_core.s: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_sync/lock_core.c.s
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_sync/lock_core.s
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_sync/lock_core.s: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_sync/lock_core.c.s
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_sync/lock_core.s
 
 # target to generate assembly for a file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_sync/lock_core.c.s:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_sync/lock_core.c.s
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_sync/lock_core.c.s
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_sync/lock_core.c.s:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_sync/lock_core.c.s
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_sync/lock_core.c.s
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_sync/mutex.o: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_sync/mutex.c.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_sync/mutex.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_sync/mutex.o: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_sync/mutex.c.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_sync/mutex.o
 
 # target to build an object file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_sync/mutex.c.o:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_sync/mutex.c.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_sync/mutex.c.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_sync/mutex.c.o:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_sync/mutex.c.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_sync/mutex.c.o
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_sync/mutex.i: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_sync/mutex.c.i
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_sync/mutex.i
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_sync/mutex.i: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_sync/mutex.c.i
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_sync/mutex.i
 
 # target to preprocess a source file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_sync/mutex.c.i:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_sync/mutex.c.i
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_sync/mutex.c.i
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_sync/mutex.c.i:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_sync/mutex.c.i
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_sync/mutex.c.i
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_sync/mutex.s: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_sync/mutex.c.s
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_sync/mutex.s
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_sync/mutex.s: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_sync/mutex.c.s
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_sync/mutex.s
 
 # target to generate assembly for a file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_sync/mutex.c.s:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_sync/mutex.c.s
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_sync/mutex.c.s
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_sync/mutex.c.s:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_sync/mutex.c.s
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_sync/mutex.c.s
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_sync/sem.o: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_sync/sem.c.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_sync/sem.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_sync/sem.o: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_sync/sem.c.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_sync/sem.o
 
 # target to build an object file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_sync/sem.c.o:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_sync/sem.c.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_sync/sem.c.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_sync/sem.c.o:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_sync/sem.c.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_sync/sem.c.o
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_sync/sem.i: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_sync/sem.c.i
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_sync/sem.i
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_sync/sem.i: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_sync/sem.c.i
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_sync/sem.i
 
 # target to preprocess a source file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_sync/sem.c.i:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_sync/sem.c.i
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_sync/sem.c.i
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_sync/sem.c.i:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_sync/sem.c.i
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_sync/sem.c.i
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_sync/sem.s: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_sync/sem.c.s
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_sync/sem.s
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_sync/sem.s: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_sync/sem.c.s
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_sync/sem.s
 
 # target to generate assembly for a file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_sync/sem.c.s:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_sync/sem.c.s
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_sync/sem.c.s
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_sync/sem.c.s:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_sync/sem.c.s
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_sync/sem.c.s
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_time/time.o: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_time/time.c.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_time/time.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_time/time.o: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_time/time.c.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_time/time.o
 
 # target to build an object file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_time/time.c.o:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_time/time.c.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_time/time.c.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_time/time.c.o:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_time/time.c.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_time/time.c.o
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_time/time.i: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_time/time.c.i
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_time/time.i
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_time/time.i: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_time/time.c.i
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_time/time.i
 
 # target to preprocess a source file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_time/time.c.i:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_time/time.c.i
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_time/time.c.i
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_time/time.c.i:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_time/time.c.i
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_time/time.c.i
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_time/time.s: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_time/time.c.s
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_time/time.s
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_time/time.s: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_time/time.c.s
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_time/time.s
 
 # target to generate assembly for a file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_time/time.c.s:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_time/time.c.s
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_time/time.c.s
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_time/time.c.s:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_time/time.c.s
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_time/time.c.s
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_time/timeout_helper.o: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_time/timeout_helper.c.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_time/timeout_helper.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_time/timeout_helper.o: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_time/timeout_helper.c.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_time/timeout_helper.o
 
 # target to build an object file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_time/timeout_helper.c.o:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_time/timeout_helper.c.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_time/timeout_helper.c.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_time/timeout_helper.c.o:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_time/timeout_helper.c.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_time/timeout_helper.c.o
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_time/timeout_helper.i: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_time/timeout_helper.c.i
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_time/timeout_helper.i
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_time/timeout_helper.i: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_time/timeout_helper.c.i
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_time/timeout_helper.i
 
 # target to preprocess a source file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_time/timeout_helper.c.i:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_time/timeout_helper.c.i
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_time/timeout_helper.c.i
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_time/timeout_helper.c.i:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_time/timeout_helper.c.i
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_time/timeout_helper.c.i
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_time/timeout_helper.s: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_time/timeout_helper.c.s
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_time/timeout_helper.s
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_time/timeout_helper.s: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_time/timeout_helper.c.s
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_time/timeout_helper.s
 
 # target to generate assembly for a file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_time/timeout_helper.c.s:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_time/timeout_helper.c.s
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_time/timeout_helper.c.s
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_time/timeout_helper.c.s:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_time/timeout_helper.c.s
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_time/timeout_helper.c.s
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_util/datetime.o: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_util/datetime.c.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_util/datetime.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_util/datetime.o: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_util/datetime.c.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_util/datetime.o
 
 # target to build an object file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_util/datetime.c.o:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_util/datetime.c.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_util/datetime.c.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_util/datetime.c.o:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_util/datetime.c.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_util/datetime.c.o
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_util/datetime.i: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_util/datetime.c.i
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_util/datetime.i
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_util/datetime.i: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_util/datetime.c.i
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_util/datetime.i
 
 # target to preprocess a source file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_util/datetime.c.i:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_util/datetime.c.i
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_util/datetime.c.i
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_util/datetime.c.i:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_util/datetime.c.i
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_util/datetime.c.i
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_util/datetime.s: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_util/datetime.c.s
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_util/datetime.s
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_util/datetime.s: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_util/datetime.c.s
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_util/datetime.s
 
 # target to generate assembly for a file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_util/datetime.c.s:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_util/datetime.c.s
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_util/datetime.c.s
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_util/datetime.c.s:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_util/datetime.c.s
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_util/datetime.c.s
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_util/pheap.o: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_util/pheap.c.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_util/pheap.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_util/pheap.o: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_util/pheap.c.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_util/pheap.o
 
 # target to build an object file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_util/pheap.c.o:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_util/pheap.c.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_util/pheap.c.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_util/pheap.c.o:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_util/pheap.c.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_util/pheap.c.o
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_util/pheap.i: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_util/pheap.c.i
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_util/pheap.i
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_util/pheap.i: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_util/pheap.c.i
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_util/pheap.i
 
 # target to preprocess a source file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_util/pheap.c.i:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_util/pheap.c.i
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_util/pheap.c.i
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_util/pheap.c.i:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_util/pheap.c.i
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_util/pheap.c.i
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_util/pheap.s: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_util/pheap.c.s
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_util/pheap.s
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_util/pheap.s: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_util/pheap.c.s
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_util/pheap.s
 
 # target to generate assembly for a file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_util/pheap.c.s:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_util/pheap.c.s
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_util/pheap.c.s
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_util/pheap.c.s:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_util/pheap.c.s
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_util/pheap.c.s
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_util/queue.o: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_util/queue.c.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_util/queue.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_util/queue.o: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_util/queue.c.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_util/queue.o
 
 # target to build an object file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_util/queue.c.o:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_util/queue.c.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_util/queue.c.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_util/queue.c.o:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_util/queue.c.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_util/queue.c.o
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_util/queue.i: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_util/queue.c.i
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_util/queue.i
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_util/queue.i: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_util/queue.c.i
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_util/queue.i
 
 # target to preprocess a source file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_util/queue.c.i:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_util/queue.c.i
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_util/queue.c.i
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_util/queue.c.i:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_util/queue.c.i
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_util/queue.c.i
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_util/queue.s: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_util/queue.c.s
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_util/queue.s
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_util/queue.s: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_util/queue.c.s
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_util/queue.s
 
 # target to generate assembly for a file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_util/queue.c.s:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_util/queue.c.s
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_util/queue.c.s
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_util/queue.c.s:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_util/queue.c.s
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_util/queue.c.s
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2040/pico_platform/platform.o: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2040/pico_platform/platform.c.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2040/pico_platform/platform.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2040/pico_platform/platform.o: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2040/pico_platform/platform.c.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2040/pico_platform/platform.o
 
 # target to build an object file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2040/pico_platform/platform.c.o:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2040/pico_platform/platform.c.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2040/pico_platform/platform.c.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2040/pico_platform/platform.c.o:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2040/pico_platform/platform.c.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2040/pico_platform/platform.c.o
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2040/pico_platform/platform.i: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2040/pico_platform/platform.c.i
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2040/pico_platform/platform.i
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2040/pico_platform/platform.i: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2040/pico_platform/platform.c.i
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2040/pico_platform/platform.i
 
 # target to preprocess a source file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2040/pico_platform/platform.c.i:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2040/pico_platform/platform.c.i
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2040/pico_platform/platform.c.i
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2040/pico_platform/platform.c.i:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2040/pico_platform/platform.c.i
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2040/pico_platform/platform.c.i
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2040/pico_platform/platform.s: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2040/pico_platform/platform.c.s
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2040/pico_platform/platform.s
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2040/pico_platform/platform.s: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2040/pico_platform/platform.c.s
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2040/pico_platform/platform.s
 
 # target to generate assembly for a file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2040/pico_platform/platform.c.s:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2040/pico_platform/platform.c.s
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2040/pico_platform/platform.c.s
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2040/pico_platform/platform.c.s:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2040/pico_platform/platform.c.s
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2040/pico_platform/platform.c.s
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_adc/adc.o: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_adc/adc.c.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_adc/adc.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_adc/adc.o: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_adc/adc.c.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_adc/adc.o
 
 # target to build an object file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_adc/adc.c.o:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_adc/adc.c.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_adc/adc.c.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_adc/adc.c.o:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_adc/adc.c.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_adc/adc.c.o
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_adc/adc.i: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_adc/adc.c.i
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_adc/adc.i
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_adc/adc.i: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_adc/adc.c.i
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_adc/adc.i
 
 # target to preprocess a source file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_adc/adc.c.i:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_adc/adc.c.i
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_adc/adc.c.i
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_adc/adc.c.i:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_adc/adc.c.i
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_adc/adc.c.i
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_adc/adc.s: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_adc/adc.c.s
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_adc/adc.s
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_adc/adc.s: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_adc/adc.c.s
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_adc/adc.s
 
 # target to generate assembly for a file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_adc/adc.c.s:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_adc/adc.c.s
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_adc/adc.c.s
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_adc/adc.c.s:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_adc/adc.c.s
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_adc/adc.c.s
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_boot_lock/boot_lock.o: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_boot_lock/boot_lock.c.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_boot_lock/boot_lock.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_boot_lock/boot_lock.o: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_boot_lock/boot_lock.c.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_boot_lock/boot_lock.o
 
 # target to build an object file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_boot_lock/boot_lock.c.o:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_boot_lock/boot_lock.c.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_boot_lock/boot_lock.c.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_boot_lock/boot_lock.c.o:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_boot_lock/boot_lock.c.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_boot_lock/boot_lock.c.o
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_boot_lock/boot_lock.i: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_boot_lock/boot_lock.c.i
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_boot_lock/boot_lock.i
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_boot_lock/boot_lock.i: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_boot_lock/boot_lock.c.i
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_boot_lock/boot_lock.i
 
 # target to preprocess a source file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_boot_lock/boot_lock.c.i:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_boot_lock/boot_lock.c.i
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_boot_lock/boot_lock.c.i
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_boot_lock/boot_lock.c.i:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_boot_lock/boot_lock.c.i
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_boot_lock/boot_lock.c.i
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_boot_lock/boot_lock.s: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_boot_lock/boot_lock.c.s
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_boot_lock/boot_lock.s
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_boot_lock/boot_lock.s: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_boot_lock/boot_lock.c.s
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_boot_lock/boot_lock.s
 
 # target to generate assembly for a file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_boot_lock/boot_lock.c.s:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_boot_lock/boot_lock.c.s
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_boot_lock/boot_lock.c.s
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_boot_lock/boot_lock.c.s:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_boot_lock/boot_lock.c.s
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_boot_lock/boot_lock.c.s
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_clocks/clocks.o: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_clocks/clocks.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_clocks/clocks.o: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_clocks/clocks.o
 
 # target to build an object file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.o:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.o:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.o
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_clocks/clocks.i: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.i
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_clocks/clocks.i
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_clocks/clocks.i: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.i
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_clocks/clocks.i
 
 # target to preprocess a source file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.i:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.i
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.i
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.i:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.i
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.i
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_clocks/clocks.s: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.s
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_clocks/clocks.s
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_clocks/clocks.s: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.s
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_clocks/clocks.s
 
 # target to generate assembly for a file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.s:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.s
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.s
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.s:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.s
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.s
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_divider/divider.o: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_divider/divider.S.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_divider/divider.o
-
-# target to build an object file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_divider/divider.S.o:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_divider/divider.S.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_divider/divider.S.o
-
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_gpio/gpio.o: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_gpio/gpio.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_divider/divider.o: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_divider/divider.S.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_divider/divider.o
 
 # target to build an object file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.o:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_divider/divider.S.o:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_divider/divider.S.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_divider/divider.S.o
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_gpio/gpio.i: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.i
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_gpio/gpio.i
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_gpio/gpio.o: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_gpio/gpio.o
+
+# target to build an object file
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.o:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.o
+
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_gpio/gpio.i: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.i
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_gpio/gpio.i
 
 # target to preprocess a source file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.i:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.i
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.i
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.i:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.i
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.i
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_gpio/gpio.s: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.s
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_gpio/gpio.s
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_gpio/gpio.s: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.s
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_gpio/gpio.s
 
 # target to generate assembly for a file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.s:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.s
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.s
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.s:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.s
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.s
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_i2c/i2c.o: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_i2c/i2c.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_i2c/i2c.o: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_i2c/i2c.o
 
 # target to build an object file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.o:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.o:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.o
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_i2c/i2c.i: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.i
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_i2c/i2c.i
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_i2c/i2c.i: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.i
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_i2c/i2c.i
 
 # target to preprocess a source file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.i:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.i
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.i
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.i:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.i
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.i
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_i2c/i2c.s: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.s
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_i2c/i2c.s
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_i2c/i2c.s: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.s
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_i2c/i2c.s
 
 # target to generate assembly for a file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.s:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.s
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.s
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.s:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.s
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.s
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_irq/irq.o: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_irq/irq.c.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_irq/irq.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_irq/irq.o: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_irq/irq.c.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_irq/irq.o
 
 # target to build an object file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_irq/irq.c.o:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_irq/irq.c.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_irq/irq.c.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_irq/irq.c.o:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_irq/irq.c.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_irq/irq.c.o
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_irq/irq.i: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_irq/irq.c.i
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_irq/irq.i
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_irq/irq.i: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_irq/irq.c.i
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_irq/irq.i
 
 # target to preprocess a source file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_irq/irq.c.i:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_irq/irq.c.i
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_irq/irq.c.i
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_irq/irq.c.i:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_irq/irq.c.i
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_irq/irq.c.i
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_irq/irq.s: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_irq/irq.c.s
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_irq/irq.s
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_irq/irq.s: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_irq/irq.c.s
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_irq/irq.s
 
 # target to generate assembly for a file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_irq/irq.c.s:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_irq/irq.c.s
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_irq/irq.c.s
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_irq/irq.c.s:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_irq/irq.c.s
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_irq/irq.c.s
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.o: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.o
-
-# target to build an object file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.o:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.o
-
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_pio/pio.o: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_pio/pio.c.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_pio/pio.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.o: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.o
 
 # target to build an object file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_pio/pio.c.o:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_pio/pio.c.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_pio/pio.c.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.o:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.o
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_pio/pio.i: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_pio/pio.c.i
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_pio/pio.i
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_pio/pio.o: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_pio/pio.c.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_pio/pio.o
+
+# target to build an object file
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_pio/pio.c.o:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_pio/pio.c.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_pio/pio.c.o
+
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_pio/pio.i: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_pio/pio.c.i
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_pio/pio.i
 
 # target to preprocess a source file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_pio/pio.c.i:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_pio/pio.c.i
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_pio/pio.c.i
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_pio/pio.c.i:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_pio/pio.c.i
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_pio/pio.c.i
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_pio/pio.s: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_pio/pio.c.s
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_pio/pio.s
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_pio/pio.s: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_pio/pio.c.s
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_pio/pio.s
 
 # target to generate assembly for a file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_pio/pio.c.s:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_pio/pio.c.s
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_pio/pio.c.s
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_pio/pio.c.s:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_pio/pio.c.s
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_pio/pio.c.s
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_pll/pll.o: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_pll/pll.c.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_pll/pll.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_pll/pll.o: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_pll/pll.c.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_pll/pll.o
 
 # target to build an object file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_pll/pll.c.o:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_pll/pll.c.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_pll/pll.c.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_pll/pll.c.o:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_pll/pll.c.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_pll/pll.c.o
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_pll/pll.i: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_pll/pll.c.i
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_pll/pll.i
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_pll/pll.i: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_pll/pll.c.i
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_pll/pll.i
 
 # target to preprocess a source file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_pll/pll.c.i:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_pll/pll.c.i
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_pll/pll.c.i
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_pll/pll.c.i:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_pll/pll.c.i
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_pll/pll.c.i
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_pll/pll.s: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_pll/pll.c.s
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_pll/pll.s
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_pll/pll.s: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_pll/pll.c.s
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_pll/pll.s
 
 # target to generate assembly for a file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_pll/pll.c.s:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_pll/pll.c.s
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_pll/pll.c.s
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_pll/pll.c.s:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_pll/pll.c.s
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_pll/pll.c.s
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_spi/spi.o: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_spi/spi.c.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_spi/spi.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_spi/spi.o: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_spi/spi.c.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_spi/spi.o
 
 # target to build an object file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_spi/spi.c.o:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_spi/spi.c.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_spi/spi.c.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_spi/spi.c.o:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_spi/spi.c.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_spi/spi.c.o
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_spi/spi.i: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_spi/spi.c.i
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_spi/spi.i
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_spi/spi.i: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_spi/spi.c.i
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_spi/spi.i
 
 # target to preprocess a source file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_spi/spi.c.i:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_spi/spi.c.i
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_spi/spi.c.i
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_spi/spi.c.i:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_spi/spi.c.i
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_spi/spi.c.i
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_spi/spi.s: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_spi/spi.c.s
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_spi/spi.s
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_spi/spi.s: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_spi/spi.c.s
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_spi/spi.s
 
 # target to generate assembly for a file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_spi/spi.c.s:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_spi/spi.c.s
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_spi/spi.c.s
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_spi/spi.c.s:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_spi/spi.c.s
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_spi/spi.c.s
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_sync/sync.o: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_sync/sync.c.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_sync/sync.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_sync/sync.o: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_sync/sync.c.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_sync/sync.o
 
 # target to build an object file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_sync/sync.c.o:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_sync/sync.c.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_sync/sync.c.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_sync/sync.c.o:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_sync/sync.c.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_sync/sync.c.o
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_sync/sync.i: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_sync/sync.c.i
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_sync/sync.i
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_sync/sync.i: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_sync/sync.c.i
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_sync/sync.i
 
 # target to preprocess a source file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_sync/sync.c.i:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_sync/sync.c.i
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_sync/sync.c.i
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_sync/sync.c.i:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_sync/sync.c.i
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_sync/sync.c.i
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_sync/sync.s: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_sync/sync.c.s
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_sync/sync.s
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_sync/sync.s: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_sync/sync.c.s
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_sync/sync.s
 
 # target to generate assembly for a file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_sync/sync.c.s:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_sync/sync.c.s
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_sync/sync.c.s
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_sync/sync.c.s:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_sync/sync.c.s
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_sync/sync.c.s
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.o: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.c.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.o: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.c.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.o
 
 # target to build an object file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.c.o:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.c.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.c.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.c.o:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.c.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.c.o
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.i: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.c.i
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.i
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.i: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.c.i
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.i
 
 # target to preprocess a source file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.c.i:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.c.i
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.c.i
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.c.i:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.c.i
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.c.i
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.s: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.c.s
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.s
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.s: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.c.s
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.s
 
 # target to generate assembly for a file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.c.s:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.c.s
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.c.s
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.c.s:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.c.s
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.c.s
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_ticks/ticks.o: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_ticks/ticks.c.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_ticks/ticks.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_ticks/ticks.o: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_ticks/ticks.c.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_ticks/ticks.o
 
 # target to build an object file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_ticks/ticks.c.o:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_ticks/ticks.c.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_ticks/ticks.c.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_ticks/ticks.c.o:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_ticks/ticks.c.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_ticks/ticks.c.o
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_ticks/ticks.i: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_ticks/ticks.c.i
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_ticks/ticks.i
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_ticks/ticks.i: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_ticks/ticks.c.i
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_ticks/ticks.i
 
 # target to preprocess a source file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_ticks/ticks.c.i:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_ticks/ticks.c.i
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_ticks/ticks.c.i
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_ticks/ticks.c.i:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_ticks/ticks.c.i
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_ticks/ticks.c.i
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_ticks/ticks.s: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_ticks/ticks.c.s
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_ticks/ticks.s
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_ticks/ticks.s: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_ticks/ticks.c.s
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_ticks/ticks.s
 
 # target to generate assembly for a file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_ticks/ticks.c.s:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_ticks/ticks.c.s
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_ticks/ticks.c.s
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_ticks/ticks.c.s:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_ticks/ticks.c.s
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_ticks/ticks.c.s
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_timer/timer.o: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_timer/timer.c.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_timer/timer.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_timer/timer.o: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_timer/timer.c.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_timer/timer.o
 
 # target to build an object file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_timer/timer.c.o:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_timer/timer.c.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_timer/timer.c.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_timer/timer.c.o:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_timer/timer.c.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_timer/timer.c.o
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_timer/timer.i: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_timer/timer.c.i
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_timer/timer.i
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_timer/timer.i: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_timer/timer.c.i
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_timer/timer.i
 
 # target to preprocess a source file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_timer/timer.c.i:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_timer/timer.c.i
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_timer/timer.c.i
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_timer/timer.c.i:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_timer/timer.c.i
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_timer/timer.c.i
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_timer/timer.s: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_timer/timer.c.s
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_timer/timer.s
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_timer/timer.s: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_timer/timer.c.s
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_timer/timer.s
 
 # target to generate assembly for a file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_timer/timer.c.s:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_timer/timer.c.s
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_timer/timer.c.s
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_timer/timer.c.s:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_timer/timer.c.s
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_timer/timer.c.s
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_uart/uart.o: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_uart/uart.c.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_uart/uart.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_uart/uart.o: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_uart/uart.c.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_uart/uart.o
 
 # target to build an object file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_uart/uart.c.o:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_uart/uart.c.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_uart/uart.c.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_uart/uart.c.o:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_uart/uart.c.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_uart/uart.c.o
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_uart/uart.i: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_uart/uart.c.i
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_uart/uart.i
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_uart/uart.i: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_uart/uart.c.i
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_uart/uart.i
 
 # target to preprocess a source file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_uart/uart.c.i:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_uart/uart.c.i
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_uart/uart.c.i
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_uart/uart.c.i:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_uart/uart.c.i
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_uart/uart.c.i
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_uart/uart.s: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_uart/uart.c.s
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_uart/uart.s
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_uart/uart.s: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_uart/uart.c.s
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_uart/uart.s
 
 # target to generate assembly for a file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_uart/uart.c.s:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_uart/uart.c.s
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_uart/uart.c.s
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_uart/uart.c.s:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_uart/uart.c.s
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_uart/uart.c.s
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_vreg/vreg.o: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_vreg/vreg.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_vreg/vreg.o: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_vreg/vreg.o
 
 # target to build an object file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.o:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.o:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.o
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_vreg/vreg.i: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.i
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_vreg/vreg.i
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_vreg/vreg.i: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.i
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_vreg/vreg.i
 
 # target to preprocess a source file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.i:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.i
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.i
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.i:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.i
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.i
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_vreg/vreg.s: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.s
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_vreg/vreg.s
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_vreg/vreg.s: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.s
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_vreg/vreg.s
 
 # target to generate assembly for a file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.s:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.s
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.s
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.s:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.s
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.s
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.o: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.o: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.o
 
 # target to build an object file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.o:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.o:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.o
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.i: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.i
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.i
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.i: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.i
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.i
 
 # target to preprocess a source file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.i:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.i
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.i
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.i:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.i
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.i
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.s: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.s
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.s
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.s: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.s
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.s
 
 # target to generate assembly for a file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.s:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.s
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.s
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.s:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.s
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.s
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_xosc/xosc.o: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_xosc/xosc.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_xosc/xosc.o: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_xosc/xosc.o
 
 # target to build an object file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.o:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.o:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.o
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_xosc/xosc.i: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.i
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_xosc/xosc.i
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_xosc/xosc.i: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.i
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_xosc/xosc.i
 
 # target to preprocess a source file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.i:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.i
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.i
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.i:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.i
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.i
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_xosc/xosc.s: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.s
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_xosc/xosc.s
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_xosc/xosc.s: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.s
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_xosc/xosc.s
 
 # target to generate assembly for a file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.s:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.s
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.s
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.s:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.s
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.s
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_atomic/atomic.o: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_atomic/atomic.c.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_atomic/atomic.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_atomic/atomic.o: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_atomic/atomic.c.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_atomic/atomic.o
 
 # target to build an object file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_atomic/atomic.c.o:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_atomic/atomic.c.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_atomic/atomic.c.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_atomic/atomic.c.o:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_atomic/atomic.c.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_atomic/atomic.c.o
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_atomic/atomic.i: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_atomic/atomic.c.i
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_atomic/atomic.i
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_atomic/atomic.i: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_atomic/atomic.c.i
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_atomic/atomic.i
 
 # target to preprocess a source file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_atomic/atomic.c.i:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_atomic/atomic.c.i
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_atomic/atomic.c.i
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_atomic/atomic.c.i:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_atomic/atomic.c.i
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_atomic/atomic.c.i
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_atomic/atomic.s: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_atomic/atomic.c.s
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_atomic/atomic.s
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_atomic/atomic.s: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_atomic/atomic.c.s
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_atomic/atomic.s
 
 # target to generate assembly for a file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_atomic/atomic.c.s:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_atomic/atomic.c.s
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_atomic/atomic.c.s
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_atomic/atomic.c.s:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_atomic/atomic.c.s
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_atomic/atomic.c.s
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.o: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.o
-
-# target to build an object file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.o:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.o
-
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_bootrom/bootrom.o: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_bootrom/bootrom.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.o: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.o
 
 # target to build an object file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.o:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.o:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.o
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_bootrom/bootrom.i: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.i
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_bootrom/bootrom.i
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_bootrom/bootrom.o: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_bootrom/bootrom.o
+
+# target to build an object file
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.o:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.o
+
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_bootrom/bootrom.i: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.i
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_bootrom/bootrom.i
 
 # target to preprocess a source file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.i:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.i
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.i
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.i:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.i
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.i
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_bootrom/bootrom.s: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.s
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_bootrom/bootrom.s
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_bootrom/bootrom.s: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.s
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_bootrom/bootrom.s
 
 # target to generate assembly for a file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.s:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.s
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.s
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.s:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.s
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.s
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_bootrom/bootrom_lock.o: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_bootrom/bootrom_lock.c.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_bootrom/bootrom_lock.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_bootrom/bootrom_lock.o: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_bootrom/bootrom_lock.c.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_bootrom/bootrom_lock.o
 
 # target to build an object file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_bootrom/bootrom_lock.c.o:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_bootrom/bootrom_lock.c.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_bootrom/bootrom_lock.c.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_bootrom/bootrom_lock.c.o:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_bootrom/bootrom_lock.c.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_bootrom/bootrom_lock.c.o
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_bootrom/bootrom_lock.i: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_bootrom/bootrom_lock.c.i
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_bootrom/bootrom_lock.i
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_bootrom/bootrom_lock.i: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_bootrom/bootrom_lock.c.i
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_bootrom/bootrom_lock.i
 
 # target to preprocess a source file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_bootrom/bootrom_lock.c.i:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_bootrom/bootrom_lock.c.i
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_bootrom/bootrom_lock.c.i
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_bootrom/bootrom_lock.c.i:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_bootrom/bootrom_lock.c.i
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_bootrom/bootrom_lock.c.i
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_bootrom/bootrom_lock.s: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_bootrom/bootrom_lock.c.s
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_bootrom/bootrom_lock.s
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_bootrom/bootrom_lock.s: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_bootrom/bootrom_lock.c.s
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_bootrom/bootrom_lock.s
 
 # target to generate assembly for a file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_bootrom/bootrom_lock.c.s:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_bootrom/bootrom_lock.c.s
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_bootrom/bootrom_lock.c.s
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_bootrom/bootrom_lock.c.s:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_bootrom/bootrom_lock.c.s
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_bootrom/bootrom_lock.c.s
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_clib_interface/newlib_interface.o: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_clib_interface/newlib_interface.c.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_clib_interface/newlib_interface.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_clib_interface/newlib_interface.o: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_clib_interface/newlib_interface.c.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_clib_interface/newlib_interface.o
 
 # target to build an object file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_clib_interface/newlib_interface.c.o:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_clib_interface/newlib_interface.c.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_clib_interface/newlib_interface.c.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_clib_interface/newlib_interface.c.o:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_clib_interface/newlib_interface.c.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_clib_interface/newlib_interface.c.o
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_clib_interface/newlib_interface.i: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_clib_interface/newlib_interface.c.i
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_clib_interface/newlib_interface.i
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_clib_interface/newlib_interface.i: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_clib_interface/newlib_interface.c.i
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_clib_interface/newlib_interface.i
 
 # target to preprocess a source file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_clib_interface/newlib_interface.c.i:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_clib_interface/newlib_interface.c.i
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_clib_interface/newlib_interface.c.i
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_clib_interface/newlib_interface.c.i:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_clib_interface/newlib_interface.c.i
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_clib_interface/newlib_interface.c.i
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_clib_interface/newlib_interface.s: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_clib_interface/newlib_interface.c.s
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_clib_interface/newlib_interface.s
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_clib_interface/newlib_interface.s: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_clib_interface/newlib_interface.c.s
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_clib_interface/newlib_interface.s
 
 # target to generate assembly for a file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_clib_interface/newlib_interface.c.s:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_clib_interface/newlib_interface.c.s
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_clib_interface/newlib_interface.c.s
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_clib_interface/newlib_interface.c.s:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_clib_interface/newlib_interface.c.s
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_clib_interface/newlib_interface.c.s
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_crt0/crt0.o: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_crt0/crt0.S.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_crt0/crt0.o
-
-# target to build an object file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_crt0/crt0.S.o:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_crt0/crt0.S.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_crt0/crt0.S.o
-
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_cxx_options/new_delete.o: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_cxx_options/new_delete.cpp.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_cxx_options/new_delete.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_crt0/crt0.o: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_crt0/crt0.S.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_crt0/crt0.o
 
 # target to build an object file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_cxx_options/new_delete.cpp.o:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_cxx_options/new_delete.cpp.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_cxx_options/new_delete.cpp.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_crt0/crt0.S.o:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_crt0/crt0.S.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_crt0/crt0.S.o
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_cxx_options/new_delete.i: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_cxx_options/new_delete.cpp.i
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_cxx_options/new_delete.i
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_cxx_options/new_delete.o: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_cxx_options/new_delete.cpp.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_cxx_options/new_delete.o
+
+# target to build an object file
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_cxx_options/new_delete.cpp.o:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_cxx_options/new_delete.cpp.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_cxx_options/new_delete.cpp.o
+
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_cxx_options/new_delete.i: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_cxx_options/new_delete.cpp.i
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_cxx_options/new_delete.i
 
 # target to preprocess a source file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_cxx_options/new_delete.cpp.i:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_cxx_options/new_delete.cpp.i
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_cxx_options/new_delete.cpp.i
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_cxx_options/new_delete.cpp.i:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_cxx_options/new_delete.cpp.i
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_cxx_options/new_delete.cpp.i
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_cxx_options/new_delete.s: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_cxx_options/new_delete.cpp.s
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_cxx_options/new_delete.s
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_cxx_options/new_delete.s: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_cxx_options/new_delete.cpp.s
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_cxx_options/new_delete.s
 
 # target to generate assembly for a file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_cxx_options/new_delete.cpp.s:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_cxx_options/new_delete.cpp.s
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_cxx_options/new_delete.cpp.s
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_cxx_options/new_delete.cpp.s:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_cxx_options/new_delete.cpp.s
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_cxx_options/new_delete.cpp.s
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_divider/divider_hardware.o: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_divider/divider_hardware.S.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_divider/divider_hardware.o
-
-# target to build an object file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_divider/divider_hardware.S.o:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_divider/divider_hardware.S.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_divider/divider_hardware.S.o
-
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_double/double_aeabi_rp2040.o: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_double/double_aeabi_rp2040.S.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_double/double_aeabi_rp2040.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_divider/divider_hardware.o: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_divider/divider_hardware.S.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_divider/divider_hardware.o
 
 # target to build an object file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_double/double_aeabi_rp2040.S.o:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_double/double_aeabi_rp2040.S.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_double/double_aeabi_rp2040.S.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_divider/divider_hardware.S.o:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_divider/divider_hardware.S.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_divider/divider_hardware.S.o
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_double/double_init_rom_rp2040.o: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_double/double_init_rom_rp2040.c.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_double/double_init_rom_rp2040.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_double/double_aeabi_rp2040.o: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_double/double_aeabi_rp2040.S.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_double/double_aeabi_rp2040.o
 
 # target to build an object file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_double/double_init_rom_rp2040.c.o:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_double/double_init_rom_rp2040.c.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_double/double_init_rom_rp2040.c.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_double/double_aeabi_rp2040.S.o:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_double/double_aeabi_rp2040.S.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_double/double_aeabi_rp2040.S.o
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_double/double_init_rom_rp2040.i: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_double/double_init_rom_rp2040.c.i
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_double/double_init_rom_rp2040.i
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_double/double_init_rom_rp2040.o: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_double/double_init_rom_rp2040.c.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_double/double_init_rom_rp2040.o
+
+# target to build an object file
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_double/double_init_rom_rp2040.c.o:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_double/double_init_rom_rp2040.c.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_double/double_init_rom_rp2040.c.o
+
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_double/double_init_rom_rp2040.i: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_double/double_init_rom_rp2040.c.i
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_double/double_init_rom_rp2040.i
 
 # target to preprocess a source file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_double/double_init_rom_rp2040.c.i:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_double/double_init_rom_rp2040.c.i
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_double/double_init_rom_rp2040.c.i
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_double/double_init_rom_rp2040.c.i:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_double/double_init_rom_rp2040.c.i
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_double/double_init_rom_rp2040.c.i
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_double/double_init_rom_rp2040.s: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_double/double_init_rom_rp2040.c.s
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_double/double_init_rom_rp2040.s
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_double/double_init_rom_rp2040.s: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_double/double_init_rom_rp2040.c.s
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_double/double_init_rom_rp2040.s
 
 # target to generate assembly for a file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_double/double_init_rom_rp2040.c.s:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_double/double_init_rom_rp2040.c.s
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_double/double_init_rom_rp2040.c.s
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_double/double_init_rom_rp2040.c.s:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_double/double_init_rom_rp2040.c.s
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_double/double_init_rom_rp2040.c.s
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_double/double_math.o: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_double/double_math.c.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_double/double_math.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_double/double_math.o: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_double/double_math.c.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_double/double_math.o
 
 # target to build an object file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_double/double_math.c.o:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_double/double_math.c.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_double/double_math.c.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_double/double_math.c.o:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_double/double_math.c.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_double/double_math.c.o
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_double/double_math.i: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_double/double_math.c.i
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_double/double_math.i
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_double/double_math.i: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_double/double_math.c.i
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_double/double_math.i
 
 # target to preprocess a source file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_double/double_math.c.i:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_double/double_math.c.i
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_double/double_math.c.i
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_double/double_math.c.i:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_double/double_math.c.i
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_double/double_math.c.i
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_double/double_math.s: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_double/double_math.c.s
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_double/double_math.s
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_double/double_math.s: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_double/double_math.c.s
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_double/double_math.s
 
 # target to generate assembly for a file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_double/double_math.c.s:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_double/double_math.c.s
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_double/double_math.c.s
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_double/double_math.c.s:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_double/double_math.c.s
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_double/double_math.c.s
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim_rp2040.o: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim_rp2040.S.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim_rp2040.o
-
-# target to build an object file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim_rp2040.S.o:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim_rp2040.S.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim_rp2040.S.o
-
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_flash/flash.o: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_flash/flash.c.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_flash/flash.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim_rp2040.o: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim_rp2040.S.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim_rp2040.o
 
 # target to build an object file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_flash/flash.c.o:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_flash/flash.c.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_flash/flash.c.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim_rp2040.S.o:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim_rp2040.S.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim_rp2040.S.o
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_flash/flash.i: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_flash/flash.c.i
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_flash/flash.i
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_flash/flash.o: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_flash/flash.c.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_flash/flash.o
+
+# target to build an object file
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_flash/flash.c.o:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_flash/flash.c.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_flash/flash.c.o
+
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_flash/flash.i: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_flash/flash.c.i
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_flash/flash.i
 
 # target to preprocess a source file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_flash/flash.c.i:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_flash/flash.c.i
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_flash/flash.c.i
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_flash/flash.c.i:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_flash/flash.c.i
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_flash/flash.c.i
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_flash/flash.s: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_flash/flash.c.s
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_flash/flash.s
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_flash/flash.s: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_flash/flash.c.s
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_flash/flash.s
 
 # target to generate assembly for a file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_flash/flash.c.s:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_flash/flash.c.s
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_flash/flash.c.s
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_flash/flash.c.s:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_flash/flash.c.s
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_flash/flash.c.s
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_float/float_aeabi_rp2040.o: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_float/float_aeabi_rp2040.S.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_float/float_aeabi_rp2040.o
-
-# target to build an object file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_float/float_aeabi_rp2040.S.o:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_float/float_aeabi_rp2040.S.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_float/float_aeabi_rp2040.S.o
-
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_float/float_init_rom_rp2040.o: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_float/float_init_rom_rp2040.c.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_float/float_init_rom_rp2040.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_float/float_aeabi_rp2040.o: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_float/float_aeabi_rp2040.S.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_float/float_aeabi_rp2040.o
 
 # target to build an object file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_float/float_init_rom_rp2040.c.o:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_float/float_init_rom_rp2040.c.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_float/float_init_rom_rp2040.c.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_float/float_aeabi_rp2040.S.o:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_float/float_aeabi_rp2040.S.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_float/float_aeabi_rp2040.S.o
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_float/float_init_rom_rp2040.i: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_float/float_init_rom_rp2040.c.i
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_float/float_init_rom_rp2040.i
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_float/float_init_rom_rp2040.o: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_float/float_init_rom_rp2040.c.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_float/float_init_rom_rp2040.o
+
+# target to build an object file
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_float/float_init_rom_rp2040.c.o:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_float/float_init_rom_rp2040.c.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_float/float_init_rom_rp2040.c.o
+
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_float/float_init_rom_rp2040.i: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_float/float_init_rom_rp2040.c.i
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_float/float_init_rom_rp2040.i
 
 # target to preprocess a source file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_float/float_init_rom_rp2040.c.i:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_float/float_init_rom_rp2040.c.i
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_float/float_init_rom_rp2040.c.i
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_float/float_init_rom_rp2040.c.i:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_float/float_init_rom_rp2040.c.i
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_float/float_init_rom_rp2040.c.i
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_float/float_init_rom_rp2040.s: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_float/float_init_rom_rp2040.c.s
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_float/float_init_rom_rp2040.s
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_float/float_init_rom_rp2040.s: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_float/float_init_rom_rp2040.c.s
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_float/float_init_rom_rp2040.s
 
 # target to generate assembly for a file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_float/float_init_rom_rp2040.c.s:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_float/float_init_rom_rp2040.c.s
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_float/float_init_rom_rp2040.c.s
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_float/float_init_rom_rp2040.c.s:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_float/float_init_rom_rp2040.c.s
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_float/float_init_rom_rp2040.c.s
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_float/float_math.o: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_float/float_math.c.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_float/float_math.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_float/float_math.o: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_float/float_math.c.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_float/float_math.o
 
 # target to build an object file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_float/float_math.c.o:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_float/float_math.c.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_float/float_math.c.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_float/float_math.c.o:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_float/float_math.c.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_float/float_math.c.o
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_float/float_math.i: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_float/float_math.c.i
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_float/float_math.i
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_float/float_math.i: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_float/float_math.c.i
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_float/float_math.i
 
 # target to preprocess a source file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_float/float_math.c.i:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_float/float_math.c.i
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_float/float_math.c.i
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_float/float_math.c.i:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_float/float_math.c.i
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_float/float_math.c.i
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_float/float_math.s: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_float/float_math.c.s
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_float/float_math.s
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_float/float_math.s: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_float/float_math.c.s
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_float/float_math.s
 
 # target to generate assembly for a file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_float/float_math.c.s:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_float/float_math.c.s
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_float/float_math.c.s
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_float/float_math.c.s:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_float/float_math.c.s
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_float/float_math.c.s
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim_rp2040.o: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim_rp2040.S.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim_rp2040.o
-
-# target to build an object file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim_rp2040.S.o:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim_rp2040.S.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim_rp2040.S.o
-
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.o: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim_rp2040.o: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim_rp2040.S.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim_rp2040.o
 
 # target to build an object file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.o:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim_rp2040.S.o:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim_rp2040.S.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim_rp2040.S.o
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_malloc/malloc.o: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_malloc/malloc.c.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_malloc/malloc.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.o: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.o
 
 # target to build an object file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_malloc/malloc.c.o:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_malloc/malloc.c.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_malloc/malloc.c.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.o:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.o
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_malloc/malloc.i: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_malloc/malloc.c.i
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_malloc/malloc.i
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_malloc/malloc.o: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_malloc/malloc.c.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_malloc/malloc.o
+
+# target to build an object file
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_malloc/malloc.c.o:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_malloc/malloc.c.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_malloc/malloc.c.o
+
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_malloc/malloc.i: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_malloc/malloc.c.i
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_malloc/malloc.i
 
 # target to preprocess a source file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_malloc/malloc.c.i:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_malloc/malloc.c.i
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_malloc/malloc.c.i
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_malloc/malloc.c.i:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_malloc/malloc.c.i
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_malloc/malloc.c.i
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_malloc/malloc.s: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_malloc/malloc.c.s
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_malloc/malloc.s
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_malloc/malloc.s: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_malloc/malloc.c.s
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_malloc/malloc.s
 
 # target to generate assembly for a file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_malloc/malloc.c.s:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_malloc/malloc.c.s
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_malloc/malloc.c.s
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_malloc/malloc.c.s:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_malloc/malloc.c.s
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_malloc/malloc.c.s
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.o: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.o
-
-# target to build an object file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.o:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.o
-
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_platform_common/common.o: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_platform_common/common.c.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_platform_common/common.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.o: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.o
 
 # target to build an object file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_platform_common/common.c.o:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_platform_common/common.c.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_platform_common/common.c.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.o:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.o
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_platform_common/common.i: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_platform_common/common.c.i
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_platform_common/common.i
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_platform_common/common.o: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_platform_common/common.c.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_platform_common/common.o
+
+# target to build an object file
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_platform_common/common.c.o:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_platform_common/common.c.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_platform_common/common.c.o
+
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_platform_common/common.i: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_platform_common/common.c.i
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_platform_common/common.i
 
 # target to preprocess a source file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_platform_common/common.c.i:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_platform_common/common.c.i
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_platform_common/common.c.i
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_platform_common/common.c.i:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_platform_common/common.c.i
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_platform_common/common.c.i
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_platform_common/common.s: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_platform_common/common.c.s
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_platform_common/common.s
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_platform_common/common.s: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_platform_common/common.c.s
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_platform_common/common.s
 
 # target to generate assembly for a file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_platform_common/common.c.s:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_platform_common/common.c.s
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_platform_common/common.c.s
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_platform_common/common.c.s:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_platform_common/common.c.s
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_platform_common/common.c.s
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_platform_panic/panic.o: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_platform_panic/panic.c.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_platform_panic/panic.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_platform_panic/panic.o: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_platform_panic/panic.c.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_platform_panic/panic.o
 
 # target to build an object file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_platform_panic/panic.c.o:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_platform_panic/panic.c.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_platform_panic/panic.c.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_platform_panic/panic.c.o:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_platform_panic/panic.c.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_platform_panic/panic.c.o
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_platform_panic/panic.i: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_platform_panic/panic.c.i
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_platform_panic/panic.i
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_platform_panic/panic.i: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_platform_panic/panic.c.i
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_platform_panic/panic.i
 
 # target to preprocess a source file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_platform_panic/panic.c.i:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_platform_panic/panic.c.i
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_platform_panic/panic.c.i
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_platform_panic/panic.c.i:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_platform_panic/panic.c.i
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_platform_panic/panic.c.i
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_platform_panic/panic.s: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_platform_panic/panic.c.s
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_platform_panic/panic.s
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_platform_panic/panic.s: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_platform_panic/panic.c.s
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_platform_panic/panic.s
 
 # target to generate assembly for a file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_platform_panic/panic.c.s:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_platform_panic/panic.c.s
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_platform_panic/panic.c.s
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_platform_panic/panic.c.s:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_platform_panic/panic.c.s
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_platform_panic/panic.c.s
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_printf/printf.o: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_printf/printf.c.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_printf/printf.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_printf/printf.o: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_printf/printf.c.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_printf/printf.o
 
 # target to build an object file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_printf/printf.c.o:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_printf/printf.c.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_printf/printf.c.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_printf/printf.c.o:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_printf/printf.c.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_printf/printf.c.o
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_printf/printf.i: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_printf/printf.c.i
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_printf/printf.i
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_printf/printf.i: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_printf/printf.c.i
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_printf/printf.i
 
 # target to preprocess a source file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_printf/printf.c.i:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_printf/printf.c.i
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_printf/printf.c.i
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_printf/printf.c.i:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_printf/printf.c.i
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_printf/printf.c.i
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_printf/printf.s: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_printf/printf.c.s
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_printf/printf.s
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_printf/printf.s: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_printf/printf.c.s
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_printf/printf.s
 
 # target to generate assembly for a file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_printf/printf.c.s:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_printf/printf.c.s
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_printf/printf.c.s
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_printf/printf.c.s:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_printf/printf.c.s
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_printf/printf.c.s
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_runtime/runtime.o: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_runtime/runtime.c.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_runtime/runtime.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_runtime/runtime.o: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_runtime/runtime.c.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_runtime/runtime.o
 
 # target to build an object file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_runtime/runtime.c.o:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_runtime/runtime.c.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_runtime/runtime.c.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_runtime/runtime.c.o:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_runtime/runtime.c.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_runtime/runtime.c.o
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_runtime/runtime.i: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_runtime/runtime.c.i
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_runtime/runtime.i
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_runtime/runtime.i: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_runtime/runtime.c.i
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_runtime/runtime.i
 
 # target to preprocess a source file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_runtime/runtime.c.i:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_runtime/runtime.c.i
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_runtime/runtime.c.i
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_runtime/runtime.c.i:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_runtime/runtime.c.i
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_runtime/runtime.c.i
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_runtime/runtime.s: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_runtime/runtime.c.s
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_runtime/runtime.s
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_runtime/runtime.s: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_runtime/runtime.c.s
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_runtime/runtime.s
 
 # target to generate assembly for a file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_runtime/runtime.c.s:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_runtime/runtime.c.s
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_runtime/runtime.c.s
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_runtime/runtime.c.s:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_runtime/runtime.c.s
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_runtime/runtime.c.s
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init.o: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init.c.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init.o: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init.c.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init.o
 
 # target to build an object file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init.c.o:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init.c.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init.c.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init.c.o:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init.c.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init.c.o
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init.i: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init.c.i
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init.i
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init.i: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init.c.i
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init.i
 
 # target to preprocess a source file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init.c.i:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init.c.i
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init.c.i
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init.c.i:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init.c.i
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init.c.i
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init.s: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init.c.s
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init.s
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init.s: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init.c.s
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init.s
 
 # target to generate assembly for a file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init.c.s:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init.c.s
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init.c.s
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init.c.s:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init.c.s
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init.c.s
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_clocks.o: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_clocks.c.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_clocks.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_clocks.o: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_clocks.c.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_clocks.o
 
 # target to build an object file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_clocks.c.o:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_clocks.c.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_clocks.c.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_clocks.c.o:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_clocks.c.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_clocks.c.o
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_clocks.i: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_clocks.c.i
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_clocks.i
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_clocks.i: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_clocks.c.i
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_clocks.i
 
 # target to preprocess a source file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_clocks.c.i:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_clocks.c.i
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_clocks.c.i
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_clocks.c.i:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_clocks.c.i
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_clocks.c.i
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_clocks.s: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_clocks.c.s
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_clocks.s
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_clocks.s: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_clocks.c.s
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_clocks.s
 
 # target to generate assembly for a file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_clocks.c.s:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_clocks.c.s
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_clocks.c.s
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_clocks.c.s:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_clocks.c.s
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_clocks.c.s
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_stack_guard.o: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_stack_guard.c.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_stack_guard.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_stack_guard.o: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_stack_guard.c.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_stack_guard.o
 
 # target to build an object file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_stack_guard.c.o:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_stack_guard.c.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_stack_guard.c.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_stack_guard.c.o:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_stack_guard.c.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_stack_guard.c.o
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_stack_guard.i: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_stack_guard.c.i
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_stack_guard.i
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_stack_guard.i: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_stack_guard.c.i
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_stack_guard.i
 
 # target to preprocess a source file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_stack_guard.c.i:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_stack_guard.c.i
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_stack_guard.c.i
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_stack_guard.c.i:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_stack_guard.c.i
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_stack_guard.c.i
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_stack_guard.s: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_stack_guard.c.s
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_stack_guard.s
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_stack_guard.s: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_stack_guard.c.s
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_stack_guard.s
 
 # target to generate assembly for a file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_stack_guard.c.s:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_stack_guard.c.s
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_stack_guard.c.s
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_stack_guard.c.s:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_stack_guard.c.s
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_stack_guard.c.s
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_standard_binary_info/standard_binary_info.o: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_standard_binary_info/standard_binary_info.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_standard_binary_info/standard_binary_info.o: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_standard_binary_info/standard_binary_info.o
 
 # target to build an object file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.o:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.o:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.o
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_standard_binary_info/standard_binary_info.i: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.i
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_standard_binary_info/standard_binary_info.i
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_standard_binary_info/standard_binary_info.i: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.i
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_standard_binary_info/standard_binary_info.i
 
 # target to preprocess a source file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.i:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.i
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.i
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.i:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.i
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.i
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_standard_binary_info/standard_binary_info.s: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.s
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_standard_binary_info/standard_binary_info.s
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_standard_binary_info/standard_binary_info.s: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.s
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_standard_binary_info/standard_binary_info.s
 
 # target to generate assembly for a file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.s:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.s
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.s
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.s:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.s
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.s
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_stdio/stdio.o: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_stdio/stdio.c.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_stdio/stdio.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_stdio/stdio.o: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_stdio/stdio.c.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_stdio/stdio.o
 
 # target to build an object file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_stdio/stdio.c.o:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_stdio/stdio.c.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_stdio/stdio.c.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_stdio/stdio.c.o:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_stdio/stdio.c.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_stdio/stdio.c.o
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_stdio/stdio.i: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_stdio/stdio.c.i
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_stdio/stdio.i
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_stdio/stdio.i: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_stdio/stdio.c.i
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_stdio/stdio.i
 
 # target to preprocess a source file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_stdio/stdio.c.i:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_stdio/stdio.c.i
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_stdio/stdio.c.i
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_stdio/stdio.c.i:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_stdio/stdio.c.i
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_stdio/stdio.c.i
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_stdio/stdio.s: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_stdio/stdio.c.s
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_stdio/stdio.s
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_stdio/stdio.s: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_stdio/stdio.c.s
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_stdio/stdio.s
 
 # target to generate assembly for a file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_stdio/stdio.c.s:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_stdio/stdio.c.s
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_stdio/stdio.c.s
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_stdio/stdio.c.s:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_stdio/stdio.c.s
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_stdio/stdio.c.s
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.o: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.o: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.o
 
 # target to build an object file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.o:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.o:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.o
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.i: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.i
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.i
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.i: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.i
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.i
 
 # target to preprocess a source file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.i:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.i
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.i
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.i:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.i
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.i
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.s: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.s
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.s
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.s: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.s
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.s
 
 # target to generate assembly for a file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.s:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.s
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.s
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.s:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.s
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.s
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_stdlib/stdlib.o: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_stdlib/stdlib.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_stdlib/stdlib.o: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_stdlib/stdlib.o
 
 # target to build an object file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.o:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.o
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.o
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.o:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.o
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.o
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_stdlib/stdlib.i: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.i
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_stdlib/stdlib.i
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_stdlib/stdlib.i: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.i
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_stdlib/stdlib.i
 
 # target to preprocess a source file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.i:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.i
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.i
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.i:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.i
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.i
 
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_stdlib/stdlib.s: Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.s
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_stdlib/stdlib.s
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_stdlib/stdlib.s: Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.s
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_stdlib/stdlib.s
 
 # target to generate assembly for a file
-Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.s:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.s
-.PHONY : Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.s
+Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.s:
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.s
+.PHONY : Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.s
 
 src/display.o: src/display.c.o
 .PHONY : src/display.o
 
 # target to build an object file
 src/display.c.o:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/src/display.c.o
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/src/display.c.o
 .PHONY : src/display.c.o
 
 src/display.i: src/display.c.i
@@ -1504,7 +1504,7 @@ src/display.i: src/display.c.i
 
 # target to preprocess a source file
 src/display.c.i:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/src/display.c.i
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/src/display.c.i
 .PHONY : src/display.c.i
 
 src/display.s: src/display.c.s
@@ -1512,7 +1512,7 @@ src/display.s: src/display.c.s
 
 # target to generate assembly for a file
 src/display.c.s:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/src/display.c.s
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/src/display.c.s
 .PHONY : src/display.c.s
 
 src/font_8x16.o: src/font_8x16.c.o
@@ -1520,7 +1520,7 @@ src/font_8x16.o: src/font_8x16.c.o
 
 # target to build an object file
 src/font_8x16.c.o:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/src/font_8x16.c.o
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/src/font_8x16.c.o
 .PHONY : src/font_8x16.c.o
 
 src/font_8x16.i: src/font_8x16.c.i
@@ -1528,7 +1528,7 @@ src/font_8x16.i: src/font_8x16.c.i
 
 # target to preprocess a source file
 src/font_8x16.c.i:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/src/font_8x16.c.i
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/src/font_8x16.c.i
 .PHONY : src/font_8x16.c.i
 
 src/font_8x16.s: src/font_8x16.c.s
@@ -1536,7 +1536,7 @@ src/font_8x16.s: src/font_8x16.c.s
 
 # target to generate assembly for a file
 src/font_8x16.c.s:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/src/font_8x16.c.s
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/src/font_8x16.c.s
 .PHONY : src/font_8x16.c.s
 
 src/font_8x8.o: src/font_8x8.c.o
@@ -1544,7 +1544,7 @@ src/font_8x8.o: src/font_8x8.c.o
 
 # target to build an object file
 src/font_8x8.c.o:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/src/font_8x8.c.o
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/src/font_8x8.c.o
 .PHONY : src/font_8x8.c.o
 
 src/font_8x8.i: src/font_8x8.c.i
@@ -1552,7 +1552,7 @@ src/font_8x8.i: src/font_8x8.c.i
 
 # target to preprocess a source file
 src/font_8x8.c.i:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/src/font_8x8.c.i
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/src/font_8x8.c.i
 .PHONY : src/font_8x8.c.i
 
 src/font_8x8.s: src/font_8x8.c.s
@@ -1560,7 +1560,7 @@ src/font_8x8.s: src/font_8x8.c.s
 
 # target to generate assembly for a file
 src/font_8x8.c.s:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/src/font_8x8.c.s
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/src/font_8x8.c.s
 .PHONY : src/font_8x8.c.s
 
 src/imu.o: src/imu.c.o
@@ -1568,7 +1568,7 @@ src/imu.o: src/imu.c.o
 
 # target to build an object file
 src/imu.c.o:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/src/imu.c.o
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/src/imu.c.o
 .PHONY : src/imu.c.o
 
 src/imu.i: src/imu.c.i
@@ -1576,7 +1576,7 @@ src/imu.i: src/imu.c.i
 
 # target to preprocess a source file
 src/imu.c.i:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/src/imu.c.i
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/src/imu.c.i
 .PHONY : src/imu.c.i
 
 src/imu.s: src/imu.c.s
@@ -1584,7 +1584,7 @@ src/imu.s: src/imu.c.s
 
 # target to generate assembly for a file
 src/imu.c.s:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/src/imu.c.s
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/src/imu.c.s
 .PHONY : src/imu.c.s
 
 src/ir_sensors.o: src/ir_sensors.c.o
@@ -1592,7 +1592,7 @@ src/ir_sensors.o: src/ir_sensors.c.o
 
 # target to build an object file
 src/ir_sensors.c.o:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/src/ir_sensors.c.o
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/src/ir_sensors.c.o
 .PHONY : src/ir_sensors.c.o
 
 src/ir_sensors.i: src/ir_sensors.c.i
@@ -1600,7 +1600,7 @@ src/ir_sensors.i: src/ir_sensors.c.i
 
 # target to preprocess a source file
 src/ir_sensors.c.i:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/src/ir_sensors.c.i
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/src/ir_sensors.c.i
 .PHONY : src/ir_sensors.c.i
 
 src/ir_sensors.s: src/ir_sensors.c.s
@@ -1608,7 +1608,7 @@ src/ir_sensors.s: src/ir_sensors.c.s
 
 # target to generate assembly for a file
 src/ir_sensors.c.s:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/src/ir_sensors.c.s
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/src/ir_sensors.c.s
 .PHONY : src/ir_sensors.c.s
 
 src/motors.o: src/motors.c.o
@@ -1616,7 +1616,7 @@ src/motors.o: src/motors.c.o
 
 # target to build an object file
 src/motors.c.o:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/src/motors.c.o
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/src/motors.c.o
 .PHONY : src/motors.c.o
 
 src/motors.i: src/motors.c.i
@@ -1624,7 +1624,7 @@ src/motors.i: src/motors.c.i
 
 # target to preprocess a source file
 src/motors.c.i:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/src/motors.c.i
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/src/motors.c.i
 .PHONY : src/motors.c.i
 
 src/motors.s: src/motors.c.s
@@ -1632,7 +1632,7 @@ src/motors.s: src/motors.c.s
 
 # target to generate assembly for a file
 src/motors.c.s:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/src/motors.c.s
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/src/motors.c.s
 .PHONY : src/motors.c.s
 
 src/sh1106.o: src/sh1106.c.o
@@ -1640,7 +1640,7 @@ src/sh1106.o: src/sh1106.c.o
 
 # target to build an object file
 src/sh1106.c.o:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/src/sh1106.c.o
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/src/sh1106.c.o
 .PHONY : src/sh1106.c.o
 
 src/sh1106.i: src/sh1106.c.i
@@ -1648,7 +1648,7 @@ src/sh1106.i: src/sh1106.c.i
 
 # target to preprocess a source file
 src/sh1106.c.i:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/src/sh1106.c.i
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/src/sh1106.c.i
 .PHONY : src/sh1106.c.i
 
 src/sh1106.s: src/sh1106.c.s
@@ -1656,7 +1656,7 @@ src/sh1106.s: src/sh1106.c.s
 
 # target to generate assembly for a file
 src/sh1106.c.s:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/src/sh1106.c.s
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(MAKE) $(MAKESILENT) -f robot/CMakeFiles/robot.dir/build.make robot/CMakeFiles/robot.dir/src/sh1106.c.s
 .PHONY : src/sh1106.c.s
 
 # Help Target
@@ -1674,167 +1674,167 @@ help:
 	@echo "... robot_qtr_sensor_counter_pio_h"
 	@echo "... robot_quadrature_encoder_pio_h"
 	@echo "... robot"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/hardware_claim/claim.o"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/hardware_claim/claim.i"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/hardware_claim/claim.s"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_sync/critical_section.o"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_sync/critical_section.i"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_sync/critical_section.s"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_sync/lock_core.o"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_sync/lock_core.i"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_sync/lock_core.s"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_sync/mutex.o"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_sync/mutex.i"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_sync/mutex.s"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_sync/sem.o"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_sync/sem.i"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_sync/sem.s"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_time/time.o"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_time/time.i"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_time/time.s"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_time/timeout_helper.o"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_time/timeout_helper.i"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_time/timeout_helper.s"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_util/datetime.o"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_util/datetime.i"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_util/datetime.s"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_util/pheap.o"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_util/pheap.i"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_util/pheap.s"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_util/queue.o"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_util/queue.i"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/common/pico_util/queue.s"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2040/pico_platform/platform.o"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2040/pico_platform/platform.i"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2040/pico_platform/platform.s"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_adc/adc.o"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_adc/adc.i"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_adc/adc.s"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_boot_lock/boot_lock.o"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_boot_lock/boot_lock.i"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_boot_lock/boot_lock.s"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_clocks/clocks.o"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_clocks/clocks.i"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_clocks/clocks.s"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_divider/divider.o"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_gpio/gpio.o"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_gpio/gpio.i"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_gpio/gpio.s"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_i2c/i2c.o"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_i2c/i2c.i"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_i2c/i2c.s"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_irq/irq.o"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_irq/irq.i"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_irq/irq.s"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.o"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_pio/pio.o"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_pio/pio.i"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_pio/pio.s"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_pll/pll.o"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_pll/pll.i"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_pll/pll.s"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_spi/spi.o"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_spi/spi.i"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_spi/spi.s"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_sync/sync.o"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_sync/sync.i"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_sync/sync.s"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.o"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.i"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.s"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_ticks/ticks.o"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_ticks/ticks.i"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_ticks/ticks.s"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_timer/timer.o"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_timer/timer.i"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_timer/timer.s"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_uart/uart.o"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_uart/uart.i"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_uart/uart.s"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_vreg/vreg.o"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_vreg/vreg.i"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_vreg/vreg.s"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.o"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.i"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.s"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_xosc/xosc.o"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_xosc/xosc.i"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/hardware_xosc/xosc.s"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_atomic/atomic.o"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_atomic/atomic.i"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_atomic/atomic.s"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.o"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_bootrom/bootrom.o"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_bootrom/bootrom.i"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_bootrom/bootrom.s"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_bootrom/bootrom_lock.o"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_bootrom/bootrom_lock.i"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_bootrom/bootrom_lock.s"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_clib_interface/newlib_interface.o"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_clib_interface/newlib_interface.i"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_clib_interface/newlib_interface.s"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_crt0/crt0.o"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_cxx_options/new_delete.o"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_cxx_options/new_delete.i"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_cxx_options/new_delete.s"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_divider/divider_hardware.o"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_double/double_aeabi_rp2040.o"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_double/double_init_rom_rp2040.o"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_double/double_init_rom_rp2040.i"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_double/double_init_rom_rp2040.s"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_double/double_math.o"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_double/double_math.i"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_double/double_math.s"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim_rp2040.o"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_flash/flash.o"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_flash/flash.i"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_flash/flash.s"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_float/float_aeabi_rp2040.o"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_float/float_init_rom_rp2040.o"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_float/float_init_rom_rp2040.i"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_float/float_init_rom_rp2040.s"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_float/float_math.o"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_float/float_math.i"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_float/float_math.s"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim_rp2040.o"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.o"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_malloc/malloc.o"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_malloc/malloc.i"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_malloc/malloc.s"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.o"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_platform_common/common.o"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_platform_common/common.i"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_platform_common/common.s"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_platform_panic/panic.o"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_platform_panic/panic.i"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_platform_panic/panic.s"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_printf/printf.o"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_printf/printf.i"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_printf/printf.s"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_runtime/runtime.o"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_runtime/runtime.i"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_runtime/runtime.s"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init.o"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init.i"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init.s"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_clocks.o"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_clocks.i"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_clocks.s"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_stack_guard.o"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_stack_guard.i"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_stack_guard.s"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_standard_binary_info/standard_binary_info.o"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_standard_binary_info/standard_binary_info.i"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_standard_binary_info/standard_binary_info.s"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_stdio/stdio.o"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_stdio/stdio.i"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_stdio/stdio.s"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.o"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.i"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.s"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_stdlib/stdlib.o"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_stdlib/stdlib.i"
-	@echo "... Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/src/rp2_common/pico_stdlib/stdlib.s"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/hardware_claim/claim.o"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/hardware_claim/claim.i"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/hardware_claim/claim.s"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_sync/critical_section.o"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_sync/critical_section.i"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_sync/critical_section.s"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_sync/lock_core.o"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_sync/lock_core.i"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_sync/lock_core.s"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_sync/mutex.o"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_sync/mutex.i"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_sync/mutex.s"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_sync/sem.o"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_sync/sem.i"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_sync/sem.s"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_time/time.o"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_time/time.i"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_time/time.s"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_time/timeout_helper.o"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_time/timeout_helper.i"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_time/timeout_helper.s"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_util/datetime.o"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_util/datetime.i"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_util/datetime.s"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_util/pheap.o"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_util/pheap.i"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_util/pheap.s"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_util/queue.o"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_util/queue.i"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_util/queue.s"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2040/pico_platform/platform.o"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2040/pico_platform/platform.i"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2040/pico_platform/platform.s"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_adc/adc.o"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_adc/adc.i"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_adc/adc.s"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_boot_lock/boot_lock.o"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_boot_lock/boot_lock.i"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_boot_lock/boot_lock.s"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_clocks/clocks.o"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_clocks/clocks.i"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_clocks/clocks.s"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_divider/divider.o"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_gpio/gpio.o"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_gpio/gpio.i"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_gpio/gpio.s"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_i2c/i2c.o"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_i2c/i2c.i"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_i2c/i2c.s"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_irq/irq.o"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_irq/irq.i"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_irq/irq.s"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.o"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_pio/pio.o"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_pio/pio.i"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_pio/pio.s"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_pll/pll.o"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_pll/pll.i"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_pll/pll.s"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_spi/spi.o"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_spi/spi.i"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_spi/spi.s"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_sync/sync.o"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_sync/sync.i"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_sync/sync.s"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.o"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.i"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.s"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_ticks/ticks.o"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_ticks/ticks.i"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_ticks/ticks.s"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_timer/timer.o"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_timer/timer.i"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_timer/timer.s"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_uart/uart.o"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_uart/uart.i"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_uart/uart.s"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_vreg/vreg.o"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_vreg/vreg.i"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_vreg/vreg.s"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.o"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.i"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.s"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_xosc/xosc.o"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_xosc/xosc.i"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_xosc/xosc.s"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_atomic/atomic.o"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_atomic/atomic.i"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_atomic/atomic.s"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.o"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_bootrom/bootrom.o"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_bootrom/bootrom.i"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_bootrom/bootrom.s"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_bootrom/bootrom_lock.o"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_bootrom/bootrom_lock.i"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_bootrom/bootrom_lock.s"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_clib_interface/newlib_interface.o"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_clib_interface/newlib_interface.i"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_clib_interface/newlib_interface.s"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_crt0/crt0.o"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_cxx_options/new_delete.o"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_cxx_options/new_delete.i"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_cxx_options/new_delete.s"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_divider/divider_hardware.o"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_double/double_aeabi_rp2040.o"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_double/double_init_rom_rp2040.o"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_double/double_init_rom_rp2040.i"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_double/double_init_rom_rp2040.s"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_double/double_math.o"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_double/double_math.i"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_double/double_math.s"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim_rp2040.o"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_flash/flash.o"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_flash/flash.i"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_flash/flash.s"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_float/float_aeabi_rp2040.o"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_float/float_init_rom_rp2040.o"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_float/float_init_rom_rp2040.i"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_float/float_init_rom_rp2040.s"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_float/float_math.o"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_float/float_math.i"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_float/float_math.s"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim_rp2040.o"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.o"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_malloc/malloc.o"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_malloc/malloc.i"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_malloc/malloc.s"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.o"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_platform_common/common.o"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_platform_common/common.i"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_platform_common/common.s"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_platform_panic/panic.o"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_platform_panic/panic.i"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_platform_panic/panic.s"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_printf/printf.o"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_printf/printf.i"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_printf/printf.s"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_runtime/runtime.o"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_runtime/runtime.i"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_runtime/runtime.s"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init.o"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init.i"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init.s"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_clocks.o"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_clocks.i"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_clocks.s"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_stack_guard.o"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_stack_guard.i"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_stack_guard.s"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_standard_binary_info/standard_binary_info.o"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_standard_binary_info/standard_binary_info.i"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_standard_binary_info/standard_binary_info.s"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_stdio/stdio.o"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_stdio/stdio.i"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_stdio/stdio.s"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.o"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.i"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.s"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_stdlib/stdlib.o"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_stdlib/stdlib.i"
+	@echo "... Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/pico_stdlib/stdlib.s"
 	@echo "... src/display.o"
 	@echo "... src/display.i"
 	@echo "... src/display.s"
@@ -1867,6 +1867,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

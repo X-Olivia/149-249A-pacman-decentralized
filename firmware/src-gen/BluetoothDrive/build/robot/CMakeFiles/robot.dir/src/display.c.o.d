@@ -1,6 +1,6 @@
 robot/CMakeFiles/robot.dir/src/display.c.o: \
- /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/robot-lib/src/display.c \
- /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/robot-lib/src/display.h \
+ /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/robot-lib/src/display.c \
+ /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/robot-lib/src/display.h \
  /nix/store/gng1905dfv6h6i8idn5ngagkjhpjzh9j-gcc-arm-embedded-14.2.rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdbool.h \
  /nix/store/gng1905dfv6h6i8idn5ngagkjhpjzh9j-gcc-arm-embedded-14.2.rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdint.h \
  /nix/store/gng1905dfv6h6i8idn5ngagkjhpjzh9j-gcc-arm-embedded-14.2.rel1/arm-none-eabi/include/stdint.h \
@@ -25,4 +25,4 @@ robot/CMakeFiles/robot.dir/src/display.c.o: \
  /nix/store/gng1905dfv6h6i8idn5ngagkjhpjzh9j-gcc-arm-embedded-14.2.rel1/arm-none-eabi/include/strings.h \
  /nix/store/gng1905dfv6h6i8idn5ngagkjhpjzh9j-gcc-arm-embedded-14.2.rel1/arm-none-eabi/include/sys/string.h \
  /nix/store/gng1905dfv6h6i8idn5ngagkjhpjzh9j-gcc-arm-embedded-14.2.rel1/arm-none-eabi/include/assert.h \
- /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/robot-lib/src/sh1106.h
+ /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/robot-lib/src/sh1106.h

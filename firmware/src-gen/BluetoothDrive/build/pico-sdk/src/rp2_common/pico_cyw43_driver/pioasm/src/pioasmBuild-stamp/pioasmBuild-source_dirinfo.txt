@@ -4,6 +4,6 @@
 
 method=source_dir
 command=
-source_dir=/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/tools/pioasm
+source_dir=/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/tools/pioasm
 work_dir=
 

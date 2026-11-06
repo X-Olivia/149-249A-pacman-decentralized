@@ -6,12 +6,12 @@
 // ***** Start of method declarations.
 void _motors_method_set_power(void* instance_args, float power, bool forward, bool left);
 #define set_power(...) _motors_method_set_power(self, ##__VA_ARGS__)
-#line 32 "/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src/lib/Motors.lf"
+#line 32 "/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src/lib/Motors.lf"
 #include "include/api/reaction_macros.h"
 // Implementation of method set_power()
 void _motors_method_set_power(void* instance_args, float power, bool forward, bool left) {
     _motors_self_t* self = (_motors_self_t*)instance_args; SUPPRESS_UNUSED_WARNING(self);
-    #line 33 "/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src/lib/Motors.lf"
+    #line 33 "/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src/lib/Motors.lf"
     power = fabsf(power);
     if (power > 1.0f) power = 1.0f;
     // Round down:
@@ -19,7 +19,7 @@ void _motors_method_set_power(void* instance_args, float power, bool forward, bo
     motors_set_power(duty_cycle, forward, left);
 }
 #include "include/api/reaction_macros_undef.h"
-#line 23 "/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/_motors.c"
+#line 23 "/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/_motors.c"
 #undef set_power
 // ***** End of method declarations.
 #include "include/api/reaction_macros.h"
@@ -27,9 +27,9 @@ void _motors_method_set_power(void* instance_args, float power, bool forward, bo
 void _motorsreaction_function_0(void* instance_args) {
     _motors_self_t* self = (_motors_self_t*)instance_args; SUPPRESS_UNUSED_WARNING(self);
     
-    #line 29 "/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src/lib/Motors.lf"
+    #line 29 "/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src/lib/Motors.lf"
     motors_init(1); // 1 indicates no clock division.
-#line 33 "/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/_motors.c"
+#line 33 "/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/_motors.c"
 }
 #undef set_power
 #include "include/api/reaction_macros_undef.h"
@@ -39,10 +39,10 @@ void _motorsreaction_function_1(void* instance_args) {
     _motors_self_t* self = (_motors_self_t*)instance_args; SUPPRESS_UNUSED_WARNING(self);
     _motors_left_power_t* left_power = self->_lf_left_power;
     int left_power_width = self->_lf_left_power_width; SUPPRESS_UNUSED_WARNING(left_power_width);
-    #line 41 "/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src/lib/Motors.lf"
+    #line 41 "/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src/lib/Motors.lf"
     bool forward = (left_power->value >= 0.0f);
     set_power(left_power->value, forward, true);
-#line 46 "/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/_motors.c"
+#line 46 "/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/_motors.c"
 }
 #undef set_power
 #include "include/api/reaction_macros_undef.h"
@@ -52,10 +52,10 @@ void _motorsreaction_function_2(void* instance_args) {
     _motors_self_t* self = (_motors_self_t*)instance_args; SUPPRESS_UNUSED_WARNING(self);
     _motors_right_power_t* right_power = self->_lf_right_power;
     int right_power_width = self->_lf_right_power_width; SUPPRESS_UNUSED_WARNING(right_power_width);
-    #line 46 "/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src/lib/Motors.lf"
+    #line 46 "/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src/lib/Motors.lf"
     bool forward = (right_power->value >= 0.0f);
     set_power(right_power->value, forward, false);
-#line 59 "/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/_motors.c"
+#line 59 "/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/_motors.c"
 }
 #undef set_power
 #include "include/api/reaction_macros_undef.h"

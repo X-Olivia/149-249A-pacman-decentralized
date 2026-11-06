@@ -1,6 +1,6 @@
 CMakeFiles/pioasm.dir/hex_output.cpp.o: \
-  /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/tools/pioasm/hex_output.cpp \
-  /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/tools/pioasm/output_format.h \
+  /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/tools/pioasm/hex_output.cpp \
+  /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/tools/pioasm/output_format.h \
   /nix/store/y7kili54zbcd5v2gp49mg5ajs467hsj8-libcxx-19.1.7-dev/include/c++/v1/cstdint \
   /nix/store/y7kili54zbcd5v2gp49mg5ajs467hsj8-libcxx-19.1.7-dev/include/c++/v1/__config \
   /nix/store/y7kili54zbcd5v2gp49mg5ajs467hsj8-libcxx-19.1.7-dev/include/c++/v1/__config_site \
@@ -746,7 +746,7 @@ CMakeFiles/pioasm.dir/hex_output.cpp.o: \
   /nix/store/y7kili54zbcd5v2gp49mg5ajs467hsj8-libcxx-19.1.7-dev/include/c++/v1/__type_traits/strip_signature.h \
   /nix/store/y7kili54zbcd5v2gp49mg5ajs467hsj8-libcxx-19.1.7-dev/include/c++/v1/unordered_map \
   /nix/store/y7kili54zbcd5v2gp49mg5ajs467hsj8-libcxx-19.1.7-dev/include/c++/v1/__hash_table \
-  /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/tools/pioasm/pio_enums.h \
+  /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/tools/pioasm/pio_enums.h \
   /nix/store/y7kili54zbcd5v2gp49mg5ajs467hsj8-libcxx-19.1.7-dev/include/c++/v1/iostream \
   /nix/store/y7kili54zbcd5v2gp49mg5ajs467hsj8-libcxx-19.1.7-dev/include/c++/v1/istream \
   /nix/store/y7kili54zbcd5v2gp49mg5ajs467hsj8-libcxx-19.1.7-dev/include/c++/v1/__ostream/basic_ostream.h \

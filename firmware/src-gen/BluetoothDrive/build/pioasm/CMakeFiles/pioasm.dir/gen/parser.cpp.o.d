@@ -1,6 +1,6 @@
 CMakeFiles/pioasm.dir/gen/parser.cpp.o: \
-  /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/tools/pioasm/gen/parser.cpp \
-  /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/tools/pioasm/gen/parser.hpp \
+  /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/tools/pioasm/gen/parser.cpp \
+  /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/tools/pioasm/gen/parser.hpp \
   /nix/store/y7kili54zbcd5v2gp49mg5ajs467hsj8-libcxx-19.1.7-dev/include/c++/v1/string \
   /nix/store/y7kili54zbcd5v2gp49mg5ajs467hsj8-libcxx-19.1.7-dev/include/c++/v1/__algorithm/max.h \
   /nix/store/y7kili54zbcd5v2gp49mg5ajs467hsj8-libcxx-19.1.7-dev/include/c++/v1/__algorithm/comp.h \
@@ -761,14 +761,14 @@ CMakeFiles/pioasm.dir/gen/parser.cpp.o: \
   /nix/store/y7kili54zbcd5v2gp49mg5ajs467hsj8-libcxx-19.1.7-dev/include/c++/v1/print \
   /nix/store/vi99jclwrgwcc9bz3ifnp35n6cbisz0a-apple-sdk-11.3/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/unistd.h \
   /nix/store/y7kili54zbcd5v2gp49mg5ajs467hsj8-libcxx-19.1.7-dev/include/c++/v1/sstream \
-  /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/tools/pioasm/pio_types.h \
+  /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/tools/pioasm/pio_types.h \
   /nix/store/y7kili54zbcd5v2gp49mg5ajs467hsj8-libcxx-19.1.7-dev/include/c++/v1/map \
   /nix/store/y7kili54zbcd5v2gp49mg5ajs467hsj8-libcxx-19.1.7-dev/include/c++/v1/__tree \
   /nix/store/y7kili54zbcd5v2gp49mg5ajs467hsj8-libcxx-19.1.7-dev/include/c++/v1/set \
-  /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/tools/pioasm/gen/location.h \
+  /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/tools/pioasm/gen/location.h \
   /nix/store/y7kili54zbcd5v2gp49mg5ajs467hsj8-libcxx-19.1.7-dev/include/c++/v1/iostream \
-  /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/tools/pioasm/pio_enums.h \
+  /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/tools/pioasm/pio_enums.h \
   /nix/store/y7kili54zbcd5v2gp49mg5ajs467hsj8-libcxx-19.1.7-dev/include/c++/v1/cassert \
   /nix/store/vi99jclwrgwcc9bz3ifnp35n6cbisz0a-apple-sdk-11.3/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/assert.h \
-  /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/tools/pioasm/pio_assembler.h \
-  /Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/pico-sdk/tools/pioasm/output_format.h
+  /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/tools/pioasm/pio_assembler.h \
+  /Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/tools/pioasm/output_format.h
