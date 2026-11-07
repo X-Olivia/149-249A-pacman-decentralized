@@ -9,10 +9,10 @@ class Robot:
   A robot that only rotates in place or drives forward.
   """
 
-  def __init__(self, x, y, theta, color, speed=60.0, turn_rate=0.5):
+  def __init__(self, x, y, theta, color, speed=60.0, rad_per_sec=0.5):
     self.color = color
     self.speed = speed
-    self.turn_rate = turn_rate
+    self.rad_per_sec = rad_per_sec
 
     self._x, self._y, self._theta = x, y, theta
     self._lock = threading.Lock()
@@ -36,7 +36,7 @@ class Robot:
       self._y += d * math.sin(self._theta)
 
   def step(self, dt):
-    self.rotate(self.turn_rate * dt)
+    self.rotate(self.rad_per_sec * dt)
     self.forward(self.speed * dt)
 
   # --- thread -----------------------------------------------------------
@@ -53,6 +53,6 @@ class Robot:
 
 def make_robots():
   return [
-    Robot(250, 300, 0.0, "orange", speed=60, turn_rate=0.6),
-    Robot(550, 300, math.pi, "red", speed=80, turn_rate=-0.8),
+    Robot(250, 300, 0.0, "orange", speed=60, rad_per_sec=0.6),
+    Robot(550, 300, math.pi, "red", speed=80, rad_per_sec=-0.8),
   ]
