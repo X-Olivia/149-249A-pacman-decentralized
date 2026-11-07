@@ -4,9 +4,9 @@ import time
 
 SECONDS_BETWEEN_ACTIONS=0.01
 
-class Robot:
+class Ghost:
   """
-  A robot that only rotates in place or drives forward.
+  A ghost that only rotates in place or drives forward.
   """
 
   def __init__(self, x, y, theta, color, speed=60.0, rad_per_sec=0.5):
@@ -35,9 +35,9 @@ class Robot:
       self._x += d * math.cos(self._theta)
       self._y += d * math.sin(self._theta)
 
-  def step(self, dt):
-    self.rotate(self.rad_per_sec * dt)
-    self.forward(self.speed * dt)
+  def step(self):
+    self.rotate(self.rad_per_sec * SECONDS_BETWEEN_ACTIONS)
+    self.forward(self.speed * SECONDS_BETWEEN_ACTIONS)
 
   # --- thread -----------------------------------------------------------
 
@@ -47,12 +47,12 @@ class Robot:
 
   def _run(self):
     while True:
-      self.step(SECONDS_BETWEEN_ACTIONS)
+      self.step()
       time.sleep(SECONDS_BETWEEN_ACTIONS)
 
 
-def make_robots():
+def make_ghosts():
   return [
-    Robot(250, 300, 0.0, "orange", speed=60, rad_per_sec=0.6),
-    Robot(550, 300, math.pi, "red", speed=80, rad_per_sec=-0.8),
+    Ghost(250, 300, 0.0, "orange", speed=60, rad_per_sec=0.6),
+    Ghost(550, 300, math.pi, "red", speed=80, rad_per_sec=-0.8),
   ]

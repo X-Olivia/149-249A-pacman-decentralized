@@ -1,12 +1,12 @@
 from gui import GUI
-from robot import make_robots
+from ghost import make_ghosts
 
 
 def main():
-  robots = make_robots()
-  for robot in robots:
-    robot.start()
-  GUI(robots).run()
+  ghosts = make_ghosts()
+  for ghost in ghosts:
+    ghost.start()
+  GUI(ghosts).run()
 
 
 if __name__ == "__main__":
