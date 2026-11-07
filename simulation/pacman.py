@@ -7,14 +7,13 @@ SECONDS_BETWEEN_ACTIONS=0.01
 
 class Pacman:
   """
-  Player-controlled robot. W = drive forward (while held), A/D = turn 90°.
-  Commands arrive on `self.commands` (filled by the GUI thread) and are
-  applied by Pacman's own thread.
+  Player-controlled robot. W = drive forward (while held), A/D = turn 90 deg.
+  The GUI sends keyboard press commands to Pacman (self.commands)
   """
 
-  def __init__(self, x, y, theta, color="yellow", speed=100.0, id="pacman"):
+  def __init__(self, x, y, theta, speed=100.0, id="pacman"):
     self.id = id
-    self.color = color
+    self.color = "black"
     self.speed = speed
     self.commands = queue.Queue()
 
@@ -31,37 +30,34 @@ class Pacman:
 
   # --- behavior ---------------------------------------------------------
 
-  def rotate_left(self):
+  def _rotate_left(self):
     with self._lock:
       self._theta = (self._theta - (math.pi / 2)) % (2 * math.pi)
 
-  def rotate_right(self):
+  def _rotate_right(self):
     with self._lock:
       self._theta = (self._theta + (math.pi / 2)) % (2 * math.pi)
 
-  def forward(self, d):
+  def _forward(self, d):
     with self._lock:
       self._x += d * math.cos(self._theta)
       self._y += d * math.sin(self._theta)
 
-  def step(self):
+  def _step(self):
     # apply every command received since the last step
     while True:
       try:
         cmd = self.commands.get_nowait()
+        match cmd:
+          case "go":    self._moving = True
+          case "stop":  self._moving = False
+          case "left":  self._rotate_left()
+          case "right": self._rotate_right()
       except queue.Empty:
         break
-      if cmd == "go":
-        self._moving = True
-      elif cmd == "stop":
-        self._moving = False
-      elif cmd == "left":
-        self.rotate_left()
-      elif cmd == "right":
-        self.rotate_right()
 
     if self._moving:
-      self.forward(self.speed * SECONDS_BETWEEN_ACTIONS)
+      self._forward(self.speed * SECONDS_BETWEEN_ACTIONS)
 
   # --- thread -----------------------------------------------------------
 
@@ -71,9 +67,9 @@ class Pacman:
 
   def _run(self):
     while True:
-      self.step()
+      self._step()
       time.sleep(SECONDS_BETWEEN_ACTIONS)
 
 
 def make_pacman():
-  return Pacman(400, 450, 0.0, "black", speed=100)
+  return Pacman(400, 450, 0.0, speed=100)

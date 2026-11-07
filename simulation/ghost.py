@@ -39,26 +39,26 @@ class Ghost:
 
   # --- behavior ---------------------------------------------------------
 
-  def rotate_left(self):
+  def _rotate_left(self):
     with self._lock:
       self._theta = (self._theta - (math.pi / 2)) % (2 * math.pi)
 
-  def rotate_right(self):
+  def _rotate_right(self):
     with self._lock:
       self._theta = (self._theta + (math.pi / 2)) % (2 * math.pi)
 
-  def forward(self, d):
+  def _forward(self, d):
     with self._lock:
       self._x += d * math.cos(self._theta)
       self._y += d * math.sin(self._theta)
 
-  def step(self):
+  def _step(self):
     distance = self._uwb.sense().get(self.target_id)
     if (self._last_distance is not None and distance > self._last_distance):
-      random.choice([self.rotate_left, self.rotate_right])()
+      random.choice([self._rotate_left, self._rotate_right])()
     self._last_distance = distance
 
-    self.forward(self.speed * SECONDS_BETWEEN_ACTIONS)
+    self._forward(self.speed * SECONDS_BETWEEN_ACTIONS)
 
   # --- thread -----------------------------------------------------------
 
@@ -68,7 +68,7 @@ class Ghost:
 
   def _run(self):
     while True:
-      self.step()
+      self._step()
       time.sleep(SECONDS_BETWEEN_ACTIONS)
 
 
