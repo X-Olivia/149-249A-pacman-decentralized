@@ -19,5 +19,6 @@ class UWB:
     readings = {}
     for robot in self.others:
       ox, oy, _ = robot.pose()
+      # basically ||<ox, oy> - <x, y>|| (euc distance between this and other robot)
       readings[robot.id] = math.hypot(ox - x, oy - y)
     return readings
