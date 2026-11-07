@@ -22,6 +22,17 @@ class GUI:
       line_orientation = self.canvas.create_line(0, 0, 0, 0, width=3)
       self._items[robot] = (body, line_orientation)
 
+  def register_pacman_controls(self, pacman):
+    """W = drive forward while held, A/D = turn 90° left/right."""
+    bindings = {
+      "<KeyPress-w>":   "go",
+      "<KeyRelease-w>": "stop",
+      "<KeyPress-a>":   "left",
+      "<KeyPress-d>":   "right",
+    }
+    for event, cmd in bindings.items():
+      self.root.bind(event, lambda e, cmd=cmd: pacman.commands.put(cmd))
+
   def _draw(self):
     r = self.radius
     for robot, (body, line_orientation) in self._items.items():
