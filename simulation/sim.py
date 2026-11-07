@@ -4,12 +4,12 @@ from pacman import make_pacman
 
 
 def main():
-  ghosts = make_ghosts()
   pacman = make_pacman()
+  ghosts = make_ghosts(pacman)
   for robot in ghosts + [pacman]:
     robot.start()
 
-  gui = GUI(ghosts + [pacman])
+  gui = GUI([pacman, *ghosts])
   gui.register_pacman_controls(pacman)
   gui.run()
 

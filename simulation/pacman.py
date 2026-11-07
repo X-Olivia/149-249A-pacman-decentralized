@@ -12,7 +12,8 @@ class Pacman:
   applied by Pacman's own thread.
   """
 
-  def __init__(self, x, y, theta, color="yellow", speed=100.0):
+  def __init__(self, x, y, theta, color="yellow", speed=100.0, id="pacman"):
+    self.id = id
     self.color = color
     self.speed = speed
     self.commands = queue.Queue()
