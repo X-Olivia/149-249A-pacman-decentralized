@@ -1,2 +1,2 @@
-# 11/7
 - Need to handle robots going off the screen.
+- Model the network (ex: Bluetooth or WiFi)

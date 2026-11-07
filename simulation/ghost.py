@@ -5,7 +5,7 @@ import time
 
 from sensor import UWB
 
-SECONDS_BETWEEN_ACTIONS=0.01
+SECONDS_BETWEEN_STEPS=0.01
 
 class Ghost:
   """
@@ -58,7 +58,7 @@ class Ghost:
       random.choice([self._rotate_left, self._rotate_right])()
     self._last_distance = distance
 
-    self._forward(self.speed * SECONDS_BETWEEN_ACTIONS)
+    self._forward(self.speed * SECONDS_BETWEEN_STEPS)
 
   # --- thread -----------------------------------------------------------
 
@@ -69,7 +69,7 @@ class Ghost:
   def _run(self):
     while True:
       self._step()
-      time.sleep(SECONDS_BETWEEN_ACTIONS)
+      time.sleep(SECONDS_BETWEEN_STEPS)
 
 
 def make_ghosts(pacman):
