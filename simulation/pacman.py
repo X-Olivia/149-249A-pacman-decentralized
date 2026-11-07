@@ -30,9 +30,13 @@ class Pacman:
 
   # --- behavior ---------------------------------------------------------
 
-  def rotate(self, dtheta):
+  def rotate_left(self):
     with self._lock:
-      self._theta = (self._theta + dtheta) % (2 * math.pi)
+      self._theta = (self._theta - (math.pi / 2)) % (2 * math.pi)
+
+  def rotate_right(self):
+    with self._lock:
+      self._theta = (self._theta + (math.pi / 2)) % (2 * math.pi)
 
   def forward(self, d):
     with self._lock:
@@ -51,9 +55,9 @@ class Pacman:
       elif cmd == "stop":
         self._moving = False
       elif cmd == "left":
-        self.rotate(-math.pi / 2)  # y points down, so -theta turns left on screen
+        self.rotate_left()
       elif cmd == "right":
-        self.rotate(math.pi / 2)
+        self.rotate_right()
 
     if self._moving:
       self.forward(self.speed * SECONDS_BETWEEN_ACTIONS)
