@@ -1,0 +1,17 @@
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Node (firmware emulator tests)
+node_modules/
+firmware/test/results/
+
+# Lingua Franca / CMake build output (regenerated on every build)
+firmware/src-gen/
+firmware/bin/
+firmware/build/
