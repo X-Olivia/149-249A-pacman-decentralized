@@ -61,12 +61,13 @@ class Pacman:
       if self.lastCommand in self.validCommands:  
         self._moving = True
         match self.lastCommand:
-          case "up":    break
+          case "up":    pass
           case "down":  self._rotate_back()
           case "left":  self._rotate_left()
           case "right": self._rotate_right()
       else:
-        self._moving = False
+        if not self._moving or "up" not in self.validCommands:
+          self._moving = False
 
     if self._moving:
       self._forward(self.speed * SECONDS_BETWEEN_ACTIONS)
