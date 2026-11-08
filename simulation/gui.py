@@ -25,8 +25,8 @@ class GUI:
   def register_pacman_controls(self, pacman):
     """W = drive forward while held, A/D = turn 90° left/right."""
     bindings = {
-      "<KeyPress-w>":   "go",
-      "<KeyRelease-w>": "stop",
+      "<KeyPress-w>":   "up",
+      "<KeyPress-s>": "down",
       "<KeyPress-a>":   "left",
       "<KeyPress-d>":   "right",
     }

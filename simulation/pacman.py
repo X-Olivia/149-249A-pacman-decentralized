@@ -13,7 +13,7 @@ class Pacman:
 
   def __init__(self, x, y, theta, speed=100.0, id="pacman"):
     self.id = id
-    self.color = "black"
+    self.color = "dark red"
     self.speed = speed
     self.commands = queue.Queue()
 
@@ -21,6 +21,8 @@ class Pacman:
     self._moving = False
     self._lock = threading.Lock()
     self._thread = None
+    self.lastCommand = None
+    self.validCommands = ["up", "down", "left", "right"]
 
   # --- pose -------------------------------------------------------------
 
@@ -38,6 +40,10 @@ class Pacman:
     with self._lock:
       self._theta = (self._theta + (math.pi / 2)) % (2 * math.pi)
 
+  def _rotate_back(self):
+    with self._lock:
+      self._theta = (self._theta + (math.pi)) % (2 * math.pi)
+
   def _forward(self, d):
     with self._lock:
       self._x += d * math.cos(self._theta)
@@ -48,13 +54,19 @@ class Pacman:
     while True:
       try:
         cmd = self.commands.get_nowait()
-        match cmd:
-          case "go":    self._moving = True
-          case "stop":  self._moving = False
-          case "left":  self._rotate_left()
-          case "right": self._rotate_right()
+        self.lastCommand = cmd
       except queue.Empty:
         break
+
+      if self.lastCommand in self.validCommands:  
+        self._moving = True
+        match self.lastCommand:
+          case "up":    break
+          case "down":  self._rotate_back()
+          case "left":  self._rotate_left()
+          case "right": self._rotate_right()
+      else:
+        self._moving = False
 
     if self._moving:
       self._forward(self.speed * SECONDS_BETWEEN_ACTIONS)
