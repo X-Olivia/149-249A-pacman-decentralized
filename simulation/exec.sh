@@ -1,1 +1,1 @@
-python sim.py
+python sim.py "$@"
