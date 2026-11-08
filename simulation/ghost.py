@@ -6,6 +6,14 @@ import time
 from sensor import UWB
 
 SECONDS_BETWEEN_STEPS=0.01
+NUM_STEPS_BEFORE_ROTATE_ALLOWED=20
+
+DIR_ORIG=0
+DIR_RIGHT_ONCE=1
+DIR_RIGHT_TWICE=2
+DIR_RIGHT_THRICE=3
+
+NUM_DIRS=4
 
 class Ghost:
   """
@@ -23,7 +31,15 @@ class Ghost:
     self._thread = None
 
     self._uwb = None  # attached with register_uwb()
-    self._last_distance = None
+    
+    # for step alg
+    self._last_distance = 0
+    self._curr_dir = DIR_ORIG
+    self._dir_to_dists = { 
+      key: [] 
+      for key in [DIR_ORIG, DIR_RIGHT_ONCE, DIR_RIGHT_TWICE, DIR_RIGHT_THRICE] 
+    }
+
 
   # --- sensors ----------------------------------------------------------
 
@@ -42,22 +58,57 @@ class Ghost:
   def _rotate_left(self):
     with self._lock:
       self._theta = (self._theta - (math.pi / 2)) % (2 * math.pi)
+      self._curr_dir = (self._curr_dir - 1) % NUM_DIRS
+      self._dir_to_dists[self._curr_dir] = []
 
   def _rotate_right(self):
     with self._lock:
       self._theta = (self._theta + (math.pi / 2)) % (2 * math.pi)
+      self._curr_dir = (self._curr_dir + 1) % NUM_DIRS
+      self._dir_to_dists[self._curr_dir] = []
 
   def _forward(self, d):
     with self._lock:
       self._x += d * math.cos(self._theta)
       self._y += d * math.sin(self._theta)
 
+  def __reset_all_dists(self):
+    for key in [DIR_ORIG, DIR_RIGHT_ONCE, DIR_RIGHT_TWICE, DIR_RIGHT_THRICE]:
+      self._dir_to_dists[key] = []
+
+  def __get_dist_roc(self, dir):
+    assert dir >= 0 and dir < NUM_DIRS
+    distances = self._dir_to_dists[dir]
+    return sum(distances) / len(distances) if len(distances) > 0 else 0
+
   def _step(self):
     distance = self._uwb.sense().get(self.target_id)
-    if (self._last_distance is not None and distance > self._last_distance):
-      random.choice([self._rotate_left, self._rotate_right])()
-    self._last_distance = distance
+    self._dir_to_dists[self._curr_dir].append(distance - self._last_distance)
 
+    if (distance > self._last_distance 
+        and len(self._dir_to_dists[self._curr_dir]) >= NUM_STEPS_BEFORE_ROTATE_ALLOWED):
+
+      roc_curr_dir  = self.__get_dist_roc(self._curr_dir)
+      roc_left_dir  = self.__get_dist_roc((self._curr_dir - 1) % NUM_DIRS)
+      roc_right_dir = self.__get_dist_roc((self._curr_dir + 1) % NUM_DIRS)
+      roc_right_twice_dir = self.__get_dist_roc((self._curr_dir + 2) % NUM_DIRS)
+
+      # move in a new direction with a better average rate of change in distance
+      if roc_left_dir < roc_curr_dir and roc_right_dir < roc_curr_dir:
+        if roc_left_dir < roc_right_dir: self._rotate_left()
+        else: self._rotate_right()
+      elif roc_left_dir < roc_curr_dir:
+        self._rotate_left()
+      elif roc_right_dir < roc_curr_dir:
+        self._rotate_right()
+      elif roc_right_twice_dir < roc_curr_dir:
+        self._rotate_right() # either rotation is fine (cannot 180 in one step)
+
+      # every once in a while try a new path if dist increases for too long
+      if len(self._dir_to_dists[self._curr_dir]) >= NUM_STEPS_BEFORE_ROTATE_ALLOWED * 10:
+        self.__reset_all_dists()
+        
+    self._last_distance = distance
     self._forward(self.speed * SECONDS_BETWEEN_STEPS)
 
   # --- thread -----------------------------------------------------------
