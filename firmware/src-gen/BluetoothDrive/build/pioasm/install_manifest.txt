@@ -1,5 +1,0 @@
-/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build/pioasm-install/pioasm/pioasm
-/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build/pioasm-install/pioasm/pioasmTargets.cmake
-/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build/pioasm-install/pioasm/pioasmTargets-release.cmake
-/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build/pioasm-install/pioasm/pioasmConfig.cmake
-/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/build/pioasm-install/pioasm/pioasmConfigVersion.cmake

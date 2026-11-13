@@ -15,6 +15,9 @@ pkgs.mkShell {
     screen
     gdb
     #fzf
+    (python3.withPackages (ps: [
+      ps.bleak
+    ]))
   ];
   buildInputs = [
     # lf

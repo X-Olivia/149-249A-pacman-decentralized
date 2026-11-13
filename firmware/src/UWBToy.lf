@@ -1,0 +1,54 @@
+target C {
+  platform: {
+    name: "rp2040",
+    board: "pololu_3pi_2040_robot"
+  },
+  single-threaded: true
+}
+
+import Display from "lib/Display.lf"
+
+preamble {=
+  #include <stdio.h>
+  #include "pico/stdlib.h"
+  #include "hardware/uart.h"
+=}
+
+/** Polls UWB every 10 ms and outputs one number, which is the distance measured between the UWB and its anchor. */
+// Blocking
+reactor UWB {
+  output dist: string
+  timer poll(0, 1 msec)
+
+  reaction(startup) {=
+    uart_init(uart0, 9600);
+    gpio_set_function(28, GPIO_FUNC_UART);  // GP28 = TX -> ESP32 RX (20)
+    gpio_set_function(29, GPIO_FUNC_UART);  // GP29 = RX <- ESP32 TX (21)
+  =}
+
+  reaction(poll) -> dist {=
+    static char buf[8];
+    int charRead = 0;
+    if (uart_is_readable(uart0)){
+      do {
+        while (!uart_is_readable(uart0));
+        buf[charRead] = uart_getc(uart0);
+        printf("%c", buf[charRead]);
+        charRead++;
+      } while (buf[charRead - 1] != '\n' && charRead < 7);
+      buf[charRead - 1] = '\0'; 
+      lf_set(dist, buf);
+      printf("\n");
+    }
+  =}
+}
+
+main reactor {
+  uwb = new UWB()
+  display = new Display()
+  reaction(uwb.dist) -> display.line0{=
+    static char buf[17];
+    snprintf(buf, 17, "Dist: %s cm", uwb.dist->value);
+    lf_set(display.line0, buf);
+  =}
+}

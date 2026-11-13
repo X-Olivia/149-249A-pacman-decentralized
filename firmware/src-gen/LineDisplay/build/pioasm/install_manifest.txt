@@ -1,0 +1,5 @@
+/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/LineDisplay/build/pioasm-install/pioasm/pioasm
+/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/LineDisplay/build/pioasm-install/pioasm/pioasmTargets.cmake
+/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/LineDisplay/build/pioasm-install/pioasm/pioasmTargets-release.cmake
+/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/LineDisplay/build/pioasm-install/pioasm/pioasmConfig.cmake
+/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/LineDisplay/build/pioasm-install/pioasm/pioasmConfigVersion.cmake

@@ -1,0 +1,141 @@
+/**
+ * Drive the Pololu 3pi+ 2040 from a laptop over BLE using an HM-10 module.
+ *
+ * Wiring: HM-10 TX -> GP29, HM-10 RX -> GP28, VCC -> 3V3, GND -> GND.
+ * Commands (single characters sent over BLE): f = forward, b = backward,
+ * l = spin left, r = spin right, s = stop.
+ */
+target C {
+  platform: {
+    name: "rp2040",
+    board: "pololu_3pi_2040_robot"
+  },
+  single-threaded: true
+}
+
+import Display from "lib/Display.lf"
+import GyroAngle from "lib/IMU.lf"
+import MotorsWithFeedback from "lib/MotorsWithFeedback.lf"
+import Encoders from "lib/Encoders.lf"
+import Bluetooth from "lib/Bluetooth.lf"
+
+preamble {=
+  #include "hardware/uart.h"
+  #include "hardware/gpio.h"
+=}
+
+reactor Motion_control(p_encoder: time = 1ms, p_gyro: time = 1ms){
+  input turn_angle: float
+  input target_speed: float
+  input stop: bool
+
+  state speed: float = 0.1
+  state target_angle: float = 0
+  state start_angle: float = 0
+  state curr_angle: float = 0
+  timer t_encoder(0, p_encoder)
+  timer t_gyro(0, p_gyro)
+
+  motors = new MotorsWithFeedback()
+  encoder = new Encoders()
+  gyro = new GyroAngle()
+
+  // ---trigger reactions------------------------------>
+  reaction(t_encoder) -> encoder.trigger {=
+    lf_set(encoder.trigger, true);
+  =}
+  reaction(t_gyro) -> gyro.trigger {=
+    lf_set(gyro.trigger, true);
+  =}
+  encoder.left -> motors.left;
+  encoder.right -> motors.right;
+
+  // ---setter reactions------------------------------>
+  reaction(target_speed) {=
+    self->speed = target_speed->value;
+  =}
+  reaction(gyro.z) {=
+    self->curr_angle = gyro.z->value;
+  =}
+
+  // for now, just forward
+  initial mode FORWARD {
+    reaction(startup, reset) -> motors.left_speed, motors.right_speed{=
+      lf_set(motors.left_speed, self->speed);
+      lf_set(motors.right_speed, self->speed);
+    =}
+
+    reaction(turn_angle) -> reset(ROTATE){=
+      lf_set_mode(ROTATE);
+      self->start_angle = self->curr_angle;
+      self->target_angle = turn_angle->value;
+    =}
+
+    reaction(stop) -> reset(STOP){=
+      lf_set_mode(STOP);
+    =}
+  }
+
+  mode ROTATE {
+    reaction(startup, reset) -> motors.left_speed, motors.right_speed, reset(FORWARD){=
+      if (self->target_angle > 0){
+        lf_set(motors.left_speed, -self->speed);
+        lf_set(motors.right_speed, self->speed);
+      } else if (self->target_angle == 0) {
+        lf_set_mode(FORWARD);
+      } else {
+        lf_set(motors.left_speed, self->speed);
+        lf_set(motors.right_speed, -self->speed);
+      }
+    =}
+    reaction(gyro.z) -> reset(FORWARD) {=
+      if (abs(gyro.z->value - self->start_angle) >= abs(self->target_angle)){
+        lf_set_mode(FORWARD);
+      }
+    =}
+        reaction(stop) -> reset(STOP){=
+      lf_set_mode(STOP);
+    =}
+  }
+
+  mode STOP {
+    reaction(startup, reset) -> motors.left_speed, motors.right_speed{=
+      lf_set(motors.left_speed, 0);
+      lf_set(motors.right_speed, 0);
+    =}
+    reaction(turn_angle) -> reset(ROTATE){=
+      lf_set_mode(ROTATE);
+      self->start_angle = self->curr_angle;
+      self->target_angle = turn_angle->value;
+    =}
+  }
+}
+reactor Ghost(sample_period: time = 10 ms){
+  disp = new Display()
+  control = new Motion_control()
+  
+}
+
+reactor Pacman(sample_period: time = 10 ms){
+  input cmd: char
+  disp = new Display()
+  control = new Motion_control()
+
+  reaction(cmd) -> control.turn_angle, control.stop{=
+    float s = 0.1f;  // 30% power; keep low for the first test
+    switch (cmd->value) {
+      case 'w': lf_set(control.turn_angle, 0); break;
+      case 's': lf_set(control.turn_angle, 180); break;
+      case 'a': lf_set(control.turn_angle, 90); break;
+      case 'd': lf_set(control.turn_angle, -90); break;
+      case 'S': lf_set(control.stop, true); break;
+    }
+  =}
+}
+
+main reactor {
+  bt = new Bluetooth()
+  ghost = new Ghost()
+  // pacman = new Pacman()
+  // bt.cmd -> pacman.cmd
+}

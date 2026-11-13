@@ -1,0 +1,40 @@
+target C {
+  platform: {
+    name: "rp2040",
+    board: "pololu_3pi_2040_robot"
+  },
+  single-threaded: true
+}
+
+preamble {=
+  #include "hardware/uart.h"
+  #include "hardware/gpio.h"
+
+  #define NAME_MAXLEN 12
+  #define PIN_UART_TX 28
+  #define PIN_UART_RX 29
+  #define BAUD_RATE 9600
+=}
+
+
+/** Polls UART0 (the HM-10) every 10 ms and outputs one received character. */
+reactor Bluetooth(name: string = "HM-10"){
+  output cmd: char
+  timer poll(0, 10 msec)
+
+  reaction(startup) {=
+    // max len 12
+    static char name_buf[12];
+    snprintf(name_buf, 12, "AT+NAME%s", self->name);
+    uart_init(uart0, BAUD_RATE);
+    gpio_set_function(PIN_UART_TX, GPIO_FUNC_UART);  // GP28 = TX -> HM-10 RX
+    gpio_set_function(PIN_UART_RX, GPIO_FUNC_UART);  // GP29 = RX <- HM-10 TX
+    uart_puts(uart0, name_buf); 
+  =}
+
+  reaction(poll) -> cmd {=
+    if (uart_is_readable(uart0)) {
+      lf_set(cmd, uart_getc(uart0));
+    }
+  =}
+}

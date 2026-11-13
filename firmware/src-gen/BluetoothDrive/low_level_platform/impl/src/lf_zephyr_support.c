@@ -147,13 +147,8 @@ int lf_thread_id() { return *((int*)k_thread_custom_data_get()); }
 
 lf_thread_t lf_thread_self() { return k_current_get(); }
 
-int lf_thread_set_cpu(lf_thread_t thread, size_t cpu_number) {
-#if defined(CONFIG_SCHED_CPU_MASK)
-  return k_thread_cpu_pin(thread, cpu_number);
-#else
-  return -1;
-#endif
-}
+int lf_thread_set_cpu(lf_thread_t thread, size_t cpu_number) { return k_thread_cpu_pin(thread, cpu_number); }
+
 /**
  * Real-time scheduling API
  */

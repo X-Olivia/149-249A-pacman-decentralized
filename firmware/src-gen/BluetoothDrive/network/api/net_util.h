@@ -21,12 +21,8 @@
 #error To be implemented. No support for federation on Arduino yet.
 #else
 #include <sys/socket.h>
-#endif
-
-#if !defined(PLATFORM_ZEPHYR)
-// Zephyr has no regex.
 #include <regex.h>
-#endif // !PLATFORM_ZEPHYR
+#endif
 
 #include <sys/types.h>
 #include <stdbool.h>
@@ -224,7 +220,6 @@ typedef struct rti_addr_info_t {
   bool has_user;
 } rti_addr_info_t;
 
-#if !defined(PLATFORM_ZEPHYR)
 /**
  * @brief Check whether str matches regex.
  * @ingroup Network
@@ -234,7 +229,6 @@ typedef struct rti_addr_info_t {
  * @return true if there is a match, false otherwise.
  */
 bool match_regex(const char* str, char* regex);
-#endif // !PLATFORM_ZEPHYR
 
 /**
  * @brief Check whether port is valid.
@@ -263,7 +257,6 @@ bool validate_host(const char* host);
  */
 bool validate_user(const char* user);
 
-#if !defined(PLATFORM_ZEPHYR)
 /**
  * @brief Extract one match group from the rti_addr regex .
  * @ingroup Network
@@ -295,7 +288,6 @@ bool extract_match_group(const char* rti_addr, char* dest, regmatch_t group, siz
  */
 bool extract_match_groups(const char* rti_addr, char** rti_addr_strs, bool** rti_addr_flags, regmatch_t* group_array,
                           int* gids, size_t* max_lens, size_t* min_lens, const char** err_msgs);
-#endif // !PLATFORM_ZEPHYR
 
 /**
  * @brief Extract the host, port and user from rti_addr.

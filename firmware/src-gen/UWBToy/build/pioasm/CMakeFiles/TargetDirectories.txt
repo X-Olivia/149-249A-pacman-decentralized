@@ -1,0 +1,7 @@
+/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/UWBToy/build/pioasm/CMakeFiles/pioasm.dir
+/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/UWBToy/build/pioasm/CMakeFiles/edit_cache.dir
+/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/UWBToy/build/pioasm/CMakeFiles/rebuild_cache.dir
+/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/UWBToy/build/pioasm/CMakeFiles/list_install_components.dir
+/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/UWBToy/build/pioasm/CMakeFiles/install.dir
+/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/UWBToy/build/pioasm/CMakeFiles/install/local.dir
+/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/UWBToy/build/pioasm/CMakeFiles/install/strip.dir

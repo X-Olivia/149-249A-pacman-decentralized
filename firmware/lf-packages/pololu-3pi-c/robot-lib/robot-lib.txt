@@ -1,2 +1,4 @@
-add_subdirectory(robot-lib robot)
-target_link_libraries(${LF_MAIN_TARGET} PUBLIC robot)
+if(NOT TARGET robot)
+    add_subdirectory(robot-lib robot)
+    target_link_libraries(${LF_MAIN_TARGET} PUBLIC robot)
+endif()

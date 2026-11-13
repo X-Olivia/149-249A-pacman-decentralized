@@ -198,14 +198,6 @@ typedef struct federate_instance_t {
   bool received_stop_request_from_rti;
 
   /**
-   * Nonzero after MSG_TYPE_FAILED is received from the RTI.
-   * Set and read only through lf_atomic_bool_compare_and_swap and
-   * lf_atomic_val_compare_and_swap. The RTI listener thread sets this
-   * and returns; only the main thread may call exit().
-   */
-  int rti_failed;
-
-  /**
    * A record of the most recently sent LTC (latest tag confirmed) message.
    * In some situations, federates can send logical_tag_complete for
    * the same tag twice or more in-a-row to the RTI. For example, when
@@ -403,16 +395,6 @@ void* lf_handle_p2p_connections_from_federates(void* ignored);
  * @param tag_to_send The tag to send.
  */
 void lf_latest_tag_confirmed(tag_t tag_to_send);
-
-/**
- * @brief Hook to initialize a network interface in a federate before attempting to connect to the RTI.
- * @ingroup Federated
- *
- * This function is (weakly) defined to be empty, but an application may define it to implement
- * whatever is needed to bring up the network interface on a particular platform before the federate
- * will attempt to connect to the RTI.
- */
-void lf_network_up(void);
 
 /**
  * @brief Parse the address of the RTI and store them into the global federation_metadata struct.

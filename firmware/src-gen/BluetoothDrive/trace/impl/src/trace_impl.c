@@ -223,16 +223,15 @@ void lf_tracing_tracepoint(int worker, trace_record_nodeps_t* tr) {
   (void)worker;
   // Worker argument determines which buffer to write to.
   int tid = lf_thread_id();
-  if (tid >= (int)trace._lf_number_of_trace_buffers) {
-    // The current thread was created after the trace buffers were allocated, for example
-    // by lf_add_worker_thread(). Treat it like a user thread and use the shared fallback buffer.
-    tid = -1;
-  }
   if (tid < 0) {
     // The current thread was created by the user. It is not managed by LF, its ID is not known,
     // and most importantly it does not count toward the limit on the total number of threads.
     // Therefore we should fall back to using a mutex.
     lf_platform_mutex_lock(trace_mutex);
+  }
+  if (tid > (int)trace._lf_number_of_trace_buffers) {
+    lf_print_error_and_exit("the thread id (%d) exceeds the number of trace buffers (%zu)", tid,
+                            trace._lf_number_of_trace_buffers);
   }
 
   // Flush the buffer if it is full.
@@ -297,18 +296,6 @@ void lf_tracing_global_init(char* process_name, char* process_names, int fedid, 
   start_trace(&trace, max_num_local_threads);
 }
 void lf_tracing_set_start_time(int64_t time) { start_time = time; }
-
-void lf_tracing_flush() {
-  if (trace_mutex == NULL || trace._lf_trace_stop) {
-    return;
-  }
-  lf_platform_mutex_lock(trace_mutex);
-  for (int i = -1; i < (int)trace._lf_number_of_trace_buffers; i++) {
-    flush_trace_locked(&trace, i);
-  }
-  lf_platform_mutex_unlock(trace_mutex);
-}
-
 void lf_tracing_global_shutdown() {
   if (trace_mutex != NULL && !trace._lf_trace_stop) {
     stop_trace(&trace);

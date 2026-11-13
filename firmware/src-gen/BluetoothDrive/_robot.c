@@ -15,10 +15,10 @@ void _robotreaction_function_0(void* instance_args) {
     } motor;
     motor.left_power = &(self->_lf_motor.left_power);
     motor.right_power = &(self->_lf_motor.right_power);
-    #line 48 "/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src/BluetoothDrive.lf"
+    #line 48 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/BluetoothDrive.lf"
     lf_set(motor.left_power, 0.0f);
     lf_set(motor.right_power, 0.0f);
-#line 22 "/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/_robot.c"
+#line 22 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/_robot.c"
 }
 #include "include/api/reaction_macros_undef.h"
 #include "include/api/reaction_macros.h"
@@ -33,7 +33,7 @@ void _robotreaction_function_1(void* instance_args) {
     int cmd_width = self->_lf_cmd_width; SUPPRESS_UNUSED_WARNING(cmd_width);
     motor.left_power = &(self->_lf_motor.left_power);
     motor.right_power = &(self->_lf_motor.right_power);
-    #line 53 "/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src/BluetoothDrive.lf"
+    #line 53 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/BluetoothDrive.lf"
     float s = 0.1f;  // 30% power; keep low for the first test
     switch (cmd->value) {
       case 'f': lf_set(motor.left_power,  s);    lf_set(motor.right_power,  s);    break;
@@ -42,7 +42,7 @@ void _robotreaction_function_1(void* instance_args) {
       case 'r': lf_set(motor.left_power,  s);    lf_set(motor.right_power, -s);    break;
       case 's': lf_set(motor.left_power,  0.0f); lf_set(motor.right_power, 0.0f);  break;
     }
-#line 46 "/Users/sareenarobinson/Desktop/EECS149Project/lf-3pi-template/src-gen/BluetoothDrive/_robot.c"
+#line 46 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/_robot.c"
 }
 #include "include/api/reaction_macros_undef.h"
 _robot_self_t* new__robot() {
