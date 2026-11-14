@@ -1,0 +1,121 @@
+/**
+ * Template for robot driving lab exercises. This template just periodically switches between a
+ * STOPPED and a DRIVING mode, updating the LCD display on each change of mode.
+ */
+target C {
+  platform: {
+    name: "rp2040",
+    board: "pololu_3pi_2040_robot"
+  },
+  single-threaded: true
+}
+
+import Display from "lib/Display.lf"
+import Motors from "lib/Motors.lf"
+import Line from "lib/Line.lf"
+
+
+
+reactor Robot {
+  input drive: bool      // Toggle mode.
+  output notify: string  // Notify of mode change.
+
+  motor = new Motors()
+
+  line = new Line()
+  disp = new Display()
+
+  timer t(0, 100 ms)
+  state count: int = 0
+  logical action clear
+
+  state leftPower: float = 0.1
+  state rightPower: float = 0.1
+
+  reaction(t) -> line.trigger {=
+    lf_set(line.trigger, true);
+  =}
+
+  initial mode calibrating {
+    timer seconds(0, 1 s)  // Timer used to display seconds.
+    timer end_calibration(10 s)
+    reaction(startup) -> notify, motor.left_power, motor.right_power, disp.line0, disp.line1, disp.line2 {=
+        lf_set(notify, "INIT");
+
+        lf_set(motor.left_power, 0);
+        lf_set(motor.right_power, 0);
+
+        lf_set(disp.line0, "CALIBRATING");
+        lf_set(disp.line1, "Roll robot over");
+        lf_set(disp.line2, "light and dark.");
+    =}
+
+    reaction(seconds) -> disp.line3 {=
+        static char buf[17];
+        snprintf(buf, 17, "time:%8d s", self->count++);
+        lf_set(disp.line3, buf);
+    =}
+
+    reaction(end_calibration) -> DRIVING, line.calibrate, motor.left_power, motor.right_power {=
+        lf_set(line.calibrate, false);
+        lf_set(motor.left_power, self->leftPower);
+        lf_set(motor.right_power, self->rightPower);
+        lf_set_mode(DRIVING);
+    =}
+
+  }
+
+
+  mode INTERSECT {
+    reaction(clear) -> DRIVING, motor.left_power, motor.right_power {=
+        self->leftPower = 0.1f;
+        self->rightPower = 0.1f;
+        lf_set(motor.left_power, 0.1f);
+        lf_set(motor.right_power, 0.1f);
+        lf_set_mode(DRIVING);
+    =}
+  }
+
+  mode DRIVING {
+    reaction(line.reflect) -> INTERSECT, clear, motor.left_power, motor.right_power {=
+        if (line.reflect->value[0] > 50 && line.reflect->value[4] > 50) {
+            self->leftPower = -0.1f;
+            self->rightPower = 0.1f;
+            lf_schedule(clear, SEC(0.6));
+            lf_set_mode(INTERSECT);
+        }
+        else if (line.reflect->value[2] < 80) {
+          if (line.reflect->value[1] > 30 || line.reflect->value[0] > 30) {
+            self->leftPower = fmaxf(0.05f, self->leftPower - 0.01f);
+            self->rightPower = fminf(0.15f, self->rightPower + 0.01f);
+          }
+          else if (line.reflect->value[3] > 30 || line.reflect->value[4] > 30) {
+            self->leftPower = fminf(0.15f, self->leftPower + 0.01f);
+            self->rightPower = fmaxf(0.05f, self->rightPower - 0.01f);
+          }
+        }
+        else if (line.reflect->value[2] >= 80) {
+          self->leftPower = 0.1f;
+          self->rightPower = 0.1f;
+        }
+        
+        lf_set(motor.left_power, self->leftPower);
+        lf_set(motor.right_power, self->rightPower);
+    =}
+
+  }
+}
+
+main reactor {
+  timer t(0, 2 sec)
+  state drive: bool = false
+  robot = new Robot()
+  display = new Display()
+  robot.notify -> display.line0
+
+  reaction(t) -> robot.drive {=
+    lf_set(robot.drive, self->drive);
+    // Toggle the drive state variable for next time.
+    self->drive = !self->drive;
+  =}
+}
