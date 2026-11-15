@@ -3,6 +3,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/UWBToy2.dir/UWBToy2.c.o.d"
   "CMakeFiles/UWBToy2.dir/_display.c.o"
   "CMakeFiles/UWBToy2.dir/_display.c.o.d"
+  "CMakeFiles/UWBToy2.dir/_uart.c.o"
+  "CMakeFiles/UWBToy2.dir/_uart.c.o.d"
   "CMakeFiles/UWBToy2.dir/_uwb.c.o"
   "CMakeFiles/UWBToy2.dir/_uwb.c.o.d"
   "CMakeFiles/UWBToy2.dir/_uwbtoy2_main.c.o"

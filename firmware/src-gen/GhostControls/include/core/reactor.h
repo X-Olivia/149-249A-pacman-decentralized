@@ -19,7 +19,8 @@
 #define REACTOR_H
 
 #include "lf_types.h"
-#include "modes.h" // Modal model support
+#include "low_level_platform.h" // For lf_cond_t in lf_async_state_t.
+#include "modes.h"              // Modal model support
 #include "port.h"
 #include "tag.h"   // Time-related functions.
 #include "clock.h" // Time-related functions.
@@ -73,6 +74,16 @@ void lf_set_federation_id(const char* fid);
  * @ingroup Federated
  */
 const char* lf_get_federation_id();
+
+/**
+ * @brief Return true if the RTI has reported failure.
+ * @ingroup Federated
+ *
+ * Set by the RTI listener thread when it receives MSG_TYPE_FAILED.
+ * The main thread uses this to return a nonzero status without calling
+ * exit() from the listener.
+ */
+bool lf_rti_has_failed(void);
 
 #endif // FEDERATED
 
@@ -142,6 +153,201 @@ void lf_print_snapshot(environment_t* env);
  * by the RTI so that all federates and enclaves stop at the same tag.
  */
 void lf_request_stop(void);
+
+/**
+ * @brief Add a worker thread to the pool of worker threads of the specified environment.
+ * @ingroup API
+ *
+ * The new thread joins the pool immediately and starts executing reactions alongside the
+ * existing workers. This can be used, for example, to compensate for a worker thread that
+ * is about to block for an extended time inside a reaction. The thread remains in the pool
+ * until the program terminates, when it is joined like any other worker thread.
+ *
+ * This function must be called from within a reaction body, i.e., from one of the worker
+ * threads of the environment. In a reaction body, the environment is `self->base.environment`,
+ * and the convenience macro `lf_add_worker_thread()` (with no arguments) supplies it.
+ *
+ * Adding worker threads is supported by the default (NP) and GEDF_NP schedulers in the
+ * threaded runtime. The adaptive scheduler and the single-threaded runtime do not support
+ * it, in which case this function returns -1 and no thread is created.
+ *
+ * @param env The environment to which to add a worker thread.
+ * @return 0 on success, or -1 if the thread could not be created or the runtime does not
+ *  support adding worker threads.
+ */
+int lf_add_worker_thread(environment_t* env);
+
+/**
+ * @brief Return the number of worker threads added to the specified environment.
+ * @ingroup API
+ *
+ * This counts the worker threads that have been successfully added by calls to
+ * @ref lf_add_worker_thread(). It does not include the worker threads created at startup.
+ * In a reaction body, the environment is `self->base.environment`, and the convenience
+ * macro `lf_added_worker_thread_count()` (with no arguments) supplies it.
+ *
+ * @param env The environment.
+ * @return The number of worker threads added at runtime (0 in the single-threaded runtime).
+ */
+int lf_added_worker_thread_count(environment_t* env);
+
+/**
+ * @brief State of a pending `lf_async()` call.
+ * @ingroup Internal
+ *
+ * An instance of this struct lives on the stack of the reaction that invoked `lf_async()`.
+ * While the call is waiting to be resumed, the instance is linked into the list of pending
+ * calls of the environment (see `environment_t::async_waiters`). All fields other than
+ * `resumed_cond` are protected by the environment mutex once the instance is on that list.
+ */
+typedef struct lf_async_state_t {
+  /** The reactor whose reaction invoked `lf_async()`. */
+  self_base_t* self;
+  /** The reaction that invoked `lf_async()`. Restored as the executing reaction upon resumption. */
+  reaction_t* reaction;
+  /**
+   * The action whose event resumes this call, or NULL for `lf_await()`, which is resumed when
+   * its port is set. A physical action is scheduled in `_lf_async_end()`.
+   */
+  lf_action_base_t* action;
+  /** The input port passed to `lf_await()`, or NULL for `lf_async()`. */
+  lf_port_base_t* port;
+  /** Set to true when the call has been resumed. */
+  bool resumed;
+  /** Set to true in `_lf_async_end()`, once the invoked function has returned. */
+  bool function_done;
+  /**
+   * Set to true when the call is moved to `environment_t::async_deferred`, after which only the
+   * scheduler or the exiting workers resume it.
+   */
+  bool deferred;
+  /**
+   * True if the calling thread left the pool of worker threads. This is false if the program
+   * was already stopping when the call began, in which case the call does not suspend at all.
+   */
+  bool left_pool;
+  /**
+   * Tag at which a logical action resumes this call. `FOREVER_TAG` for a physical action and for
+   * `lf_await()`. Several calls that share one logical action and the same tag share one event.
+   */
+  tag_t resume_tag;
+  /**
+   * True if this call scheduled the logical action for `resume_tag`. A later call for the same
+   * action and tag leaves this false and does not schedule another event.
+   */
+  bool event_pending;
+  /** Next pending call in the environment, or NULL. */
+  struct lf_async_state_t* next;
+#if !defined(LF_SINGLE_THREADED)
+  /** Signaled when `resumed` becomes true. Associated with the environment mutex. */
+  lf_cond_t resumed_cond;
+#endif
+} lf_async_state_t;
+
+/**
+ * @brief Prepare to invoke a possibly blocking function from a reaction without blocking the environment.
+ * @ingroup Internal
+ *
+ * This is the first half of the `lf_async()` macro and is not meant to be called directly.
+ * It is called from a reaction body, by the worker thread executing the reaction, immediately
+ * before the function is invoked. Unless the program is already stopping, it first propagates any
+ * outputs that the reaction has set, so reactions triggered by those outputs run at the current tag
+ * before logical time can advance. Those reactions are queued rather than executed in this thread
+ * (see `schedule_output_reactions()`). If `action` is a logical action, it is scheduled at the
+ * current tag plus its minimum delay, or one microstep later than the current tag if the minimum
+ * delay is zero, before the function runs. Unless every thread previously
+ * added by `lf_async()` is already compensating for another suspended call, it then adds a worker
+ * thread to the pool of the environment (see @ref lf_add_worker_thread()). It then removes the calling
+ * worker thread from the pool so that, while the function executes, the remaining workers can advance
+ * logical time and execute other reactions as if the calling reaction had completed. The thread is
+ * added before the caller leaves so that the pool is never empty; if all remaining workers are idle
+ * when the caller leaves, the scheduler wakes one of them to advance the tag (see
+ * @ref lf_sched_remove_worker()). The reactor mutex, which is created here if the reactor does not
+ * already have one, is released. If the program is already stopping, none of this happens and
+ * the function simply executes inline.
+ *
+ * @param state Storage for the state of the call, which must remain valid until `_lf_async_end()` returns.
+ * @param self The self struct of the reactor whose reaction is executing.
+ * @param action The logical or physical action (an `lf_action_base_t*`) whose event resumes the
+ * call. A physical action is scheduled later, by `_lf_async_end()`. NULL for `lf_await()`.
+ * @param port The input port (an `lf_port_base_t*`) passed to `lf_await()`. NULL for `lf_async()`.
+ */
+void _lf_async_begin(lf_async_state_t* state, void* self, void* action, void* port);
+
+/**
+ * @brief Complete a call prepared by `_lf_async_begin()`.
+ * @ingroup Internal
+ *
+ * This is the second half of the `lf_async()` macro and is not meant to be called directly.
+ * It is called immediately after the function has returned. If the action is physical, it is
+ * scheduled now. A logical action was already scheduled by `_lf_async_begin()`. This function then
+ * blocks until the call is resumed (or until the worker threads of the environment exit because
+ * the program is stopping). When the event of the action is processed, the runtime defers the call
+ * until the scheduler reaches the level of the calling reaction, and resumes it then. If a logical
+ * action's tag is reached before the function returns, the scheduler waits at that level for this
+ * function to be called, so the tag does not advance past it. The calling thread, which by then
+ * has rejoined the pool of worker threads, reacquires the reactor mutex and this function returns,
+ * so that the remainder of the calling reaction executes at the tag of the action's event.
+ *
+ * @param state The state passed to `_lf_async_begin()`.
+ */
+void _lf_async_end(lf_async_state_t* state);
+
+/**
+ * @brief Formerly needed to resume a reaction suspended in `lf_async()`. Now does nothing.
+ * @ingroup API
+ *
+ * A call to `lf_async()` is resumed automatically when the event of its action is processed, so
+ * no reaction triggered by the action is needed. This function is retained so that existing
+ * programs that call it from such a reaction continue to compile and behave the same.
+ *
+ * @param action The action, as it is in scope in the reaction body.
+ */
+void lf_async_resume(void* action);
+
+/**
+ * @brief Suspend the calling reaction until the specified input port is next set.
+ * @ingroup Internal
+ *
+ * This is the implementation of the `lf_await()` macro, which supplies `self`, and is not meant
+ * to be called directly. It behaves like `lf_async()` with no function to invoke and no action. Outputs set before the
+ * call are propagated at the current tag, the calling worker thread leaves the pool (adding a
+ * replacement if needed), and logical time advances and other reactions execute as if the
+ * calling reaction had completed. When an upstream reaction next sets the port, the call is
+ * deferred until the scheduler reaches the level of the calling reaction. This function then
+ * returns, and the remainder of the calling reaction executes at that tag, after every reaction
+ * at lower levels, including reactions of this reactor triggered by the port, has completed.
+ * Outputs set after the call are produced at that tag.
+ *
+ * If the program stops before the port is set, this function returns at the stop tag, after the
+ * shutdown reactions have executed, so that the calling reaction can complete. If the program is
+ * already stopping when this is called, it returns immediately.
+ *
+ * The caveats of `lf_async()` apply: the calling reaction counts as executing while suspended,
+ * state variables may be modified by other reactions in the meantime, the reactions of the
+ * reactor become mutually exclusive, and this requires the threaded runtime with the NP or
+ * GEDF_NP scheduler.
+ *
+ * @param self The self struct of the reactor whose reaction is executing.
+ * @param port A single, non-mutable input port of this reactor (an `lf_port_base_t*`), as it is in
+ * scope in the reaction body. The calling reaction must list it as a trigger or source, so that its
+ * level is higher than that of every reaction that sets the port. The port is identified by its
+ * address, which is that of the upstream port that it receives from.
+ */
+void _lf_await(void* self, void* port);
+
+/**
+ * @brief Formerly needed to resume reactions suspended in `lf_await()`. Now does nothing.
+ * @ingroup Internal
+ *
+ * This is the implementation of the `lf_await_resume()` macro. A call to `lf_await()` is resumed
+ * automatically when its port is set, so no reaction triggered by the port is needed. This function
+ * is retained so that existing programs that call it continue to compile and behave the same.
+ *
+ * @param self The self struct of the reactor whose reaction is executing.
+ * @param port The input port (an `lf_port_base_t*`), as it is in scope in the reaction body.
+ */
+void _lf_await_resume(void* self, void* port);
 
 /**
  * @brief Allocate memory and record on the specified allocation record (a self struct).

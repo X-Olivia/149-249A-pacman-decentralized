@@ -8,21 +8,23 @@
 #include "include/api/reaction_macros.h"
 void _motorswithfeedbackreaction_function_0(void* instance_args) {
     _motorswithfeedback_self_t* self = (_motorswithfeedback_self_t*)instance_args; SUPPRESS_UNUSED_WARNING(self);
+    enum { _lf_await_requires_a_single_non_mutable_input_port__left_speed = 1 };
     _motorswithfeedback_left_speed_t* left_speed = self->_lf_left_speed;
     int left_speed_width = self->_lf_left_speed_width; SUPPRESS_UNUSED_WARNING(left_speed_width);
     #line 50 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/lib/MotorsWithFeedback.lf"
     self->target_speed_left = left_speed->value;
-#line 16 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/GhostControls/_motorswithfeedback.c"
+#line 17 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/GhostControls/_motorswithfeedback.c"
 }
 #include "include/api/reaction_macros_undef.h"
 #include "include/api/reaction_macros.h"
 void _motorswithfeedbackreaction_function_1(void* instance_args) {
     _motorswithfeedback_self_t* self = (_motorswithfeedback_self_t*)instance_args; SUPPRESS_UNUSED_WARNING(self);
+    enum { _lf_await_requires_a_single_non_mutable_input_port__right_speed = 1 };
     _motorswithfeedback_right_speed_t* right_speed = self->_lf_right_speed;
     int right_speed_width = self->_lf_right_speed_width; SUPPRESS_UNUSED_WARNING(right_speed_width);
     #line 54 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/lib/MotorsWithFeedback.lf"
     self->target_speed_right = right_speed->value;
-#line 26 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/GhostControls/_motorswithfeedback.c"
+#line 28 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/GhostControls/_motorswithfeedback.c"
 }
 #include "include/api/reaction_macros_undef.h"
 #include "include/api/reaction_macros.h"
@@ -36,8 +38,10 @@ void _motorswithfeedbackreaction_function_2(void* instance_args) {
         _picontrol_err_t* err;
     
     } control_right;
+    enum { _lf_await_requires_a_single_non_mutable_input_port__left = 1 };
     _motorswithfeedback_left_t* left = self->_lf_left;
     int left_width = self->_lf_left_width; SUPPRESS_UNUSED_WARNING(left_width);
+    enum { _lf_await_requires_a_single_non_mutable_input_port__right = 1 };
     _motorswithfeedback_right_t* right = self->_lf_right;
     int right_width = self->_lf_right_width; SUPPRESS_UNUSED_WARNING(right_width);
     control_left.err = &(self->_lf_control_left.err);
@@ -61,7 +65,7 @@ void _motorswithfeedbackreaction_function_2(void* instance_args) {
       }
     }
     self->prev_time = now;
-#line 65 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/GhostControls/_motorswithfeedback.c"
+#line 69 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/GhostControls/_motorswithfeedback.c"
 }
 #include "include/api/reaction_macros_undef.h"
 _motorswithfeedback_self_t* new__motorswithfeedback() {

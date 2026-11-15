@@ -194,6 +194,7 @@ set(CMAKE_ASM_TARGET_INCLUDE_PATH
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/UWBToy2/UWBToy2.c" "CMakeFiles/UWBToy2.dir/UWBToy2.c.o" "gcc" "CMakeFiles/UWBToy2.dir/UWBToy2.c.o.d"
   "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/UWBToy2/_display.c" "CMakeFiles/UWBToy2.dir/_display.c.o" "gcc" "CMakeFiles/UWBToy2.dir/_display.c.o.d"
+  "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/UWBToy2/_uart.c" "CMakeFiles/UWBToy2.dir/_uart.c.o" "gcc" "CMakeFiles/UWBToy2.dir/_uart.c.o.d"
   "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/UWBToy2/_uwb.c" "CMakeFiles/UWBToy2.dir/_uwb.c.o" "gcc" "CMakeFiles/UWBToy2.dir/_uwb.c.o.d"
   "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/UWBToy2/_uwbtoy2_main.c" "CMakeFiles/UWBToy2.dir/_uwbtoy2_main.c.o" "gcc" "CMakeFiles/UWBToy2.dir/_uwbtoy2_main.c.o.d"
   "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c" "CMakeFiles/UWBToy2.dir/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.o" "gcc" "CMakeFiles/UWBToy2.dir/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.o.d"

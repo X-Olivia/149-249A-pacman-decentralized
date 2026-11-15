@@ -1,0 +1,74 @@
+target C {
+  platform: {
+    name: "rp2040",
+    board: "pololu_3pi_2040_robot"
+  },
+  single-threaded: true
+}
+
+preamble {=
+  #include <stdio.h>
+  #include "pico/stdlib.h"
+  #include "hardware/uart.h"
+  #include <stdlib.h>
+  #define MESSAGE_SIZE 128
+=}
+
+// parses all the uart messages for the robots
+// uart format is "USE:data", for example "UWB:12.3", meaning that the UWB sensed that it is 12.3 cm away
+// We'll probably expand on this after to include id, so it'll be like "UWB:1,12.3" 
+reactor UART {
+    preamble{=
+        bool on = false;
+        void* uart_irq;
+        char buffer[MESSAGE_SIZE + 1] = {0};
+        int buf_ptr = 0;
+        void uart_irq_handler(){
+        if (uart_is_readable(uart0)){
+            buffer[buf_ptr] = uart_getc(uart0);
+            if (buffer[buf_ptr] == '\n' || buf_ptr >= MESSAGE_SIZE){
+            buffer[buf_ptr] = '\0';
+            buf_ptr = 0;
+            lf_schedule(uart_irq, 0);
+            }
+            else {
+            buf_ptr++;
+            }
+        }
+        }
+    =}
+    output uwb_out: string
+    output bt_out: string
+    input bt_in: string
+    physical action uart_irq_a
+
+    reaction(startup) -> uart_irq_a {=
+        uart_init(uart0, 9600);
+        gpio_set_function(28, GPIO_FUNC_UART);  // GP28 = TX -> ESP32 RX (20)
+        gpio_set_function(29, GPIO_FUNC_UART);  // GP29 = RX <- ESP32 TX (21)
+        irq_set_exclusive_handler(UART0_IRQ, uart_irq_handler);
+        irq_set_enabled(UART0_IRQ, true);
+        uart_set_irqs_enabled (uart0, true, false);
+        uart_irq = uart_irq_a;
+    =}
+
+    reaction(uart_irq_a) -> uwb_out, bt_out {=
+        char* endptr = NULL;
+        // parse the string "use:data" -> "use", "data"
+        char* use = strtok(buffer, ":");
+        char* data = strtok(NULL, "");
+        if (strcmp(use, "UWB") == 0){
+            lf_set(uwb_out, data);
+        } else if (strcmp(use, "BT") == 0){
+            lf_set(bt_out, data);
+        }
+    =}
+
+    // useful for debugging purposes
+    reaction(bt_in) {=
+        // send message to bluetooth
+        char message[MESSAGE_SIZE + 1] = {0};
+        snprintf(message, MESSAGE_SIZE + 1, "BT:%s\n", bt_in->value);
+        uart_puts(uart0, message);
+    =}
+}

@@ -378,6 +378,30 @@ _display.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/UWBToy2.dir/build.make CMakeFiles/UWBToy2.dir/_display.c.s
 .PHONY : _display.c.s
 
+_uart.o: _uart.c.o
+.PHONY : _uart.o
+
+# target to build an object file
+_uart.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/UWBToy2.dir/build.make CMakeFiles/UWBToy2.dir/_uart.c.o
+.PHONY : _uart.c.o
+
+_uart.i: _uart.c.i
+.PHONY : _uart.i
+
+# target to preprocess a source file
+_uart.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/UWBToy2.dir/build.make CMakeFiles/UWBToy2.dir/_uart.c.i
+.PHONY : _uart.c.i
+
+_uart.s: _uart.c.s
+.PHONY : _uart.s
+
+# target to generate assembly for a file
+_uart.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/UWBToy2.dir/build.make CMakeFiles/UWBToy2.dir/_uart.c.s
+.PHONY : _uart.c.s
+
 _uwb.o: _uwb.c.o
 .PHONY : _uwb.o
 
@@ -2393,6 +2417,9 @@ help:
 	@echo "... _display.o"
 	@echo "... _display.i"
 	@echo "... _display.s"
+	@echo "... _uart.o"
+	@echo "... _uart.i"
+	@echo "... _uart.s"
 	@echo "... _uwb.o"
 	@echo "... _uwb.i"
 	@echo "... _uwb.s"

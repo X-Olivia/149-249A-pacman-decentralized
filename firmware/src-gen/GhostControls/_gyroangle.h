@@ -3,15 +3,11 @@
 #include "include/core/reactor.h"
 #include "_trapezoidalintegrator.h"
 #include "_gyro.h"
-#ifndef TOP_LEVEL_PREAMBLE_124540047_H
-#define TOP_LEVEL_PREAMBLE_124540047_H
+#ifndef TOP_LEVEL_PREAMBLE_1478091345_H
+#define TOP_LEVEL_PREAMBLE_1478091345_H
 #include <pico/stdlib.h>
 #include <imu.h>
-#endif // TOP_LEVEL_PREAMBLE_124540047_H
-
-
-
-
+#endif // TOP_LEVEL_PREAMBLE_1478091345_H
 typedef struct {
     token_type_t type;
     lf_token_t* token;
@@ -70,8 +66,8 @@ typedef struct {
 } _gyroangle_z_t;
 typedef struct {
     struct self_base_t base;
-#line 74 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/GhostControls/_gyroangle.h"
-#line 75 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/GhostControls/_gyroangle.h"
+#line 70 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/GhostControls/_gyroangle.h"
+#line 71 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/GhostControls/_gyroangle.h"
     _gyroangle_trigger_t* _lf_trigger;
     // width of -2 indicates that it is not a multiport.
     int _lf_trigger_width;

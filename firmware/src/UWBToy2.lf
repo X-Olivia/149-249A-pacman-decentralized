@@ -9,13 +9,24 @@ target C {
 
 import Display from "lib/Display.lf"
 import UWB from "lib/UWB.lf"
+import UART from "lib/UART.lf"
 
 main reactor {
   uwb = new UWB()
+  uart = new UART()
   display = new Display()
-  reaction(uwb.dist) -> display.line0{=
+  uart.uwb_out->uwb.uart_data
+  state count:int
+  reaction(uwb.dist) -> display.line0, uart.bt_in{=
+    // displays on the on-board pololu display!
     static char buf[17];
     snprintf(buf, 17, "Dist: %.2f cm", uwb.dist->value);
     lf_set(display.line0, buf);
+
+    // displays on the bluetooth server hosted by the ESP32!
+    static char buf2[17];
+    snprintf(buf2, 17, "%d", self->count);
+    lf_set(uart.bt_in, buf2);
+    self->count++;
   =}
 }

@@ -20,12 +20,12 @@ void _ghost_method_turn(void* instance_args, dir_t rel_dir);
 #define in_exits(...) _ghost_method_in_exits(self, ##__VA_ARGS__)
 #define choose_exit(...) _ghost_method_choose_exit(self, ##__VA_ARGS__)
 #define turn(...) _ghost_method_turn(self, ##__VA_ARGS__)
-#line 164 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/GhostControls.lf"
+#line 167 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/GhostControls.lf"
 #include "include/api/reaction_macros.h"
 // Implementation of method d2d_dir_reset()
 void _ghost_method_d2d_dir_reset(void* instance_args, dir_t dir) {
     _ghost_self_t* self = (_ghost_self_t*)instance_args; SUPPRESS_UNUSED_WARNING(self);
-    #line 165 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/GhostControls.lf"
+    #line 168 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/GhostControls.lf"
     dist_arr* arr = &self->dir_to_dists[dir];
     for (int x = 0; x < arr->size; x++){
       arr->dist[x] = 0;
@@ -35,23 +35,23 @@ void _ghost_method_d2d_dir_reset(void* instance_args, dir_t dir) {
 }
 #include "include/api/reaction_macros_undef.h"
 #line 38 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/GhostControls/_ghost.c"
-#line 172 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/GhostControls.lf"
+#line 175 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/GhostControls.lf"
 #include "include/api/reaction_macros.h"
 // Implementation of method d2d_dir_get_last()
 float _ghost_method_d2d_dir_get_last(void* instance_args, dir_t dir) {
     _ghost_self_t* self = (_ghost_self_t*)instance_args; SUPPRESS_UNUSED_WARNING(self);
-    #line 173 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/GhostControls.lf"
+    #line 176 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/GhostControls.lf"
     dist_arr* arr = &self->dir_to_dists[dir];
     return arr->dist[(arr->tail - 1 + MAX_ENTRIES) % MAX_ENTRIES];
 }
 #include "include/api/reaction_macros_undef.h"
 #line 49 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/GhostControls/_ghost.c"
-#line 176 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/GhostControls.lf"
+#line 179 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/GhostControls.lf"
 #include "include/api/reaction_macros.h"
 // Implementation of method d2d_dir_get_dist_roc()
 float _ghost_method_d2d_dir_get_dist_roc(void* instance_args, dir_t dir) {
     _ghost_self_t* self = (_ghost_self_t*)instance_args; SUPPRESS_UNUSED_WARNING(self);
-    #line 177 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/GhostControls.lf"
+    #line 180 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/GhostControls.lf"
     float sum = 0;
     dist_arr* arr = &self->dir_to_dists[dir];
     for(int x = 0; x < arr->size; x++){
@@ -61,12 +61,12 @@ float _ghost_method_d2d_dir_get_dist_roc(void* instance_args, dir_t dir) {
 }
 #include "include/api/reaction_macros_undef.h"
 #line 64 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/GhostControls/_ghost.c"
-#line 184 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/GhostControls.lf"
+#line 187 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/GhostControls.lf"
 #include "include/api/reaction_macros.h"
 // Implementation of method d2d_dir_add_dist()
 void _ghost_method_d2d_dir_add_dist(void* instance_args, dir_t dir, float dist) {
     _ghost_self_t* self = (_ghost_self_t*)instance_args; SUPPRESS_UNUSED_WARNING(self);
-    #line 185 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/GhostControls.lf"
+    #line 188 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/GhostControls.lf"
     dist_arr* arr = &self->dir_to_dists[dir];
     arr->dist[arr->tail] = dist;
     arr->tail = (arr->tail + 1) % MAX_ENTRIES;
@@ -74,24 +74,24 @@ void _ghost_method_d2d_dir_add_dist(void* instance_args, dir_t dir, float dist) 
 }
 #include "include/api/reaction_macros_undef.h"
 #line 77 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/GhostControls/_ghost.c"
-#line 190 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/GhostControls.lf"
+#line 193 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/GhostControls.lf"
 #include "include/api/reaction_macros.h"
 // Implementation of method d2d_reset_all_dists()
 void _ghost_method_d2d_reset_all_dists(void* instance_args) {
     _ghost_self_t* self = (_ghost_self_t*)instance_args; SUPPRESS_UNUSED_WARNING(self);
-    #line 191 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/GhostControls.lf"
+    #line 194 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/GhostControls.lf"
     for (int x = 0; x < NUM_DIRS; x++){
       d2d_dir_reset(x);
     }
 }
 #include "include/api/reaction_macros_undef.h"
 #line 89 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/GhostControls/_ghost.c"
-#line 197 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/GhostControls.lf"
+#line 200 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/GhostControls.lf"
 #include "include/api/reaction_macros.h"
 // Implementation of method in_exits()
 bool _ghost_method_in_exits(void* instance_args, path_arr exits, dir_t dir) {
     _ghost_self_t* self = (_ghost_self_t*)instance_args; SUPPRESS_UNUSED_WARNING(self);
-    #line 198 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/GhostControls.lf"
+    #line 201 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/GhostControls.lf"
     for (int x = 0; x < exits.size; x++){
       if (exits.path[x] == dir){
         return true;
@@ -101,12 +101,12 @@ bool _ghost_method_in_exits(void* instance_args, path_arr exits, dir_t dir) {
 }
 #include "include/api/reaction_macros_undef.h"
 #line 104 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/GhostControls/_ghost.c"
-#line 205 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/GhostControls.lf"
+#line 208 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/GhostControls.lf"
 #include "include/api/reaction_macros.h"
 // Implementation of method choose_exit()
 dir_t _ghost_method_choose_exit(void* instance_args, path_arr exits) {
     _ghost_self_t* self = (_ghost_self_t*)instance_args; SUPPRESS_UNUSED_WARNING(self);
-    #line 206 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/GhostControls.lf"
+    #line 209 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/GhostControls.lf"
     // if last distance is invalid, keep going or pick a random exit -> will have to edit this
     if (self->last_distance < 0){
       return in_exits(exits, FORWARDS) ? FORWARDS : exits.path[rand() % exits.size];
@@ -131,12 +131,12 @@ dir_t _ghost_method_choose_exit(void* instance_args, path_arr exits) {
 }
 #include "include/api/reaction_macros_undef.h"
 #line 134 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/GhostControls/_ghost.c"
-#line 228 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/GhostControls.lf"
+#line 231 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/GhostControls.lf"
 #include "include/api/reaction_macros.h"
 // Implementation of method turn()
 void _ghost_method_turn(void* instance_args, dir_t rel_dir) {
     _ghost_self_t* self = (_ghost_self_t*)instance_args; SUPPRESS_UNUSED_WARNING(self);
-    #line 229 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/GhostControls.lf"
+    #line 232 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/GhostControls.lf"
     if (rel_dir != FORWARDS){
       self->curr_dir = (self->curr_dir + rel_dir) % NUM_DIRS;
       d2d_dir_reset(self->curr_dir);
@@ -166,7 +166,7 @@ void _ghost_method_turn(void* instance_args, dir_t rel_dir) {
 void _ghostreaction_function_0(void* instance_args) {
     _ghost_self_t* self = (_ghost_self_t*)instance_args; SUPPRESS_UNUSED_WARNING(self);
     
-    #line 238 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/GhostControls.lf"
+    #line 241 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/GhostControls.lf"
     self->valid_paths.path[0] = FORWARDS;
     self->valid_paths.path[1] = LEFT;
     self->valid_paths.path[2] = BACKWARDS;
@@ -202,7 +202,7 @@ void _ghostreaction_function_1(void* instance_args) {
     
     } control;
     control.turn_angle = &(self->_lf_control.turn_angle);
-    #line 248 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/GhostControls.lf"
+    #line 251 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/GhostControls.lf"
     if (lf_time_logical_elapsed() > self->last_decision + TIME_BEFORE_ROTATE_ALLOWED){
       self->last_decision = lf_time_logical_elapsed();
       if (self->valid_paths.size == 1){
@@ -249,7 +249,7 @@ void _ghostreaction_function_2(void* instance_args) {
     
     } uwb;
     uwb.dist = self->_lf_uwb.dist;
-    #line 269 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/GhostControls.lf"
+    #line 272 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/GhostControls.lf"
     if(self->last_distance >= 0){
       d2d_dir_add_dist(self->curr_dir, uwb.dist->value - self->last_distance);
     }

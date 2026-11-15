@@ -16,13 +16,25 @@ void _uwbtoy2_mainreaction_function_0(void* instance_args) {
         _display_line0_t* line0;
     
     } display;
+    struct uart {
+        _uart_bt_in_t* bt_in;
+    
+    } uart;
     uwb.dist = self->_lf_uwb.dist;
     display.line0 = &(self->_lf_display.line0);
-    #line 17 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/UWBToy2.lf"
+    uart.bt_in = &(self->_lf_uart.bt_in);
+    #line 21 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/UWBToy2.lf"
+    // displays on the on-board pololu display!
     static char buf[17];
     snprintf(buf, 17, "Dist: %.2f cm", uwb.dist->value);
     lf_set(display.line0, buf);
-#line 26 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/UWBToy2/_uwbtoy2_main.c"
+    
+    // displays on the bluetooth server hosted by the ESP32!
+    static char buf2[17];
+    snprintf(buf2, 17, "%d", self->count);
+    lf_set(uart.bt_in, buf2);
+    self->count++;
+#line 38 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/UWBToy2/_uwbtoy2_main.c"
 }
 #include "include/api/reaction_macros_undef.h"
 _uwbtoy2_main_main_self_t* new__uwbtoy2_main() {
@@ -30,6 +42,9 @@ _uwbtoy2_main_main_self_t* new__uwbtoy2_main() {
     // Set the _width variable for all cases. This will be -2
     // if the reactor is not a bank of reactors.
     self->_lf_display_width = -2;
+    // Set the _width variable for all cases. This will be -2
+    // if the reactor is not a bank of reactors.
+    self->_lf_uart_width = -2;
     // Set the _width variable for all cases. This will be -2
     // if the reactor is not a bank of reactors.
     self->_lf_uwb_width = -2;

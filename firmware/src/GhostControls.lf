@@ -20,6 +20,7 @@ import MotorsWithFeedback from "lib/MotorsWithFeedback.lf"
 import Encoders from "lib/Encoders.lf"
 import Bluetooth from "lib/Bluetooth.lf"
 import UWB from "lib/UWB.lf"
+import UART from "lib/UART.lf"
 
 preamble {=
   #include "hardware/uart.h"
@@ -147,7 +148,9 @@ reactor Motion_control(p_encoder: time = 1ms, p_gyro: time = 1ms){
 reactor Ghost(p_turn: time = 1 s){
   disp = new Display()
   uwb = new UWB()
+  uart = new UART()
   control = new Motion_control()
+  uart.uwb_out->uwb.uart_data
 
   timer t_turn(0, p_turn)
 

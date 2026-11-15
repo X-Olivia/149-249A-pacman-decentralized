@@ -29,6 +29,7 @@ void _gyroreaction_function_0(void* instance_args) {
 #include "include/api/reaction_macros.h"
 void _gyroreaction_function_1(void* instance_args) {
     _gyro_self_t* self = (_gyro_self_t*)instance_args; SUPPRESS_UNUSED_WARNING(self);
+    enum { _lf_await_requires_a_single_non_mutable_input_port__trigger = 1 };
     _gyro_trigger_t* trigger = self->_lf_trigger;
     int trigger_width = self->_lf_trigger_width; SUPPRESS_UNUSED_WARNING(trigger_width);
     _gyro_x_t* x = &self->_lf_x;
@@ -40,7 +41,7 @@ void _gyroreaction_function_1(void* instance_args) {
     lf_set(x, gyro_data.x);
     lf_set(y, gyro_data.y);
     lf_set(z, gyro_data.z);
-#line 44 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/GhostControls/_gyro.c"
+#line 45 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/GhostControls/_gyro.c"
 }
 #include "include/api/reaction_macros_undef.h"
 _gyro_self_t* new__gyro() {

@@ -22,6 +22,7 @@ void lf_set_default_command_line_options() {
         default_argv = _lf_default_argv;
 }
 #include "_uwb.h"
+#include "_uart.h"
 #include "_display.h"
 #include "_uwbtoy2_main.h"
 typedef enum {
@@ -32,7 +33,7 @@ typedef enum {
 static environment_t environments[num_environments];
 // 'Create' and initialize the environments in the program
 void lf_create_environments() {
-    environment_init(&environments[uwbtoy2_main],"uwbtoy2_main",uwbtoy2_main,_lf_number_of_workers,1,2,0,0,3,0,0,0,NULL);
+    environment_init(&environments[uwbtoy2_main],"uwbtoy2_main",uwbtoy2_main,_lf_number_of_workers,0,2,0,0,6,0,0,0,NULL);
 }
 // Update the pointer argument to point to the beginning of the environment array
 // and return the size of that array
@@ -114,6 +115,8 @@ void _lf_initialize_trigger_objects() {
     SUPPRESS_UNUSED_WARNING(uwbtoy2_main_self);
     _uwb_self_t* uwbtoy2_uwb_self[1];
     SUPPRESS_UNUSED_WARNING(uwbtoy2_uwb_self);
+    _uart_self_t* uwbtoy2_uart_self[1];
+    SUPPRESS_UNUSED_WARNING(uwbtoy2_uart_self);
     _display_self_t* uwbtoy2_display_self[1];
     SUPPRESS_UNUSED_WARNING(uwbtoy2_display_self);
     // ***** Start initializing UWBToy2 of class UWBToy2
@@ -135,31 +138,51 @@ void _lf_initialize_trigger_objects() {
         
         // width of -2 indicates that it is not a multiport.
         uwbtoy2_uwb_self[0]->_lf_dist_width = -2;
-        environments[uwbtoy2_main].startup_reactions[startup_reaction_count[uwbtoy2_main]++] = &uwbtoy2_uwb_self[0]->_lf__reaction_0;
-        // Initiaizing timer UWBToy2.uwb.poll.
-        uwbtoy2_uwb_self[0]->_lf__poll.offset = 0;
-        uwbtoy2_uwb_self[0]->_lf__poll.period = SEC(1);
-        // Associate timer with the environment of its parent
-        environments[uwbtoy2_main].timer_triggers[timer_triggers_count[uwbtoy2_main]++] = &uwbtoy2_uwb_self[0]->_lf__poll;
-        uwbtoy2_uwb_self[0]->_lf__poll.mode = NULL;
-        // Initializing action UWBToy2.uwb.uart_irq_a
-        uwbtoy2_uwb_self[0]->_lf__uart_irq_a.offset = 0;
-        uwbtoy2_uwb_self[0]->_lf__uart_irq_a.period = -1;
-        uwbtoy2_uwb_self[0]->_lf__uart_irq_a.last_tag = NEVER_TAG;
-        uwbtoy2_uwb_self[0]->_lf__uart_irq_a.mode = NULL;
-        _lf_initialize_template((token_template_t*)
-                &(uwbtoy2_uwb_self[0]->_lf__uart_irq_a),
-        0);
-        _lf_initialize_template((token_template_t*)
-                &(uwbtoy2_uwb_self[0]->_lf_uart_irq_a),
-        0);
-        uwbtoy2_uwb_self[0]->_lf__uart_irq_a.status = absent;
+        // width of -2 indicates that it is not a multiport.
+        uwbtoy2_uwb_self[0]->_lf_uart_data_width = -2;
+    
         uwbtoy2_uwb_self[0]->_lf__reaction_0.deadline = NEVER;
-        uwbtoy2_uwb_self[0]->_lf__reaction_1.deadline = NEVER;
         #if !defined LF_SINGLE_THREADED
         uwbtoy2_uwb_self[0]->base.reactor_mutex = NULL;
         #endif
         //***** End initializing UWBToy2.uwb
+    }
+    {
+        _uwbtoy2_main_main_self_t *self = uwbtoy2_main_self[0];
+        // ***** Start initializing UWBToy2.uart of class UART
+        uwbtoy2_uart_self[0] = new__uart();
+        uwbtoy2_uart_self[0]->base.environment = &environments[uwbtoy2_main];
+        bank_index = 0; SUPPRESS_UNUSED_WARNING(bank_index);
+        
+        
+        // width of -2 indicates that it is not a multiport.
+        uwbtoy2_uart_self[0]->_lf_uwb_out_width = -2;
+        
+        
+        // width of -2 indicates that it is not a multiport.
+        uwbtoy2_uart_self[0]->_lf_bt_out_width = -2;
+        // width of -2 indicates that it is not a multiport.
+        uwbtoy2_uart_self[0]->_lf_bt_in_width = -2;
+        environments[uwbtoy2_main].startup_reactions[startup_reaction_count[uwbtoy2_main]++] = &uwbtoy2_uart_self[0]->_lf__reaction_0;
+        // Initializing action UWBToy2.uart.uart_irq_a
+        uwbtoy2_uart_self[0]->_lf__uart_irq_a.offset = 0;
+        uwbtoy2_uart_self[0]->_lf__uart_irq_a.period = -1;
+        uwbtoy2_uart_self[0]->_lf__uart_irq_a.last_tag = NEVER_TAG;
+        uwbtoy2_uart_self[0]->_lf__uart_irq_a.mode = NULL;
+        _lf_initialize_template((token_template_t*)
+                &(uwbtoy2_uart_self[0]->_lf__uart_irq_a),
+        0);
+        _lf_initialize_template((token_template_t*)
+                &(uwbtoy2_uart_self[0]->_lf_uart_irq_a),
+        0);
+        uwbtoy2_uart_self[0]->_lf__uart_irq_a.status = absent;
+        uwbtoy2_uart_self[0]->_lf__reaction_0.deadline = NEVER;
+        uwbtoy2_uart_self[0]->_lf__reaction_1.deadline = NEVER;
+        uwbtoy2_uart_self[0]->_lf__reaction_2.deadline = NEVER;
+        #if !defined LF_SINGLE_THREADED
+        uwbtoy2_uart_self[0]->base.reactor_mutex = NULL;
+        #endif
+        //***** End initializing UWBToy2.uart
     }
     {
         _uwbtoy2_main_main_self_t *self = uwbtoy2_main_self[0];
@@ -192,23 +215,27 @@ void _lf_initialize_trigger_objects() {
     
         // Total number of outputs (single ports and multiport channels)
         // produced by reaction_1 of UWBToy2.
-        uwbtoy2_main_self[0]->_lf__reaction_0.num_outputs = 1;
+        uwbtoy2_main_self[0]->_lf__reaction_0.num_outputs = 2;
         // Allocate memory for triggers[] and triggered_sizes[] on the reaction_t
         // struct for this reaction.
         uwbtoy2_main_self[0]->_lf__reaction_0.triggers = (trigger_t***)lf_allocate(
-                1, sizeof(trigger_t**),
+                2, sizeof(trigger_t**),
                 &uwbtoy2_main_self[0]->base.allocations);
         uwbtoy2_main_self[0]->_lf__reaction_0.triggered_sizes = (int*)lf_allocate(
-                1, sizeof(int),
+                2, sizeof(int),
                 &uwbtoy2_main_self[0]->base.allocations);
         uwbtoy2_main_self[0]->_lf__reaction_0.output_produced = (bool**)lf_allocate(
-                1, sizeof(bool*),
+                2, sizeof(bool*),
                 &uwbtoy2_main_self[0]->base.allocations);
         {
             int count = 0; SUPPRESS_UNUSED_WARNING(count);
             // Reaction writes to an input of a contained reactor.
             {
                 uwbtoy2_main_self[0]->_lf__reaction_0.output_produced[count++] = &uwbtoy2_main_self[0]->_lf_display.line0.is_present;
+            }
+            // Reaction writes to an input of a contained reactor.
+            {
+                uwbtoy2_main_self[0]->_lf__reaction_0.output_produced[count++] = &uwbtoy2_main_self[0]->_lf_uart.bt_in.is_present;
             }
         }
         
@@ -221,37 +248,75 @@ void _lf_initialize_trigger_objects() {
         
             // Total number of outputs (single ports and multiport channels)
             // produced by reaction_1 of UWBToy2.uwb.
-            uwbtoy2_uwb_self[0]->_lf__reaction_0.num_outputs = 0;
-            {
-                int count = 0; SUPPRESS_UNUSED_WARNING(count);
-            }
-            
-            // ** End initialization for reaction 0 of UWBToy2.uwb
-            // Total number of outputs (single ports and multiport channels)
-            // produced by reaction_2 of UWBToy2.uwb.
-            uwbtoy2_uwb_self[0]->_lf__reaction_1.num_outputs = 1;
+            uwbtoy2_uwb_self[0]->_lf__reaction_0.num_outputs = 1;
             // Allocate memory for triggers[] and triggered_sizes[] on the reaction_t
             // struct for this reaction.
-            uwbtoy2_uwb_self[0]->_lf__reaction_1.triggers = (trigger_t***)lf_allocate(
+            uwbtoy2_uwb_self[0]->_lf__reaction_0.triggers = (trigger_t***)lf_allocate(
                     1, sizeof(trigger_t**),
                     &uwbtoy2_uwb_self[0]->base.allocations);
-            uwbtoy2_uwb_self[0]->_lf__reaction_1.triggered_sizes = (int*)lf_allocate(
+            uwbtoy2_uwb_self[0]->_lf__reaction_0.triggered_sizes = (int*)lf_allocate(
                     1, sizeof(int),
                     &uwbtoy2_uwb_self[0]->base.allocations);
-            uwbtoy2_uwb_self[0]->_lf__reaction_1.output_produced = (bool**)lf_allocate(
+            uwbtoy2_uwb_self[0]->_lf__reaction_0.output_produced = (bool**)lf_allocate(
                     1, sizeof(bool*),
                     &uwbtoy2_uwb_self[0]->base.allocations);
             {
                 int count = 0; SUPPRESS_UNUSED_WARNING(count);
                 {
-                    uwbtoy2_uwb_self[0]->_lf__reaction_1.output_produced[count++] = &uwbtoy2_uwb_self[0]->_lf_dist.is_present;
+                    uwbtoy2_uwb_self[0]->_lf__reaction_0.output_produced[count++] = &uwbtoy2_uwb_self[0]->_lf_dist.is_present;
                 }
             }
             
-            // ** End initialization for reaction 1 of UWBToy2.uwb
+            // ** End initialization for reaction 0 of UWBToy2.uwb
         
         }
         // **** End of deferred initialize for UWBToy2.uwb
+        // **** Start deferred initialize for UWBToy2.uart
+        {
+            uwbtoy2_uart_self[0]->base.name = "uart";
+            uwbtoy2_uart_self[0]->base.parent = (self_base_t*)uwbtoy2_main_self[0];
+        
+            // Total number of outputs (single ports and multiport channels)
+            // produced by reaction_1 of UWBToy2.uart.
+            uwbtoy2_uart_self[0]->_lf__reaction_0.num_outputs = 0;
+            {
+                int count = 0; SUPPRESS_UNUSED_WARNING(count);
+            }
+            
+            // ** End initialization for reaction 0 of UWBToy2.uart
+            // Total number of outputs (single ports and multiport channels)
+            // produced by reaction_2 of UWBToy2.uart.
+            uwbtoy2_uart_self[0]->_lf__reaction_1.num_outputs = 1;
+            // Allocate memory for triggers[] and triggered_sizes[] on the reaction_t
+            // struct for this reaction.
+            uwbtoy2_uart_self[0]->_lf__reaction_1.triggers = (trigger_t***)lf_allocate(
+                    1, sizeof(trigger_t**),
+                    &uwbtoy2_uart_self[0]->base.allocations);
+            uwbtoy2_uart_self[0]->_lf__reaction_1.triggered_sizes = (int*)lf_allocate(
+                    1, sizeof(int),
+                    &uwbtoy2_uart_self[0]->base.allocations);
+            uwbtoy2_uart_self[0]->_lf__reaction_1.output_produced = (bool**)lf_allocate(
+                    1, sizeof(bool*),
+                    &uwbtoy2_uart_self[0]->base.allocations);
+            {
+                int count = 0; SUPPRESS_UNUSED_WARNING(count);
+                {
+                    uwbtoy2_uart_self[0]->_lf__reaction_1.output_produced[count++] = &uwbtoy2_uart_self[0]->_lf_uwb_out.is_present;
+                }
+            }
+            
+            // ** End initialization for reaction 1 of UWBToy2.uart
+            // Total number of outputs (single ports and multiport channels)
+            // produced by reaction_3 of UWBToy2.uart.
+            uwbtoy2_uart_self[0]->_lf__reaction_2.num_outputs = 0;
+            {
+                int count = 0; SUPPRESS_UNUSED_WARNING(count);
+            }
+            
+            // ** End initialization for reaction 2 of UWBToy2.uart
+        
+        }
+        // **** End of deferred initialize for UWBToy2.uart
         // **** Start deferred initialize for UWBToy2.display
         {
             uwbtoy2_display_self[0]->base.name = "display";
@@ -290,6 +355,16 @@ void _lf_initialize_trigger_objects() {
             uwbtoy2_main_self[src_runtime]->_lf_display.line0._base.num_destinations = 1;
             uwbtoy2_main_self[src_runtime]->_lf_display.line0._base.source_reactor = (self_base_t*)uwbtoy2_main_self[src_runtime];
         }
+        // Set number of destination reactors for port uart.bt_in.
+        // Iterate over range UWBToy2.uart.bt_in(0,1)->[UWBToy2.uart.bt_in(0,1)].
+        {
+            int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+            int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+            int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+            uwbtoy2_main_self[src_runtime]->_lf_uart.bt_in._base.num_destinations = 1;
+            uwbtoy2_main_self[src_runtime]->_lf_uart.bt_in._base.source_reactor = (self_base_t*)uwbtoy2_main_self[src_runtime];
+        }
         {
             int triggers_index[1] = { 0 }; // Number of bank members with the reaction.
             // Iterate over range UWBToy2.display.line0(0,1)->[UWBToy2.display.line0(0,1)].
@@ -303,6 +378,22 @@ void _lf_initialize_trigger_objects() {
                 uwbtoy2_main_self[src_runtime]->_lf__reaction_0.triggered_sizes[triggers_index[src_runtime]] = 1;
                 // For reaction 0 of UWBToy2, allocate an
                 // array of trigger pointers for downstream reactions through port UWBToy2.display.line0
+                trigger_t** trigger_array = (trigger_t**)lf_allocate(
+                        1, sizeof(trigger_t*),
+                        &uwbtoy2_main_self[src_runtime]->base.allocations); 
+                uwbtoy2_main_self[src_runtime]->_lf__reaction_0.triggers[triggers_index[src_runtime]++] = trigger_array;
+            }
+            // Iterate over range UWBToy2.uart.bt_in(0,1)->[UWBToy2.uart.bt_in(0,1)].
+            {
+                int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+                int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+                int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+                int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                // Reaction 0 of UWBToy2 triggers 1 downstream reactions
+                // through port UWBToy2.uart.bt_in.
+                uwbtoy2_main_self[src_runtime]->_lf__reaction_0.triggered_sizes[triggers_index[src_runtime]] = 1;
+                // For reaction 0 of UWBToy2, allocate an
+                // array of trigger pointers for downstream reactions through port UWBToy2.uart.bt_in
                 trigger_t** trigger_array = (trigger_t**)lf_allocate(
                         1, sizeof(trigger_t*),
                         &uwbtoy2_main_self[src_runtime]->base.allocations); 
@@ -327,8 +418,28 @@ void _lf_initialize_trigger_objects() {
                     uwbtoy2_main_self[src_runtime]->_lf__reaction_0.triggers[triggers_index[src_runtime] + src_channel][0] = &uwbtoy2_display_self[dst_runtime]->_lf__line0;
                 }
             }
+            for (int i = 0; i < 1; i++) triggers_index[i] = 1;
+            // Iterate over ranges UWBToy2.uart.bt_in(0,1)->[UWBToy2.uart.bt_in(0,1)] and UWBToy2.uart.bt_in(0,1).
+            {
+                int src_runtime = 0; // Runtime index.
+                SUPPRESS_UNUSED_WARNING(src_runtime);
+                int src_channel = 0; // Channel index.
+                SUPPRESS_UNUSED_WARNING(src_channel);
+                int src_bank = 0; // Bank index.
+                SUPPRESS_UNUSED_WARNING(src_bank);
+                // Iterate over range UWBToy2.uart.bt_in(0,1).
+                {
+                    int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+                    int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+                    int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+                    int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                    // Point to destination port UWBToy2.uart.bt_in's trigger struct.
+                    uwbtoy2_main_self[src_runtime]->_lf__reaction_0.triggers[triggers_index[src_runtime] + src_channel][0] = &uwbtoy2_uart_self[dst_runtime]->_lf__bt_in;
+                }
+            }
         }
-    
+        // UWBToy2.reaction_1 dominating upstream reaction.
+        uwbtoy2_main_self[0]->_lf__reaction_0.last_enabling_reaction = &(uwbtoy2_uwb_self[0]->_lf__reaction_0);
         // **** Start non-nested deferred initialize for UWBToy2.uwb
         {
         
@@ -350,15 +461,15 @@ void _lf_initialize_trigger_objects() {
                     int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
                     int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
                     int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                    // Reaction 1 of UWBToy2.uwb triggers 1 downstream reactions
+                    // Reaction 0 of UWBToy2.uwb triggers 1 downstream reactions
                     // through port UWBToy2.uwb.dist.
-                    uwbtoy2_uwb_self[src_runtime]->_lf__reaction_1.triggered_sizes[triggers_index[src_runtime]] = 1;
-                    // For reaction 1 of UWBToy2.uwb, allocate an
+                    uwbtoy2_uwb_self[src_runtime]->_lf__reaction_0.triggered_sizes[triggers_index[src_runtime]] = 1;
+                    // For reaction 0 of UWBToy2.uwb, allocate an
                     // array of trigger pointers for downstream reactions through port UWBToy2.uwb.dist
                     trigger_t** trigger_array = (trigger_t**)lf_allocate(
                             1, sizeof(trigger_t*),
                             &uwbtoy2_uwb_self[src_runtime]->base.allocations); 
-                    uwbtoy2_uwb_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime]++] = trigger_array;
+                    uwbtoy2_uwb_self[src_runtime]->_lf__reaction_0.triggers[triggers_index[src_runtime]++] = trigger_array;
                 }
                 for (int i = 0; i < 1; i++) triggers_index[i] = 0;
                 // Iterate over ranges UWBToy2.uwb.dist(0,1)->[UWBToy2.uwb.dist(0,1)] and UWBToy2.uwb.dist(0,1).
@@ -377,19 +488,83 @@ void _lf_initialize_trigger_objects() {
                         int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
                         // Port UWBToy2.uwb.dist has reactions in its parent's parent.
                         // Point to the trigger struct for those reactions.
-                        uwbtoy2_uwb_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime] + src_channel][0] = &uwbtoy2_main_self[dst_runtime]->_lf_uwb.dist_trigger;
+                        uwbtoy2_uwb_self[src_runtime]->_lf__reaction_0.triggers[triggers_index[src_runtime] + src_channel][0] = &uwbtoy2_main_self[dst_runtime]->_lf_uwb.dist_trigger;
                     }
                 }
             }
-        
+            // UWBToy2.uwb.reaction_1 dominating upstream reaction.
+            uwbtoy2_uwb_self[0]->_lf__reaction_0.last_enabling_reaction = &(uwbtoy2_uart_self[0]->_lf__reaction_1);
         }
         // **** End of non-nested deferred initialize for UWBToy2.uwb
+        // **** Start non-nested deferred initialize for UWBToy2.uart
+        {
+        
+            // For reference counting, set num_destinations for port UWBToy2.uart.uwb_out.
+            // Iterate over range UWBToy2.uart.uwb_out(0,1)->[UWBToy2.uwb.uart_data(0,1)].
+            {
+                int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+                int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+                int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+                int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                uwbtoy2_uart_self[src_runtime]->_lf_uwb_out._base.num_destinations = 1;
+                uwbtoy2_uart_self[src_runtime]->_lf_uwb_out._base.source_reactor = (self_base_t*)uwbtoy2_uart_self[src_runtime];
+            }
+            for (int index486184027c8990b = 0; index486184027c8990b < 1; index486184027c8990b++) { uwbtoy2_uart_self[0]->_lf_bt_out._base.source_reactor = (self_base_t*)uwbtoy2_uart_self[0]; }
+            {
+                int triggers_index[1] = { 0 }; // Number of bank members with the reaction.
+                // Iterate over range UWBToy2.uart.uwb_out(0,1)->[UWBToy2.uwb.uart_data(0,1)].
+                {
+                    int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+                    int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+                    int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+                    int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                    // Reaction 1 of UWBToy2.uart triggers 1 downstream reactions
+                    // through port UWBToy2.uart.uwb_out.
+                    uwbtoy2_uart_self[src_runtime]->_lf__reaction_1.triggered_sizes[triggers_index[src_runtime]] = 1;
+                    // For reaction 1 of UWBToy2.uart, allocate an
+                    // array of trigger pointers for downstream reactions through port UWBToy2.uart.uwb_out
+                    trigger_t** trigger_array = (trigger_t**)lf_allocate(
+                            1, sizeof(trigger_t*),
+                            &uwbtoy2_uart_self[src_runtime]->base.allocations); 
+                    uwbtoy2_uart_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime]++] = trigger_array;
+                }
+                for (int i = 0; i < 1; i++) triggers_index[i] = 0;
+                // Iterate over ranges UWBToy2.uart.uwb_out(0,1)->[UWBToy2.uwb.uart_data(0,1)] and UWBToy2.uwb.uart_data(0,1).
+                {
+                    int src_runtime = 0; // Runtime index.
+                    SUPPRESS_UNUSED_WARNING(src_runtime);
+                    int src_channel = 0; // Channel index.
+                    SUPPRESS_UNUSED_WARNING(src_channel);
+                    int src_bank = 0; // Bank index.
+                    SUPPRESS_UNUSED_WARNING(src_bank);
+                    // Iterate over range UWBToy2.uwb.uart_data(0,1).
+                    {
+                        int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+                        int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+                        int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+                        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                        // Point to destination port UWBToy2.uwb.uart_data's trigger struct.
+                        uwbtoy2_uart_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime] + src_channel][0] = &uwbtoy2_uwb_self[dst_runtime]->_lf__uart_data;
+                    }
+                }
+            }
+            // UWBToy2.uart.reaction_1 dominating upstream reaction.
+            uwbtoy2_uart_self[0]->_lf__reaction_0.last_enabling_reaction = NULL;
+            // UWBToy2.uart.reaction_2 dominating upstream reaction.
+            uwbtoy2_uart_self[0]->_lf__reaction_1.last_enabling_reaction = NULL;
+            // UWBToy2.uart.reaction_3 dominating upstream reaction.
+            uwbtoy2_uart_self[0]->_lf__reaction_2.last_enabling_reaction = NULL;
+        }
+        // **** End of non-nested deferred initialize for UWBToy2.uart
         // **** Start non-nested deferred initialize for UWBToy2.display
         {
         
         
         
-        
+            // UWBToy2.display.reaction_1 dominating upstream reaction.
+            uwbtoy2_display_self[0]->_lf__reaction_0.last_enabling_reaction = NULL;
+            // UWBToy2.display.reaction_2 dominating upstream reaction.
+            uwbtoy2_display_self[0]->_lf__reaction_1.last_enabling_reaction = NULL;
         }
         // **** End of non-nested deferred initialize for UWBToy2.display
     }
@@ -414,6 +589,44 @@ void _lf_initialize_trigger_objects() {
             uwbtoy2_main_self[dst_runtime]->_lf_uwb.dist = (_uwb_dist_t*)&uwbtoy2_uwb_self[src_runtime]->_lf_dist;
         }
     }
+    // Connect inputs and outputs for reactor UWBToy2.uart.
+    // Connect UWBToy2.uart.bt_in(0,1)->[UWBToy2.uart.bt_in(0,1)] to port UWBToy2.uart.bt_in(0,1)
+    // Iterate over ranges UWBToy2.uart.bt_in(0,1)->[UWBToy2.uart.bt_in(0,1)] and UWBToy2.uart.bt_in(0,1).
+    {
+        int src_runtime = 0; // Runtime index.
+        SUPPRESS_UNUSED_WARNING(src_runtime);
+        int src_channel = 0; // Channel index.
+        SUPPRESS_UNUSED_WARNING(src_channel);
+        int src_bank = 0; // Bank index.
+        SUPPRESS_UNUSED_WARNING(src_bank);
+        // Iterate over range UWBToy2.uart.bt_in(0,1).
+        {
+            int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+            int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+            int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+            uwbtoy2_uart_self[dst_runtime]->_lf_bt_in = (_uart_bt_in_t*)&uwbtoy2_main_self[src_runtime]->_lf_uart.bt_in;
+        }
+    }
+    // Connect UWBToy2.uart.uwb_out(0,1)->[UWBToy2.uwb.uart_data(0,1)] to port UWBToy2.uwb.uart_data(0,1)
+    // Iterate over ranges UWBToy2.uart.uwb_out(0,1)->[UWBToy2.uwb.uart_data(0,1)] and UWBToy2.uwb.uart_data(0,1).
+    {
+        int src_runtime = 0; // Runtime index.
+        SUPPRESS_UNUSED_WARNING(src_runtime);
+        int src_channel = 0; // Channel index.
+        SUPPRESS_UNUSED_WARNING(src_channel);
+        int src_bank = 0; // Bank index.
+        SUPPRESS_UNUSED_WARNING(src_bank);
+        // Iterate over range UWBToy2.uwb.uart_data(0,1).
+        {
+            int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+            int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+            int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+            uwbtoy2_uwb_self[dst_runtime]->_lf_uart_data = (_uwb_uart_data_t*)&uwbtoy2_uart_self[src_runtime]->_lf_uwb_out;
+        }
+    }
+    
     // Connect inputs and outputs for reactor UWBToy2.display.
     // Connect UWBToy2.display.line0(0,1)->[UWBToy2.display.line0(0,1)] to port UWBToy2.display.line0(0,1)
     // Iterate over ranges UWBToy2.display.line0(0,1)->[UWBToy2.display.line0(0,1)] and UWBToy2.display.line0(0,1).
@@ -434,13 +647,15 @@ void _lf_initialize_trigger_objects() {
         }
     }
     {
-        // Add action UWBToy2.uwb.uart_irq_a to array of is_present fields.
+    }
+    {
+        // Add action UWBToy2.uart.uart_irq_a to array of is_present fields.
         environments[uwbtoy2_main].is_present_fields[0 + (0) * 1]
-                = (bool *) &uwbtoy2_uwb_self[0]->_lf__uart_irq_a.status;
+                = (bool *) &uwbtoy2_uart_self[0]->_lf__uart_irq_a.status;
         #ifdef FEDERATED_DECENTRALIZED
-        // Add action UWBToy2.uwb.uart_irq_a to array of intended_tag fields.
+        // Add action UWBToy2.uart.uart_irq_a to array of intended_tag fields.
         environments[uwbtoy2_main]._lf_intended_tag_fields[0 + (0) * 1]
-                = &uwbtoy2_uwb_self[0]->_lf_uart_irq_a.intended_tag;
+                = &uwbtoy2_uart_self[0]->_lf_uart_irq_a.intended_tag;
         #endif // FEDERATED_DECENTRALIZED
     }
     {
@@ -458,14 +673,46 @@ void _lf_initialize_trigger_objects() {
             }
         }
     }
+    // Add port UWBToy2.uart.bt_in to array of is_present fields.
+    {
+        int count = 0; SUPPRESS_UNUSED_WARNING(count);
+        {
+            {
+                environments[uwbtoy2_main].is_present_fields[2 + (0) * 1 + count] = &uwbtoy2_main_self[0]->_lf_uart.bt_in.is_present;
+                #ifdef FEDERATED_DECENTRALIZED
+                environments[uwbtoy2_main]._lf_intended_tag_fields[2 + (0) * 1 + count] = &uwbtoy2_main_self[0]->_lf_uart.bt_in.intended_tag;
+                #endif // FEDERATED_DECENTRALIZED
+                count++;
+            }
+        }
+    }
     {
         int count = 0; SUPPRESS_UNUSED_WARNING(count);
         {
             // Add output port UWBToy2.uwb.dist to array of is_present fields.
-            environments[uwbtoy2_main].is_present_fields[(0) * 1 + 2 + count] = &uwbtoy2_uwb_self[0]->_lf_dist.is_present;
+            environments[uwbtoy2_main].is_present_fields[(0) * 1 + 3 + count] = &uwbtoy2_uwb_self[0]->_lf_dist.is_present;
             #ifdef FEDERATED_DECENTRALIZED
             // Add output port UWBToy2.uwb.dist to array of intended_tag fields.
-            environments[uwbtoy2_main]._lf_intended_tag_fields[(0) * 1 + 2 + count] = &uwbtoy2_uwb_self[0]->_lf_dist.intended_tag;
+            environments[uwbtoy2_main]._lf_intended_tag_fields[(0) * 1 + 3 + count] = &uwbtoy2_uwb_self[0]->_lf_dist.intended_tag;
+            #endif // FEDERATED_DECENTRALIZED
+            count++;
+        }
+    }
+    {
+        int count = 0; SUPPRESS_UNUSED_WARNING(count);
+        {
+            // Add output port UWBToy2.uart.uwb_out to array of is_present fields.
+            environments[uwbtoy2_main].is_present_fields[(0) * 2 + 4 + count] = &uwbtoy2_uart_self[0]->_lf_uwb_out.is_present;
+            #ifdef FEDERATED_DECENTRALIZED
+            // Add output port UWBToy2.uart.uwb_out to array of intended_tag fields.
+            environments[uwbtoy2_main]._lf_intended_tag_fields[(0) * 2 + 4 + count] = &uwbtoy2_uart_self[0]->_lf_uwb_out.intended_tag;
+            #endif // FEDERATED_DECENTRALIZED
+            count++;
+            // Add output port UWBToy2.uart.bt_out to array of is_present fields.
+            environments[uwbtoy2_main].is_present_fields[(0) * 2 + 4 + count] = &uwbtoy2_uart_self[0]->_lf_bt_out.is_present;
+            #ifdef FEDERATED_DECENTRALIZED
+            // Add output port UWBToy2.uart.bt_out to array of intended_tag fields.
+            environments[uwbtoy2_main]._lf_intended_tag_fields[(0) * 2 + 4 + count] = &uwbtoy2_uart_self[0]->_lf_bt_out.intended_tag;
             #endif // FEDERATED_DECENTRALIZED
             count++;
         }
@@ -473,18 +720,29 @@ void _lf_initialize_trigger_objects() {
     
     // Set reaction priorities for ReactorInstance UWBToy2
     {
-        // index is the OR of level 2 and 
+        // index is the OR of level 3 and 
         // deadline 9223372036854775807 shifted left 16 bits.
-        uwbtoy2_main_self[0]->_lf__reaction_0.index = lf_combine_deadline_and_level(9223372036854775807, 2);
+        uwbtoy2_main_self[0]->_lf__reaction_0.index = lf_combine_deadline_and_level(9223372036854775807, 3);
     
         // Set reaction priorities for ReactorInstance UWBToy2.uwb
         {
+            // index is the OR of level 2 and 
+            // deadline 9223372036854775807 shifted left 16 bits.
+            uwbtoy2_uwb_self[0]->_lf__reaction_0.index = lf_combine_deadline_and_level(9223372036854775807, 2);
+        }
+    
+    
+        // Set reaction priorities for ReactorInstance UWBToy2.uart
+        {
             // index is the OR of level 0 and 
             // deadline 9223372036854775807 shifted left 16 bits.
-            uwbtoy2_uwb_self[0]->_lf__reaction_0.index = lf_combine_deadline_and_level(9223372036854775807, 0);
+            uwbtoy2_uart_self[0]->_lf__reaction_0.index = lf_combine_deadline_and_level(9223372036854775807, 0);
             // index is the OR of level 1 and 
             // deadline 9223372036854775807 shifted left 16 bits.
-            uwbtoy2_uwb_self[0]->_lf__reaction_1.index = lf_combine_deadline_and_level(9223372036854775807, 1);
+            uwbtoy2_uart_self[0]->_lf__reaction_1.index = lf_combine_deadline_and_level(9223372036854775807, 1);
+            // index is the OR of level 4 and 
+            // deadline 9223372036854775807 shifted left 16 bits.
+            uwbtoy2_uart_self[0]->_lf__reaction_2.index = lf_combine_deadline_and_level(9223372036854775807, 4);
         }
     
     
@@ -493,9 +751,9 @@ void _lf_initialize_trigger_objects() {
             // index is the OR of level 0 and 
             // deadline 9223372036854775807 shifted left 16 bits.
             uwbtoy2_display_self[0]->_lf__reaction_0.index = lf_combine_deadline_and_level(9223372036854775807, 0);
-            // index is the OR of level 3 and 
+            // index is the OR of level 4 and 
             // deadline 9223372036854775807 shifted left 16 bits.
-            uwbtoy2_display_self[0]->_lf__reaction_1.index = lf_combine_deadline_and_level(9223372036854775807, 3);
+            uwbtoy2_display_self[0]->_lf__reaction_1.index = lf_combine_deadline_and_level(9223372036854775807, 4);
         }
     
     }

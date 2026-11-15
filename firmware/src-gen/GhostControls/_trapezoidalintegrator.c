@@ -8,6 +8,7 @@
 #include "include/api/reaction_macros.h"
 void _trapezoidalintegratorreaction_function_0(void* instance_args) {
     _trapezoidalintegrator_self_t* self = (_trapezoidalintegrator_self_t*)instance_args; SUPPRESS_UNUSED_WARNING(self);
+    enum { _lf_await_requires_a_single_non_mutable_input_port__in = 1 };
     _trapezoidalintegrator_in_t* in = self->_lf_in;
     int in_width = self->_lf_in_width; SUPPRESS_UNUSED_WARNING(in_width);
     _trapezoidalintegrator_out_t* out = &self->_lf_out;
@@ -20,7 +21,7 @@ void _trapezoidalintegratorreaction_function_0(void* instance_args) {
     lf_set(out, self->s);
     self->prev_in = in->value;
     self->prev_time = now;
-#line 24 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/GhostControls/_trapezoidalintegrator.c"
+#line 25 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/GhostControls/_trapezoidalintegrator.c"
 }
 #include "include/api/reaction_macros_undef.h"
 _trapezoidalintegrator_self_t* new__trapezoidalintegrator() {

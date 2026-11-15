@@ -4,6 +4,17 @@ This is an edit of https://github.com/Circuit-Digest/ESP32-DWM3000-UWB-Indoor-RT
 #include <SPI.h>
 #include <WiFi.h>
 #include <WiFiClient.h>
+#include <Arduino.h>
+#include <BLEDevice.h>
+#include <BLEUtils.h>
+#include <BLEServer.h>
+
+#define SERVICE_UUID        "4fafc201-1fb5-459e-8fcc-c5c9c331914b"
+#define CHARACTERISTIC_UUID "beb5483e-36e1-4688-b7f5-ea07361b26a8"
+BLECharacteristic *pCharacteristic;
+const size_t MAX_MSG_LEN = 128;
+char rxBuffer[MAX_MSG_LEN + 1];
+size_t rxIndex = 0;
 
 // WiFi Configuration
 const char *ssid = "Sxxxxxxxx";
@@ -480,8 +491,6 @@ void printAllDistances()
         if (anchors[i].filtered_distance > 0)
         {
             DWM3000.printDouble(anchors[i].filtered_distance, 100, false);
-            // Serial.print(" cm");
-            Serial.print(", Dummy:100");
         }
         else
         {
@@ -1205,6 +1214,7 @@ void DWM3000Class::printDouble(double val, unsigned int precision, bool linebrea
     {
         Serial.print(frac, DEC);
     }
+    Serial1.print("UWB:");
     Serial1.print(int(val));
     Serial1.print(".");
     Serial1.println(frac);
@@ -1377,7 +1387,31 @@ int DWM3000Class::checkForDevID()
     return 1;
 }
 
+void setup_bt() {
+  Serial.begin(115200);
+  Serial.println("Starting BLE work!");
 
+  if (!BLEDevice::init("BLE tag")) {
+    Serial.println("BLE initialization failed!");
+    return;
+  }
+
+  BLEServer *pServer = BLEDevice::createServer();
+  BLEService *pService = pServer->createService(SERVICE_UUID);
+  pServer->advertiseOnDisconnect(true);
+  pCharacteristic = pService->createCharacteristic(CHARACTERISTIC_UUID, BLECharacteristic::PROPERTY_READ | BLECharacteristic::PROPERTY_WRITE | BLECharacteristic::PROPERTY_NOTIFY);
+
+  pCharacteristic->setValue("Hello World says Neil");
+  pService->start();
+  // BLEAdvertising *pAdvertising = pServer->getAdvertising();  // this still is working for backward compatibility
+  BLEAdvertising *pAdvertising = BLEDevice::getAdvertising();
+  pAdvertising->addServiceUUID(SERVICE_UUID);
+  pAdvertising->setScanResponse(true);
+  pAdvertising->setMinPreferred(0x06);  // functions that help with iPhone connections issue
+  pAdvertising->setMaxPreferred(0x12);
+  BLEDevice::startAdvertising();
+  Serial.println("Characteristic defined! Now you can read it in your phone!");
+}
 
 void setup()
 {
@@ -1399,6 +1433,9 @@ void setup()
 
     // Connect to WiFi first
     // connectToWiFi();
+
+    // setup bluetooth server
+    setup_bt();
 
     // Initialize UWB
     DWM3000.begin();
@@ -1445,6 +1482,23 @@ void setup()
 
 void loop()
 {
+    while (Serial1.available() > 0) {
+        char incomingChar = (char)Serial1.read();
+
+        if (incomingChar == '\n' || incomingChar == '\0' || rxIndex == MAX_MSG_LEN) {
+            rxBuffer[rxIndex] = '\0';
+
+            if (rxIndex > 0) {
+                pCharacteristic->setValue(rxBuffer);
+                pCharacteristic->notify();
+            }
+            rxIndex = 0; 
+        } 
+        else {
+            rxBuffer[rxIndex] = incomingChar;
+            rxIndex++;
+        }
+    }
     AnchorData *currentAnchor = getCurrentAnchor();
     int currentAnchorId = getCurrentAnchorId();
 
@@ -1563,7 +1617,7 @@ void loop()
         // Switch to next anchor
         switchToNextAnchor();
         curr_stage = 0;
-        delay(100);
+        delay(50);
         break;
 
     default:

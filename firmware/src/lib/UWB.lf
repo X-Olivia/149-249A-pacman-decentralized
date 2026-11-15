@@ -15,45 +15,17 @@ preamble {=
 
 /** Polls UWB every 10 ms and outputs one number, which is the distance measured between the UWB and its anchor. */
 // Non-blocking. UART triggers an interrupt when something is sent
-// We will likely be using UART for a variety of services, so we'll have to make a uart reactor to handle that
 reactor UWB {
-  preamble{=
-    bool on = false;
-    void* uart_irq;
-    char buffer[65] = {0};
-    int buf_ptr = 0;
-    void uart_irq_handler(){
-      if (uart_is_readable(uart0)){
-        buffer[buf_ptr] = uart_getc(uart0);
-        if (buffer[buf_ptr] == '\n' || buf_ptr >= 64){
-          buffer[buf_ptr] = '\0';
-          buf_ptr = 0;
-          lf_schedule(uart_irq, 0);
-        }
-        else {
-          buf_ptr++;
-        }
-      }
-    }
-  =}
   output dist: float
-  physical action uart_irq_a
+  input uart_data: string
 
-  reaction(startup) -> uart_irq_a {=
-    uart_init(uart0, 9600);
-    gpio_set_function(28, GPIO_FUNC_UART);  // GP28 = TX -> ESP32 RX (20)
-    gpio_set_function(29, GPIO_FUNC_UART);  // GP29 = RX <- ESP32 TX (21)
-    irq_set_exclusive_handler(UART0_IRQ, uart_irq_handler);
-    irq_set_enabled(UART0_IRQ, true);
-    uart_set_irqs_enabled (uart0, true, false);
-    uart_irq = uart_irq_a;
-  =}
-
-  reaction(uart_irq_a) -> dist {=
-    char* endptr = NULL;
-    float num = strtof(buffer, &endptr);
-    if (endptr != buffer) {
-        lf_set(dist, num);
+  // useful once we have multiple uwb and ids
+  reaction(uart_data) -> dist {=
+    char* data = uart_data->value;
+    char* endptr;
+    float num = strtof(data, &endptr);
+    if (endptr != data) {
+      lf_set(dist, num);
     }
   =}
 }

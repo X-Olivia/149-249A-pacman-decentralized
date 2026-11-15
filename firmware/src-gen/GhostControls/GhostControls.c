@@ -24,6 +24,7 @@ void lf_set_default_command_line_options() {
 #include "_bluetooth.h"
 #include "_display.h"
 #include "_uwb.h"
+#include "_uart.h"
 #include "_motors.h"
 #include "_picontrol.h"
 #include "_motorswithfeedback.h"
@@ -42,7 +43,7 @@ typedef enum {
 static environment_t environments[num_environments];
 // 'Create' and initialize the environments in the program
 void lf_create_environments() {
-    environment_init(&environments[ghostcontrols_main],"ghostcontrols_main",ghostcontrols_main,_lf_number_of_workers,4,10,0,3,20,1,0,0,NULL);
+    environment_init(&environments[ghostcontrols_main],"ghostcontrols_main",ghostcontrols_main,_lf_number_of_workers,4,10,0,3,22,1,0,0,NULL);
 }
 // Update the pointer argument to point to the beginning of the environment array
 // and return the size of that array
@@ -130,6 +131,8 @@ void _lf_initialize_trigger_objects() {
     SUPPRESS_UNUSED_WARNING(ghostcontrols_ghost_disp_self);
     _uwb_self_t* ghostcontrols_ghost_uwb_self[1];
     SUPPRESS_UNUSED_WARNING(ghostcontrols_ghost_uwb_self);
+    _uart_self_t* ghostcontrols_ghost_uart_self[1];
+    SUPPRESS_UNUSED_WARNING(ghostcontrols_ghost_uart_self);
     _motion_control_self_t* ghostcontrols_ghost_control_self[1];
     SUPPRESS_UNUSED_WARNING(ghostcontrols_ghost_control_self);
     _motorswithfeedback_self_t* ghostcontrols_ghost_control_motors_self[1];
@@ -246,25 +249,50 @@ void _lf_initialize_trigger_objects() {
             
             // width of -2 indicates that it is not a multiport.
             ghostcontrols_ghost_uwb_self[0]->_lf_dist_width = -2;
-            environments[ghostcontrols_main].startup_reactions[startup_reaction_count[ghostcontrols_main]++] = &ghostcontrols_ghost_uwb_self[0]->_lf__reaction_0;
-            // Initializing action GhostControls.ghost.uwb.uart_irq_a
-            ghostcontrols_ghost_uwb_self[0]->_lf__uart_irq_a.offset = 0;
-            ghostcontrols_ghost_uwb_self[0]->_lf__uart_irq_a.period = -1;
-            ghostcontrols_ghost_uwb_self[0]->_lf__uart_irq_a.last_tag = NEVER_TAG;
-            ghostcontrols_ghost_uwb_self[0]->_lf__uart_irq_a.mode = NULL;
-            _lf_initialize_template((token_template_t*)
-                    &(ghostcontrols_ghost_uwb_self[0]->_lf__uart_irq_a),
-            0);
-            _lf_initialize_template((token_template_t*)
-                    &(ghostcontrols_ghost_uwb_self[0]->_lf_uart_irq_a),
-            0);
-            ghostcontrols_ghost_uwb_self[0]->_lf__uart_irq_a.status = absent;
+            // width of -2 indicates that it is not a multiport.
+            ghostcontrols_ghost_uwb_self[0]->_lf_uart_data_width = -2;
+    
             ghostcontrols_ghost_uwb_self[0]->_lf__reaction_0.deadline = NEVER;
-            ghostcontrols_ghost_uwb_self[0]->_lf__reaction_1.deadline = NEVER;
             #if !defined LF_SINGLE_THREADED
             ghostcontrols_ghost_uwb_self[0]->base.reactor_mutex = NULL;
             #endif
             //***** End initializing GhostControls.ghost.uwb
+        }
+        {
+            _ghost_self_t *self = ghostcontrols_ghost_self[0];
+            // ***** Start initializing GhostControls.ghost.uart of class UART
+            ghostcontrols_ghost_uart_self[0] = new__uart();
+            ghostcontrols_ghost_uart_self[0]->base.environment = &environments[ghostcontrols_main];
+            bank_index = 0; SUPPRESS_UNUSED_WARNING(bank_index);
+            
+            
+            // width of -2 indicates that it is not a multiport.
+            ghostcontrols_ghost_uart_self[0]->_lf_uwb_out_width = -2;
+            
+            
+            // width of -2 indicates that it is not a multiport.
+            ghostcontrols_ghost_uart_self[0]->_lf_bt_out_width = -2;
+            // width of -2 indicates that it is not a multiport.
+            ghostcontrols_ghost_uart_self[0]->_lf_bt_in_width = -2;
+            environments[ghostcontrols_main].startup_reactions[startup_reaction_count[ghostcontrols_main]++] = &ghostcontrols_ghost_uart_self[0]->_lf__reaction_0;
+            // Initializing action GhostControls.ghost.uart.uart_irq_a
+            ghostcontrols_ghost_uart_self[0]->_lf__uart_irq_a.offset = 0;
+            ghostcontrols_ghost_uart_self[0]->_lf__uart_irq_a.period = -1;
+            ghostcontrols_ghost_uart_self[0]->_lf__uart_irq_a.last_tag = NEVER_TAG;
+            ghostcontrols_ghost_uart_self[0]->_lf__uart_irq_a.mode = NULL;
+            _lf_initialize_template((token_template_t*)
+                    &(ghostcontrols_ghost_uart_self[0]->_lf__uart_irq_a),
+            0);
+            _lf_initialize_template((token_template_t*)
+                    &(ghostcontrols_ghost_uart_self[0]->_lf_uart_irq_a),
+            0);
+            ghostcontrols_ghost_uart_self[0]->_lf__uart_irq_a.status = absent;
+            ghostcontrols_ghost_uart_self[0]->_lf__reaction_0.deadline = NEVER;
+            ghostcontrols_ghost_uart_self[0]->_lf__reaction_1.deadline = NEVER;
+            #if !defined LF_SINGLE_THREADED
+            ghostcontrols_ghost_uart_self[0]->base.reactor_mutex = NULL;
+            #endif
+            //***** End initializing GhostControls.ghost.uart
         }
         {
             _ghost_self_t *self = ghostcontrols_ghost_self[0];
@@ -729,37 +757,67 @@ void _lf_initialize_trigger_objects() {
             
                 // Total number of outputs (single ports and multiport channels)
                 // produced by reaction_1 of GhostControls.ghost.uwb.
-                ghostcontrols_ghost_uwb_self[0]->_lf__reaction_0.num_outputs = 0;
-                {
-                    int count = 0; SUPPRESS_UNUSED_WARNING(count);
-                }
-                
-                // ** End initialization for reaction 0 of GhostControls.ghost.uwb
-                // Total number of outputs (single ports and multiport channels)
-                // produced by reaction_2 of GhostControls.ghost.uwb.
-                ghostcontrols_ghost_uwb_self[0]->_lf__reaction_1.num_outputs = 1;
+                ghostcontrols_ghost_uwb_self[0]->_lf__reaction_0.num_outputs = 1;
                 // Allocate memory for triggers[] and triggered_sizes[] on the reaction_t
                 // struct for this reaction.
-                ghostcontrols_ghost_uwb_self[0]->_lf__reaction_1.triggers = (trigger_t***)lf_allocate(
+                ghostcontrols_ghost_uwb_self[0]->_lf__reaction_0.triggers = (trigger_t***)lf_allocate(
                         1, sizeof(trigger_t**),
                         &ghostcontrols_ghost_uwb_self[0]->base.allocations);
-                ghostcontrols_ghost_uwb_self[0]->_lf__reaction_1.triggered_sizes = (int*)lf_allocate(
+                ghostcontrols_ghost_uwb_self[0]->_lf__reaction_0.triggered_sizes = (int*)lf_allocate(
                         1, sizeof(int),
                         &ghostcontrols_ghost_uwb_self[0]->base.allocations);
-                ghostcontrols_ghost_uwb_self[0]->_lf__reaction_1.output_produced = (bool**)lf_allocate(
+                ghostcontrols_ghost_uwb_self[0]->_lf__reaction_0.output_produced = (bool**)lf_allocate(
                         1, sizeof(bool*),
                         &ghostcontrols_ghost_uwb_self[0]->base.allocations);
                 {
                     int count = 0; SUPPRESS_UNUSED_WARNING(count);
                     {
-                        ghostcontrols_ghost_uwb_self[0]->_lf__reaction_1.output_produced[count++] = &ghostcontrols_ghost_uwb_self[0]->_lf_dist.is_present;
+                        ghostcontrols_ghost_uwb_self[0]->_lf__reaction_0.output_produced[count++] = &ghostcontrols_ghost_uwb_self[0]->_lf_dist.is_present;
                     }
                 }
                 
-                // ** End initialization for reaction 1 of GhostControls.ghost.uwb
+                // ** End initialization for reaction 0 of GhostControls.ghost.uwb
             
             }
             // **** End of deferred initialize for GhostControls.ghost.uwb
+            // **** Start deferred initialize for GhostControls.ghost.uart
+            {
+                ghostcontrols_ghost_uart_self[0]->base.name = "uart";
+                ghostcontrols_ghost_uart_self[0]->base.parent = (self_base_t*)ghostcontrols_ghost_self[0];
+            
+                // Total number of outputs (single ports and multiport channels)
+                // produced by reaction_1 of GhostControls.ghost.uart.
+                ghostcontrols_ghost_uart_self[0]->_lf__reaction_0.num_outputs = 0;
+                {
+                    int count = 0; SUPPRESS_UNUSED_WARNING(count);
+                }
+                
+                // ** End initialization for reaction 0 of GhostControls.ghost.uart
+                // Total number of outputs (single ports and multiport channels)
+                // produced by reaction_2 of GhostControls.ghost.uart.
+                ghostcontrols_ghost_uart_self[0]->_lf__reaction_1.num_outputs = 1;
+                // Allocate memory for triggers[] and triggered_sizes[] on the reaction_t
+                // struct for this reaction.
+                ghostcontrols_ghost_uart_self[0]->_lf__reaction_1.triggers = (trigger_t***)lf_allocate(
+                        1, sizeof(trigger_t**),
+                        &ghostcontrols_ghost_uart_self[0]->base.allocations);
+                ghostcontrols_ghost_uart_self[0]->_lf__reaction_1.triggered_sizes = (int*)lf_allocate(
+                        1, sizeof(int),
+                        &ghostcontrols_ghost_uart_self[0]->base.allocations);
+                ghostcontrols_ghost_uart_self[0]->_lf__reaction_1.output_produced = (bool**)lf_allocate(
+                        1, sizeof(bool*),
+                        &ghostcontrols_ghost_uart_self[0]->base.allocations);
+                {
+                    int count = 0; SUPPRESS_UNUSED_WARNING(count);
+                    {
+                        ghostcontrols_ghost_uart_self[0]->_lf__reaction_1.output_produced[count++] = &ghostcontrols_ghost_uart_self[0]->_lf_uwb_out.is_present;
+                    }
+                }
+                
+                // ** End initialization for reaction 1 of GhostControls.ghost.uart
+            
+            }
+            // **** End of deferred initialize for GhostControls.ghost.uart
             // **** Start deferred initialize for GhostControls.ghost.control
             {
                 ghostcontrols_ghost_control_self[0]->base.name = "control";
@@ -1266,7 +1324,10 @@ void _lf_initialize_trigger_objects() {
             {
                 int triggers_index[1] = { 0 }; // Number of bank members with the reaction.
             }
-        
+            // GhostControls.bt.reaction_1 dominating upstream reaction.
+            ghostcontrols_bt_self[0]->_lf__reaction_0.last_enabling_reaction = NULL;
+            // GhostControls.bt.reaction_2 dominating upstream reaction.
+            ghostcontrols_bt_self[0]->_lf__reaction_1.last_enabling_reaction = NULL;
         }
         // **** End of non-nested deferred initialize for GhostControls.bt
         // **** Start non-nested deferred initialize for GhostControls.ghost
@@ -1320,13 +1381,21 @@ void _lf_initialize_trigger_objects() {
                     }
                 }
             }
-        
+            // GhostControls.ghost.reaction_1 dominating upstream reaction.
+            ghostcontrols_ghost_self[0]->_lf__reaction_0.last_enabling_reaction = NULL;
+            // GhostControls.ghost.reaction_2 dominating upstream reaction.
+            ghostcontrols_ghost_self[0]->_lf__reaction_1.last_enabling_reaction = NULL;
+            // GhostControls.ghost.reaction_3 dominating upstream reaction.
+            ghostcontrols_ghost_self[0]->_lf__reaction_2.last_enabling_reaction = NULL;
             // **** Start non-nested deferred initialize for GhostControls.ghost.disp
             {
             
             
             
-            
+                // GhostControls.ghost.disp.reaction_1 dominating upstream reaction.
+                ghostcontrols_ghost_disp_self[0]->_lf__reaction_0.last_enabling_reaction = NULL;
+                // GhostControls.ghost.disp.reaction_2 dominating upstream reaction.
+                ghostcontrols_ghost_disp_self[0]->_lf__reaction_1.last_enabling_reaction = NULL;
             }
             // **** End of non-nested deferred initialize for GhostControls.ghost.disp
             // **** Start non-nested deferred initialize for GhostControls.ghost.uwb
@@ -1350,15 +1419,15 @@ void _lf_initialize_trigger_objects() {
                         int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
                         int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
                         int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                        // Reaction 1 of GhostControls.ghost.uwb triggers 1 downstream reactions
+                        // Reaction 0 of GhostControls.ghost.uwb triggers 1 downstream reactions
                         // through port GhostControls.ghost.uwb.dist.
-                        ghostcontrols_ghost_uwb_self[src_runtime]->_lf__reaction_1.triggered_sizes[triggers_index[src_runtime]] = 1;
-                        // For reaction 1 of GhostControls.ghost.uwb, allocate an
+                        ghostcontrols_ghost_uwb_self[src_runtime]->_lf__reaction_0.triggered_sizes[triggers_index[src_runtime]] = 1;
+                        // For reaction 0 of GhostControls.ghost.uwb, allocate an
                         // array of trigger pointers for downstream reactions through port GhostControls.ghost.uwb.dist
                         trigger_t** trigger_array = (trigger_t**)lf_allocate(
                                 1, sizeof(trigger_t*),
                                 &ghostcontrols_ghost_uwb_self[src_runtime]->base.allocations); 
-                        ghostcontrols_ghost_uwb_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime]++] = trigger_array;
+                        ghostcontrols_ghost_uwb_self[src_runtime]->_lf__reaction_0.triggers[triggers_index[src_runtime]++] = trigger_array;
                     }
                     for (int i = 0; i < 1; i++) triggers_index[i] = 0;
                     // Iterate over ranges GhostControls.ghost.uwb.dist(0,1)->[GhostControls.ghost.uwb.dist(0,1)] and GhostControls.ghost.uwb.dist(0,1).
@@ -1377,13 +1446,72 @@ void _lf_initialize_trigger_objects() {
                             int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
                             // Port GhostControls.ghost.uwb.dist has reactions in its parent's parent.
                             // Point to the trigger struct for those reactions.
-                            ghostcontrols_ghost_uwb_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime] + src_channel][0] = &ghostcontrols_ghost_self[dst_runtime]->_lf_uwb.dist_trigger;
+                            ghostcontrols_ghost_uwb_self[src_runtime]->_lf__reaction_0.triggers[triggers_index[src_runtime] + src_channel][0] = &ghostcontrols_ghost_self[dst_runtime]->_lf_uwb.dist_trigger;
                         }
                     }
                 }
-            
+                // GhostControls.ghost.uwb.reaction_1 dominating upstream reaction.
+                ghostcontrols_ghost_uwb_self[0]->_lf__reaction_0.last_enabling_reaction = &(ghostcontrols_ghost_uart_self[0]->_lf__reaction_1);
             }
             // **** End of non-nested deferred initialize for GhostControls.ghost.uwb
+            // **** Start non-nested deferred initialize for GhostControls.ghost.uart
+            {
+            
+                // For reference counting, set num_destinations for port GhostControls.ghost.uart.uwb_out.
+                // Iterate over range GhostControls.ghost.uart.uwb_out(0,1)->[GhostControls.ghost.uwb.uart_data(0,1)].
+                {
+                    int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+                    int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+                    int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+                    int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                    ghostcontrols_ghost_uart_self[src_runtime]->_lf_uwb_out._base.num_destinations = 1;
+                    ghostcontrols_ghost_uart_self[src_runtime]->_lf_uwb_out._base.source_reactor = (self_base_t*)ghostcontrols_ghost_uart_self[src_runtime];
+                }
+                for (int index486184027c8990b = 0; index486184027c8990b < 1; index486184027c8990b++) { ghostcontrols_ghost_uart_self[0]->_lf_bt_out._base.source_reactor = (self_base_t*)ghostcontrols_ghost_uart_self[0]; }
+                {
+                    int triggers_index[1] = { 0 }; // Number of bank members with the reaction.
+                    // Iterate over range GhostControls.ghost.uart.uwb_out(0,1)->[GhostControls.ghost.uwb.uart_data(0,1)].
+                    {
+                        int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+                        int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+                        int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+                        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                        // Reaction 1 of GhostControls.ghost.uart triggers 1 downstream reactions
+                        // through port GhostControls.ghost.uart.uwb_out.
+                        ghostcontrols_ghost_uart_self[src_runtime]->_lf__reaction_1.triggered_sizes[triggers_index[src_runtime]] = 1;
+                        // For reaction 1 of GhostControls.ghost.uart, allocate an
+                        // array of trigger pointers for downstream reactions through port GhostControls.ghost.uart.uwb_out
+                        trigger_t** trigger_array = (trigger_t**)lf_allocate(
+                                1, sizeof(trigger_t*),
+                                &ghostcontrols_ghost_uart_self[src_runtime]->base.allocations); 
+                        ghostcontrols_ghost_uart_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime]++] = trigger_array;
+                    }
+                    for (int i = 0; i < 1; i++) triggers_index[i] = 0;
+                    // Iterate over ranges GhostControls.ghost.uart.uwb_out(0,1)->[GhostControls.ghost.uwb.uart_data(0,1)] and GhostControls.ghost.uwb.uart_data(0,1).
+                    {
+                        int src_runtime = 0; // Runtime index.
+                        SUPPRESS_UNUSED_WARNING(src_runtime);
+                        int src_channel = 0; // Channel index.
+                        SUPPRESS_UNUSED_WARNING(src_channel);
+                        int src_bank = 0; // Bank index.
+                        SUPPRESS_UNUSED_WARNING(src_bank);
+                        // Iterate over range GhostControls.ghost.uwb.uart_data(0,1).
+                        {
+                            int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+                            int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+                            int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+                            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                            // Point to destination port GhostControls.ghost.uwb.uart_data's trigger struct.
+                            ghostcontrols_ghost_uart_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime] + src_channel][0] = &ghostcontrols_ghost_uwb_self[dst_runtime]->_lf__uart_data;
+                        }
+                    }
+                }
+                // GhostControls.ghost.uart.reaction_1 dominating upstream reaction.
+                ghostcontrols_ghost_uart_self[0]->_lf__reaction_0.last_enabling_reaction = NULL;
+                // GhostControls.ghost.uart.reaction_2 dominating upstream reaction.
+                ghostcontrols_ghost_uart_self[0]->_lf__reaction_1.last_enabling_reaction = NULL;
+            }
+            // **** End of non-nested deferred initialize for GhostControls.ghost.uart
             // **** Start non-nested deferred initialize for GhostControls.ghost.control
             {
                 // Set number of destination reactors for port encoder.trigger.
@@ -1722,7 +1850,30 @@ void _lf_initialize_trigger_objects() {
                         }
                     }
                 }
-            
+                // GhostControls.ghost.control.reaction_1 dominating upstream reaction.
+                ghostcontrols_ghost_control_self[0]->_lf__reaction_0.last_enabling_reaction = NULL;
+                // GhostControls.ghost.control.reaction_2 dominating upstream reaction.
+                ghostcontrols_ghost_control_self[0]->_lf__reaction_1.last_enabling_reaction = NULL;
+                // GhostControls.ghost.control.reaction_3 dominating upstream reaction.
+                ghostcontrols_ghost_control_self[0]->_lf__reaction_2.last_enabling_reaction = NULL;
+                // GhostControls.ghost.control.reaction_4 dominating upstream reaction.
+                ghostcontrols_ghost_control_self[0]->_lf__reaction_3.last_enabling_reaction = NULL;
+                // GhostControls.ghost.control.FORWARD.reaction_5 dominating upstream reaction.
+                ghostcontrols_ghost_control_self[0]->_lf__reaction_4.last_enabling_reaction = NULL;
+                // GhostControls.ghost.control.FORWARD.reaction_6 dominating upstream reaction.
+                ghostcontrols_ghost_control_self[0]->_lf__reaction_5.last_enabling_reaction = NULL;
+                // GhostControls.ghost.control.FORWARD.reaction_7 dominating upstream reaction.
+                ghostcontrols_ghost_control_self[0]->_lf__reaction_6.last_enabling_reaction = NULL;
+                // GhostControls.ghost.control.ROTATE.reaction_8 dominating upstream reaction.
+                ghostcontrols_ghost_control_self[0]->_lf__reaction_7.last_enabling_reaction = NULL;
+                // GhostControls.ghost.control.ROTATE.reaction_9 dominating upstream reaction.
+                ghostcontrols_ghost_control_self[0]->_lf__reaction_8.last_enabling_reaction = NULL;
+                // GhostControls.ghost.control.ROTATE.reaction_10 dominating upstream reaction.
+                ghostcontrols_ghost_control_self[0]->_lf__reaction_9.last_enabling_reaction = NULL;
+                // GhostControls.ghost.control.STOP.reaction_11 dominating upstream reaction.
+                ghostcontrols_ghost_control_self[0]->_lf__reaction_10.last_enabling_reaction = NULL;
+                // GhostControls.ghost.control.STOP.reaction_12 dominating upstream reaction.
+                ghostcontrols_ghost_control_self[0]->_lf__reaction_11.last_enabling_reaction = NULL;
                 // **** Start non-nested deferred initialize for GhostControls.ghost.control.motors
                 {
                     // Set number of destination reactors for port control_left.err.
@@ -1819,13 +1970,23 @@ void _lf_initialize_trigger_objects() {
                             }
                         }
                     }
-                
+                    // GhostControls.ghost.control.motors.reaction_1 dominating upstream reaction.
+                    ghostcontrols_ghost_control_motors_self[0]->_lf__reaction_0.last_enabling_reaction = NULL;
+                    // GhostControls.ghost.control.motors.reaction_2 dominating upstream reaction.
+                    ghostcontrols_ghost_control_motors_self[0]->_lf__reaction_1.last_enabling_reaction = NULL;
+                    // GhostControls.ghost.control.motors.reaction_3 dominating upstream reaction.
+                    ghostcontrols_ghost_control_motors_self[0]->_lf__reaction_2.last_enabling_reaction = NULL;
                     // **** Start non-nested deferred initialize for GhostControls.ghost.control.motors.motors
                     {
                     
                     
                     
-                    
+                        // GhostControls.ghost.control.motors.motors.reaction_1 dominating upstream reaction.
+                        _ostcontrols_ghost_control_motors_motors_self[0]->_lf__reaction_0.last_enabling_reaction = NULL;
+                        // GhostControls.ghost.control.motors.motors.reaction_2 dominating upstream reaction.
+                        _ostcontrols_ghost_control_motors_motors_self[0]->_lf__reaction_1.last_enabling_reaction = NULL;
+                        // GhostControls.ghost.control.motors.motors.reaction_3 dominating upstream reaction.
+                        _ostcontrols_ghost_control_motors_motors_self[0]->_lf__reaction_2.last_enabling_reaction = NULL;
                     }
                     // **** End of non-nested deferred initialize for GhostControls.ghost.control.motors.motors
                     // **** Start non-nested deferred initialize for GhostControls.ghost.control.motors.control_left
@@ -1879,7 +2040,8 @@ void _lf_initialize_trigger_objects() {
                                 }
                             }
                         }
-                    
+                        // GhostControls.ghost.control.motors.control_left.reaction_1 dominating upstream reaction.
+                        _trols_ghost_control_motors_control_left_self[0]->_lf__reaction_0.last_enabling_reaction = &(ghostcontrols_ghost_control_motors_self[0]->_lf__reaction_2);
                     }
                     // **** End of non-nested deferred initialize for GhostControls.ghost.control.motors.control_left
                     // **** Start non-nested deferred initialize for GhostControls.ghost.control.motors.control_right
@@ -1933,7 +2095,8 @@ void _lf_initialize_trigger_objects() {
                                 }
                             }
                         }
-                    
+                        // GhostControls.ghost.control.motors.control_right.reaction_1 dominating upstream reaction.
+                        _rols_ghost_control_motors_control_right_self[0]->_lf__reaction_0.last_enabling_reaction = &(ghostcontrols_ghost_control_motors_self[0]->_lf__reaction_2);
                     }
                     // **** End of non-nested deferred initialize for GhostControls.ghost.control.motors.control_right
                 }
@@ -2034,7 +2197,10 @@ void _lf_initialize_trigger_objects() {
                             }
                         }
                     }
-                
+                    // GhostControls.ghost.control.encoder.reaction_1 dominating upstream reaction.
+                    ghostcontrols_ghost_control_encoder_self[0]->_lf__reaction_0.last_enabling_reaction = NULL;
+                    // GhostControls.ghost.control.encoder.reaction_2 dominating upstream reaction.
+                    ghostcontrols_ghost_control_encoder_self[0]->_lf__reaction_1.last_enabling_reaction = NULL;
                 }
                 // **** End of non-nested deferred initialize for GhostControls.ghost.control.encoder
                 // **** Start non-nested deferred initialize for GhostControls.ghost.control.gyro
@@ -2195,7 +2361,10 @@ void _lf_initialize_trigger_objects() {
                                 }
                             }
                         }
-                    
+                        // GhostControls.ghost.control.gyro.g.reaction_1 dominating upstream reaction.
+                        ghostcontrols_ghost_control_gyro_g_self[0]->_lf__reaction_0.last_enabling_reaction = NULL;
+                        // GhostControls.ghost.control.gyro.g.reaction_2 dominating upstream reaction.
+                        ghostcontrols_ghost_control_gyro_g_self[0]->_lf__reaction_1.last_enabling_reaction = NULL;
                     }
                     // **** End of non-nested deferred initialize for GhostControls.ghost.control.gyro.g
                     // **** Start non-nested deferred initialize for GhostControls.ghost.control.gyro.integrator1
@@ -2205,7 +2374,8 @@ void _lf_initialize_trigger_objects() {
                         {
                             int triggers_index[1] = { 0 }; // Number of bank members with the reaction.
                         }
-                    
+                        // GhostControls.ghost.control.gyro.integrator1.reaction_1 dominating upstream reaction.
+                        _controls_ghost_control_gyro_integrator1_self[0]->_lf__reaction_0.last_enabling_reaction = &(ghostcontrols_ghost_control_gyro_g_self[0]->_lf__reaction_1);
                     }
                     // **** End of non-nested deferred initialize for GhostControls.ghost.control.gyro.integrator1
                     // **** Start non-nested deferred initialize for GhostControls.ghost.control.gyro.integrator2
@@ -2215,7 +2385,8 @@ void _lf_initialize_trigger_objects() {
                         {
                             int triggers_index[1] = { 0 }; // Number of bank members with the reaction.
                         }
-                    
+                        // GhostControls.ghost.control.gyro.integrator2.reaction_1 dominating upstream reaction.
+                        _controls_ghost_control_gyro_integrator2_self[0]->_lf__reaction_0.last_enabling_reaction = &(ghostcontrols_ghost_control_gyro_g_self[0]->_lf__reaction_1);
                     }
                     // **** End of non-nested deferred initialize for GhostControls.ghost.control.gyro.integrator2
                     // **** Start non-nested deferred initialize for GhostControls.ghost.control.gyro.integrator3
@@ -2270,7 +2441,8 @@ void _lf_initialize_trigger_objects() {
                                 }
                             }
                         }
-                    
+                        // GhostControls.ghost.control.gyro.integrator3.reaction_1 dominating upstream reaction.
+                        _controls_ghost_control_gyro_integrator3_self[0]->_lf__reaction_0.last_enabling_reaction = &(ghostcontrols_ghost_control_gyro_g_self[0]->_lf__reaction_1);
                     }
                     // **** End of non-nested deferred initialize for GhostControls.ghost.control.gyro.integrator3
                 }
@@ -2305,6 +2477,26 @@ void _lf_initialize_trigger_objects() {
             ghostcontrols_ghost_self[dst_runtime]->_lf_uwb.dist = (_uwb_dist_t*)&ghostcontrols_ghost_uwb_self[src_runtime]->_lf_dist;
         }
     }
+    // Connect inputs and outputs for reactor GhostControls.ghost.uart.
+    // Connect GhostControls.ghost.uart.uwb_out(0,1)->[GhostControls.ghost.uwb.uart_data(0,1)] to port GhostControls.ghost.uwb.uart_data(0,1)
+    // Iterate over ranges GhostControls.ghost.uart.uwb_out(0,1)->[GhostControls.ghost.uwb.uart_data(0,1)] and GhostControls.ghost.uwb.uart_data(0,1).
+    {
+        int src_runtime = 0; // Runtime index.
+        SUPPRESS_UNUSED_WARNING(src_runtime);
+        int src_channel = 0; // Channel index.
+        SUPPRESS_UNUSED_WARNING(src_channel);
+        int src_bank = 0; // Bank index.
+        SUPPRESS_UNUSED_WARNING(src_bank);
+        // Iterate over range GhostControls.ghost.uwb.uart_data(0,1).
+        {
+            int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+            int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+            int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+            ghostcontrols_ghost_uwb_self[dst_runtime]->_lf_uart_data = (_uwb_uart_data_t*)&ghostcontrols_ghost_uart_self[src_runtime]->_lf_uwb_out;
+        }
+    }
+    
     // Connect inputs and outputs for reactor GhostControls.ghost.control.
     // Connect GhostControls.ghost.control.turn_angle(0,1)->[GhostControls.ghost.control.turn_angle(0,1)] to port GhostControls.ghost.control.turn_angle(0,1)
     // Iterate over ranges GhostControls.ghost.control.turn_angle(0,1)->[GhostControls.ghost.control.turn_angle(0,1)] and GhostControls.ghost.control.turn_angle(0,1).
@@ -2594,13 +2786,15 @@ void _lf_initialize_trigger_objects() {
         {
         }
         {
-            // Add action GhostControls.ghost.uwb.uart_irq_a to array of is_present fields.
+        }
+        {
+            // Add action GhostControls.ghost.uart.uart_irq_a to array of is_present fields.
             environments[ghostcontrols_main].is_present_fields[0 + (0) * 1]
-                    = (bool *) &ghostcontrols_ghost_uwb_self[0]->_lf__uart_irq_a.status;
+                    = (bool *) &ghostcontrols_ghost_uart_self[0]->_lf__uart_irq_a.status;
             #ifdef FEDERATED_DECENTRALIZED
-            // Add action GhostControls.ghost.uwb.uart_irq_a to array of intended_tag fields.
+            // Add action GhostControls.ghost.uart.uart_irq_a to array of intended_tag fields.
             environments[ghostcontrols_main]._lf_intended_tag_fields[0 + (0) * 1]
-                    = &ghostcontrols_ghost_uwb_self[0]->_lf_uart_irq_a.intended_tag;
+                    = &ghostcontrols_ghost_uart_self[0]->_lf_uart_irq_a.intended_tag;
             #endif // FEDERATED_DECENTRALIZED
         }
         {
@@ -2838,15 +3032,34 @@ void _lf_initialize_trigger_objects() {
                 count++;
             }
         }
+        {
+            int count = 0; SUPPRESS_UNUSED_WARNING(count);
+            {
+                // Add output port GhostControls.ghost.uart.uwb_out to array of is_present fields.
+                environments[ghostcontrols_main].is_present_fields[(0) * 2 + 19 + count] = &ghostcontrols_ghost_uart_self[0]->_lf_uwb_out.is_present;
+                #ifdef FEDERATED_DECENTRALIZED
+                // Add output port GhostControls.ghost.uart.uwb_out to array of intended_tag fields.
+                environments[ghostcontrols_main]._lf_intended_tag_fields[(0) * 2 + 19 + count] = &ghostcontrols_ghost_uart_self[0]->_lf_uwb_out.intended_tag;
+                #endif // FEDERATED_DECENTRALIZED
+                count++;
+                // Add output port GhostControls.ghost.uart.bt_out to array of is_present fields.
+                environments[ghostcontrols_main].is_present_fields[(0) * 2 + 19 + count] = &ghostcontrols_ghost_uart_self[0]->_lf_bt_out.is_present;
+                #ifdef FEDERATED_DECENTRALIZED
+                // Add output port GhostControls.ghost.uart.bt_out to array of intended_tag fields.
+                environments[ghostcontrols_main]._lf_intended_tag_fields[(0) * 2 + 19 + count] = &ghostcontrols_ghost_uart_self[0]->_lf_bt_out.intended_tag;
+                #endif // FEDERATED_DECENTRALIZED
+                count++;
+            }
+        }
     }
     {
         int count = 0; SUPPRESS_UNUSED_WARNING(count);
         {
             // Add output port GhostControls.bt.cmd to array of is_present fields.
-            environments[ghostcontrols_main].is_present_fields[(0) * 1 + 19 + count] = &ghostcontrols_bt_self[0]->_lf_cmd.is_present;
+            environments[ghostcontrols_main].is_present_fields[(0) * 1 + 21 + count] = &ghostcontrols_bt_self[0]->_lf_cmd.is_present;
             #ifdef FEDERATED_DECENTRALIZED
             // Add output port GhostControls.bt.cmd to array of intended_tag fields.
-            environments[ghostcontrols_main]._lf_intended_tag_fields[(0) * 1 + 19 + count] = &ghostcontrols_bt_self[0]->_lf_cmd.intended_tag;
+            environments[ghostcontrols_main]._lf_intended_tag_fields[(0) * 1 + 21 + count] = &ghostcontrols_bt_self[0]->_lf_cmd.intended_tag;
             #endif // FEDERATED_DECENTRALIZED
             count++;
         }
@@ -2874,9 +3087,9 @@ void _lf_initialize_trigger_objects() {
             // index is the OR of level 1 and 
             // deadline 9223372036854775807 shifted left 16 bits.
             ghostcontrols_ghost_self[0]->_lf__reaction_1.index = lf_combine_deadline_and_level(9223372036854775807, 1);
-            // index is the OR of level 2 and 
+            // index is the OR of level 3 and 
             // deadline 9223372036854775807 shifted left 16 bits.
-            ghostcontrols_ghost_self[0]->_lf__reaction_2.index = lf_combine_deadline_and_level(9223372036854775807, 2);
+            ghostcontrols_ghost_self[0]->_lf__reaction_2.index = lf_combine_deadline_and_level(9223372036854775807, 3);
         
             // Set reaction priorities for ReactorInstance GhostControls.ghost.disp
             {
@@ -2891,12 +3104,20 @@ void _lf_initialize_trigger_objects() {
         
             // Set reaction priorities for ReactorInstance GhostControls.ghost.uwb
             {
+                // index is the OR of level 2 and 
+                // deadline 9223372036854775807 shifted left 16 bits.
+                ghostcontrols_ghost_uwb_self[0]->_lf__reaction_0.index = lf_combine_deadline_and_level(9223372036854775807, 2);
+            }
+        
+        
+            // Set reaction priorities for ReactorInstance GhostControls.ghost.uart
+            {
                 // index is the OR of level 0 and 
                 // deadline 9223372036854775807 shifted left 16 bits.
-                ghostcontrols_ghost_uwb_self[0]->_lf__reaction_0.index = lf_combine_deadline_and_level(9223372036854775807, 0);
+                ghostcontrols_ghost_uart_self[0]->_lf__reaction_0.index = lf_combine_deadline_and_level(9223372036854775807, 0);
                 // index is the OR of level 1 and 
                 // deadline 9223372036854775807 shifted left 16 bits.
-                ghostcontrols_ghost_uwb_self[0]->_lf__reaction_1.index = lf_combine_deadline_and_level(9223372036854775807, 1);
+                ghostcontrols_ghost_uart_self[0]->_lf__reaction_1.index = lf_combine_deadline_and_level(9223372036854775807, 1);
             }
         
         

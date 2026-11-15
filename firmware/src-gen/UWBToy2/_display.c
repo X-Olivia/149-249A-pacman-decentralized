@@ -30,12 +30,16 @@ void _displayreaction_function_0(void* instance_args) {
 #include "include/api/reaction_macros.h"
 void _displayreaction_function_1(void* instance_args) {
     _display_self_t* self = (_display_self_t*)instance_args; SUPPRESS_UNUSED_WARNING(self);
+    enum { _lf_await_requires_a_single_non_mutable_input_port__line0 = 1 };
     _display_line0_t* line0 = self->_lf_line0;
     int line0_width = self->_lf_line0_width; SUPPRESS_UNUSED_WARNING(line0_width);
+    enum { _lf_await_requires_a_single_non_mutable_input_port__line1 = 1 };
     _display_line1_t* line1 = self->_lf_line1;
     int line1_width = self->_lf_line1_width; SUPPRESS_UNUSED_WARNING(line1_width);
+    enum { _lf_await_requires_a_single_non_mutable_input_port__line2 = 1 };
     _display_line2_t* line2 = self->_lf_line2;
     int line2_width = self->_lf_line2_width; SUPPRESS_UNUSED_WARNING(line2_width);
+    enum { _lf_await_requires_a_single_non_mutable_input_port__line3 = 1 };
     _display_line3_t* line3 = self->_lf_line3;
     int line3_width = self->_lf_line3_width; SUPPRESS_UNUSED_WARNING(line3_width);
     #line 45 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/lib/Display.lf"
@@ -61,7 +65,7 @@ void _displayreaction_function_1(void* instance_args) {
     }
     // display buffer
     display_show();
-#line 65 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/UWBToy2/_display.c"
+#line 69 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/UWBToy2/_display.c"
 }
 #include "include/api/reaction_macros_undef.h"
 _display_self_t* new__display() {

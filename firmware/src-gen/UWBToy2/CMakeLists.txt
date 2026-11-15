@@ -1,5 +1,7 @@
 
 cmake_minimum_required(VERSION 3.19)
+# Define the root of the pico-sdk library.
+set(PICO_SDK_PATH /home/ducky/Downloads/149-249A-pacman-decentralized/firmware/pico-sdk)
 include(pico_sdk_import.cmake)
 project(UWBToy2 LANGUAGES C CXX ASM)
 
@@ -61,6 +63,7 @@ add_executable(
     lib/schedule.c
     _uwbtoy2_main.c
     _uwb.c
+    _uart.c
     _display.c
     UWBToy2.c
 )

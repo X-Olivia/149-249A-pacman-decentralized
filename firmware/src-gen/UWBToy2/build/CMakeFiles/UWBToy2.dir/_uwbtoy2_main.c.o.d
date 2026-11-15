@@ -119,6 +119,7 @@ CMakeFiles/UWBToy2.dir/_uwbtoy2_main.c.o: \
  /home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/UWBToy2/_uwbtoy2_main.h \
  /home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/UWBToy2/include/core/reactor.h \
  /home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/UWBToy2/_display.h \
+ /home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/UWBToy2/_uart.h \
  /home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/UWBToy2/_uwb.h \
  /home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/UWBToy2/include/api/reaction_macros.h \
  /home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/UWBToy2/include/api/reaction_macros_undef.h

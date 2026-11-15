@@ -3,21 +3,18 @@
 #include "include/core/reactor.h"
 #include "_picontrol.h"
 #include "_motors.h"
-#ifndef TOP_LEVEL_PREAMBLE_1112073835_H
-#define TOP_LEVEL_PREAMBLE_1112073835_H
+#ifndef TOP_LEVEL_PREAMBLE_1314779424_H
+#define TOP_LEVEL_PREAMBLE_1314779424_H
 #include <motors.h>
 #include <math.h>
-#endif // TOP_LEVEL_PREAMBLE_1112073835_H
-#ifndef TOP_LEVEL_PREAMBLE_1657697023_H
-#define TOP_LEVEL_PREAMBLE_1657697023_H
+#endif // TOP_LEVEL_PREAMBLE_1314779424_H
+#ifndef TOP_LEVEL_PREAMBLE_1167738766_H
+#define TOP_LEVEL_PREAMBLE_1167738766_H
 #include <math.h>
 #define WHEEL_DIAMETER 0.032 // meters
 #define COUNTS_PER_REV 360 //CPR
 #define TICKS_PER_METER (WHEEL_DIAMETER * M_PI) / COUNTS_PER_REV
-#endif // TOP_LEVEL_PREAMBLE_1657697023_H
-
-
-
+#endif // TOP_LEVEL_PREAMBLE_1167738766_H
 typedef struct {
     token_type_t type;
     lf_token_t* token;
@@ -80,7 +77,7 @@ typedef struct {
     float p_gain;
     #line 28 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/lib/MotorsWithFeedback.lf"
     float i_gain;
-#line 84 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/GhostControls/_motorswithfeedback.h"
+#line 81 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/GhostControls/_motorswithfeedback.h"
     #line 37 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/lib/MotorsWithFeedback.lf"
     interval_t prev_time;
     #line 38 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/lib/MotorsWithFeedback.lf"
@@ -91,7 +88,7 @@ typedef struct {
     float target_speed_left;
     #line 41 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/lib/MotorsWithFeedback.lf"
     float target_speed_right;
-#line 95 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/GhostControls/_motorswithfeedback.h"
+#line 92 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/GhostControls/_motorswithfeedback.h"
     _motorswithfeedback_left_speed_t* _lf_left_speed;
     // width of -2 indicates that it is not a multiport.
     int _lf_left_speed_width;

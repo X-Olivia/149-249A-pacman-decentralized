@@ -115,6 +115,7 @@ CMakeFiles/UWBToy2.dir/UWBToy2.c.o: \
  /home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/UWBToy2/include/core/port.h \
  /home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/UWBToy2/include/core/environment.h \
  /home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/UWBToy2/_uwb.h \
+ /home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/UWBToy2/_uart.h \
  /home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/UWBToy2/_display.h \
  /home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/UWBToy2/robot-lib/src/display.h \
  /home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/UWBToy2/_uwbtoy2_main.h

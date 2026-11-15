@@ -185,4 +185,52 @@ tag_t send_next_event_tag(environment_t* env, tag_t tag, bool wait_for_reply);
  * @param env Environment within which we are executing.
  */
 void _lf_next_locked(environment_t* env);
+
+/**
+ * @brief Resume every deferred lf_async() or lf_await() call whose reaction is at the given level.
+ * @ingroup Internal
+ *
+ * The caller must hold the environment mutex and must be a busy worker (executing a reaction, or
+ * the worker that is distributing this level and has therefore not gone idle). Each resumed thread
+ * rejoins the pool and continues its reaction at this level. The returned count is the number of
+ * threads that are now busy and must finish before a higher level starts.
+ *
+ * @param env The environment.
+ * @param level The level the scheduler is entering.
+ * If the action of a call is logical, its tag can be reached before the invoked function returns.
+ * In that case, this waits for the function to return. Every other worker is idle, so logical
+ * time cannot advance in the meantime. No call is resumed until every function at this level has
+ * returned, so no resumed thread can finish and go idle while this waits.
+ *
+ * @return The number of calls resumed.
+ */
+int _lf_async_release_level_locked(environment_t* env, size_t level);
+
+/**
+ * @brief Defer every pending lf_async() call that the event of the specified trigger resumes.
+ * @ingroup Internal
+ *
+ * This is called when an event is processed at the start of a tag. A call on a logical action is
+ * resumed by the event at the tag for which it scheduled the action. A call on a physical action
+ * is resumed once its function has returned, because the action is scheduled at that time. Each
+ * call continues when the scheduler reaches the level of its reaction. The caller must hold the
+ * environment mutex.
+ *
+ * @param env The environment.
+ * @param trigger The trigger of the event.
+ */
+void _lf_async_action_fired_locked(environment_t* env, trigger_t* trigger);
+
+/**
+ * @brief Defer every pending lf_await() call on the port whose presence flag is given.
+ * @ingroup Internal
+ *
+ * This is called by the worker that has executed a reaction that set the port. Each call
+ * continues when the scheduler reaches the level of its reaction, which is higher than that of the
+ * reaction that set the port. This acquires the environment mutex.
+ *
+ * @param env The environment.
+ * @param is_present The address of the `is_present` field of the port that was set.
+ */
+void _lf_async_port_set(environment_t* env, bool* is_present);
 #endif // REACTOR_THREADED_H

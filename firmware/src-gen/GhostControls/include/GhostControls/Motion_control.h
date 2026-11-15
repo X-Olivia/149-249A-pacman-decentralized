@@ -1,30 +1,30 @@
 #ifndef _motion_control_H
 #define _motion_control_H
 #ifndef _MOTION_CONTROL_H // necessary for arduino-cli, which automatically includes headers that are not used
-#ifndef TOP_LEVEL_PREAMBLE_2118984327_H
-#define TOP_LEVEL_PREAMBLE_2118984327_H
+#ifndef TOP_LEVEL_PREAMBLE_690699007_H
+#define TOP_LEVEL_PREAMBLE_690699007_H
 /*Correspondence: Range: [(18, 2), (19, 68)) -> Range: [(0, 0), (1, 68)) (verbatim=true; src=/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/lib/Display.lf)*/#include <pico/stdlib.h>
 #include <display.h>        // Do not use "display.h". Doesn't work.
-#endif // TOP_LEVEL_PREAMBLE_2118984327_H
-#ifndef TOP_LEVEL_PREAMBLE_124540047_H
-#define TOP_LEVEL_PREAMBLE_124540047_H
+#endif // TOP_LEVEL_PREAMBLE_690699007_H
+#ifndef TOP_LEVEL_PREAMBLE_1478091345_H
+#define TOP_LEVEL_PREAMBLE_1478091345_H
 /*Correspondence: Range: [(21, 2), (22, 16)) -> Range: [(0, 0), (1, 16)) (verbatim=true; src=/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/lib/IMU.lf)*/#include <pico/stdlib.h>
 #include <imu.h>
-#endif // TOP_LEVEL_PREAMBLE_124540047_H
-#ifndef TOP_LEVEL_PREAMBLE_1112073835_H
-#define TOP_LEVEL_PREAMBLE_1112073835_H
+#endif // TOP_LEVEL_PREAMBLE_1478091345_H
+#ifndef TOP_LEVEL_PREAMBLE_1314779424_H
+#define TOP_LEVEL_PREAMBLE_1314779424_H
 /*Correspondence: Range: [(19, 2), (20, 17)) -> Range: [(0, 0), (1, 17)) (verbatim=true; src=/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/lib/Motors.lf)*/#include <motors.h>
 #include <math.h>
-#endif // TOP_LEVEL_PREAMBLE_1112073835_H
-#ifndef TOP_LEVEL_PREAMBLE_1657697023_H
-#define TOP_LEVEL_PREAMBLE_1657697023_H
+#endif // TOP_LEVEL_PREAMBLE_1314779424_H
+#ifndef TOP_LEVEL_PREAMBLE_1167738766_H
+#define TOP_LEVEL_PREAMBLE_1167738766_H
 /*Correspondence: Range: [(21, 2), (24, 64)) -> Range: [(0, 0), (3, 64)) (verbatim=true; src=/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/lib/MotorsWithFeedback.lf)*/#include <math.h>
 #define WHEEL_DIAMETER 0.032 // meters
 #define COUNTS_PER_REV 360 //CPR
 #define TICKS_PER_METER (WHEEL_DIAMETER * M_PI) / COUNTS_PER_REV
-#endif // TOP_LEVEL_PREAMBLE_1657697023_H
-#ifndef TOP_LEVEL_PREAMBLE_302059473_H
-#define TOP_LEVEL_PREAMBLE_302059473_H
+#endif // TOP_LEVEL_PREAMBLE_1167738766_H
+#ifndef TOP_LEVEL_PREAMBLE_2079503304_H
+#define TOP_LEVEL_PREAMBLE_2079503304_H
 /*Correspondence: Range: [(18, 2), (26, 17)) -> Range: [(0, 0), (8, 17)) (verbatim=true; src=/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/lib/Encoders.lf)*/#include <math.h>
 #include <hardware/pio.h>
 #include <quadrature_encoder.pio.h>
@@ -34,9 +34,9 @@
 #define LEFT_ENCODER_AB 12
 #define RIGHT_SM 0
 #define LEFT_SM 1
-#endif // TOP_LEVEL_PREAMBLE_302059473_H
-#ifndef TOP_LEVEL_PREAMBLE_142302025_H
-#define TOP_LEVEL_PREAMBLE_142302025_H
+#endif // TOP_LEVEL_PREAMBLE_2079503304_H
+#ifndef TOP_LEVEL_PREAMBLE_732591497_H
+#define TOP_LEVEL_PREAMBLE_732591497_H
 /*Correspondence: Range: [(9, 2), (15, 22)) -> Range: [(0, 0), (6, 22)) (verbatim=true; src=/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/lib/Bluetooth.lf)*/#include "hardware/uart.h"
 #include "hardware/gpio.h"
 
@@ -44,17 +44,25 @@
 #define PIN_UART_TX 28
 #define PIN_UART_RX 29
 #define BAUD_RATE 9600
-#endif // TOP_LEVEL_PREAMBLE_142302025_H
-#ifndef TOP_LEVEL_PREAMBLE_1002410023_H
-#define TOP_LEVEL_PREAMBLE_1002410023_H
+#endif // TOP_LEVEL_PREAMBLE_732591497_H
+#ifndef TOP_LEVEL_PREAMBLE_720370616_H
+#define TOP_LEVEL_PREAMBLE_720370616_H
 /*Correspondence: Range: [(9, 2), (12, 19)) -> Range: [(0, 0), (3, 19)) (verbatim=true; src=/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/lib/UWB.lf)*/#include <stdio.h>
 #include "pico/stdlib.h"
 #include "hardware/uart.h"
 #include <stdlib.h>
-#endif // TOP_LEVEL_PREAMBLE_1002410023_H
-#ifndef TOP_LEVEL_PREAMBLE_2060799061_H
-#define TOP_LEVEL_PREAMBLE_2060799061_H
-/*Correspondence: Range: [(24, 2), (56, 43)) -> Range: [(0, 0), (32, 43)) (verbatim=true; src=/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/GhostControls.lf)*/#include "hardware/uart.h"
+#endif // TOP_LEVEL_PREAMBLE_720370616_H
+#ifndef TOP_LEVEL_PREAMBLE_2058050455_H
+#define TOP_LEVEL_PREAMBLE_2058050455_H
+/*Correspondence: Range: [(9, 2), (13, 24)) -> Range: [(0, 0), (4, 24)) (verbatim=true; src=/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/lib/UART.lf)*/#include <stdio.h>
+#include "pico/stdlib.h"
+#include "hardware/uart.h"
+#include <stdlib.h>
+#define MESSAGE_SIZE 128
+#endif // TOP_LEVEL_PREAMBLE_2058050455_H
+#ifndef TOP_LEVEL_PREAMBLE_1096723873_H
+#define TOP_LEVEL_PREAMBLE_1096723873_H
+/*Correspondence: Range: [(25, 2), (57, 43)) -> Range: [(0, 0), (32, 43)) (verbatim=true; src=/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/GhostControls.lf)*/#include "hardware/uart.h"
 #include "hardware/gpio.h"
 #include <float.h>
 #include <stdlib.h>
@@ -87,15 +95,7 @@ typedef struct path_arr {
 } path_arr;
 
 typedef dist_arr dist_arr_list_t[NUM_DIRS];
-#endif // TOP_LEVEL_PREAMBLE_2060799061_H
-
-
-
-
-
-
-
-
+#endif // TOP_LEVEL_PREAMBLE_1096723873_H
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -114,6 +114,18 @@ typedef struct motion_control_self_t{
     float curr_angle;
     int end[0]; // placeholder; MSVC does not compile empty structs
 } motion_control_self_t;
+#ifndef _LF_AWAIT_MARKER__turn_angle
+#define _LF_AWAIT_MARKER__turn_angle
+enum { _lf_await_requires_a_single_non_mutable_input_port__turn_angle = 1 };
+#endif
+#ifndef _LF_AWAIT_MARKER__target_speed
+#define _LF_AWAIT_MARKER__target_speed
+enum { _lf_await_requires_a_single_non_mutable_input_port__target_speed = 1 };
+#endif
+#ifndef _LF_AWAIT_MARKER__stop
+#define _LF_AWAIT_MARKER__stop
+enum { _lf_await_requires_a_single_non_mutable_input_port__stop = 1 };
+#endif
 typedef struct {
     token_type_t type;
     lf_token_t* token;
