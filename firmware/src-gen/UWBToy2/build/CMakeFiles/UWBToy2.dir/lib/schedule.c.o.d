@@ -37,6 +37,9 @@ CMakeFiles/UWBToy2.dir/lib/schedule.c.o: \
  /home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/UWBToy2/include/core/utils/vector.h \
  /home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/UWBToy2/include/core/reactor.h \
  /home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/UWBToy2/include/core/lf_types.h \
+ /home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/UWBToy2/include/core/modal_models/modes.h \
+ /home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/UWBToy2/include/core/port.h \
+ /home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/UWBToy2/include/core/clock.h \
  /home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/UWBToy2/low_level_platform/api/low_level_platform.h \
  /nix/store/c353gqsmf8mvg72vivm9fb2dv210wnkm-gcc-arm-embedded-14.2.rel1/arm-none-eabi/include/assert.h \
  /home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/UWBToy2/low_level_platform/api/platform/lf_atomic.h \
@@ -97,9 +100,6 @@ CMakeFiles/UWBToy2.dir/lib/schedule.c.o: \
  /home/ducky/Downloads/149-249A-pacman-decentralized/firmware/pico-sdk/src/rp2_common/hardware_sync_spin_lock/include/hardware/sync/spin_lock.h \
  /home/ducky/Downloads/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_sync/include/pico/mutex.h \
  /home/ducky/Downloads/149-249A-pacman-decentralized/firmware/pico-sdk/src/common/pico_sync/include/pico/critical_section.h \
- /home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/UWBToy2/include/core/modal_models/modes.h \
- /home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/UWBToy2/include/core/port.h \
- /home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/UWBToy2/include/core/clock.h \
  /home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/UWBToy2/include/core/tracepoint.h \
  /nix/store/c353gqsmf8mvg72vivm9fb2dv210wnkm-gcc-arm-embedded-14.2.rel1/arm-none-eabi/include/stdio.h \
  /nix/store/c353gqsmf8mvg72vivm9fb2dv210wnkm-gcc-arm-embedded-14.2.rel1/arm-none-eabi/include/sys/stdio.h \

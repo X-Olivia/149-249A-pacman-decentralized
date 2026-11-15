@@ -18,7 +18,7 @@ void _uwbtoy2_mainreaction_function_0(void* instance_args) {
     } display;
     uwb.dist = self->_lf_uwb.dist;
     display.line0 = &(self->_lf_display.line0);
-    #line 68 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/UWBToy2.lf"
+    #line 17 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/UWBToy2.lf"
     static char buf[17];
     snprintf(buf, 17, "Dist: %.2f cm", uwb.dist->value);
     lf_set(display.line0, buf);

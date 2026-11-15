@@ -1,18 +1,13 @@
 #ifndef _UWB_H
 #define _UWB_H
 #include "include/core/reactor.h"
-#ifndef TOP_LEVEL_PREAMBLE_455428179_H
-#define TOP_LEVEL_PREAMBLE_455428179_H
-#include <pico/stdlib.h>
-#include <display.h>        // Do not use "display.h". Doesn't work.
-#endif // TOP_LEVEL_PREAMBLE_455428179_H
-#ifndef TOP_LEVEL_PREAMBLE_1168747802_H
-#define TOP_LEVEL_PREAMBLE_1168747802_H
+#ifndef TOP_LEVEL_PREAMBLE_1775675341_H
+#define TOP_LEVEL_PREAMBLE_1775675341_H
 #include <stdio.h>
 #include "pico/stdlib.h"
 #include "hardware/uart.h"
 #include <stdlib.h>
-#endif // TOP_LEVEL_PREAMBLE_1168747802_H
+#endif // TOP_LEVEL_PREAMBLE_1775675341_H
 typedef struct {
     token_type_t type;
     lf_token_t* token;
@@ -46,8 +41,8 @@ typedef struct {
 } _uwb_uart_irq_a_t;
 typedef struct {
     struct self_base_t base;
-#line 50 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/UWBToy2/_uwb.h"
-#line 51 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/UWBToy2/_uwb.h"
+#line 45 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/UWBToy2/_uwb.h"
+#line 46 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/UWBToy2/_uwb.h"
     _uwb_uart_irq_a_t _lf_uart_irq_a;
     _uwb_dist_t _lf_dist;
     int _lf_dist_width;
