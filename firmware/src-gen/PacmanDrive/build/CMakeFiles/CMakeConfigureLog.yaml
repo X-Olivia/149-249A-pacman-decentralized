@@ -1,0 +1,106 @@
+
+---
+events:
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/local/share/cmake/Modules/CMakeDetermineSystem.cmake:12 (find_program)"
+      - "CMakeLists.txt:6 (project)"
+    mode: "program"
+    variable: "CMAKE_UNAME"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "FIRST"
+      SearchAppBundle: "FIRST"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "uname"
+    candidate_directories:
+      - "/Users/sareenarobinson/.nix-profile/bin/"
+      - "/nix/var/nix/profiles/default/bin/"
+      - "/Library/Frameworks/Python.framework/Versions/3.12/bin/"
+      - "/Library/Frameworks/Python.framework/Versions/3.10/bin/"
+      - "/Library/Frameworks/Python.framework/Versions/3.9/bin/"
+      - "/usr/local/bin/"
+      - "/System/Cryptexes/App/usr/bin/"
+      - "/usr/bin/"
+      - "/bin/"
+      - "/usr/sbin/"
+      - "/sbin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
+      - "/opt/homebrew/bin/"
+    searched_directories:
+      - "/Users/sareenarobinson/.nix-profile/bin/uname"
+      - "/nix/var/nix/profiles/default/bin/uname"
+      - "/Library/Frameworks/Python.framework/Versions/3.12/bin/uname"
+      - "/Library/Frameworks/Python.framework/Versions/3.10/bin/uname"
+      - "/Library/Frameworks/Python.framework/Versions/3.9/bin/uname"
+      - "/usr/local/bin/uname"
+      - "/System/Cryptexes/App/usr/bin/uname"
+    found: "/usr/bin/uname"
+    search_context:
+      ENV{PATH}:
+        - "/Users/sareenarobinson/.nix-profile/bin"
+        - "/nix/var/nix/profiles/default/bin"
+        - "/Library/Frameworks/Python.framework/Versions/3.12/bin"
+        - "/Library/Frameworks/Python.framework/Versions/3.10/bin"
+        - "/Library/Frameworks/Python.framework/Versions/3.9/bin"
+        - "/usr/local/bin"
+        - "/System/Cryptexes/App/usr/bin"
+        - "/usr/bin"
+        - "/bin"
+        - "/usr/sbin"
+        - "/sbin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
+        - "/opt/homebrew/bin"
+      CMAKE_INSTALL_PREFIX: "/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/cmake/preload/toolchains/util/find_compiler.cmake:12 (find_program)"
+      - "/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/cmake/preload/toolchains/util/find_compiler.cmake:39 (pico_find_compiler)"
+      - "/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/cmake/preload/toolchains/util/pico_arm_gcc_common.cmake:25 (pico_find_compiler_with_triples)"
+      - "/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/pico-sdk/cmake/preload/toolchains/pico_arm_cortex_m0plus_gcc.cmake:7 (include)"
+      - "/usr/local/share/cmake/Modules/CMakeDetermineSystem.cmake:152 (include)"
+      - "CMakeLists.txt:6 (project)"
+    mode: "program"
+    variable: "PICO_COMPILER_CC"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "FIRST"
+      SearchAppBundle: "FIRST"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "arm-none-eabi-gcc"
+    found: false
+    search_context:
+      ENV{PATH}:
+        - "/Users/sareenarobinson/.nix-profile/bin"
+        - "/nix/var/nix/profiles/default/bin"
+        - "/Library/Frameworks/Python.framework/Versions/3.12/bin"
+        - "/Library/Frameworks/Python.framework/Versions/3.10/bin"
+        - "/Library/Frameworks/Python.framework/Versions/3.9/bin"
+        - "/usr/local/bin"
+        - "/System/Cryptexes/App/usr/bin"
+        - "/usr/bin"
+        - "/bin"
+        - "/usr/sbin"
+        - "/sbin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
+        - "/opt/homebrew/bin"
+      CMAKE_INSTALL_PREFIX: "/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware"
+...
