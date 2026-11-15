@@ -1,14 +1,15 @@
 #ifndef _uart_H
 #define _uart_H
 #ifndef _UART_H // necessary for arduino-cli, which automatically includes headers that are not used
-#ifndef TOP_LEVEL_PREAMBLE_2021825449_H
-#define TOP_LEVEL_PREAMBLE_2021825449_H
-/*Correspondence: Range: [(9, 2), (13, 24)) -> Range: [(0, 0), (4, 24)) (verbatim=true; src=/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/lib/UART.lf)*/#include <stdio.h>
+#ifndef TOP_LEVEL_PREAMBLE_314583580_H
+#define TOP_LEVEL_PREAMBLE_314583580_H
+/*Correspondence: Range: [(9, 2), (14, 24)) -> Range: [(0, 0), (5, 24)) (verbatim=true; src=/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/lib/UART.lf)*/#include <stdio.h>
+#include <string.h>
 #include "pico/stdlib.h"
 #include "hardware/uart.h"
 #include <stdlib.h>
 #define MESSAGE_SIZE 128
-#endif // TOP_LEVEL_PREAMBLE_2021825449_H
+#endif // TOP_LEVEL_PREAMBLE_314583580_H
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -67,22 +68,5 @@ typedef struct {
     interval_t physical_time_of_arrival;
     #endif
 } uart_bt_out_t;
-typedef struct {
-    token_type_t type;
-    lf_token_t* token;
-    size_t length;
-    bool is_present;
-    lf_action_internal_t _base;
-    self_base_t* parent;
-    bool has_value;
-    int source_id;
-
-    #ifdef FEDERATED
-    #ifdef FEDERATED_DECENTRALIZED
-    tag_t intended_tag;
-    #endif
-    interval_t physical_time_of_arrival;
-    #endif
-} uart_uart_irq_a_t;
 #endif
 #endif

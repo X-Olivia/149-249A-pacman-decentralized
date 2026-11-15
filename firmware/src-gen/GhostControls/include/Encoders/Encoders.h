@@ -1,8 +1,8 @@
 #ifndef _encoders_H
 #define _encoders_H
 #ifndef _ENCODERS_H // necessary for arduino-cli, which automatically includes headers that are not used
-#ifndef TOP_LEVEL_PREAMBLE_2079503304_H
-#define TOP_LEVEL_PREAMBLE_2079503304_H
+#ifndef TOP_LEVEL_PREAMBLE_1275538575_H
+#define TOP_LEVEL_PREAMBLE_1275538575_H
 /*Correspondence: Range: [(18, 2), (26, 17)) -> Range: [(0, 0), (8, 17)) (verbatim=true; src=/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/lib/Encoders.lf)*/#include <math.h>
 #include <hardware/pio.h>
 #include <quadrature_encoder.pio.h>
@@ -12,7 +12,7 @@
 #define LEFT_ENCODER_AB 12
 #define RIGHT_SM 0
 #define LEFT_SM 1
-#endif // TOP_LEVEL_PREAMBLE_2079503304_H
+#endif // TOP_LEVEL_PREAMBLE_1275538575_H
 #ifdef __cplusplus
 extern "C" {
 #endif

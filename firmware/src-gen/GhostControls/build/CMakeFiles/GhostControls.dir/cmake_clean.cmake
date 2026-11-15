@@ -25,6 +25,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/GhostControls.dir/_picontrol.c.o.d"
   "CMakeFiles/GhostControls.dir/_trapezoidalintegrator.c.o"
   "CMakeFiles/GhostControls.dir/_trapezoidalintegrator.c.o.d"
+  "CMakeFiles/GhostControls.dir/_uart.c.o"
+  "CMakeFiles/GhostControls.dir/_uart.c.o.d"
   "CMakeFiles/GhostControls.dir/_uwb.c.o"
   "CMakeFiles/GhostControls.dir/_uwb.c.o.d"
   "CMakeFiles/GhostControls.dir/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.o"

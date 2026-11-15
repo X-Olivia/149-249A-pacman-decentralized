@@ -1,8 +1,8 @@
 #ifndef _ENCODERS_H
 #define _ENCODERS_H
 #include "include/core/reactor.h"
-#ifndef TOP_LEVEL_PREAMBLE_2079503304_H
-#define TOP_LEVEL_PREAMBLE_2079503304_H
+#ifndef TOP_LEVEL_PREAMBLE_1275538575_H
+#define TOP_LEVEL_PREAMBLE_1275538575_H
 #include <math.h>
 #include <hardware/pio.h>
 #include <quadrature_encoder.pio.h>
@@ -12,7 +12,7 @@
 #define LEFT_ENCODER_AB 12
 #define RIGHT_SM 0
 #define LEFT_SM 1
-#endif // TOP_LEVEL_PREAMBLE_2079503304_H
+#endif // TOP_LEVEL_PREAMBLE_1275538575_H
 typedef struct {
     token_type_t type;
     lf_token_t* token;

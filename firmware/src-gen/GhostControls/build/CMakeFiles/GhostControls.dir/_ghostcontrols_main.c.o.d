@@ -149,6 +149,7 @@ CMakeFiles/GhostControls.dir/_ghostcontrols_main.c.o: \
  /home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/GhostControls/_bluetooth.h \
  /home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/GhostControls/_ghost.h \
  /home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/GhostControls/_display.h \
+ /home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/GhostControls/_uart.h \
  /home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/GhostControls/_uwb.h \
  /home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/GhostControls/_motion_control.h \
  /home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/GhostControls/_encoders.h \

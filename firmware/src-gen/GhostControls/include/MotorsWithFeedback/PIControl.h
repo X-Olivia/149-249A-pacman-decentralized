@@ -1,18 +1,18 @@
 #ifndef _picontrol_H
 #define _picontrol_H
 #ifndef _PICONTROL_H // necessary for arduino-cli, which automatically includes headers that are not used
-#ifndef TOP_LEVEL_PREAMBLE_1314779424_H
-#define TOP_LEVEL_PREAMBLE_1314779424_H
+#ifndef TOP_LEVEL_PREAMBLE_656887876_H
+#define TOP_LEVEL_PREAMBLE_656887876_H
 /*Correspondence: Range: [(19, 2), (20, 17)) -> Range: [(0, 0), (1, 17)) (verbatim=true; src=/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/lib/Motors.lf)*/#include <motors.h>
 #include <math.h>
-#endif // TOP_LEVEL_PREAMBLE_1314779424_H
-#ifndef TOP_LEVEL_PREAMBLE_1167738766_H
-#define TOP_LEVEL_PREAMBLE_1167738766_H
+#endif // TOP_LEVEL_PREAMBLE_656887876_H
+#ifndef TOP_LEVEL_PREAMBLE_438944489_H
+#define TOP_LEVEL_PREAMBLE_438944489_H
 /*Correspondence: Range: [(21, 2), (24, 64)) -> Range: [(0, 0), (3, 64)) (verbatim=true; src=/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/lib/MotorsWithFeedback.lf)*/#include <math.h>
 #define WHEEL_DIAMETER 0.032 // meters
 #define COUNTS_PER_REV 360 //CPR
 #define TICKS_PER_METER (WHEEL_DIAMETER * M_PI) / COUNTS_PER_REV
-#endif // TOP_LEVEL_PREAMBLE_1167738766_H
+#endif // TOP_LEVEL_PREAMBLE_438944489_H
 #ifdef __cplusplus
 extern "C" {
 #endif

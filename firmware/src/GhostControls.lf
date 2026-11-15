@@ -1,9 +1,4 @@
 /**
- * Drive the Pololu 3pi+ 2040 from a laptop over BLE using an HM-10 module.
- *
- * Wiring: HM-10 TX -> GP29, HM-10 RX -> GP28, VCC -> 3V3, GND -> GND.
- * Commands (single characters sent over BLE): f = forward, b = backward,
- * l = spin left, r = spin right, s = stop.
  */
 target C {
   platform: {
@@ -212,28 +207,41 @@ reactor Ghost(p_turn: time = 1 s){
     }
     // pick the best roc
     int size = self->dir_to_dists[self->curr_dir].size;
-    if (in_exits(exits, self->curr_dir) && size > 0 && d2d_dir_get_last(self->curr_dir) < 0){
+    if (in_exits(exits, FORWARDS) && size > 0 && d2d_dir_get_last(self->curr_dir) < 0){
       return FORWARDS;
     }
     float min_roc = FLT_MAX;
-    int min_dir = 0;
+    dir_t min_dir = exits.path[0];
     // unlike in the simulation, I simply choose the first min_dir, since its pretty unlikely for distances to be the exact same (unless we give a closeness range?)
     for (int x = 0; x < exits.size; x++){
-      int dir = exits.path[x];
-      float curr_roc = d2d_dir_get_dist_roc(dir);
+      dir_t rel = exits.path[x];
+      float curr_roc = d2d_dir_get_dist_roc((self->curr_dir + rel) % NUM_DIRS);
       if (curr_roc < min_roc){
         min_roc = curr_roc;
-        min_dir = dir;
+        min_dir = rel;
       }
     }
     return min_dir;
   =}
-  method turn(rel_dir: dir_t){=
+  // apparently we can set ports from within methods by passing them in in the form _{reactor name}_{port name}_t*
+  method turn(control: _motion_control_turn_angle_t*, rel_dir: dir_t){=
     if (rel_dir != FORWARDS){
       self->curr_dir = (self->curr_dir + rel_dir) % NUM_DIRS;
       d2d_dir_reset(self->curr_dir);
       self->last_turn = lf_time_logical_elapsed();
+      lf_set(control, 360 / NUM_DIRS * rel_dir);
     }
+  =}
+  // --- bt -------------------------------------------------->
+  method print_roc(uart: _uart_bt_in_t*){=
+    static char buf[129];
+    static const char* dirs[NUM_DIRS] = {"F", "L", "B", "R"};
+    int n = 0;
+    for (int x = 0; x < NUM_DIRS; x++){
+      n += snprintf(buf + n, sizeof(buf) - n, "%s%s:%.2f", x ? "," : "", dirs[x], d2d_dir_get_dist_roc(x));
+      if (n >= (int)sizeof(buf)) break;
+    }
+    lf_set(uart, buf);
   =}
 
   // --- reactions -------------------------------------------------->
@@ -247,23 +255,27 @@ reactor Ghost(p_turn: time = 1 s){
     srand((unsigned int)time(NULL));
     memset(self->dir_to_dists, 0, sizeof(self->dir_to_dists));
   =}
-  reaction(t_turn) -> control.turn_angle {=
+  reaction(t_turn) -> control.turn_angle, uart.bt_in {=
+    print_roc(uart.bt_in);
     if (lf_time_logical_elapsed() > self->last_decision + TIME_BEFORE_ROTATE_ALLOWED){
       self->last_decision = lf_time_logical_elapsed();
       if (self->valid_paths.size == 1){
         // deadend. There is only one path
         dir_t rel_dir = self->valid_paths.path[0];
-        turn(rel_dir);
-        lf_set(control.turn_angle, 360 / NUM_DIRS * rel_dir);
+        turn(control.turn_angle, rel_dir);
         return;
       } else {
-        dir_t rel_dir = choose_exit(self->valid_paths);
-        turn(rel_dir);
-        lf_set(control.turn_angle, 360 / NUM_DIRS * rel_dir);
+        dir_t rel_dir;
         // every once in a while try a new path time spent on current dir is too long
         if (lf_time_logical_elapsed() > self->last_turn + TIME_BEFORE_RESET){
           d2d_reset_all_dists();
+          do {
+            rel_dir = self->valid_paths.path[rand() % self->valid_paths.size];
+          } while (rel_dir == FORWARDS);
+        } else {
+          rel_dir = choose_exit(self->valid_paths);
         }
+        turn(control.turn_angle, rel_dir);
         return;
       }
     }
@@ -273,6 +285,11 @@ reactor Ghost(p_turn: time = 1 s){
       d2d_dir_add_dist(self->curr_dir, uwb.dist->value - self->last_distance);
     }
     self->last_distance = uwb.dist->value;
+  =}
+    reaction(uwb.dist) -> disp.line0, uart.bt_in{=
+    static char buf[17];
+    snprintf(buf, 17, "Dist: %.2f cm", uwb.dist->value);
+    lf_set(disp.line0, buf);
   =}
 }
 

@@ -13,7 +13,7 @@ void _motion_controlreaction_function_0(void* instance_args) {
     
     } encoder;
     encoder.trigger = &(self->_lf_encoder.trigger);
-    #line 79 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/GhostControls.lf"
+    #line 74 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/GhostControls.lf"
     lf_set(encoder.trigger, true);
 #line 19 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/GhostControls/_motion_control.c"
 }
@@ -26,7 +26,7 @@ void _motion_controlreaction_function_1(void* instance_args) {
     
     } gyro;
     gyro.trigger = &(self->_lf_gyro.trigger);
-    #line 82 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/GhostControls.lf"
+    #line 77 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/GhostControls.lf"
     lf_set(gyro.trigger, true);
 #line 32 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/GhostControls/_motion_control.c"
 }
@@ -37,7 +37,7 @@ void _motion_controlreaction_function_2(void* instance_args) {
     enum { _lf_await_requires_a_single_non_mutable_input_port__target_speed = 1 };
     _motion_control_target_speed_t* target_speed = self->_lf_target_speed;
     int target_speed_width = self->_lf_target_speed_width; SUPPRESS_UNUSED_WARNING(target_speed_width);
-    #line 89 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/GhostControls.lf"
+    #line 84 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/GhostControls.lf"
     self->speed = target_speed->value;
 #line 43 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/GhostControls/_motion_control.c"
 }
@@ -50,7 +50,7 @@ void _motion_controlreaction_function_3(void* instance_args) {
     
     } gyro;
     gyro.z = self->_lf_gyro.z;
-    #line 92 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/GhostControls.lf"
+    #line 87 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/GhostControls.lf"
     self->curr_angle = gyro.z->value;
 #line 56 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/GhostControls/_motion_control.c"
 }
@@ -65,7 +65,7 @@ void _motion_controlreaction_function_4(void* instance_args) {
     } motors;
     motors.left_speed = &(self->_lf_motors.left_speed);
     motors.right_speed = &(self->_lf_motors.right_speed);
-    #line 98 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/GhostControls.lf"
+    #line 93 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/GhostControls.lf"
     lf_set(motors.left_speed, self->speed);
     lf_set(motors.right_speed, self->speed);
 #line 72 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/GhostControls/_motion_control.c"
@@ -79,7 +79,7 @@ void _motion_controlreaction_function_5(void* instance_args) {
     int turn_angle_width = self->_lf_turn_angle_width; SUPPRESS_UNUSED_WARNING(turn_angle_width);
     reactor_mode_t* ROTATE = &self->_lf__modes[1];
     lf_mode_change_type_t _lf_ROTATE_change_type = reset_transition;
-    #line 103 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/GhostControls.lf"
+    #line 98 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/GhostControls.lf"
     lf_set_mode(ROTATE);
     self->start_angle = self->curr_angle;
     self->target_angle = turn_angle->value;
@@ -94,7 +94,7 @@ void _motion_controlreaction_function_6(void* instance_args) {
     int stop_width = self->_lf_stop_width; SUPPRESS_UNUSED_WARNING(stop_width);
     reactor_mode_t* STOP = &self->_lf__modes[2];
     lf_mode_change_type_t _lf_STOP_change_type = reset_transition;
-    #line 109 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/GhostControls.lf"
+    #line 104 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/GhostControls.lf"
     lf_set_mode(STOP);
 #line 100 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/GhostControls/_motion_control.c"
 }
@@ -111,7 +111,7 @@ void _motion_controlreaction_function_7(void* instance_args) {
     motors.right_speed = &(self->_lf_motors.right_speed);
     reactor_mode_t* FORWARD = &self->_lf__modes[0];
     lf_mode_change_type_t _lf_FORWARD_change_type = reset_transition;
-    #line 115 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/GhostControls.lf"
+    #line 110 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/GhostControls.lf"
     if (self->target_angle > 0){
       lf_set(motors.left_speed, -self->speed);
       lf_set(motors.right_speed, self->speed);
@@ -134,7 +134,7 @@ void _motion_controlreaction_function_8(void* instance_args) {
     gyro.z = self->_lf_gyro.z;
     reactor_mode_t* FORWARD = &self->_lf__modes[0];
     lf_mode_change_type_t _lf_FORWARD_change_type = reset_transition;
-    #line 126 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/GhostControls.lf"
+    #line 121 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/GhostControls.lf"
     if (abs(gyro.z->value - self->start_angle) >= abs(self->target_angle)){
       lf_set_mode(FORWARD);
     }
@@ -149,7 +149,7 @@ void _motion_controlreaction_function_9(void* instance_args) {
     int stop_width = self->_lf_stop_width; SUPPRESS_UNUSED_WARNING(stop_width);
     reactor_mode_t* STOP = &self->_lf__modes[2];
     lf_mode_change_type_t _lf_STOP_change_type = reset_transition;
-    #line 131 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/GhostControls.lf"
+    #line 126 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/GhostControls.lf"
     lf_set_mode(STOP);
 #line 155 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/GhostControls/_motion_control.c"
 }
@@ -164,7 +164,7 @@ void _motion_controlreaction_function_10(void* instance_args) {
     } motors;
     motors.left_speed = &(self->_lf_motors.left_speed);
     motors.right_speed = &(self->_lf_motors.right_speed);
-    #line 137 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/GhostControls.lf"
+    #line 132 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/GhostControls.lf"
     lf_set(motors.left_speed, 0);
     lf_set(motors.right_speed, 0);
 #line 171 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/GhostControls/_motion_control.c"
@@ -178,7 +178,7 @@ void _motion_controlreaction_function_11(void* instance_args) {
     int turn_angle_width = self->_lf_turn_angle_width; SUPPRESS_UNUSED_WARNING(turn_angle_width);
     reactor_mode_t* ROTATE = &self->_lf__modes[1];
     lf_mode_change_type_t _lf_ROTATE_change_type = reset_transition;
-    #line 141 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/GhostControls.lf"
+    #line 136 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/GhostControls.lf"
     lf_set_mode(ROTATE);
     self->start_angle = self->curr_angle;
     self->target_angle = turn_angle->value;
