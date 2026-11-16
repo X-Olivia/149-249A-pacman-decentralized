@@ -1,23 +1,26 @@
 #ifndef _robot_H
 #define _robot_H
 #ifndef _ROBOT_H // necessary for arduino-cli, which automatically includes headers that are not used
-#ifndef TOP_LEVEL_PREAMBLE_693810552_H
-#define TOP_LEVEL_PREAMBLE_693810552_H
+#ifndef TOP_LEVEL_PREAMBLE_444520614_H
+#define TOP_LEVEL_PREAMBLE_444520614_H
 /*Correspondence: Range: [(18, 2), (19, 68)) -> Range: [(0, 0), (1, 68)) (verbatim=true; src=/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src/lib/Display.lf)*/#include <pico/stdlib.h>
 #include <display.h>        // Do not use "display.h". Doesn't work.
-#endif // TOP_LEVEL_PREAMBLE_693810552_H
-#ifndef TOP_LEVEL_PREAMBLE_431373998_H
-#define TOP_LEVEL_PREAMBLE_431373998_H
+#endif // TOP_LEVEL_PREAMBLE_444520614_H
+#ifndef TOP_LEVEL_PREAMBLE_1140280435_H
+#define TOP_LEVEL_PREAMBLE_1140280435_H
 /*Correspondence: Range: [(19, 2), (20, 17)) -> Range: [(0, 0), (1, 17)) (verbatim=true; src=/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src/lib/Motors.lf)*/#include <motors.h>
 #include <math.h>
-#endif // TOP_LEVEL_PREAMBLE_431373998_H
-#ifndef TOP_LEVEL_PREAMBLE_1174344899_H
-#define TOP_LEVEL_PREAMBLE_1174344899_H
+#endif // TOP_LEVEL_PREAMBLE_1140280435_H
+#ifndef TOP_LEVEL_PREAMBLE_935741155_H
+#define TOP_LEVEL_PREAMBLE_935741155_H
 /*Correspondence: Range: [(33, 2), (33, 25)) -> Range: [(0, 0), (0, 23)) (verbatim=true; src=/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src/lib/Line.lf)*/#include <ir_sensors.h>
-#endif // TOP_LEVEL_PREAMBLE_1174344899_H
-
-
-
+#endif // TOP_LEVEL_PREAMBLE_935741155_H
+#ifndef TOP_LEVEL_PREAMBLE_1360728045_H
+#define TOP_LEVEL_PREAMBLE_1360728045_H
+/*Correspondence: Range: [(14, 2), (16, 26)) -> Range: [(0, 0), (2, 26)) (verbatim=true; src=/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src/PacmanDrive.lf)*/#include <stdio.h>
+#include "hardware/uart.h"
+#include "hardware/gpio.h"
+#endif // TOP_LEVEL_PREAMBLE_1360728045_H
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -35,6 +38,10 @@ typedef struct robot_self_t{
     bool blackcenter;
     int end[0]; // placeholder; MSVC does not compile empty structs
 } robot_self_t;
+#ifndef _LF_AWAIT_MARKER__cmd
+#define _LF_AWAIT_MARKER__cmd
+enum { _lf_await_requires_a_single_non_mutable_input_port__cmd = 1 };
+#endif
 typedef struct {
     token_type_t type;
     lf_token_t* token;

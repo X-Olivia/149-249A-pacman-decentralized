@@ -4,23 +4,26 @@
 #include "_display.h"
 #include "_line.h"
 #include "_motors.h"
-#ifndef TOP_LEVEL_PREAMBLE_693810552_H
-#define TOP_LEVEL_PREAMBLE_693810552_H
+#ifndef TOP_LEVEL_PREAMBLE_444520614_H
+#define TOP_LEVEL_PREAMBLE_444520614_H
 #include <pico/stdlib.h>
 #include <display.h>        // Do not use "display.h". Doesn't work.
-#endif // TOP_LEVEL_PREAMBLE_693810552_H
-#ifndef TOP_LEVEL_PREAMBLE_431373998_H
-#define TOP_LEVEL_PREAMBLE_431373998_H
+#endif // TOP_LEVEL_PREAMBLE_444520614_H
+#ifndef TOP_LEVEL_PREAMBLE_1140280435_H
+#define TOP_LEVEL_PREAMBLE_1140280435_H
 #include <motors.h>
 #include <math.h>
-#endif // TOP_LEVEL_PREAMBLE_431373998_H
-#ifndef TOP_LEVEL_PREAMBLE_1174344899_H
-#define TOP_LEVEL_PREAMBLE_1174344899_H
+#endif // TOP_LEVEL_PREAMBLE_1140280435_H
+#ifndef TOP_LEVEL_PREAMBLE_935741155_H
+#define TOP_LEVEL_PREAMBLE_935741155_H
 #include <ir_sensors.h>
-#endif // TOP_LEVEL_PREAMBLE_1174344899_H
-
-
-
+#endif // TOP_LEVEL_PREAMBLE_935741155_H
+#ifndef TOP_LEVEL_PREAMBLE_1360728045_H
+#define TOP_LEVEL_PREAMBLE_1360728045_H
+#include <stdio.h>
+#include "hardware/uart.h"
+#include "hardware/gpio.h"
+#endif // TOP_LEVEL_PREAMBLE_1360728045_H
 typedef struct {
     token_type_t type;
     lf_token_t* token;
@@ -68,18 +71,18 @@ typedef struct {
 } _robot_clear_t;
 typedef struct {
     struct self_base_t base;
-#line 72 "/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/PacmanDrive/_robot.h"
-    #line 17 "/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src/PacmanDrive.lf"
+#line 75 "/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/PacmanDrive/_robot.h"
+    #line 25 "/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src/PacmanDrive.lf"
     float speed;
-    #line 23 "/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src/PacmanDrive.lf"
+    #line 33 "/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src/PacmanDrive.lf"
     int count;
-    #line 27 "/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src/PacmanDrive.lf"
+    #line 38 "/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src/PacmanDrive.lf"
     bool blackleft;
-    #line 28 "/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src/PacmanDrive.lf"
+    #line 39 "/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src/PacmanDrive.lf"
     bool blackright;
-    #line 29 "/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src/PacmanDrive.lf"
+    #line 40 "/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src/PacmanDrive.lf"
     bool blackcenter;
-#line 83 "/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/PacmanDrive/_robot.h"
+#line 86 "/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/PacmanDrive/_robot.h"
     _robot_clear_t _lf_clear;
     _robot_cmd_t* _lf_cmd;
     // width of -2 indicates that it is not a multiport.
@@ -94,12 +97,13 @@ typedef struct {
     } _lf_motor;
     int _lf_motor_width;
     struct {
-        _display_line1_t line1;
         _display_line0_t line0;
+        _display_line1_t line1;
         _display_line2_t line2;
     } _lf_disp;
     int _lf_disp_width;
     struct {
+        _line_trigger_t trigger;
         _line_calibrate_t calibrate;
         _line_reflect_t* reflect;
         trigger_t reflect_trigger;
@@ -113,8 +117,11 @@ typedef struct {
     reaction_t _lf__reaction_4;
     reaction_t _lf__reaction_5;
     reaction_t _lf__reaction_6;
+    reaction_t _lf__reaction_7;
     trigger_t _lf__t;
     reaction_t* _lf__t_reactions[1];
+    trigger_t _lf__line_poll;
+    reaction_t* _lf__line_poll_reactions[1];
     trigger_t _lf__end_calibration;
     reaction_t* _lf__end_calibration_reactions[1];
     trigger_t _lf__startup;

@@ -64,10 +64,10 @@ add_executable(
     lib/schedule.c
     _pacmandrive_main.c
     _display.c
-    _bluetooth.c
     _robot.c
     _motors.c
     _line.c
+    _bluetooth.c
     PacmanDrive.c
 )
 

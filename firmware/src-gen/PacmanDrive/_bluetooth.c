@@ -9,9 +9,9 @@
 void _bluetoothreaction_function_0(void* instance_args) {
     _bluetooth_self_t* self = (_bluetooth_self_t*)instance_args; SUPPRESS_UNUSED_WARNING(self);
     
-    #line 147 "/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src/PacmanDrive.lf"
-    gpio_set_function(28, GPIO_FUNC_UART);  // GP28 = TX -> HM-10 RX
-    gpio_set_function(29, GPIO_FUNC_UART);  // GP29 = RX <- HM-10 TX
+    #line 172 "/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src/PacmanDrive.lf"
+    gpio_set_function(28, GPIO_FUNC_UART);
+    gpio_set_function(29, GPIO_FUNC_UART);
     uart_init(uart0, 9600);
 #line 17 "/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/PacmanDrive/_bluetooth.c"
 }
@@ -20,7 +20,7 @@ void _bluetoothreaction_function_0(void* instance_args) {
 void _bluetoothreaction_function_1(void* instance_args) {
     _bluetooth_self_t* self = (_bluetooth_self_t*)instance_args; SUPPRESS_UNUSED_WARNING(self);
     _bluetooth_cmd_t* cmd = &self->_lf_cmd;
-    #line 154 "/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src/PacmanDrive.lf"
+    #line 179 "/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src/PacmanDrive.lf"
     if (uart_is_readable(uart0)) {
       lf_set(cmd, uart_getc(uart0));
     }

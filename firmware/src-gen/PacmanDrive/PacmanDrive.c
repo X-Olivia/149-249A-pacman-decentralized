@@ -18,10 +18,10 @@ int main(void) {
 }
 void lf_set_default_command_line_options() {}
 #include "_display.h"
-#include "_bluetooth.h"
 #include "_motors.h"
 #include "_line.h"
 #include "_robot.h"
+#include "_bluetooth.h"
 #include "_pacmandrive_main.h"
 typedef enum {
     pacmandrive_main,
@@ -31,7 +31,7 @@ typedef enum {
 static environment_t environments[num_environments];
 // 'Create' and initialize the environments in the program
 void lf_create_environments() {
-    environment_init(&environments[pacmandrive_main],"pacmandrive_main",pacmandrive_main,_lf_number_of_workers,3,6,0,0,10,1,0,0,NULL);
+    environment_init(&environments[pacmandrive_main],"pacmandrive_main",pacmandrive_main,_lf_number_of_workers,4,6,0,0,11,1,0,0,NULL);
 }
 // Update the pointer argument to point to the beginning of the environment array
 // and return the size of that array
@@ -113,8 +113,6 @@ void _lf_initialize_trigger_objects() {
     SUPPRESS_UNUSED_WARNING(pacmandrive_main_self);
     _display_self_t* pacmandrive_display_self[1];
     SUPPRESS_UNUSED_WARNING(pacmandrive_display_self);
-    _bluetooth_self_t* pacmandrive_bt_self[1];
-    SUPPRESS_UNUSED_WARNING(pacmandrive_bt_self);
     _robot_self_t* pacmandrive_robot_self[1];
     SUPPRESS_UNUSED_WARNING(pacmandrive_robot_self);
     _motors_self_t* pacmandrive_robot_motor_self[1];
@@ -123,6 +121,8 @@ void _lf_initialize_trigger_objects() {
     SUPPRESS_UNUSED_WARNING(pacmandrive_robot_line_self);
     _display_self_t* pacmandrive_robot_disp_self[1];
     SUPPRESS_UNUSED_WARNING(pacmandrive_robot_disp_self);
+    _bluetooth_self_t* pacmandrive_bt_self[1];
+    SUPPRESS_UNUSED_WARNING(pacmandrive_bt_self);
     // ***** Start initializing PacmanDrive of class PacmanDrive
     pacmandrive_main_self[0] = new__pacmandrive_main();
     pacmandrive_main_self[0]->base.environment = &environments[pacmandrive_main];
@@ -156,31 +156,6 @@ void _lf_initialize_trigger_objects() {
     }
     {
         _pacmandrive_main_main_self_t *self = pacmandrive_main_self[0];
-        // ***** Start initializing PacmanDrive.bt of class Bluetooth
-        pacmandrive_bt_self[0] = new__bluetooth();
-        pacmandrive_bt_self[0]->base.environment = &environments[pacmandrive_main];
-        bank_index = 0; SUPPRESS_UNUSED_WARNING(bank_index);
-        
-        
-        // width of -2 indicates that it is not a multiport.
-        pacmandrive_bt_self[0]->_lf_cmd_width = -2;
-        environments[pacmandrive_main].startup_reactions[startup_reaction_count[pacmandrive_main]++] = &pacmandrive_bt_self[0]->_lf__reaction_0;
-        // Initiaizing timer PacmanDrive.bt.poll.
-        pacmandrive_bt_self[0]->_lf__poll.offset = 0;
-        pacmandrive_bt_self[0]->_lf__poll.period = MSEC(10);
-        // Associate timer with the environment of its parent
-        environments[pacmandrive_main].timer_triggers[timer_triggers_count[pacmandrive_main]++] = &pacmandrive_bt_self[0]->_lf__poll;
-        pacmandrive_bt_self[0]->_lf__poll.mode = NULL;
-    
-        pacmandrive_bt_self[0]->_lf__reaction_0.deadline = NEVER;
-        pacmandrive_bt_self[0]->_lf__reaction_1.deadline = NEVER;
-        #if !defined LF_SINGLE_THREADED
-        pacmandrive_bt_self[0]->base.reactor_mutex = NULL;
-        #endif
-        //***** End initializing PacmanDrive.bt
-    }
-    {
-        _pacmandrive_main_main_self_t *self = pacmandrive_main_self[0];
         // ***** Start initializing PacmanDrive.robot of class Robot
         pacmandrive_robot_self[0] = new__robot();
         pacmandrive_robot_self[0]->base.environment = &environments[pacmandrive_main];
@@ -192,9 +167,9 @@ void _lf_initialize_trigger_objects() {
         // width of -2 indicates that it is not a multiport.
         pacmandrive_robot_self[0]->_lf_cmd_width = -2;
         environments[pacmandrive_main].startup_reactions[startup_reaction_count[pacmandrive_main]++] = &pacmandrive_robot_self[0]->_lf__reaction_0;
-        environments[pacmandrive_main].startup_reactions[startup_reaction_count[pacmandrive_main]++] = &pacmandrive_robot_self[0]->_lf__reaction_2;
+        environments[pacmandrive_main].startup_reactions[startup_reaction_count[pacmandrive_main]++] = &pacmandrive_robot_self[0]->_lf__reaction_3;
         { // For scoping
-            static float _initial = 0.1;
+            static float _initial = 0.15;
             pacmandrive_robot_self[0]->speed = _initial;
         } // End scoping.
         { // For scoping
@@ -219,6 +194,12 @@ void _lf_initialize_trigger_objects() {
         // Associate timer with the environment of its parent
         environments[pacmandrive_main].timer_triggers[timer_triggers_count[pacmandrive_main]++] = &pacmandrive_robot_self[0]->_lf__t;
         pacmandrive_robot_self[0]->_lf__t.mode = NULL;
+        // Initiaizing timer PacmanDrive.robot.line_poll.
+        pacmandrive_robot_self[0]->_lf__line_poll.offset = 0;
+        pacmandrive_robot_self[0]->_lf__line_poll.period = MSEC(10);
+        // Associate timer with the environment of its parent
+        environments[pacmandrive_main].timer_triggers[timer_triggers_count[pacmandrive_main]++] = &pacmandrive_robot_self[0]->_lf__line_poll;
+        pacmandrive_robot_self[0]->_lf__line_poll.mode = NULL;
         // Initiaizing timer PacmanDrive.robot.calibrating.end_calibration.
         pacmandrive_robot_self[0]->_lf__end_calibration.offset = SEC(10);
         pacmandrive_robot_self[0]->_lf__end_calibration.period = 0;
@@ -244,6 +225,7 @@ void _lf_initialize_trigger_objects() {
         pacmandrive_robot_self[0]->_lf__reaction_4.deadline = NEVER;
         pacmandrive_robot_self[0]->_lf__reaction_5.deadline = NEVER;
         pacmandrive_robot_self[0]->_lf__reaction_6.deadline = NEVER;
+        pacmandrive_robot_self[0]->_lf__reaction_7.deadline = NEVER;
         #if !defined LF_SINGLE_THREADED
         pacmandrive_robot_self[0]->base.reactor_mutex = NULL;
         #endif
@@ -324,6 +306,31 @@ void _lf_initialize_trigger_objects() {
         }
         //***** End initializing PacmanDrive.robot
     }
+    {
+        _pacmandrive_main_main_self_t *self = pacmandrive_main_self[0];
+        // ***** Start initializing PacmanDrive.bt of class Bluetooth
+        pacmandrive_bt_self[0] = new__bluetooth();
+        pacmandrive_bt_self[0]->base.environment = &environments[pacmandrive_main];
+        bank_index = 0; SUPPRESS_UNUSED_WARNING(bank_index);
+        
+        
+        // width of -2 indicates that it is not a multiport.
+        pacmandrive_bt_self[0]->_lf_cmd_width = -2;
+        environments[pacmandrive_main].startup_reactions[startup_reaction_count[pacmandrive_main]++] = &pacmandrive_bt_self[0]->_lf__reaction_0;
+        // Initiaizing timer PacmanDrive.bt.poll.
+        pacmandrive_bt_self[0]->_lf__poll.offset = 0;
+        pacmandrive_bt_self[0]->_lf__poll.period = MSEC(10);
+        // Associate timer with the environment of its parent
+        environments[pacmandrive_main].timer_triggers[timer_triggers_count[pacmandrive_main]++] = &pacmandrive_bt_self[0]->_lf__poll;
+        pacmandrive_bt_self[0]->_lf__poll.mode = NULL;
+    
+        pacmandrive_bt_self[0]->_lf__reaction_0.deadline = NEVER;
+        pacmandrive_bt_self[0]->_lf__reaction_1.deadline = NEVER;
+        #if !defined LF_SINGLE_THREADED
+        pacmandrive_bt_self[0]->base.reactor_mutex = NULL;
+        #endif
+        //***** End initializing PacmanDrive.bt
+    }
     //***** End initializing PacmanDrive
     // **** Start deferred initialize for PacmanDrive
     {
@@ -356,44 +363,6 @@ void _lf_initialize_trigger_objects() {
         
         }
         // **** End of deferred initialize for PacmanDrive.display
-        // **** Start deferred initialize for PacmanDrive.bt
-        {
-            pacmandrive_bt_self[0]->base.name = "bt";
-            pacmandrive_bt_self[0]->base.parent = (self_base_t*)pacmandrive_main_self[0];
-        
-            // Total number of outputs (single ports and multiport channels)
-            // produced by reaction_1 of PacmanDrive.bt.
-            pacmandrive_bt_self[0]->_lf__reaction_0.num_outputs = 0;
-            {
-                int count = 0; SUPPRESS_UNUSED_WARNING(count);
-            }
-            
-            // ** End initialization for reaction 0 of PacmanDrive.bt
-            // Total number of outputs (single ports and multiport channels)
-            // produced by reaction_2 of PacmanDrive.bt.
-            pacmandrive_bt_self[0]->_lf__reaction_1.num_outputs = 1;
-            // Allocate memory for triggers[] and triggered_sizes[] on the reaction_t
-            // struct for this reaction.
-            pacmandrive_bt_self[0]->_lf__reaction_1.triggers = (trigger_t***)lf_allocate(
-                    1, sizeof(trigger_t**),
-                    &pacmandrive_bt_self[0]->base.allocations);
-            pacmandrive_bt_self[0]->_lf__reaction_1.triggered_sizes = (int*)lf_allocate(
-                    1, sizeof(int),
-                    &pacmandrive_bt_self[0]->base.allocations);
-            pacmandrive_bt_self[0]->_lf__reaction_1.output_produced = (bool**)lf_allocate(
-                    1, sizeof(bool*),
-                    &pacmandrive_bt_self[0]->base.allocations);
-            {
-                int count = 0; SUPPRESS_UNUSED_WARNING(count);
-                {
-                    pacmandrive_bt_self[0]->_lf__reaction_1.output_produced[count++] = &pacmandrive_bt_self[0]->_lf_cmd.is_present;
-                }
-            }
-            
-            // ** End initialization for reaction 1 of PacmanDrive.bt
-        
-        }
-        // **** End of deferred initialize for PacmanDrive.bt
         // **** Start deferred initialize for PacmanDrive.robot
         {
             pacmandrive_robot_self[0]->base.name = "robot";
@@ -444,72 +413,52 @@ void _lf_initialize_trigger_objects() {
                 int count = 0; SUPPRESS_UNUSED_WARNING(count);
                 // Reaction writes to an input of a contained reactor.
                 {
-                    pacmandrive_robot_self[0]->_lf__reaction_1.output_produced[count++] = &pacmandrive_robot_self[0]->_lf_disp.line1.is_present;
+                    pacmandrive_robot_self[0]->_lf__reaction_1.output_produced[count++] = &pacmandrive_robot_self[0]->_lf_disp.line0.is_present;
                 }
             }
             
             // ** End initialization for reaction 1 of PacmanDrive.robot
             // Total number of outputs (single ports and multiport channels)
             // produced by reaction_3 of PacmanDrive.robot.
-            pacmandrive_robot_self[0]->_lf__reaction_2.num_outputs = 6;
+            pacmandrive_robot_self[0]->_lf__reaction_2.num_outputs = 1;
             // Allocate memory for triggers[] and triggered_sizes[] on the reaction_t
             // struct for this reaction.
             pacmandrive_robot_self[0]->_lf__reaction_2.triggers = (trigger_t***)lf_allocate(
-                    6, sizeof(trigger_t**),
+                    1, sizeof(trigger_t**),
                     &pacmandrive_robot_self[0]->base.allocations);
             pacmandrive_robot_self[0]->_lf__reaction_2.triggered_sizes = (int*)lf_allocate(
-                    6, sizeof(int),
+                    1, sizeof(int),
                     &pacmandrive_robot_self[0]->base.allocations);
             pacmandrive_robot_self[0]->_lf__reaction_2.output_produced = (bool**)lf_allocate(
-                    6, sizeof(bool*),
+                    1, sizeof(bool*),
                     &pacmandrive_robot_self[0]->base.allocations);
             {
                 int count = 0; SUPPRESS_UNUSED_WARNING(count);
-                {
-                    pacmandrive_robot_self[0]->_lf__reaction_2.output_produced[count++] = &pacmandrive_robot_self[0]->_lf_notify.is_present;
-                }
                 // Reaction writes to an input of a contained reactor.
                 {
-                    pacmandrive_robot_self[0]->_lf__reaction_2.output_produced[count++] = &pacmandrive_robot_self[0]->_lf_motor.left_power.is_present;
-                }
-                // Reaction writes to an input of a contained reactor.
-                {
-                    pacmandrive_robot_self[0]->_lf__reaction_2.output_produced[count++] = &pacmandrive_robot_self[0]->_lf_motor.right_power.is_present;
-                }
-                // Reaction writes to an input of a contained reactor.
-                {
-                    pacmandrive_robot_self[0]->_lf__reaction_2.output_produced[count++] = &pacmandrive_robot_self[0]->_lf_disp.line0.is_present;
-                }
-                // Reaction writes to an input of a contained reactor.
-                {
-                    pacmandrive_robot_self[0]->_lf__reaction_2.output_produced[count++] = &pacmandrive_robot_self[0]->_lf_disp.line1.is_present;
-                }
-                // Reaction writes to an input of a contained reactor.
-                {
-                    pacmandrive_robot_self[0]->_lf__reaction_2.output_produced[count++] = &pacmandrive_robot_self[0]->_lf_disp.line2.is_present;
+                    pacmandrive_robot_self[0]->_lf__reaction_2.output_produced[count++] = &pacmandrive_robot_self[0]->_lf_line.trigger.is_present;
                 }
             }
             
             // ** End initialization for reaction 2 of PacmanDrive.robot
             // Total number of outputs (single ports and multiport channels)
             // produced by reaction_4 of PacmanDrive.robot.
-            pacmandrive_robot_self[0]->_lf__reaction_3.num_outputs = 3;
+            pacmandrive_robot_self[0]->_lf__reaction_3.num_outputs = 6;
             // Allocate memory for triggers[] and triggered_sizes[] on the reaction_t
             // struct for this reaction.
             pacmandrive_robot_self[0]->_lf__reaction_3.triggers = (trigger_t***)lf_allocate(
-                    3, sizeof(trigger_t**),
+                    6, sizeof(trigger_t**),
                     &pacmandrive_robot_self[0]->base.allocations);
             pacmandrive_robot_self[0]->_lf__reaction_3.triggered_sizes = (int*)lf_allocate(
-                    3, sizeof(int),
+                    6, sizeof(int),
                     &pacmandrive_robot_self[0]->base.allocations);
             pacmandrive_robot_self[0]->_lf__reaction_3.output_produced = (bool**)lf_allocate(
-                    3, sizeof(bool*),
+                    6, sizeof(bool*),
                     &pacmandrive_robot_self[0]->base.allocations);
             {
                 int count = 0; SUPPRESS_UNUSED_WARNING(count);
-                // Reaction writes to an input of a contained reactor.
                 {
-                    pacmandrive_robot_self[0]->_lf__reaction_3.output_produced[count++] = &pacmandrive_robot_self[0]->_lf_line.calibrate.is_present;
+                    pacmandrive_robot_self[0]->_lf__reaction_3.output_produced[count++] = &pacmandrive_robot_self[0]->_lf_notify.is_present;
                 }
                 // Reaction writes to an input of a contained reactor.
                 {
@@ -519,25 +468,41 @@ void _lf_initialize_trigger_objects() {
                 {
                     pacmandrive_robot_self[0]->_lf__reaction_3.output_produced[count++] = &pacmandrive_robot_self[0]->_lf_motor.right_power.is_present;
                 }
+                // Reaction writes to an input of a contained reactor.
+                {
+                    pacmandrive_robot_self[0]->_lf__reaction_3.output_produced[count++] = &pacmandrive_robot_self[0]->_lf_disp.line0.is_present;
+                }
+                // Reaction writes to an input of a contained reactor.
+                {
+                    pacmandrive_robot_self[0]->_lf__reaction_3.output_produced[count++] = &pacmandrive_robot_self[0]->_lf_disp.line1.is_present;
+                }
+                // Reaction writes to an input of a contained reactor.
+                {
+                    pacmandrive_robot_self[0]->_lf__reaction_3.output_produced[count++] = &pacmandrive_robot_self[0]->_lf_disp.line2.is_present;
+                }
             }
             
             // ** End initialization for reaction 3 of PacmanDrive.robot
             // Total number of outputs (single ports and multiport channels)
             // produced by reaction_5 of PacmanDrive.robot.
-            pacmandrive_robot_self[0]->_lf__reaction_4.num_outputs = 2;
+            pacmandrive_robot_self[0]->_lf__reaction_4.num_outputs = 3;
             // Allocate memory for triggers[] and triggered_sizes[] on the reaction_t
             // struct for this reaction.
             pacmandrive_robot_self[0]->_lf__reaction_4.triggers = (trigger_t***)lf_allocate(
-                    2, sizeof(trigger_t**),
+                    3, sizeof(trigger_t**),
                     &pacmandrive_robot_self[0]->base.allocations);
             pacmandrive_robot_self[0]->_lf__reaction_4.triggered_sizes = (int*)lf_allocate(
-                    2, sizeof(int),
+                    3, sizeof(int),
                     &pacmandrive_robot_self[0]->base.allocations);
             pacmandrive_robot_self[0]->_lf__reaction_4.output_produced = (bool**)lf_allocate(
-                    2, sizeof(bool*),
+                    3, sizeof(bool*),
                     &pacmandrive_robot_self[0]->base.allocations);
             {
                 int count = 0; SUPPRESS_UNUSED_WARNING(count);
+                // Reaction writes to an input of a contained reactor.
+                {
+                    pacmandrive_robot_self[0]->_lf__reaction_4.output_produced[count++] = &pacmandrive_robot_self[0]->_lf_line.calibrate.is_present;
+                }
                 // Reaction writes to an input of a contained reactor.
                 {
                     pacmandrive_robot_self[0]->_lf__reaction_4.output_produced[count++] = &pacmandrive_robot_self[0]->_lf_motor.left_power.is_present;
@@ -551,32 +516,20 @@ void _lf_initialize_trigger_objects() {
             // ** End initialization for reaction 4 of PacmanDrive.robot
             // Total number of outputs (single ports and multiport channels)
             // produced by reaction_6 of PacmanDrive.robot.
-            pacmandrive_robot_self[0]->_lf__reaction_5.num_outputs = 5;
+            pacmandrive_robot_self[0]->_lf__reaction_5.num_outputs = 2;
             // Allocate memory for triggers[] and triggered_sizes[] on the reaction_t
             // struct for this reaction.
             pacmandrive_robot_self[0]->_lf__reaction_5.triggers = (trigger_t***)lf_allocate(
-                    5, sizeof(trigger_t**),
+                    2, sizeof(trigger_t**),
                     &pacmandrive_robot_self[0]->base.allocations);
             pacmandrive_robot_self[0]->_lf__reaction_5.triggered_sizes = (int*)lf_allocate(
-                    5, sizeof(int),
+                    2, sizeof(int),
                     &pacmandrive_robot_self[0]->base.allocations);
             pacmandrive_robot_self[0]->_lf__reaction_5.output_produced = (bool**)lf_allocate(
-                    5, sizeof(bool*),
+                    2, sizeof(bool*),
                     &pacmandrive_robot_self[0]->base.allocations);
             {
                 int count = 0; SUPPRESS_UNUSED_WARNING(count);
-                // Reaction writes to an input of a contained reactor.
-                {
-                    pacmandrive_robot_self[0]->_lf__reaction_5.output_produced[count++] = &pacmandrive_robot_self[0]->_lf_disp.line0.is_present;
-                }
-                // Reaction writes to an input of a contained reactor.
-                {
-                    pacmandrive_robot_self[0]->_lf__reaction_5.output_produced[count++] = &pacmandrive_robot_self[0]->_lf_disp.line1.is_present;
-                }
-                // Reaction writes to an input of a contained reactor.
-                {
-                    pacmandrive_robot_self[0]->_lf__reaction_5.output_produced[count++] = &pacmandrive_robot_self[0]->_lf_disp.line2.is_present;
-                }
                 // Reaction writes to an input of a contained reactor.
                 {
                     pacmandrive_robot_self[0]->_lf__reaction_5.output_produced[count++] = &pacmandrive_robot_self[0]->_lf_motor.left_power.is_present;
@@ -590,20 +543,32 @@ void _lf_initialize_trigger_objects() {
             // ** End initialization for reaction 5 of PacmanDrive.robot
             // Total number of outputs (single ports and multiport channels)
             // produced by reaction_7 of PacmanDrive.robot.
-            pacmandrive_robot_self[0]->_lf__reaction_6.num_outputs = 2;
+            pacmandrive_robot_self[0]->_lf__reaction_6.num_outputs = 5;
             // Allocate memory for triggers[] and triggered_sizes[] on the reaction_t
             // struct for this reaction.
             pacmandrive_robot_self[0]->_lf__reaction_6.triggers = (trigger_t***)lf_allocate(
-                    2, sizeof(trigger_t**),
+                    5, sizeof(trigger_t**),
                     &pacmandrive_robot_self[0]->base.allocations);
             pacmandrive_robot_self[0]->_lf__reaction_6.triggered_sizes = (int*)lf_allocate(
-                    2, sizeof(int),
+                    5, sizeof(int),
                     &pacmandrive_robot_self[0]->base.allocations);
             pacmandrive_robot_self[0]->_lf__reaction_6.output_produced = (bool**)lf_allocate(
-                    2, sizeof(bool*),
+                    5, sizeof(bool*),
                     &pacmandrive_robot_self[0]->base.allocations);
             {
                 int count = 0; SUPPRESS_UNUSED_WARNING(count);
+                // Reaction writes to an input of a contained reactor.
+                {
+                    pacmandrive_robot_self[0]->_lf__reaction_6.output_produced[count++] = &pacmandrive_robot_self[0]->_lf_disp.line0.is_present;
+                }
+                // Reaction writes to an input of a contained reactor.
+                {
+                    pacmandrive_robot_self[0]->_lf__reaction_6.output_produced[count++] = &pacmandrive_robot_self[0]->_lf_disp.line1.is_present;
+                }
+                // Reaction writes to an input of a contained reactor.
+                {
+                    pacmandrive_robot_self[0]->_lf__reaction_6.output_produced[count++] = &pacmandrive_robot_self[0]->_lf_disp.line2.is_present;
+                }
                 // Reaction writes to an input of a contained reactor.
                 {
                     pacmandrive_robot_self[0]->_lf__reaction_6.output_produced[count++] = &pacmandrive_robot_self[0]->_lf_motor.left_power.is_present;
@@ -615,6 +580,33 @@ void _lf_initialize_trigger_objects() {
             }
             
             // ** End initialization for reaction 6 of PacmanDrive.robot
+            // Total number of outputs (single ports and multiport channels)
+            // produced by reaction_8 of PacmanDrive.robot.
+            pacmandrive_robot_self[0]->_lf__reaction_7.num_outputs = 2;
+            // Allocate memory for triggers[] and triggered_sizes[] on the reaction_t
+            // struct for this reaction.
+            pacmandrive_robot_self[0]->_lf__reaction_7.triggers = (trigger_t***)lf_allocate(
+                    2, sizeof(trigger_t**),
+                    &pacmandrive_robot_self[0]->base.allocations);
+            pacmandrive_robot_self[0]->_lf__reaction_7.triggered_sizes = (int*)lf_allocate(
+                    2, sizeof(int),
+                    &pacmandrive_robot_self[0]->base.allocations);
+            pacmandrive_robot_self[0]->_lf__reaction_7.output_produced = (bool**)lf_allocate(
+                    2, sizeof(bool*),
+                    &pacmandrive_robot_self[0]->base.allocations);
+            {
+                int count = 0; SUPPRESS_UNUSED_WARNING(count);
+                // Reaction writes to an input of a contained reactor.
+                {
+                    pacmandrive_robot_self[0]->_lf__reaction_7.output_produced[count++] = &pacmandrive_robot_self[0]->_lf_motor.left_power.is_present;
+                }
+                // Reaction writes to an input of a contained reactor.
+                {
+                    pacmandrive_robot_self[0]->_lf__reaction_7.output_produced[count++] = &pacmandrive_robot_self[0]->_lf_motor.right_power.is_present;
+                }
+            }
+            
+            // ** End initialization for reaction 7 of PacmanDrive.robot
         
             // **** Start deferred initialize for PacmanDrive.robot.motor
             {
@@ -712,6 +704,44 @@ void _lf_initialize_trigger_objects() {
             // **** End of deferred initialize for PacmanDrive.robot.disp
         }
         // **** End of deferred initialize for PacmanDrive.robot
+        // **** Start deferred initialize for PacmanDrive.bt
+        {
+            pacmandrive_bt_self[0]->base.name = "bt";
+            pacmandrive_bt_self[0]->base.parent = (self_base_t*)pacmandrive_main_self[0];
+        
+            // Total number of outputs (single ports and multiport channels)
+            // produced by reaction_1 of PacmanDrive.bt.
+            pacmandrive_bt_self[0]->_lf__reaction_0.num_outputs = 0;
+            {
+                int count = 0; SUPPRESS_UNUSED_WARNING(count);
+            }
+            
+            // ** End initialization for reaction 0 of PacmanDrive.bt
+            // Total number of outputs (single ports and multiport channels)
+            // produced by reaction_2 of PacmanDrive.bt.
+            pacmandrive_bt_self[0]->_lf__reaction_1.num_outputs = 1;
+            // Allocate memory for triggers[] and triggered_sizes[] on the reaction_t
+            // struct for this reaction.
+            pacmandrive_bt_self[0]->_lf__reaction_1.triggers = (trigger_t***)lf_allocate(
+                    1, sizeof(trigger_t**),
+                    &pacmandrive_bt_self[0]->base.allocations);
+            pacmandrive_bt_self[0]->_lf__reaction_1.triggered_sizes = (int*)lf_allocate(
+                    1, sizeof(int),
+                    &pacmandrive_bt_self[0]->base.allocations);
+            pacmandrive_bt_self[0]->_lf__reaction_1.output_produced = (bool**)lf_allocate(
+                    1, sizeof(bool*),
+                    &pacmandrive_bt_self[0]->base.allocations);
+            {
+                int count = 0; SUPPRESS_UNUSED_WARNING(count);
+                {
+                    pacmandrive_bt_self[0]->_lf__reaction_1.output_produced[count++] = &pacmandrive_bt_self[0]->_lf_cmd.is_present;
+                }
+            }
+            
+            // ** End initialization for reaction 1 of PacmanDrive.bt
+        
+        }
+        // **** End of deferred initialize for PacmanDrive.bt
     }
     // **** End of deferred initialize for PacmanDrive
     // **** Start non-nested deferred initialize for PacmanDrive
@@ -724,63 +754,12 @@ void _lf_initialize_trigger_objects() {
         
         
         
-        
+            // PacmanDrive.display.reaction_1 dominating upstream reaction.
+            pacmandrive_display_self[0]->_lf__reaction_0.last_enabling_reaction = NULL;
+            // PacmanDrive.display.reaction_2 dominating upstream reaction.
+            pacmandrive_display_self[0]->_lf__reaction_1.last_enabling_reaction = NULL;
         }
         // **** End of non-nested deferred initialize for PacmanDrive.display
-        // **** Start non-nested deferred initialize for PacmanDrive.bt
-        {
-        
-            // For reference counting, set num_destinations for port PacmanDrive.bt.cmd.
-            // Iterate over range PacmanDrive.bt.cmd(0,1)->[PacmanDrive.robot.cmd(0,1)].
-            {
-                int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
-                int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
-                int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
-                int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                pacmandrive_bt_self[src_runtime]->_lf_cmd._base.num_destinations = 1;
-                pacmandrive_bt_self[src_runtime]->_lf_cmd._base.source_reactor = (self_base_t*)pacmandrive_bt_self[src_runtime];
-            }
-            {
-                int triggers_index[1] = { 0 }; // Number of bank members with the reaction.
-                // Iterate over range PacmanDrive.bt.cmd(0,1)->[PacmanDrive.robot.cmd(0,1)].
-                {
-                    int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
-                    int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
-                    int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
-                    int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                    // Reaction 1 of PacmanDrive.bt triggers 1 downstream reactions
-                    // through port PacmanDrive.bt.cmd.
-                    pacmandrive_bt_self[src_runtime]->_lf__reaction_1.triggered_sizes[triggers_index[src_runtime]] = 1;
-                    // For reaction 1 of PacmanDrive.bt, allocate an
-                    // array of trigger pointers for downstream reactions through port PacmanDrive.bt.cmd
-                    trigger_t** trigger_array = (trigger_t**)lf_allocate(
-                            1, sizeof(trigger_t*),
-                            &pacmandrive_bt_self[src_runtime]->base.allocations); 
-                    pacmandrive_bt_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime]++] = trigger_array;
-                }
-                for (int i = 0; i < 1; i++) triggers_index[i] = 0;
-                // Iterate over ranges PacmanDrive.bt.cmd(0,1)->[PacmanDrive.robot.cmd(0,1)] and PacmanDrive.robot.cmd(0,1).
-                {
-                    int src_runtime = 0; // Runtime index.
-                    SUPPRESS_UNUSED_WARNING(src_runtime);
-                    int src_channel = 0; // Channel index.
-                    SUPPRESS_UNUSED_WARNING(src_channel);
-                    int src_bank = 0; // Bank index.
-                    SUPPRESS_UNUSED_WARNING(src_bank);
-                    // Iterate over range PacmanDrive.robot.cmd(0,1).
-                    {
-                        int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
-                        int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
-                        int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
-                        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                        // Point to destination port PacmanDrive.robot.cmd's trigger struct.
-                        pacmandrive_bt_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime] + src_channel][0] = &pacmandrive_robot_self[dst_runtime]->_lf__cmd;
-                    }
-                }
-            }
-        
-        }
-        // **** End of non-nested deferred initialize for PacmanDrive.bt
         // **** Start non-nested deferred initialize for PacmanDrive.robot
         {
             // Set number of destination reactors for port motor.left_power.
@@ -803,16 +782,6 @@ void _lf_initialize_trigger_objects() {
                 pacmandrive_robot_self[src_runtime]->_lf_motor.right_power._base.num_destinations = 1;
                 pacmandrive_robot_self[src_runtime]->_lf_motor.right_power._base.source_reactor = (self_base_t*)pacmandrive_robot_self[src_runtime];
             }
-            // Set number of destination reactors for port disp.line1.
-            // Iterate over range PacmanDrive.robot.disp.line1(0,1)->[PacmanDrive.robot.disp.line1(0,1)].
-            {
-                int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
-                int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
-                int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
-                int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                pacmandrive_robot_self[src_runtime]->_lf_disp.line1._base.num_destinations = 1;
-                pacmandrive_robot_self[src_runtime]->_lf_disp.line1._base.source_reactor = (self_base_t*)pacmandrive_robot_self[src_runtime];
-            }
             // Set number of destination reactors for port disp.line0.
             // Iterate over range PacmanDrive.robot.disp.line0(0,1)->[PacmanDrive.robot.disp.line0(0,1)].
             {
@@ -822,6 +791,26 @@ void _lf_initialize_trigger_objects() {
                 int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
                 pacmandrive_robot_self[src_runtime]->_lf_disp.line0._base.num_destinations = 1;
                 pacmandrive_robot_self[src_runtime]->_lf_disp.line0._base.source_reactor = (self_base_t*)pacmandrive_robot_self[src_runtime];
+            }
+            // Set number of destination reactors for port line.trigger.
+            // Iterate over range PacmanDrive.robot.line.trigger(0,1)->[PacmanDrive.robot.line.trigger(0,1)].
+            {
+                int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+                int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+                int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+                int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                pacmandrive_robot_self[src_runtime]->_lf_line.trigger._base.num_destinations = 1;
+                pacmandrive_robot_self[src_runtime]->_lf_line.trigger._base.source_reactor = (self_base_t*)pacmandrive_robot_self[src_runtime];
+            }
+            // Set number of destination reactors for port disp.line1.
+            // Iterate over range PacmanDrive.robot.disp.line1(0,1)->[PacmanDrive.robot.disp.line1(0,1)].
+            {
+                int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+                int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+                int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+                int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                pacmandrive_robot_self[src_runtime]->_lf_disp.line1._base.num_destinations = 1;
+                pacmandrive_robot_self[src_runtime]->_lf_disp.line1._base.source_reactor = (self_base_t*)pacmandrive_robot_self[src_runtime];
             }
             // Set number of destination reactors for port disp.line2.
             // Iterate over range PacmanDrive.robot.disp.line2(0,1)->[PacmanDrive.robot.disp.line2(0,1)].
@@ -928,24 +917,24 @@ void _lf_initialize_trigger_objects() {
             }
             {
                 int triggers_index[1] = { 0 }; // Number of bank members with the reaction.
-                // Iterate over range PacmanDrive.robot.disp.line1(0,1)->[PacmanDrive.robot.disp.line1(0,1)].
+                // Iterate over range PacmanDrive.robot.disp.line0(0,1)->[PacmanDrive.robot.disp.line0(0,1)].
                 {
                     int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
                     int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
                     int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
                     int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
                     // Reaction 1 of PacmanDrive.robot triggers 1 downstream reactions
-                    // through port PacmanDrive.robot.disp.line1.
+                    // through port PacmanDrive.robot.disp.line0.
                     pacmandrive_robot_self[src_runtime]->_lf__reaction_1.triggered_sizes[triggers_index[src_runtime]] = 1;
                     // For reaction 1 of PacmanDrive.robot, allocate an
-                    // array of trigger pointers for downstream reactions through port PacmanDrive.robot.disp.line1
+                    // array of trigger pointers for downstream reactions through port PacmanDrive.robot.disp.line0
                     trigger_t** trigger_array = (trigger_t**)lf_allocate(
                             1, sizeof(trigger_t*),
                             &pacmandrive_robot_self[src_runtime]->base.allocations); 
                     pacmandrive_robot_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime]++] = trigger_array;
                 }
                 for (int i = 0; i < 1; i++) triggers_index[i] = 0;
-                // Iterate over ranges PacmanDrive.robot.disp.line1(0,1)->[PacmanDrive.robot.disp.line1(0,1)] and PacmanDrive.robot.disp.line1(0,1).
+                // Iterate over ranges PacmanDrive.robot.disp.line0(0,1)->[PacmanDrive.robot.disp.line0(0,1)] and PacmanDrive.robot.disp.line0(0,1).
                 {
                     int src_runtime = 0; // Runtime index.
                     SUPPRESS_UNUSED_WARNING(src_runtime);
@@ -953,14 +942,52 @@ void _lf_initialize_trigger_objects() {
                     SUPPRESS_UNUSED_WARNING(src_channel);
                     int src_bank = 0; // Bank index.
                     SUPPRESS_UNUSED_WARNING(src_bank);
-                    // Iterate over range PacmanDrive.robot.disp.line1(0,1).
+                    // Iterate over range PacmanDrive.robot.disp.line0(0,1).
                     {
                         int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
                         int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
                         int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
                         int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                        // Point to destination port PacmanDrive.robot.disp.line1's trigger struct.
-                        pacmandrive_robot_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime] + src_channel][0] = &pacmandrive_robot_disp_self[dst_runtime]->_lf__line1;
+                        // Point to destination port PacmanDrive.robot.disp.line0's trigger struct.
+                        pacmandrive_robot_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime] + src_channel][0] = &pacmandrive_robot_disp_self[dst_runtime]->_lf__line0;
+                    }
+                }
+            }
+            {
+                int triggers_index[1] = { 0 }; // Number of bank members with the reaction.
+                // Iterate over range PacmanDrive.robot.line.trigger(0,1)->[PacmanDrive.robot.line.trigger(0,1)].
+                {
+                    int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+                    int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+                    int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+                    int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                    // Reaction 2 of PacmanDrive.robot triggers 1 downstream reactions
+                    // through port PacmanDrive.robot.line.trigger.
+                    pacmandrive_robot_self[src_runtime]->_lf__reaction_2.triggered_sizes[triggers_index[src_runtime]] = 1;
+                    // For reaction 2 of PacmanDrive.robot, allocate an
+                    // array of trigger pointers for downstream reactions through port PacmanDrive.robot.line.trigger
+                    trigger_t** trigger_array = (trigger_t**)lf_allocate(
+                            1, sizeof(trigger_t*),
+                            &pacmandrive_robot_self[src_runtime]->base.allocations); 
+                    pacmandrive_robot_self[src_runtime]->_lf__reaction_2.triggers[triggers_index[src_runtime]++] = trigger_array;
+                }
+                for (int i = 0; i < 1; i++) triggers_index[i] = 0;
+                // Iterate over ranges PacmanDrive.robot.line.trigger(0,1)->[PacmanDrive.robot.line.trigger(0,1)] and PacmanDrive.robot.line.trigger(0,1).
+                {
+                    int src_runtime = 0; // Runtime index.
+                    SUPPRESS_UNUSED_WARNING(src_runtime);
+                    int src_channel = 0; // Channel index.
+                    SUPPRESS_UNUSED_WARNING(src_channel);
+                    int src_bank = 0; // Bank index.
+                    SUPPRESS_UNUSED_WARNING(src_bank);
+                    // Iterate over range PacmanDrive.robot.line.trigger(0,1).
+                    {
+                        int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+                        int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+                        int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+                        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                        // Point to destination port PacmanDrive.robot.line.trigger's trigger struct.
+                        pacmandrive_robot_self[src_runtime]->_lf__reaction_2.triggers[triggers_index[src_runtime] + src_channel][0] = &pacmandrive_robot_line_self[dst_runtime]->_lf__trigger;
                     }
                 }
             }
@@ -972,15 +999,15 @@ void _lf_initialize_trigger_objects() {
                     int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
                     int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
                     int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                    // Reaction 2 of PacmanDrive.robot triggers 1 downstream reactions
+                    // Reaction 3 of PacmanDrive.robot triggers 1 downstream reactions
                     // through port PacmanDrive.robot.notify.
-                    pacmandrive_robot_self[src_runtime]->_lf__reaction_2.triggered_sizes[triggers_index[src_runtime]] = 1;
-                    // For reaction 2 of PacmanDrive.robot, allocate an
+                    pacmandrive_robot_self[src_runtime]->_lf__reaction_3.triggered_sizes[triggers_index[src_runtime]] = 1;
+                    // For reaction 3 of PacmanDrive.robot, allocate an
                     // array of trigger pointers for downstream reactions through port PacmanDrive.robot.notify
                     trigger_t** trigger_array = (trigger_t**)lf_allocate(
                             1, sizeof(trigger_t*),
                             &pacmandrive_robot_self[src_runtime]->base.allocations); 
-                    pacmandrive_robot_self[src_runtime]->_lf__reaction_2.triggers[triggers_index[src_runtime]++] = trigger_array;
+                    pacmandrive_robot_self[src_runtime]->_lf__reaction_3.triggers[triggers_index[src_runtime]++] = trigger_array;
                 }
                 // Iterate over range PacmanDrive.robot.motor.left_power(0,1)->[PacmanDrive.robot.motor.left_power(0,1)].
                 {
@@ -988,15 +1015,15 @@ void _lf_initialize_trigger_objects() {
                     int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
                     int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
                     int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                    // Reaction 2 of PacmanDrive.robot triggers 1 downstream reactions
+                    // Reaction 3 of PacmanDrive.robot triggers 1 downstream reactions
                     // through port PacmanDrive.robot.motor.left_power.
-                    pacmandrive_robot_self[src_runtime]->_lf__reaction_2.triggered_sizes[triggers_index[src_runtime]] = 1;
-                    // For reaction 2 of PacmanDrive.robot, allocate an
+                    pacmandrive_robot_self[src_runtime]->_lf__reaction_3.triggered_sizes[triggers_index[src_runtime]] = 1;
+                    // For reaction 3 of PacmanDrive.robot, allocate an
                     // array of trigger pointers for downstream reactions through port PacmanDrive.robot.motor.left_power
                     trigger_t** trigger_array = (trigger_t**)lf_allocate(
                             1, sizeof(trigger_t*),
                             &pacmandrive_robot_self[src_runtime]->base.allocations); 
-                    pacmandrive_robot_self[src_runtime]->_lf__reaction_2.triggers[triggers_index[src_runtime]++] = trigger_array;
+                    pacmandrive_robot_self[src_runtime]->_lf__reaction_3.triggers[triggers_index[src_runtime]++] = trigger_array;
                 }
                 // Iterate over range PacmanDrive.robot.motor.right_power(0,1)->[PacmanDrive.robot.motor.right_power(0,1)].
                 {
@@ -1004,15 +1031,15 @@ void _lf_initialize_trigger_objects() {
                     int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
                     int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
                     int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                    // Reaction 2 of PacmanDrive.robot triggers 1 downstream reactions
+                    // Reaction 3 of PacmanDrive.robot triggers 1 downstream reactions
                     // through port PacmanDrive.robot.motor.right_power.
-                    pacmandrive_robot_self[src_runtime]->_lf__reaction_2.triggered_sizes[triggers_index[src_runtime]] = 1;
-                    // For reaction 2 of PacmanDrive.robot, allocate an
+                    pacmandrive_robot_self[src_runtime]->_lf__reaction_3.triggered_sizes[triggers_index[src_runtime]] = 1;
+                    // For reaction 3 of PacmanDrive.robot, allocate an
                     // array of trigger pointers for downstream reactions through port PacmanDrive.robot.motor.right_power
                     trigger_t** trigger_array = (trigger_t**)lf_allocate(
                             1, sizeof(trigger_t*),
                             &pacmandrive_robot_self[src_runtime]->base.allocations); 
-                    pacmandrive_robot_self[src_runtime]->_lf__reaction_2.triggers[triggers_index[src_runtime]++] = trigger_array;
+                    pacmandrive_robot_self[src_runtime]->_lf__reaction_3.triggers[triggers_index[src_runtime]++] = trigger_array;
                 }
                 // Iterate over range PacmanDrive.robot.disp.line0(0,1)->[PacmanDrive.robot.disp.line0(0,1)].
                 {
@@ -1020,15 +1047,15 @@ void _lf_initialize_trigger_objects() {
                     int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
                     int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
                     int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                    // Reaction 2 of PacmanDrive.robot triggers 1 downstream reactions
+                    // Reaction 3 of PacmanDrive.robot triggers 1 downstream reactions
                     // through port PacmanDrive.robot.disp.line0.
-                    pacmandrive_robot_self[src_runtime]->_lf__reaction_2.triggered_sizes[triggers_index[src_runtime]] = 1;
-                    // For reaction 2 of PacmanDrive.robot, allocate an
+                    pacmandrive_robot_self[src_runtime]->_lf__reaction_3.triggered_sizes[triggers_index[src_runtime]] = 1;
+                    // For reaction 3 of PacmanDrive.robot, allocate an
                     // array of trigger pointers for downstream reactions through port PacmanDrive.robot.disp.line0
                     trigger_t** trigger_array = (trigger_t**)lf_allocate(
                             1, sizeof(trigger_t*),
                             &pacmandrive_robot_self[src_runtime]->base.allocations); 
-                    pacmandrive_robot_self[src_runtime]->_lf__reaction_2.triggers[triggers_index[src_runtime]++] = trigger_array;
+                    pacmandrive_robot_self[src_runtime]->_lf__reaction_3.triggers[triggers_index[src_runtime]++] = trigger_array;
                 }
                 // Iterate over range PacmanDrive.robot.disp.line1(0,1)->[PacmanDrive.robot.disp.line1(0,1)].
                 {
@@ -1036,15 +1063,15 @@ void _lf_initialize_trigger_objects() {
                     int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
                     int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
                     int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                    // Reaction 2 of PacmanDrive.robot triggers 1 downstream reactions
+                    // Reaction 3 of PacmanDrive.robot triggers 1 downstream reactions
                     // through port PacmanDrive.robot.disp.line1.
-                    pacmandrive_robot_self[src_runtime]->_lf__reaction_2.triggered_sizes[triggers_index[src_runtime]] = 1;
-                    // For reaction 2 of PacmanDrive.robot, allocate an
+                    pacmandrive_robot_self[src_runtime]->_lf__reaction_3.triggered_sizes[triggers_index[src_runtime]] = 1;
+                    // For reaction 3 of PacmanDrive.robot, allocate an
                     // array of trigger pointers for downstream reactions through port PacmanDrive.robot.disp.line1
                     trigger_t** trigger_array = (trigger_t**)lf_allocate(
                             1, sizeof(trigger_t*),
                             &pacmandrive_robot_self[src_runtime]->base.allocations); 
-                    pacmandrive_robot_self[src_runtime]->_lf__reaction_2.triggers[triggers_index[src_runtime]++] = trigger_array;
+                    pacmandrive_robot_self[src_runtime]->_lf__reaction_3.triggers[triggers_index[src_runtime]++] = trigger_array;
                 }
                 // Iterate over range PacmanDrive.robot.disp.line2(0,1)->[PacmanDrive.robot.disp.line2(0,1)].
                 {
@@ -1052,15 +1079,15 @@ void _lf_initialize_trigger_objects() {
                     int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
                     int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
                     int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                    // Reaction 2 of PacmanDrive.robot triggers 1 downstream reactions
+                    // Reaction 3 of PacmanDrive.robot triggers 1 downstream reactions
                     // through port PacmanDrive.robot.disp.line2.
-                    pacmandrive_robot_self[src_runtime]->_lf__reaction_2.triggered_sizes[triggers_index[src_runtime]] = 1;
-                    // For reaction 2 of PacmanDrive.robot, allocate an
+                    pacmandrive_robot_self[src_runtime]->_lf__reaction_3.triggered_sizes[triggers_index[src_runtime]] = 1;
+                    // For reaction 3 of PacmanDrive.robot, allocate an
                     // array of trigger pointers for downstream reactions through port PacmanDrive.robot.disp.line2
                     trigger_t** trigger_array = (trigger_t**)lf_allocate(
                             1, sizeof(trigger_t*),
                             &pacmandrive_robot_self[src_runtime]->base.allocations); 
-                    pacmandrive_robot_self[src_runtime]->_lf__reaction_2.triggers[triggers_index[src_runtime]++] = trigger_array;
+                    pacmandrive_robot_self[src_runtime]->_lf__reaction_3.triggers[triggers_index[src_runtime]++] = trigger_array;
                 }
                 for (int i = 0; i < 1; i++) triggers_index[i] = 0;
                 // Iterate over ranges PacmanDrive.robot.notify(0,1)->[PacmanDrive.display.line0(0,1)] and PacmanDrive.display.line0(0,1).
@@ -1078,172 +1105,7 @@ void _lf_initialize_trigger_objects() {
                         int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
                         int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
                         // Point to destination port PacmanDrive.display.line0's trigger struct.
-                        pacmandrive_robot_self[src_runtime]->_lf__reaction_2.triggers[triggers_index[src_runtime] + src_channel][0] = &pacmandrive_display_self[dst_runtime]->_lf__line0;
-                    }
-                }
-                for (int i = 0; i < 1; i++) triggers_index[i] = 1;
-                // Iterate over ranges PacmanDrive.robot.motor.left_power(0,1)->[PacmanDrive.robot.motor.left_power(0,1)] and PacmanDrive.robot.motor.left_power(0,1).
-                {
-                    int src_runtime = 0; // Runtime index.
-                    SUPPRESS_UNUSED_WARNING(src_runtime);
-                    int src_channel = 0; // Channel index.
-                    SUPPRESS_UNUSED_WARNING(src_channel);
-                    int src_bank = 0; // Bank index.
-                    SUPPRESS_UNUSED_WARNING(src_bank);
-                    // Iterate over range PacmanDrive.robot.motor.left_power(0,1).
-                    {
-                        int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
-                        int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
-                        int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
-                        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                        // Point to destination port PacmanDrive.robot.motor.left_power's trigger struct.
-                        pacmandrive_robot_self[src_runtime]->_lf__reaction_2.triggers[triggers_index[src_runtime] + src_channel][0] = &pacmandrive_robot_motor_self[dst_runtime]->_lf__left_power;
-                    }
-                }
-                for (int i = 0; i < 1; i++) triggers_index[i] = 2;
-                // Iterate over ranges PacmanDrive.robot.motor.right_power(0,1)->[PacmanDrive.robot.motor.right_power(0,1)] and PacmanDrive.robot.motor.right_power(0,1).
-                {
-                    int src_runtime = 0; // Runtime index.
-                    SUPPRESS_UNUSED_WARNING(src_runtime);
-                    int src_channel = 0; // Channel index.
-                    SUPPRESS_UNUSED_WARNING(src_channel);
-                    int src_bank = 0; // Bank index.
-                    SUPPRESS_UNUSED_WARNING(src_bank);
-                    // Iterate over range PacmanDrive.robot.motor.right_power(0,1).
-                    {
-                        int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
-                        int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
-                        int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
-                        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                        // Point to destination port PacmanDrive.robot.motor.right_power's trigger struct.
-                        pacmandrive_robot_self[src_runtime]->_lf__reaction_2.triggers[triggers_index[src_runtime] + src_channel][0] = &pacmandrive_robot_motor_self[dst_runtime]->_lf__right_power;
-                    }
-                }
-                for (int i = 0; i < 1; i++) triggers_index[i] = 3;
-                // Iterate over ranges PacmanDrive.robot.disp.line0(0,1)->[PacmanDrive.robot.disp.line0(0,1)] and PacmanDrive.robot.disp.line0(0,1).
-                {
-                    int src_runtime = 0; // Runtime index.
-                    SUPPRESS_UNUSED_WARNING(src_runtime);
-                    int src_channel = 0; // Channel index.
-                    SUPPRESS_UNUSED_WARNING(src_channel);
-                    int src_bank = 0; // Bank index.
-                    SUPPRESS_UNUSED_WARNING(src_bank);
-                    // Iterate over range PacmanDrive.robot.disp.line0(0,1).
-                    {
-                        int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
-                        int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
-                        int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
-                        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                        // Point to destination port PacmanDrive.robot.disp.line0's trigger struct.
-                        pacmandrive_robot_self[src_runtime]->_lf__reaction_2.triggers[triggers_index[src_runtime] + src_channel][0] = &pacmandrive_robot_disp_self[dst_runtime]->_lf__line0;
-                    }
-                }
-                for (int i = 0; i < 1; i++) triggers_index[i] = 4;
-                // Iterate over ranges PacmanDrive.robot.disp.line1(0,1)->[PacmanDrive.robot.disp.line1(0,1)] and PacmanDrive.robot.disp.line1(0,1).
-                {
-                    int src_runtime = 0; // Runtime index.
-                    SUPPRESS_UNUSED_WARNING(src_runtime);
-                    int src_channel = 0; // Channel index.
-                    SUPPRESS_UNUSED_WARNING(src_channel);
-                    int src_bank = 0; // Bank index.
-                    SUPPRESS_UNUSED_WARNING(src_bank);
-                    // Iterate over range PacmanDrive.robot.disp.line1(0,1).
-                    {
-                        int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
-                        int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
-                        int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
-                        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                        // Point to destination port PacmanDrive.robot.disp.line1's trigger struct.
-                        pacmandrive_robot_self[src_runtime]->_lf__reaction_2.triggers[triggers_index[src_runtime] + src_channel][0] = &pacmandrive_robot_disp_self[dst_runtime]->_lf__line1;
-                    }
-                }
-                for (int i = 0; i < 1; i++) triggers_index[i] = 5;
-                // Iterate over ranges PacmanDrive.robot.disp.line2(0,1)->[PacmanDrive.robot.disp.line2(0,1)] and PacmanDrive.robot.disp.line2(0,1).
-                {
-                    int src_runtime = 0; // Runtime index.
-                    SUPPRESS_UNUSED_WARNING(src_runtime);
-                    int src_channel = 0; // Channel index.
-                    SUPPRESS_UNUSED_WARNING(src_channel);
-                    int src_bank = 0; // Bank index.
-                    SUPPRESS_UNUSED_WARNING(src_bank);
-                    // Iterate over range PacmanDrive.robot.disp.line2(0,1).
-                    {
-                        int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
-                        int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
-                        int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
-                        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                        // Point to destination port PacmanDrive.robot.disp.line2's trigger struct.
-                        pacmandrive_robot_self[src_runtime]->_lf__reaction_2.triggers[triggers_index[src_runtime] + src_channel][0] = &pacmandrive_robot_disp_self[dst_runtime]->_lf__line2;
-                    }
-                }
-            }
-            {
-                int triggers_index[1] = { 0 }; // Number of bank members with the reaction.
-                // Iterate over range PacmanDrive.robot.line.calibrate(0,1)->[PacmanDrive.robot.line.calibrate(0,1)].
-                {
-                    int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
-                    int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
-                    int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
-                    int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                    // Reaction 3 of PacmanDrive.robot triggers 1 downstream reactions
-                    // through port PacmanDrive.robot.line.calibrate.
-                    pacmandrive_robot_self[src_runtime]->_lf__reaction_3.triggered_sizes[triggers_index[src_runtime]] = 1;
-                    // For reaction 3 of PacmanDrive.robot, allocate an
-                    // array of trigger pointers for downstream reactions through port PacmanDrive.robot.line.calibrate
-                    trigger_t** trigger_array = (trigger_t**)lf_allocate(
-                            1, sizeof(trigger_t*),
-                            &pacmandrive_robot_self[src_runtime]->base.allocations); 
-                    pacmandrive_robot_self[src_runtime]->_lf__reaction_3.triggers[triggers_index[src_runtime]++] = trigger_array;
-                }
-                // Iterate over range PacmanDrive.robot.motor.left_power(0,1)->[PacmanDrive.robot.motor.left_power(0,1)].
-                {
-                    int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
-                    int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
-                    int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
-                    int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                    // Reaction 3 of PacmanDrive.robot triggers 1 downstream reactions
-                    // through port PacmanDrive.robot.motor.left_power.
-                    pacmandrive_robot_self[src_runtime]->_lf__reaction_3.triggered_sizes[triggers_index[src_runtime]] = 1;
-                    // For reaction 3 of PacmanDrive.robot, allocate an
-                    // array of trigger pointers for downstream reactions through port PacmanDrive.robot.motor.left_power
-                    trigger_t** trigger_array = (trigger_t**)lf_allocate(
-                            1, sizeof(trigger_t*),
-                            &pacmandrive_robot_self[src_runtime]->base.allocations); 
-                    pacmandrive_robot_self[src_runtime]->_lf__reaction_3.triggers[triggers_index[src_runtime]++] = trigger_array;
-                }
-                // Iterate over range PacmanDrive.robot.motor.right_power(0,1)->[PacmanDrive.robot.motor.right_power(0,1)].
-                {
-                    int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
-                    int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
-                    int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
-                    int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                    // Reaction 3 of PacmanDrive.robot triggers 1 downstream reactions
-                    // through port PacmanDrive.robot.motor.right_power.
-                    pacmandrive_robot_self[src_runtime]->_lf__reaction_3.triggered_sizes[triggers_index[src_runtime]] = 1;
-                    // For reaction 3 of PacmanDrive.robot, allocate an
-                    // array of trigger pointers for downstream reactions through port PacmanDrive.robot.motor.right_power
-                    trigger_t** trigger_array = (trigger_t**)lf_allocate(
-                            1, sizeof(trigger_t*),
-                            &pacmandrive_robot_self[src_runtime]->base.allocations); 
-                    pacmandrive_robot_self[src_runtime]->_lf__reaction_3.triggers[triggers_index[src_runtime]++] = trigger_array;
-                }
-                for (int i = 0; i < 1; i++) triggers_index[i] = 0;
-                // Iterate over ranges PacmanDrive.robot.line.calibrate(0,1)->[PacmanDrive.robot.line.calibrate(0,1)] and PacmanDrive.robot.line.calibrate(0,1).
-                {
-                    int src_runtime = 0; // Runtime index.
-                    SUPPRESS_UNUSED_WARNING(src_runtime);
-                    int src_channel = 0; // Channel index.
-                    SUPPRESS_UNUSED_WARNING(src_channel);
-                    int src_bank = 0; // Bank index.
-                    SUPPRESS_UNUSED_WARNING(src_bank);
-                    // Iterate over range PacmanDrive.robot.line.calibrate(0,1).
-                    {
-                        int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
-                        int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
-                        int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
-                        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                        // Point to destination port PacmanDrive.robot.line.calibrate's trigger struct.
-                        pacmandrive_robot_self[src_runtime]->_lf__reaction_3.triggers[triggers_index[src_runtime] + src_channel][0] = &pacmandrive_robot_line_self[dst_runtime]->_lf__calibrate;
+                        pacmandrive_robot_self[src_runtime]->_lf__reaction_3.triggers[triggers_index[src_runtime] + src_channel][0] = &pacmandrive_display_self[dst_runtime]->_lf__line0;
                     }
                 }
                 for (int i = 0; i < 1; i++) triggers_index[i] = 1;
@@ -1284,9 +1146,82 @@ void _lf_initialize_trigger_objects() {
                         pacmandrive_robot_self[src_runtime]->_lf__reaction_3.triggers[triggers_index[src_runtime] + src_channel][0] = &pacmandrive_robot_motor_self[dst_runtime]->_lf__right_power;
                     }
                 }
+                for (int i = 0; i < 1; i++) triggers_index[i] = 3;
+                // Iterate over ranges PacmanDrive.robot.disp.line0(0,1)->[PacmanDrive.robot.disp.line0(0,1)] and PacmanDrive.robot.disp.line0(0,1).
+                {
+                    int src_runtime = 0; // Runtime index.
+                    SUPPRESS_UNUSED_WARNING(src_runtime);
+                    int src_channel = 0; // Channel index.
+                    SUPPRESS_UNUSED_WARNING(src_channel);
+                    int src_bank = 0; // Bank index.
+                    SUPPRESS_UNUSED_WARNING(src_bank);
+                    // Iterate over range PacmanDrive.robot.disp.line0(0,1).
+                    {
+                        int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+                        int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+                        int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+                        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                        // Point to destination port PacmanDrive.robot.disp.line0's trigger struct.
+                        pacmandrive_robot_self[src_runtime]->_lf__reaction_3.triggers[triggers_index[src_runtime] + src_channel][0] = &pacmandrive_robot_disp_self[dst_runtime]->_lf__line0;
+                    }
+                }
+                for (int i = 0; i < 1; i++) triggers_index[i] = 4;
+                // Iterate over ranges PacmanDrive.robot.disp.line1(0,1)->[PacmanDrive.robot.disp.line1(0,1)] and PacmanDrive.robot.disp.line1(0,1).
+                {
+                    int src_runtime = 0; // Runtime index.
+                    SUPPRESS_UNUSED_WARNING(src_runtime);
+                    int src_channel = 0; // Channel index.
+                    SUPPRESS_UNUSED_WARNING(src_channel);
+                    int src_bank = 0; // Bank index.
+                    SUPPRESS_UNUSED_WARNING(src_bank);
+                    // Iterate over range PacmanDrive.robot.disp.line1(0,1).
+                    {
+                        int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+                        int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+                        int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+                        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                        // Point to destination port PacmanDrive.robot.disp.line1's trigger struct.
+                        pacmandrive_robot_self[src_runtime]->_lf__reaction_3.triggers[triggers_index[src_runtime] + src_channel][0] = &pacmandrive_robot_disp_self[dst_runtime]->_lf__line1;
+                    }
+                }
+                for (int i = 0; i < 1; i++) triggers_index[i] = 5;
+                // Iterate over ranges PacmanDrive.robot.disp.line2(0,1)->[PacmanDrive.robot.disp.line2(0,1)] and PacmanDrive.robot.disp.line2(0,1).
+                {
+                    int src_runtime = 0; // Runtime index.
+                    SUPPRESS_UNUSED_WARNING(src_runtime);
+                    int src_channel = 0; // Channel index.
+                    SUPPRESS_UNUSED_WARNING(src_channel);
+                    int src_bank = 0; // Bank index.
+                    SUPPRESS_UNUSED_WARNING(src_bank);
+                    // Iterate over range PacmanDrive.robot.disp.line2(0,1).
+                    {
+                        int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+                        int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+                        int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+                        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                        // Point to destination port PacmanDrive.robot.disp.line2's trigger struct.
+                        pacmandrive_robot_self[src_runtime]->_lf__reaction_3.triggers[triggers_index[src_runtime] + src_channel][0] = &pacmandrive_robot_disp_self[dst_runtime]->_lf__line2;
+                    }
+                }
             }
             {
                 int triggers_index[1] = { 0 }; // Number of bank members with the reaction.
+                // Iterate over range PacmanDrive.robot.line.calibrate(0,1)->[PacmanDrive.robot.line.calibrate(0,1)].
+                {
+                    int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+                    int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+                    int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+                    int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                    // Reaction 4 of PacmanDrive.robot triggers 1 downstream reactions
+                    // through port PacmanDrive.robot.line.calibrate.
+                    pacmandrive_robot_self[src_runtime]->_lf__reaction_4.triggered_sizes[triggers_index[src_runtime]] = 1;
+                    // For reaction 4 of PacmanDrive.robot, allocate an
+                    // array of trigger pointers for downstream reactions through port PacmanDrive.robot.line.calibrate
+                    trigger_t** trigger_array = (trigger_t**)lf_allocate(
+                            1, sizeof(trigger_t*),
+                            &pacmandrive_robot_self[src_runtime]->base.allocations); 
+                    pacmandrive_robot_self[src_runtime]->_lf__reaction_4.triggers[triggers_index[src_runtime]++] = trigger_array;
+                }
                 // Iterate over range PacmanDrive.robot.motor.left_power(0,1)->[PacmanDrive.robot.motor.left_power(0,1)].
                 {
                     int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
@@ -1320,6 +1255,25 @@ void _lf_initialize_trigger_objects() {
                     pacmandrive_robot_self[src_runtime]->_lf__reaction_4.triggers[triggers_index[src_runtime]++] = trigger_array;
                 }
                 for (int i = 0; i < 1; i++) triggers_index[i] = 0;
+                // Iterate over ranges PacmanDrive.robot.line.calibrate(0,1)->[PacmanDrive.robot.line.calibrate(0,1)] and PacmanDrive.robot.line.calibrate(0,1).
+                {
+                    int src_runtime = 0; // Runtime index.
+                    SUPPRESS_UNUSED_WARNING(src_runtime);
+                    int src_channel = 0; // Channel index.
+                    SUPPRESS_UNUSED_WARNING(src_channel);
+                    int src_bank = 0; // Bank index.
+                    SUPPRESS_UNUSED_WARNING(src_bank);
+                    // Iterate over range PacmanDrive.robot.line.calibrate(0,1).
+                    {
+                        int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+                        int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+                        int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+                        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                        // Point to destination port PacmanDrive.robot.line.calibrate's trigger struct.
+                        pacmandrive_robot_self[src_runtime]->_lf__reaction_4.triggers[triggers_index[src_runtime] + src_channel][0] = &pacmandrive_robot_line_self[dst_runtime]->_lf__calibrate;
+                    }
+                }
+                for (int i = 0; i < 1; i++) triggers_index[i] = 1;
                 // Iterate over ranges PacmanDrive.robot.motor.left_power(0,1)->[PacmanDrive.robot.motor.left_power(0,1)] and PacmanDrive.robot.motor.left_power(0,1).
                 {
                     int src_runtime = 0; // Runtime index.
@@ -1338,7 +1292,7 @@ void _lf_initialize_trigger_objects() {
                         pacmandrive_robot_self[src_runtime]->_lf__reaction_4.triggers[triggers_index[src_runtime] + src_channel][0] = &pacmandrive_robot_motor_self[dst_runtime]->_lf__left_power;
                     }
                 }
-                for (int i = 0; i < 1; i++) triggers_index[i] = 1;
+                for (int i = 0; i < 1; i++) triggers_index[i] = 2;
                 // Iterate over ranges PacmanDrive.robot.motor.right_power(0,1)->[PacmanDrive.robot.motor.right_power(0,1)] and PacmanDrive.robot.motor.right_power(0,1).
                 {
                     int src_runtime = 0; // Runtime index.
@@ -1360,54 +1314,6 @@ void _lf_initialize_trigger_objects() {
             }
             {
                 int triggers_index[1] = { 0 }; // Number of bank members with the reaction.
-                // Iterate over range PacmanDrive.robot.disp.line0(0,1)->[PacmanDrive.robot.disp.line0(0,1)].
-                {
-                    int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
-                    int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
-                    int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
-                    int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                    // Reaction 5 of PacmanDrive.robot triggers 1 downstream reactions
-                    // through port PacmanDrive.robot.disp.line0.
-                    pacmandrive_robot_self[src_runtime]->_lf__reaction_5.triggered_sizes[triggers_index[src_runtime]] = 1;
-                    // For reaction 5 of PacmanDrive.robot, allocate an
-                    // array of trigger pointers for downstream reactions through port PacmanDrive.robot.disp.line0
-                    trigger_t** trigger_array = (trigger_t**)lf_allocate(
-                            1, sizeof(trigger_t*),
-                            &pacmandrive_robot_self[src_runtime]->base.allocations); 
-                    pacmandrive_robot_self[src_runtime]->_lf__reaction_5.triggers[triggers_index[src_runtime]++] = trigger_array;
-                }
-                // Iterate over range PacmanDrive.robot.disp.line1(0,1)->[PacmanDrive.robot.disp.line1(0,1)].
-                {
-                    int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
-                    int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
-                    int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
-                    int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                    // Reaction 5 of PacmanDrive.robot triggers 1 downstream reactions
-                    // through port PacmanDrive.robot.disp.line1.
-                    pacmandrive_robot_self[src_runtime]->_lf__reaction_5.triggered_sizes[triggers_index[src_runtime]] = 1;
-                    // For reaction 5 of PacmanDrive.robot, allocate an
-                    // array of trigger pointers for downstream reactions through port PacmanDrive.robot.disp.line1
-                    trigger_t** trigger_array = (trigger_t**)lf_allocate(
-                            1, sizeof(trigger_t*),
-                            &pacmandrive_robot_self[src_runtime]->base.allocations); 
-                    pacmandrive_robot_self[src_runtime]->_lf__reaction_5.triggers[triggers_index[src_runtime]++] = trigger_array;
-                }
-                // Iterate over range PacmanDrive.robot.disp.line2(0,1)->[PacmanDrive.robot.disp.line2(0,1)].
-                {
-                    int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
-                    int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
-                    int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
-                    int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                    // Reaction 5 of PacmanDrive.robot triggers 1 downstream reactions
-                    // through port PacmanDrive.robot.disp.line2.
-                    pacmandrive_robot_self[src_runtime]->_lf__reaction_5.triggered_sizes[triggers_index[src_runtime]] = 1;
-                    // For reaction 5 of PacmanDrive.robot, allocate an
-                    // array of trigger pointers for downstream reactions through port PacmanDrive.robot.disp.line2
-                    trigger_t** trigger_array = (trigger_t**)lf_allocate(
-                            1, sizeof(trigger_t*),
-                            &pacmandrive_robot_self[src_runtime]->base.allocations); 
-                    pacmandrive_robot_self[src_runtime]->_lf__reaction_5.triggers[triggers_index[src_runtime]++] = trigger_array;
-                }
                 // Iterate over range PacmanDrive.robot.motor.left_power(0,1)->[PacmanDrive.robot.motor.left_power(0,1)].
                 {
                     int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
@@ -1441,63 +1347,6 @@ void _lf_initialize_trigger_objects() {
                     pacmandrive_robot_self[src_runtime]->_lf__reaction_5.triggers[triggers_index[src_runtime]++] = trigger_array;
                 }
                 for (int i = 0; i < 1; i++) triggers_index[i] = 0;
-                // Iterate over ranges PacmanDrive.robot.disp.line0(0,1)->[PacmanDrive.robot.disp.line0(0,1)] and PacmanDrive.robot.disp.line0(0,1).
-                {
-                    int src_runtime = 0; // Runtime index.
-                    SUPPRESS_UNUSED_WARNING(src_runtime);
-                    int src_channel = 0; // Channel index.
-                    SUPPRESS_UNUSED_WARNING(src_channel);
-                    int src_bank = 0; // Bank index.
-                    SUPPRESS_UNUSED_WARNING(src_bank);
-                    // Iterate over range PacmanDrive.robot.disp.line0(0,1).
-                    {
-                        int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
-                        int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
-                        int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
-                        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                        // Point to destination port PacmanDrive.robot.disp.line0's trigger struct.
-                        pacmandrive_robot_self[src_runtime]->_lf__reaction_5.triggers[triggers_index[src_runtime] + src_channel][0] = &pacmandrive_robot_disp_self[dst_runtime]->_lf__line0;
-                    }
-                }
-                for (int i = 0; i < 1; i++) triggers_index[i] = 1;
-                // Iterate over ranges PacmanDrive.robot.disp.line1(0,1)->[PacmanDrive.robot.disp.line1(0,1)] and PacmanDrive.robot.disp.line1(0,1).
-                {
-                    int src_runtime = 0; // Runtime index.
-                    SUPPRESS_UNUSED_WARNING(src_runtime);
-                    int src_channel = 0; // Channel index.
-                    SUPPRESS_UNUSED_WARNING(src_channel);
-                    int src_bank = 0; // Bank index.
-                    SUPPRESS_UNUSED_WARNING(src_bank);
-                    // Iterate over range PacmanDrive.robot.disp.line1(0,1).
-                    {
-                        int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
-                        int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
-                        int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
-                        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                        // Point to destination port PacmanDrive.robot.disp.line1's trigger struct.
-                        pacmandrive_robot_self[src_runtime]->_lf__reaction_5.triggers[triggers_index[src_runtime] + src_channel][0] = &pacmandrive_robot_disp_self[dst_runtime]->_lf__line1;
-                    }
-                }
-                for (int i = 0; i < 1; i++) triggers_index[i] = 2;
-                // Iterate over ranges PacmanDrive.robot.disp.line2(0,1)->[PacmanDrive.robot.disp.line2(0,1)] and PacmanDrive.robot.disp.line2(0,1).
-                {
-                    int src_runtime = 0; // Runtime index.
-                    SUPPRESS_UNUSED_WARNING(src_runtime);
-                    int src_channel = 0; // Channel index.
-                    SUPPRESS_UNUSED_WARNING(src_channel);
-                    int src_bank = 0; // Bank index.
-                    SUPPRESS_UNUSED_WARNING(src_bank);
-                    // Iterate over range PacmanDrive.robot.disp.line2(0,1).
-                    {
-                        int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
-                        int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
-                        int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
-                        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                        // Point to destination port PacmanDrive.robot.disp.line2's trigger struct.
-                        pacmandrive_robot_self[src_runtime]->_lf__reaction_5.triggers[triggers_index[src_runtime] + src_channel][0] = &pacmandrive_robot_disp_self[dst_runtime]->_lf__line2;
-                    }
-                }
-                for (int i = 0; i < 1; i++) triggers_index[i] = 3;
                 // Iterate over ranges PacmanDrive.robot.motor.left_power(0,1)->[PacmanDrive.robot.motor.left_power(0,1)] and PacmanDrive.robot.motor.left_power(0,1).
                 {
                     int src_runtime = 0; // Runtime index.
@@ -1516,7 +1365,7 @@ void _lf_initialize_trigger_objects() {
                         pacmandrive_robot_self[src_runtime]->_lf__reaction_5.triggers[triggers_index[src_runtime] + src_channel][0] = &pacmandrive_robot_motor_self[dst_runtime]->_lf__left_power;
                     }
                 }
-                for (int i = 0; i < 1; i++) triggers_index[i] = 4;
+                for (int i = 0; i < 1; i++) triggers_index[i] = 1;
                 // Iterate over ranges PacmanDrive.robot.motor.right_power(0,1)->[PacmanDrive.robot.motor.right_power(0,1)] and PacmanDrive.robot.motor.right_power(0,1).
                 {
                     int src_runtime = 0; // Runtime index.
@@ -1538,6 +1387,54 @@ void _lf_initialize_trigger_objects() {
             }
             {
                 int triggers_index[1] = { 0 }; // Number of bank members with the reaction.
+                // Iterate over range PacmanDrive.robot.disp.line0(0,1)->[PacmanDrive.robot.disp.line0(0,1)].
+                {
+                    int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+                    int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+                    int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+                    int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                    // Reaction 6 of PacmanDrive.robot triggers 1 downstream reactions
+                    // through port PacmanDrive.robot.disp.line0.
+                    pacmandrive_robot_self[src_runtime]->_lf__reaction_6.triggered_sizes[triggers_index[src_runtime]] = 1;
+                    // For reaction 6 of PacmanDrive.robot, allocate an
+                    // array of trigger pointers for downstream reactions through port PacmanDrive.robot.disp.line0
+                    trigger_t** trigger_array = (trigger_t**)lf_allocate(
+                            1, sizeof(trigger_t*),
+                            &pacmandrive_robot_self[src_runtime]->base.allocations); 
+                    pacmandrive_robot_self[src_runtime]->_lf__reaction_6.triggers[triggers_index[src_runtime]++] = trigger_array;
+                }
+                // Iterate over range PacmanDrive.robot.disp.line1(0,1)->[PacmanDrive.robot.disp.line1(0,1)].
+                {
+                    int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+                    int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+                    int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+                    int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                    // Reaction 6 of PacmanDrive.robot triggers 1 downstream reactions
+                    // through port PacmanDrive.robot.disp.line1.
+                    pacmandrive_robot_self[src_runtime]->_lf__reaction_6.triggered_sizes[triggers_index[src_runtime]] = 1;
+                    // For reaction 6 of PacmanDrive.robot, allocate an
+                    // array of trigger pointers for downstream reactions through port PacmanDrive.robot.disp.line1
+                    trigger_t** trigger_array = (trigger_t**)lf_allocate(
+                            1, sizeof(trigger_t*),
+                            &pacmandrive_robot_self[src_runtime]->base.allocations); 
+                    pacmandrive_robot_self[src_runtime]->_lf__reaction_6.triggers[triggers_index[src_runtime]++] = trigger_array;
+                }
+                // Iterate over range PacmanDrive.robot.disp.line2(0,1)->[PacmanDrive.robot.disp.line2(0,1)].
+                {
+                    int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+                    int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+                    int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+                    int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                    // Reaction 6 of PacmanDrive.robot triggers 1 downstream reactions
+                    // through port PacmanDrive.robot.disp.line2.
+                    pacmandrive_robot_self[src_runtime]->_lf__reaction_6.triggered_sizes[triggers_index[src_runtime]] = 1;
+                    // For reaction 6 of PacmanDrive.robot, allocate an
+                    // array of trigger pointers for downstream reactions through port PacmanDrive.robot.disp.line2
+                    trigger_t** trigger_array = (trigger_t**)lf_allocate(
+                            1, sizeof(trigger_t*),
+                            &pacmandrive_robot_self[src_runtime]->base.allocations); 
+                    pacmandrive_robot_self[src_runtime]->_lf__reaction_6.triggers[triggers_index[src_runtime]++] = trigger_array;
+                }
                 // Iterate over range PacmanDrive.robot.motor.left_power(0,1)->[PacmanDrive.robot.motor.left_power(0,1)].
                 {
                     int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
@@ -1571,6 +1468,63 @@ void _lf_initialize_trigger_objects() {
                     pacmandrive_robot_self[src_runtime]->_lf__reaction_6.triggers[triggers_index[src_runtime]++] = trigger_array;
                 }
                 for (int i = 0; i < 1; i++) triggers_index[i] = 0;
+                // Iterate over ranges PacmanDrive.robot.disp.line0(0,1)->[PacmanDrive.robot.disp.line0(0,1)] and PacmanDrive.robot.disp.line0(0,1).
+                {
+                    int src_runtime = 0; // Runtime index.
+                    SUPPRESS_UNUSED_WARNING(src_runtime);
+                    int src_channel = 0; // Channel index.
+                    SUPPRESS_UNUSED_WARNING(src_channel);
+                    int src_bank = 0; // Bank index.
+                    SUPPRESS_UNUSED_WARNING(src_bank);
+                    // Iterate over range PacmanDrive.robot.disp.line0(0,1).
+                    {
+                        int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+                        int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+                        int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+                        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                        // Point to destination port PacmanDrive.robot.disp.line0's trigger struct.
+                        pacmandrive_robot_self[src_runtime]->_lf__reaction_6.triggers[triggers_index[src_runtime] + src_channel][0] = &pacmandrive_robot_disp_self[dst_runtime]->_lf__line0;
+                    }
+                }
+                for (int i = 0; i < 1; i++) triggers_index[i] = 1;
+                // Iterate over ranges PacmanDrive.robot.disp.line1(0,1)->[PacmanDrive.robot.disp.line1(0,1)] and PacmanDrive.robot.disp.line1(0,1).
+                {
+                    int src_runtime = 0; // Runtime index.
+                    SUPPRESS_UNUSED_WARNING(src_runtime);
+                    int src_channel = 0; // Channel index.
+                    SUPPRESS_UNUSED_WARNING(src_channel);
+                    int src_bank = 0; // Bank index.
+                    SUPPRESS_UNUSED_WARNING(src_bank);
+                    // Iterate over range PacmanDrive.robot.disp.line1(0,1).
+                    {
+                        int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+                        int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+                        int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+                        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                        // Point to destination port PacmanDrive.robot.disp.line1's trigger struct.
+                        pacmandrive_robot_self[src_runtime]->_lf__reaction_6.triggers[triggers_index[src_runtime] + src_channel][0] = &pacmandrive_robot_disp_self[dst_runtime]->_lf__line1;
+                    }
+                }
+                for (int i = 0; i < 1; i++) triggers_index[i] = 2;
+                // Iterate over ranges PacmanDrive.robot.disp.line2(0,1)->[PacmanDrive.robot.disp.line2(0,1)] and PacmanDrive.robot.disp.line2(0,1).
+                {
+                    int src_runtime = 0; // Runtime index.
+                    SUPPRESS_UNUSED_WARNING(src_runtime);
+                    int src_channel = 0; // Channel index.
+                    SUPPRESS_UNUSED_WARNING(src_channel);
+                    int src_bank = 0; // Bank index.
+                    SUPPRESS_UNUSED_WARNING(src_bank);
+                    // Iterate over range PacmanDrive.robot.disp.line2(0,1).
+                    {
+                        int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+                        int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+                        int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+                        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                        // Point to destination port PacmanDrive.robot.disp.line2's trigger struct.
+                        pacmandrive_robot_self[src_runtime]->_lf__reaction_6.triggers[triggers_index[src_runtime] + src_channel][0] = &pacmandrive_robot_disp_self[dst_runtime]->_lf__line2;
+                    }
+                }
+                for (int i = 0; i < 1; i++) triggers_index[i] = 3;
                 // Iterate over ranges PacmanDrive.robot.motor.left_power(0,1)->[PacmanDrive.robot.motor.left_power(0,1)] and PacmanDrive.robot.motor.left_power(0,1).
                 {
                     int src_runtime = 0; // Runtime index.
@@ -1589,7 +1543,7 @@ void _lf_initialize_trigger_objects() {
                         pacmandrive_robot_self[src_runtime]->_lf__reaction_6.triggers[triggers_index[src_runtime] + src_channel][0] = &pacmandrive_robot_motor_self[dst_runtime]->_lf__left_power;
                     }
                 }
-                for (int i = 0; i < 1; i++) triggers_index[i] = 1;
+                for (int i = 0; i < 1; i++) triggers_index[i] = 4;
                 // Iterate over ranges PacmanDrive.robot.motor.right_power(0,1)->[PacmanDrive.robot.motor.right_power(0,1)] and PacmanDrive.robot.motor.right_power(0,1).
                 {
                     int src_runtime = 0; // Runtime index.
@@ -1609,13 +1563,106 @@ void _lf_initialize_trigger_objects() {
                     }
                 }
             }
-        
+            {
+                int triggers_index[1] = { 0 }; // Number of bank members with the reaction.
+                // Iterate over range PacmanDrive.robot.motor.left_power(0,1)->[PacmanDrive.robot.motor.left_power(0,1)].
+                {
+                    int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+                    int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+                    int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+                    int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                    // Reaction 7 of PacmanDrive.robot triggers 1 downstream reactions
+                    // through port PacmanDrive.robot.motor.left_power.
+                    pacmandrive_robot_self[src_runtime]->_lf__reaction_7.triggered_sizes[triggers_index[src_runtime]] = 1;
+                    // For reaction 7 of PacmanDrive.robot, allocate an
+                    // array of trigger pointers for downstream reactions through port PacmanDrive.robot.motor.left_power
+                    trigger_t** trigger_array = (trigger_t**)lf_allocate(
+                            1, sizeof(trigger_t*),
+                            &pacmandrive_robot_self[src_runtime]->base.allocations); 
+                    pacmandrive_robot_self[src_runtime]->_lf__reaction_7.triggers[triggers_index[src_runtime]++] = trigger_array;
+                }
+                // Iterate over range PacmanDrive.robot.motor.right_power(0,1)->[PacmanDrive.robot.motor.right_power(0,1)].
+                {
+                    int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+                    int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+                    int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+                    int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                    // Reaction 7 of PacmanDrive.robot triggers 1 downstream reactions
+                    // through port PacmanDrive.robot.motor.right_power.
+                    pacmandrive_robot_self[src_runtime]->_lf__reaction_7.triggered_sizes[triggers_index[src_runtime]] = 1;
+                    // For reaction 7 of PacmanDrive.robot, allocate an
+                    // array of trigger pointers for downstream reactions through port PacmanDrive.robot.motor.right_power
+                    trigger_t** trigger_array = (trigger_t**)lf_allocate(
+                            1, sizeof(trigger_t*),
+                            &pacmandrive_robot_self[src_runtime]->base.allocations); 
+                    pacmandrive_robot_self[src_runtime]->_lf__reaction_7.triggers[triggers_index[src_runtime]++] = trigger_array;
+                }
+                for (int i = 0; i < 1; i++) triggers_index[i] = 0;
+                // Iterate over ranges PacmanDrive.robot.motor.left_power(0,1)->[PacmanDrive.robot.motor.left_power(0,1)] and PacmanDrive.robot.motor.left_power(0,1).
+                {
+                    int src_runtime = 0; // Runtime index.
+                    SUPPRESS_UNUSED_WARNING(src_runtime);
+                    int src_channel = 0; // Channel index.
+                    SUPPRESS_UNUSED_WARNING(src_channel);
+                    int src_bank = 0; // Bank index.
+                    SUPPRESS_UNUSED_WARNING(src_bank);
+                    // Iterate over range PacmanDrive.robot.motor.left_power(0,1).
+                    {
+                        int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+                        int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+                        int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+                        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                        // Point to destination port PacmanDrive.robot.motor.left_power's trigger struct.
+                        pacmandrive_robot_self[src_runtime]->_lf__reaction_7.triggers[triggers_index[src_runtime] + src_channel][0] = &pacmandrive_robot_motor_self[dst_runtime]->_lf__left_power;
+                    }
+                }
+                for (int i = 0; i < 1; i++) triggers_index[i] = 1;
+                // Iterate over ranges PacmanDrive.robot.motor.right_power(0,1)->[PacmanDrive.robot.motor.right_power(0,1)] and PacmanDrive.robot.motor.right_power(0,1).
+                {
+                    int src_runtime = 0; // Runtime index.
+                    SUPPRESS_UNUSED_WARNING(src_runtime);
+                    int src_channel = 0; // Channel index.
+                    SUPPRESS_UNUSED_WARNING(src_channel);
+                    int src_bank = 0; // Bank index.
+                    SUPPRESS_UNUSED_WARNING(src_bank);
+                    // Iterate over range PacmanDrive.robot.motor.right_power(0,1).
+                    {
+                        int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+                        int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+                        int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+                        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                        // Point to destination port PacmanDrive.robot.motor.right_power's trigger struct.
+                        pacmandrive_robot_self[src_runtime]->_lf__reaction_7.triggers[triggers_index[src_runtime] + src_channel][0] = &pacmandrive_robot_motor_self[dst_runtime]->_lf__right_power;
+                    }
+                }
+            }
+            // PacmanDrive.robot.reaction_1 dominating upstream reaction.
+            pacmandrive_robot_self[0]->_lf__reaction_0.last_enabling_reaction = NULL;
+            // PacmanDrive.robot.reaction_2 dominating upstream reaction.
+            pacmandrive_robot_self[0]->_lf__reaction_1.last_enabling_reaction = NULL;
+            // PacmanDrive.robot.reaction_3 dominating upstream reaction.
+            pacmandrive_robot_self[0]->_lf__reaction_2.last_enabling_reaction = NULL;
+            // PacmanDrive.robot.calibrating.reaction_4 dominating upstream reaction.
+            pacmandrive_robot_self[0]->_lf__reaction_3.last_enabling_reaction = NULL;
+            // PacmanDrive.robot.calibrating.reaction_5 dominating upstream reaction.
+            pacmandrive_robot_self[0]->_lf__reaction_4.last_enabling_reaction = NULL;
+            // PacmanDrive.robot.BACKUP.reaction_6 dominating upstream reaction.
+            pacmandrive_robot_self[0]->_lf__reaction_5.last_enabling_reaction = NULL;
+            // PacmanDrive.robot.DRIVING.reaction_7 dominating upstream reaction.
+            pacmandrive_robot_self[0]->_lf__reaction_6.last_enabling_reaction = NULL;
+            // PacmanDrive.robot.DRIVING.reaction_8 dominating upstream reaction.
+            pacmandrive_robot_self[0]->_lf__reaction_7.last_enabling_reaction = NULL;
             // **** Start non-nested deferred initialize for PacmanDrive.robot.motor
             {
             
             
             
-            
+                // PacmanDrive.robot.motor.reaction_1 dominating upstream reaction.
+                pacmandrive_robot_motor_self[0]->_lf__reaction_0.last_enabling_reaction = NULL;
+                // PacmanDrive.robot.motor.reaction_2 dominating upstream reaction.
+                pacmandrive_robot_motor_self[0]->_lf__reaction_1.last_enabling_reaction = NULL;
+                // PacmanDrive.robot.motor.reaction_3 dominating upstream reaction.
+                pacmandrive_robot_motor_self[0]->_lf__reaction_2.last_enabling_reaction = NULL;
             }
             // **** End of non-nested deferred initialize for PacmanDrive.robot.motor
             // **** Start non-nested deferred initialize for PacmanDrive.robot.line
@@ -1670,7 +1717,10 @@ void _lf_initialize_trigger_objects() {
                         }
                     }
                 }
-            
+                // PacmanDrive.robot.line.reaction_1 dominating upstream reaction.
+                pacmandrive_robot_line_self[0]->_lf__reaction_0.last_enabling_reaction = &(pacmandrive_robot_self[0]->_lf__reaction_4);
+                // PacmanDrive.robot.line.reaction_2 dominating upstream reaction.
+                pacmandrive_robot_line_self[0]->_lf__reaction_1.last_enabling_reaction = NULL;
             }
             // **** End of non-nested deferred initialize for PacmanDrive.robot.line
             // **** Start non-nested deferred initialize for PacmanDrive.robot.disp
@@ -1678,34 +1728,75 @@ void _lf_initialize_trigger_objects() {
             
             
             
-            
+                // PacmanDrive.robot.disp.reaction_1 dominating upstream reaction.
+                pacmandrive_robot_disp_self[0]->_lf__reaction_0.last_enabling_reaction = NULL;
+                // PacmanDrive.robot.disp.reaction_2 dominating upstream reaction.
+                pacmandrive_robot_disp_self[0]->_lf__reaction_1.last_enabling_reaction = NULL;
             }
             // **** End of non-nested deferred initialize for PacmanDrive.robot.disp
         }
         // **** End of non-nested deferred initialize for PacmanDrive.robot
+        // **** Start non-nested deferred initialize for PacmanDrive.bt
+        {
+        
+            // For reference counting, set num_destinations for port PacmanDrive.bt.cmd.
+            // Iterate over range PacmanDrive.bt.cmd(0,1)->[PacmanDrive.robot.cmd(0,1)].
+            {
+                int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+                int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+                int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+                int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                pacmandrive_bt_self[src_runtime]->_lf_cmd._base.num_destinations = 1;
+                pacmandrive_bt_self[src_runtime]->_lf_cmd._base.source_reactor = (self_base_t*)pacmandrive_bt_self[src_runtime];
+            }
+            {
+                int triggers_index[1] = { 0 }; // Number of bank members with the reaction.
+                // Iterate over range PacmanDrive.bt.cmd(0,1)->[PacmanDrive.robot.cmd(0,1)].
+                {
+                    int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+                    int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+                    int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+                    int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                    // Reaction 1 of PacmanDrive.bt triggers 1 downstream reactions
+                    // through port PacmanDrive.bt.cmd.
+                    pacmandrive_bt_self[src_runtime]->_lf__reaction_1.triggered_sizes[triggers_index[src_runtime]] = 1;
+                    // For reaction 1 of PacmanDrive.bt, allocate an
+                    // array of trigger pointers for downstream reactions through port PacmanDrive.bt.cmd
+                    trigger_t** trigger_array = (trigger_t**)lf_allocate(
+                            1, sizeof(trigger_t*),
+                            &pacmandrive_bt_self[src_runtime]->base.allocations); 
+                    pacmandrive_bt_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime]++] = trigger_array;
+                }
+                for (int i = 0; i < 1; i++) triggers_index[i] = 0;
+                // Iterate over ranges PacmanDrive.bt.cmd(0,1)->[PacmanDrive.robot.cmd(0,1)] and PacmanDrive.robot.cmd(0,1).
+                {
+                    int src_runtime = 0; // Runtime index.
+                    SUPPRESS_UNUSED_WARNING(src_runtime);
+                    int src_channel = 0; // Channel index.
+                    SUPPRESS_UNUSED_WARNING(src_channel);
+                    int src_bank = 0; // Bank index.
+                    SUPPRESS_UNUSED_WARNING(src_bank);
+                    // Iterate over range PacmanDrive.robot.cmd(0,1).
+                    {
+                        int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+                        int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+                        int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+                        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                        // Point to destination port PacmanDrive.robot.cmd's trigger struct.
+                        pacmandrive_bt_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime] + src_channel][0] = &pacmandrive_robot_self[dst_runtime]->_lf__cmd;
+                    }
+                }
+            }
+            // PacmanDrive.bt.reaction_1 dominating upstream reaction.
+            pacmandrive_bt_self[0]->_lf__reaction_0.last_enabling_reaction = NULL;
+            // PacmanDrive.bt.reaction_2 dominating upstream reaction.
+            pacmandrive_bt_self[0]->_lf__reaction_1.last_enabling_reaction = NULL;
+        }
+        // **** End of non-nested deferred initialize for PacmanDrive.bt
     }
     // **** End of non-nested deferred initialize for PacmanDrive
     // Connect inputs and outputs for reactor PacmanDrive.
     // Connect inputs and outputs for reactor PacmanDrive.display.
-    // Connect inputs and outputs for reactor PacmanDrive.bt.
-    // Connect PacmanDrive.bt.cmd(0,1)->[PacmanDrive.robot.cmd(0,1)] to port PacmanDrive.robot.cmd(0,1)
-    // Iterate over ranges PacmanDrive.bt.cmd(0,1)->[PacmanDrive.robot.cmd(0,1)] and PacmanDrive.robot.cmd(0,1).
-    {
-        int src_runtime = 0; // Runtime index.
-        SUPPRESS_UNUSED_WARNING(src_runtime);
-        int src_channel = 0; // Channel index.
-        SUPPRESS_UNUSED_WARNING(src_channel);
-        int src_bank = 0; // Bank index.
-        SUPPRESS_UNUSED_WARNING(src_bank);
-        // Iterate over range PacmanDrive.robot.cmd(0,1).
-        {
-            int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
-            int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
-            int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
-            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-            pacmandrive_robot_self[dst_runtime]->_lf_cmd = (_robot_cmd_t*)&pacmandrive_bt_self[src_runtime]->_lf_cmd;
-        }
-    }
     // Connect inputs and outputs for reactor PacmanDrive.robot.
     // Connect PacmanDrive.robot.notify(0,1)->[PacmanDrive.display.line0(0,1)] to port PacmanDrive.display.line0(0,1)
     // Iterate over ranges PacmanDrive.robot.notify(0,1)->[PacmanDrive.display.line0(0,1)] and PacmanDrive.display.line0(0,1).
@@ -1781,6 +1872,24 @@ void _lf_initialize_trigger_objects() {
             pacmandrive_robot_line_self[dst_runtime]->_lf_calibrate = (_line_calibrate_t*)&pacmandrive_robot_self[src_runtime]->_lf_line.calibrate;
         }
     }
+    // Connect PacmanDrive.robot.line.trigger(0,1)->[PacmanDrive.robot.line.trigger(0,1)] to port PacmanDrive.robot.line.trigger(0,1)
+    // Iterate over ranges PacmanDrive.robot.line.trigger(0,1)->[PacmanDrive.robot.line.trigger(0,1)] and PacmanDrive.robot.line.trigger(0,1).
+    {
+        int src_runtime = 0; // Runtime index.
+        SUPPRESS_UNUSED_WARNING(src_runtime);
+        int src_channel = 0; // Channel index.
+        SUPPRESS_UNUSED_WARNING(src_channel);
+        int src_bank = 0; // Bank index.
+        SUPPRESS_UNUSED_WARNING(src_bank);
+        // Iterate over range PacmanDrive.robot.line.trigger(0,1).
+        {
+            int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+            int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+            int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+            pacmandrive_robot_line_self[dst_runtime]->_lf_trigger = (_line_trigger_t*)&pacmandrive_robot_self[src_runtime]->_lf_line.trigger;
+        }
+    }
     // Connect PacmanDrive.robot.line.reflect(0,1)->[PacmanDrive.robot.line.reflect(0,1)] to port PacmanDrive.robot.line.reflect(0,1)
     // Iterate over ranges PacmanDrive.robot.line.reflect(0,1)->[PacmanDrive.robot.line.reflect(0,1)] and PacmanDrive.robot.line.reflect(0,1).
     {
@@ -1854,7 +1963,24 @@ void _lf_initialize_trigger_objects() {
             pacmandrive_robot_disp_self[dst_runtime]->_lf_line2 = (_display_line2_t*)&pacmandrive_robot_self[src_runtime]->_lf_disp.line2;
         }
     }
+    // Connect inputs and outputs for reactor PacmanDrive.bt.
+    // Connect PacmanDrive.bt.cmd(0,1)->[PacmanDrive.robot.cmd(0,1)] to port PacmanDrive.robot.cmd(0,1)
+    // Iterate over ranges PacmanDrive.bt.cmd(0,1)->[PacmanDrive.robot.cmd(0,1)] and PacmanDrive.robot.cmd(0,1).
     {
+        int src_runtime = 0; // Runtime index.
+        SUPPRESS_UNUSED_WARNING(src_runtime);
+        int src_channel = 0; // Channel index.
+        SUPPRESS_UNUSED_WARNING(src_channel);
+        int src_bank = 0; // Bank index.
+        SUPPRESS_UNUSED_WARNING(src_bank);
+        // Iterate over range PacmanDrive.robot.cmd(0,1).
+        {
+            int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+            int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+            int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+            pacmandrive_robot_self[dst_runtime]->_lf_cmd = (_robot_cmd_t*)&pacmandrive_bt_self[src_runtime]->_lf_cmd;
+        }
     }
     {
     }
@@ -1891,27 +2017,40 @@ void _lf_initialize_trigger_objects() {
                 }
             }
         }
-        // Add port PacmanDrive.robot.disp.line1 to array of is_present fields.
-        {
-            int count = 0; SUPPRESS_UNUSED_WARNING(count);
-            {
-                {
-                    environments[pacmandrive_main].is_present_fields[2 + (0) * 1 + count] = &pacmandrive_robot_self[0]->_lf_disp.line1.is_present;
-                    #ifdef FEDERATED_DECENTRALIZED
-                    environments[pacmandrive_main]._lf_intended_tag_fields[2 + (0) * 1 + count] = &pacmandrive_robot_self[0]->_lf_disp.line1.intended_tag;
-                    #endif // FEDERATED_DECENTRALIZED
-                    count++;
-                }
-            }
-        }
         // Add port PacmanDrive.robot.disp.line0 to array of is_present fields.
         {
             int count = 0; SUPPRESS_UNUSED_WARNING(count);
             {
                 {
-                    environments[pacmandrive_main].is_present_fields[3 + (0) * 1 + count] = &pacmandrive_robot_self[0]->_lf_disp.line0.is_present;
+                    environments[pacmandrive_main].is_present_fields[2 + (0) * 1 + count] = &pacmandrive_robot_self[0]->_lf_disp.line0.is_present;
                     #ifdef FEDERATED_DECENTRALIZED
-                    environments[pacmandrive_main]._lf_intended_tag_fields[3 + (0) * 1 + count] = &pacmandrive_robot_self[0]->_lf_disp.line0.intended_tag;
+                    environments[pacmandrive_main]._lf_intended_tag_fields[2 + (0) * 1 + count] = &pacmandrive_robot_self[0]->_lf_disp.line0.intended_tag;
+                    #endif // FEDERATED_DECENTRALIZED
+                    count++;
+                }
+            }
+        }
+        // Add port PacmanDrive.robot.line.trigger to array of is_present fields.
+        {
+            int count = 0; SUPPRESS_UNUSED_WARNING(count);
+            {
+                {
+                    environments[pacmandrive_main].is_present_fields[3 + (0) * 1 + count] = &pacmandrive_robot_self[0]->_lf_line.trigger.is_present;
+                    #ifdef FEDERATED_DECENTRALIZED
+                    environments[pacmandrive_main]._lf_intended_tag_fields[3 + (0) * 1 + count] = &pacmandrive_robot_self[0]->_lf_line.trigger.intended_tag;
+                    #endif // FEDERATED_DECENTRALIZED
+                    count++;
+                }
+            }
+        }
+        // Add port PacmanDrive.robot.disp.line1 to array of is_present fields.
+        {
+            int count = 0; SUPPRESS_UNUSED_WARNING(count);
+            {
+                {
+                    environments[pacmandrive_main].is_present_fields[4 + (0) * 1 + count] = &pacmandrive_robot_self[0]->_lf_disp.line1.is_present;
+                    #ifdef FEDERATED_DECENTRALIZED
+                    environments[pacmandrive_main]._lf_intended_tag_fields[4 + (0) * 1 + count] = &pacmandrive_robot_self[0]->_lf_disp.line1.intended_tag;
                     #endif // FEDERATED_DECENTRALIZED
                     count++;
                 }
@@ -1922,9 +2061,9 @@ void _lf_initialize_trigger_objects() {
             int count = 0; SUPPRESS_UNUSED_WARNING(count);
             {
                 {
-                    environments[pacmandrive_main].is_present_fields[4 + (0) * 1 + count] = &pacmandrive_robot_self[0]->_lf_disp.line2.is_present;
+                    environments[pacmandrive_main].is_present_fields[5 + (0) * 1 + count] = &pacmandrive_robot_self[0]->_lf_disp.line2.is_present;
                     #ifdef FEDERATED_DECENTRALIZED
-                    environments[pacmandrive_main]._lf_intended_tag_fields[4 + (0) * 1 + count] = &pacmandrive_robot_self[0]->_lf_disp.line2.intended_tag;
+                    environments[pacmandrive_main]._lf_intended_tag_fields[5 + (0) * 1 + count] = &pacmandrive_robot_self[0]->_lf_disp.line2.intended_tag;
                     #endif // FEDERATED_DECENTRALIZED
                     count++;
                 }
@@ -1935,46 +2074,36 @@ void _lf_initialize_trigger_objects() {
             int count = 0; SUPPRESS_UNUSED_WARNING(count);
             {
                 {
-                    environments[pacmandrive_main].is_present_fields[5 + (0) * 1 + count] = &pacmandrive_robot_self[0]->_lf_line.calibrate.is_present;
+                    environments[pacmandrive_main].is_present_fields[6 + (0) * 1 + count] = &pacmandrive_robot_self[0]->_lf_line.calibrate.is_present;
                     #ifdef FEDERATED_DECENTRALIZED
-                    environments[pacmandrive_main]._lf_intended_tag_fields[5 + (0) * 1 + count] = &pacmandrive_robot_self[0]->_lf_line.calibrate.intended_tag;
+                    environments[pacmandrive_main]._lf_intended_tag_fields[6 + (0) * 1 + count] = &pacmandrive_robot_self[0]->_lf_line.calibrate.intended_tag;
                     #endif // FEDERATED_DECENTRALIZED
                     count++;
                 }
             }
         }
         // Add action PacmanDrive.robot.clear to array of is_present fields.
-        environments[pacmandrive_main].is_present_fields[6 + (0) * 1]
+        environments[pacmandrive_main].is_present_fields[7 + (0) * 1]
                 = (bool *) &pacmandrive_robot_self[0]->_lf__clear.status;
         #ifdef FEDERATED_DECENTRALIZED
         // Add action PacmanDrive.robot.clear to array of intended_tag fields.
-        environments[pacmandrive_main]._lf_intended_tag_fields[6 + (0) * 1]
+        environments[pacmandrive_main]._lf_intended_tag_fields[7 + (0) * 1]
                 = &pacmandrive_robot_self[0]->_lf_clear.intended_tag;
         #endif // FEDERATED_DECENTRALIZED
         {
             int count = 0; SUPPRESS_UNUSED_WARNING(count);
             {
                 // Add output port PacmanDrive.robot.line.reflect to array of is_present fields.
-                environments[pacmandrive_main].is_present_fields[(0) * 1 + 7 + count] = &pacmandrive_robot_line_self[0]->_lf_reflect.is_present;
+                environments[pacmandrive_main].is_present_fields[(0) * 1 + 8 + count] = &pacmandrive_robot_line_self[0]->_lf_reflect.is_present;
                 #ifdef FEDERATED_DECENTRALIZED
                 // Add output port PacmanDrive.robot.line.reflect to array of intended_tag fields.
-                environments[pacmandrive_main]._lf_intended_tag_fields[(0) * 1 + 7 + count] = &pacmandrive_robot_line_self[0]->_lf_reflect.intended_tag;
+                environments[pacmandrive_main]._lf_intended_tag_fields[(0) * 1 + 8 + count] = &pacmandrive_robot_line_self[0]->_lf_reflect.intended_tag;
                 #endif // FEDERATED_DECENTRALIZED
                 count++;
             }
         }
     }
     {
-        int count = 0; SUPPRESS_UNUSED_WARNING(count);
-        {
-            // Add output port PacmanDrive.bt.cmd to array of is_present fields.
-            environments[pacmandrive_main].is_present_fields[(0) * 1 + 8 + count] = &pacmandrive_bt_self[0]->_lf_cmd.is_present;
-            #ifdef FEDERATED_DECENTRALIZED
-            // Add output port PacmanDrive.bt.cmd to array of intended_tag fields.
-            environments[pacmandrive_main]._lf_intended_tag_fields[(0) * 1 + 8 + count] = &pacmandrive_bt_self[0]->_lf_cmd.intended_tag;
-            #endif // FEDERATED_DECENTRALIZED
-            count++;
-        }
     }
     {
         int count = 0; SUPPRESS_UNUSED_WARNING(count);
@@ -1988,6 +2117,18 @@ void _lf_initialize_trigger_objects() {
             count++;
         }
     }
+    {
+        int count = 0; SUPPRESS_UNUSED_WARNING(count);
+        {
+            // Add output port PacmanDrive.bt.cmd to array of is_present fields.
+            environments[pacmandrive_main].is_present_fields[(0) * 1 + 10 + count] = &pacmandrive_bt_self[0]->_lf_cmd.is_present;
+            #ifdef FEDERATED_DECENTRALIZED
+            // Add output port PacmanDrive.bt.cmd to array of intended_tag fields.
+            environments[pacmandrive_main]._lf_intended_tag_fields[(0) * 1 + 10 + count] = &pacmandrive_bt_self[0]->_lf_cmd.intended_tag;
+            #endif // FEDERATED_DECENTRALIZED
+            count++;
+        }
+    }
     
     // Set reaction priorities for ReactorInstance PacmanDrive
     {
@@ -1997,20 +2138,9 @@ void _lf_initialize_trigger_objects() {
             // index is the OR of level 0 and 
             // deadline 9223372036854775807 shifted left 16 bits.
             pacmandrive_display_self[0]->_lf__reaction_0.index = lf_combine_deadline_and_level(9223372036854775807, 0);
-            // index is the OR of level 3 and 
+            // index is the OR of level 4 and 
             // deadline 9223372036854775807 shifted left 16 bits.
-            pacmandrive_display_self[0]->_lf__reaction_1.index = lf_combine_deadline_and_level(9223372036854775807, 3);
-        }
-    
-    
-        // Set reaction priorities for ReactorInstance PacmanDrive.bt
-        {
-            // index is the OR of level 0 and 
-            // deadline 9223372036854775807 shifted left 16 bits.
-            pacmandrive_bt_self[0]->_lf__reaction_0.index = lf_combine_deadline_and_level(9223372036854775807, 0);
-            // index is the OR of level 1 and 
-            // deadline 9223372036854775807 shifted left 16 bits.
-            pacmandrive_bt_self[0]->_lf__reaction_1.index = lf_combine_deadline_and_level(9223372036854775807, 1);
+            pacmandrive_display_self[0]->_lf__reaction_1.index = lf_combine_deadline_and_level(9223372036854775807, 4);
         }
     
     
@@ -2031,35 +2161,38 @@ void _lf_initialize_trigger_objects() {
             // index is the OR of level 4 and 
             // deadline 9223372036854775807 shifted left 16 bits.
             pacmandrive_robot_self[0]->_lf__reaction_4.index = lf_combine_deadline_and_level(9223372036854775807, 4);
-            // index is the OR of level 6 and 
+            // index is the OR of level 5 and 
             // deadline 9223372036854775807 shifted left 16 bits.
-            pacmandrive_robot_self[0]->_lf__reaction_5.index = lf_combine_deadline_and_level(9223372036854775807, 6);
+            pacmandrive_robot_self[0]->_lf__reaction_5.index = lf_combine_deadline_and_level(9223372036854775807, 5);
             // index is the OR of level 7 and 
             // deadline 9223372036854775807 shifted left 16 bits.
             pacmandrive_robot_self[0]->_lf__reaction_6.index = lf_combine_deadline_and_level(9223372036854775807, 7);
+            // index is the OR of level 8 and 
+            // deadline 9223372036854775807 shifted left 16 bits.
+            pacmandrive_robot_self[0]->_lf__reaction_7.index = lf_combine_deadline_and_level(9223372036854775807, 8);
         
             // Set reaction priorities for ReactorInstance PacmanDrive.robot.motor
             {
                 // index is the OR of level 0 and 
                 // deadline 9223372036854775807 shifted left 16 bits.
                 pacmandrive_robot_motor_self[0]->_lf__reaction_0.index = lf_combine_deadline_and_level(9223372036854775807, 0);
-                // index is the OR of level 8 and 
-                // deadline 9223372036854775807 shifted left 16 bits.
-                pacmandrive_robot_motor_self[0]->_lf__reaction_1.index = lf_combine_deadline_and_level(9223372036854775807, 8);
                 // index is the OR of level 9 and 
                 // deadline 9223372036854775807 shifted left 16 bits.
-                pacmandrive_robot_motor_self[0]->_lf__reaction_2.index = lf_combine_deadline_and_level(9223372036854775807, 9);
+                pacmandrive_robot_motor_self[0]->_lf__reaction_1.index = lf_combine_deadline_and_level(9223372036854775807, 9);
+                // index is the OR of level 10 and 
+                // deadline 9223372036854775807 shifted left 16 bits.
+                pacmandrive_robot_motor_self[0]->_lf__reaction_2.index = lf_combine_deadline_and_level(9223372036854775807, 10);
             }
         
         
             // Set reaction priorities for ReactorInstance PacmanDrive.robot.line
             {
-                // index is the OR of level 4 and 
-                // deadline 9223372036854775807 shifted left 16 bits.
-                pacmandrive_robot_line_self[0]->_lf__reaction_0.index = lf_combine_deadline_and_level(9223372036854775807, 4);
                 // index is the OR of level 5 and 
                 // deadline 9223372036854775807 shifted left 16 bits.
-                pacmandrive_robot_line_self[0]->_lf__reaction_1.index = lf_combine_deadline_and_level(9223372036854775807, 5);
+                pacmandrive_robot_line_self[0]->_lf__reaction_0.index = lf_combine_deadline_and_level(9223372036854775807, 5);
+                // index is the OR of level 6 and 
+                // deadline 9223372036854775807 shifted left 16 bits.
+                pacmandrive_robot_line_self[0]->_lf__reaction_1.index = lf_combine_deadline_and_level(9223372036854775807, 6);
             }
         
         
@@ -2068,11 +2201,22 @@ void _lf_initialize_trigger_objects() {
                 // index is the OR of level 0 and 
                 // deadline 9223372036854775807 shifted left 16 bits.
                 pacmandrive_robot_disp_self[0]->_lf__reaction_0.index = lf_combine_deadline_and_level(9223372036854775807, 0);
-                // index is the OR of level 7 and 
+                // index is the OR of level 8 and 
                 // deadline 9223372036854775807 shifted left 16 bits.
-                pacmandrive_robot_disp_self[0]->_lf__reaction_1.index = lf_combine_deadline_and_level(9223372036854775807, 7);
+                pacmandrive_robot_disp_self[0]->_lf__reaction_1.index = lf_combine_deadline_and_level(9223372036854775807, 8);
             }
         
+        }
+    
+    
+        // Set reaction priorities for ReactorInstance PacmanDrive.bt
+        {
+            // index is the OR of level 0 and 
+            // deadline 9223372036854775807 shifted left 16 bits.
+            pacmandrive_bt_self[0]->_lf__reaction_0.index = lf_combine_deadline_and_level(9223372036854775807, 0);
+            // index is the OR of level 1 and 
+            // deadline 9223372036854775807 shifted left 16 bits.
+            pacmandrive_bt_self[0]->_lf__reaction_1.index = lf_combine_deadline_and_level(9223372036854775807, 1);
         }
     
     }

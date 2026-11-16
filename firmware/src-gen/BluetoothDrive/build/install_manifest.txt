@@ -1,1 +1,0 @@
-/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/bin/BluetoothDrive.elf

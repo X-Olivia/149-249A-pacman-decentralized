@@ -8,16 +8,18 @@
 #include "include/api/reaction_macros.h"
 void _linereaction_function_0(void* instance_args) {
     _line_self_t* self = (_line_self_t*)instance_args; SUPPRESS_UNUSED_WARNING(self);
+    enum { _lf_await_requires_a_single_non_mutable_input_port__calibrate = 1 };
     _line_calibrate_t* calibrate = self->_lf_calibrate;
     int calibrate_width = self->_lf_calibrate_width; SUPPRESS_UNUSED_WARNING(calibrate_width);
     #line 46 "/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src/lib/Line.lf"
     self->calibrating = calibrate->value;
-#line 16 "/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/PacmanDrive/_line.c"
+#line 17 "/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/PacmanDrive/_line.c"
 }
 #include "include/api/reaction_macros_undef.h"
 #include "include/api/reaction_macros.h"
 void _linereaction_function_1(void* instance_args) {
     _line_self_t* self = (_line_self_t*)instance_args; SUPPRESS_UNUSED_WARNING(self);
+    enum { _lf_await_requires_a_single_non_mutable_input_port__trigger = 1 };
     _line_trigger_t* trigger = self->_lf_trigger;
     int trigger_width = self->_lf_trigger_width; SUPPRESS_UNUSED_WARNING(trigger_width);
     _line_reflect_t* reflect = &self->_lf_reflect;
@@ -40,7 +42,7 @@ void _linereaction_function_1(void* instance_args) {
       }
       lf_set_present(reflect);
     }
-#line 44 "/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/PacmanDrive/_line.c"
+#line 46 "/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/PacmanDrive/_line.c"
 }
 #include "include/api/reaction_macros_undef.h"
 _line_self_t* new__line() {

@@ -1,5 +1,0 @@
-/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build/pioasm-install/pioasm/pioasm
-/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build/pioasm-install/pioasm/pioasmTargets.cmake
-/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build/pioasm-install/pioasm/pioasmTargets-release.cmake
-/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build/pioasm-install/pioasm/pioasmConfig.cmake
-/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src-gen/BluetoothDrive/build/pioasm-install/pioasm/pioasmConfigVersion.cmake

@@ -1,10 +1,10 @@
 #ifndef _line_H
 #define _line_H
 #ifndef _LINE_H // necessary for arduino-cli, which automatically includes headers that are not used
-#ifndef TOP_LEVEL_PREAMBLE_1174344899_H
-#define TOP_LEVEL_PREAMBLE_1174344899_H
+#ifndef TOP_LEVEL_PREAMBLE_935741155_H
+#define TOP_LEVEL_PREAMBLE_935741155_H
 /*Correspondence: Range: [(33, 2), (33, 25)) -> Range: [(0, 0), (0, 23)) (verbatim=true; src=/Users/sareenarobinson/Desktop/EECS149Repo/149-249A-pacman-decentralized/firmware/src/lib/Line.lf)*/#include <ir_sensors.h>
-#endif // TOP_LEVEL_PREAMBLE_1174344899_H
+#endif // TOP_LEVEL_PREAMBLE_935741155_H
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -19,6 +19,14 @@ typedef struct line_self_t{
     bool calibrated;
     int end[0]; // placeholder; MSVC does not compile empty structs
 } line_self_t;
+#ifndef _LF_AWAIT_MARKER__calibrate
+#define _LF_AWAIT_MARKER__calibrate
+enum { _lf_await_requires_a_single_non_mutable_input_port__calibrate = 1 };
+#endif
+#ifndef _LF_AWAIT_MARKER__trigger
+#define _LF_AWAIT_MARKER__trigger
+enum { _lf_await_requires_a_single_non_mutable_input_port__trigger = 1 };
+#endif
 typedef struct {
     token_type_t type;
     lf_token_t* token;
