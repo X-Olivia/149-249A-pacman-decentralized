@@ -21,9 +21,7 @@ void lf_set_default_command_line_options() {
         default_argc = 3;
         default_argv = _lf_default_argv;
 }
-#include "_bluetooth.h"
 #include "_display.h"
-#include "_uwb.h"
 #include "_uart.h"
 #include "_motors.h"
 #include "_picontrol.h"
@@ -33,7 +31,8 @@ void lf_set_default_command_line_options() {
 #include "_trapezoidalintegrator.h"
 #include "_gyroangle.h"
 #include "_motion_control.h"
-#include "_ghost.h"
+#include "_bluetooth.h"
+#include "_pacman.h"
 #include "_ghostcontrols_main.h"
 typedef enum {
     ghostcontrols_main,
@@ -43,7 +42,7 @@ typedef enum {
 static environment_t environments[num_environments];
 // 'Create' and initialize the environments in the program
 void lf_create_environments() {
-    environment_init(&environments[ghostcontrols_main],"ghostcontrols_main",ghostcontrols_main,_lf_number_of_workers,5,10,0,3,23,1,0,0,NULL);
+    environment_init(&environments[ghostcontrols_main],"ghostcontrols_main",ghostcontrols_main,_lf_number_of_workers,3,8,0,3,22,1,0,0,NULL);
 }
 // Update the pointer argument to point to the beginning of the environment array
 // and return the size of that array
@@ -123,38 +122,36 @@ void _lf_initialize_trigger_objects() {
     SUPPRESS_UNUSED_WARNING(watchdog_number);
     _ghostcontrols_main_main_self_t* ghostcontrols_main_self[1];
     SUPPRESS_UNUSED_WARNING(ghostcontrols_main_self);
-    _bluetooth_self_t* ghostcontrols_bt_self[1];
-    SUPPRESS_UNUSED_WARNING(ghostcontrols_bt_self);
-    _ghost_self_t* ghostcontrols_ghost_self[1];
-    SUPPRESS_UNUSED_WARNING(ghostcontrols_ghost_self);
-    _display_self_t* ghostcontrols_ghost_disp_self[1];
-    SUPPRESS_UNUSED_WARNING(ghostcontrols_ghost_disp_self);
-    _uwb_self_t* ghostcontrols_ghost_uwb_self[1];
-    SUPPRESS_UNUSED_WARNING(ghostcontrols_ghost_uwb_self);
-    _uart_self_t* ghostcontrols_ghost_uart_self[1];
-    SUPPRESS_UNUSED_WARNING(ghostcontrols_ghost_uart_self);
-    _motion_control_self_t* ghostcontrols_ghost_control_self[1];
-    SUPPRESS_UNUSED_WARNING(ghostcontrols_ghost_control_self);
-    _motorswithfeedback_self_t* ghostcontrols_ghost_control_motors_self[1];
-    SUPPRESS_UNUSED_WARNING(ghostcontrols_ghost_control_motors_self);
-    _motors_self_t* _ostcontrols_ghost_control_motors_motors_self[1];
-    SUPPRESS_UNUSED_WARNING(_ostcontrols_ghost_control_motors_motors_self);
-    _picontrol_self_t* _trols_ghost_control_motors_control_left_self[1];
-    SUPPRESS_UNUSED_WARNING(_trols_ghost_control_motors_control_left_self);
-    _picontrol_self_t* _rols_ghost_control_motors_control_right_self[1];
-    SUPPRESS_UNUSED_WARNING(_rols_ghost_control_motors_control_right_self);
-    _encoders_self_t* ghostcontrols_ghost_control_encoder_self[1];
-    SUPPRESS_UNUSED_WARNING(ghostcontrols_ghost_control_encoder_self);
-    _gyroangle_self_t* ghostcontrols_ghost_control_gyro_self[1];
-    SUPPRESS_UNUSED_WARNING(ghostcontrols_ghost_control_gyro_self);
-    _gyro_self_t* ghostcontrols_ghost_control_gyro_g_self[1];
-    SUPPRESS_UNUSED_WARNING(ghostcontrols_ghost_control_gyro_g_self);
-    _trapezoidalintegrator_self_t* _controls_ghost_control_gyro_integrator1_self[1];
-    SUPPRESS_UNUSED_WARNING(_controls_ghost_control_gyro_integrator1_self);
-    _trapezoidalintegrator_self_t* _controls_ghost_control_gyro_integrator2_self[1];
-    SUPPRESS_UNUSED_WARNING(_controls_ghost_control_gyro_integrator2_self);
-    _trapezoidalintegrator_self_t* _controls_ghost_control_gyro_integrator3_self[1];
-    SUPPRESS_UNUSED_WARNING(_controls_ghost_control_gyro_integrator3_self);
+    _pacman_self_t* ghostcontrols_pacman_self[1];
+    SUPPRESS_UNUSED_WARNING(ghostcontrols_pacman_self);
+    _display_self_t* ghostcontrols_pacman_disp_self[1];
+    SUPPRESS_UNUSED_WARNING(ghostcontrols_pacman_disp_self);
+    _uart_self_t* ghostcontrols_pacman_uart_self[1];
+    SUPPRESS_UNUSED_WARNING(ghostcontrols_pacman_uart_self);
+    _motion_control_self_t* ghostcontrols_pacman_control_self[1];
+    SUPPRESS_UNUSED_WARNING(ghostcontrols_pacman_control_self);
+    _motorswithfeedback_self_t* ghostcontrols_pacman_control_motors_self[1];
+    SUPPRESS_UNUSED_WARNING(ghostcontrols_pacman_control_motors_self);
+    _motors_self_t* _stcontrols_pacman_control_motors_motors_self[1];
+    SUPPRESS_UNUSED_WARNING(_stcontrols_pacman_control_motors_motors_self);
+    _picontrol_self_t* _rols_pacman_control_motors_control_left_self[1];
+    SUPPRESS_UNUSED_WARNING(_rols_pacman_control_motors_control_left_self);
+    _picontrol_self_t* _ols_pacman_control_motors_control_right_self[1];
+    SUPPRESS_UNUSED_WARNING(_ols_pacman_control_motors_control_right_self);
+    _encoders_self_t* ghostcontrols_pacman_control_encoder_self[1];
+    SUPPRESS_UNUSED_WARNING(ghostcontrols_pacman_control_encoder_self);
+    _gyroangle_self_t* ghostcontrols_pacman_control_gyro_self[1];
+    SUPPRESS_UNUSED_WARNING(ghostcontrols_pacman_control_gyro_self);
+    _gyro_self_t* ghostcontrols_pacman_control_gyro_g_self[1];
+    SUPPRESS_UNUSED_WARNING(ghostcontrols_pacman_control_gyro_g_self);
+    _trapezoidalintegrator_self_t* _ontrols_pacman_control_gyro_integrator1_self[1];
+    SUPPRESS_UNUSED_WARNING(_ontrols_pacman_control_gyro_integrator1_self);
+    _trapezoidalintegrator_self_t* _ontrols_pacman_control_gyro_integrator2_self[1];
+    SUPPRESS_UNUSED_WARNING(_ontrols_pacman_control_gyro_integrator2_self);
+    _trapezoidalintegrator_self_t* _ontrols_pacman_control_gyro_integrator3_self[1];
+    SUPPRESS_UNUSED_WARNING(_ontrols_pacman_control_gyro_integrator3_self);
+    _bluetooth_self_t* ghostcontrols_pacman_bt_self[1];
+    SUPPRESS_UNUSED_WARNING(ghostcontrols_pacman_bt_self);
     // ***** Start initializing GhostControls of class GhostControls
     ghostcontrols_main_self[0] = new__ghostcontrols_main();
     ghostcontrols_main_self[0]->base.environment = &environments[ghostcontrols_main];
@@ -165,486 +162,444 @@ void _lf_initialize_trigger_objects() {
     #endif
     {
         _ghostcontrols_main_main_self_t *self = ghostcontrols_main_self[0];
-        // ***** Start initializing GhostControls.bt of class Bluetooth
-        ghostcontrols_bt_self[0] = new__bluetooth();
-        ghostcontrols_bt_self[0]->base.environment = &environments[ghostcontrols_main];
+        // ***** Start initializing GhostControls.pacman of class Pacman
+        ghostcontrols_pacman_self[0] = new__pacman();
+        ghostcontrols_pacman_self[0]->base.environment = &environments[ghostcontrols_main];
         bank_index = 0; SUPPRESS_UNUSED_WARNING(bank_index);
-        ghostcontrols_bt_self[0]->name = "HM-10";
-        
-        
-        // width of -2 indicates that it is not a multiport.
-        ghostcontrols_bt_self[0]->_lf_cmd_width = -2;
-        environments[ghostcontrols_main].startup_reactions[startup_reaction_count[ghostcontrols_main]++] = &ghostcontrols_bt_self[0]->_lf__reaction_0;
-        // Initiaizing timer GhostControls.bt.poll.
-        ghostcontrols_bt_self[0]->_lf__poll.offset = 0;
-        ghostcontrols_bt_self[0]->_lf__poll.period = MSEC(10);
-        // Associate timer with the environment of its parent
-        environments[ghostcontrols_main].timer_triggers[timer_triggers_count[ghostcontrols_main]++] = &ghostcontrols_bt_self[0]->_lf__poll;
-        ghostcontrols_bt_self[0]->_lf__poll.mode = NULL;
+        ghostcontrols_pacman_self[0]->sample_period = MSEC(10);
     
-        ghostcontrols_bt_self[0]->_lf__reaction_0.deadline = NEVER;
-        ghostcontrols_bt_self[0]->_lf__reaction_1.deadline = NEVER;
+        ghostcontrols_pacman_self[0]->_lf__reaction_0.deadline = NEVER;
         #if !defined LF_SINGLE_THREADED
-        ghostcontrols_bt_self[0]->base.reactor_mutex = NULL;
-        #endif
-        //***** End initializing GhostControls.bt
-    }
-    {
-        _ghostcontrols_main_main_self_t *self = ghostcontrols_main_self[0];
-        // ***** Start initializing GhostControls.ghost of class Ghost
-        ghostcontrols_ghost_self[0] = new__ghost();
-        ghostcontrols_ghost_self[0]->base.environment = &environments[ghostcontrols_main];
-        bank_index = 0; SUPPRESS_UNUSED_WARNING(bank_index);
-        ghostcontrols_ghost_self[0]->p_turn = SEC(1);
-        environments[ghostcontrols_main].startup_reactions[startup_reaction_count[ghostcontrols_main]++] = &ghostcontrols_ghost_self[0]->_lf__reaction_0;
-        { // For scoping
-            static float _initial = -1.0;
-            ghostcontrols_ghost_self[0]->last_distance = _initial;
-        } // End scoping.
-        ghostcontrols_ghost_self[0]->last_decision = 0;
-        ghostcontrols_ghost_self[0]->last_turn = 0;
-        // Initiaizing timer GhostControls.ghost.t_turn.
-        ghostcontrols_ghost_self[0]->_lf__t_turn.offset = 0;
-        ghostcontrols_ghost_self[0]->_lf__t_turn.period = ghostcontrols_ghost_self[0]->p_turn;
-        // Associate timer with the environment of its parent
-        environments[ghostcontrols_main].timer_triggers[timer_triggers_count[ghostcontrols_main]++] = &ghostcontrols_ghost_self[0]->_lf__t_turn;
-        ghostcontrols_ghost_self[0]->_lf__t_turn.mode = NULL;
-    
-        ghostcontrols_ghost_self[0]->_lf__reaction_0.deadline = NEVER;
-        ghostcontrols_ghost_self[0]->_lf__reaction_1.deadline = NEVER;
-        ghostcontrols_ghost_self[0]->_lf__reaction_2.deadline = NEVER;
-        ghostcontrols_ghost_self[0]->_lf__reaction_3.deadline = NEVER;
-        #if !defined LF_SINGLE_THREADED
-        ghostcontrols_ghost_self[0]->base.reactor_mutex = NULL;
+        ghostcontrols_pacman_self[0]->base.reactor_mutex = NULL;
         #endif
         {
-            _ghost_self_t *self = ghostcontrols_ghost_self[0];
-            // ***** Start initializing GhostControls.ghost.disp of class Display
-            ghostcontrols_ghost_disp_self[0] = new__display();
-            ghostcontrols_ghost_disp_self[0]->base.environment = &environments[ghostcontrols_main];
+            _pacman_self_t *self = ghostcontrols_pacman_self[0];
+            // ***** Start initializing GhostControls.pacman.disp of class Display
+            ghostcontrols_pacman_disp_self[0] = new__display();
+            ghostcontrols_pacman_disp_self[0]->base.environment = &environments[ghostcontrols_main];
             bank_index = 0; SUPPRESS_UNUSED_WARNING(bank_index);
             // width of -2 indicates that it is not a multiport.
-            ghostcontrols_ghost_disp_self[0]->_lf_line0_width = -2;
+            ghostcontrols_pacman_disp_self[0]->_lf_line0_width = -2;
             // width of -2 indicates that it is not a multiport.
-            ghostcontrols_ghost_disp_self[0]->_lf_line1_width = -2;
+            ghostcontrols_pacman_disp_self[0]->_lf_line1_width = -2;
             // width of -2 indicates that it is not a multiport.
-            ghostcontrols_ghost_disp_self[0]->_lf_line2_width = -2;
+            ghostcontrols_pacman_disp_self[0]->_lf_line2_width = -2;
             // width of -2 indicates that it is not a multiport.
-            ghostcontrols_ghost_disp_self[0]->_lf_line3_width = -2;
-            environments[ghostcontrols_main].startup_reactions[startup_reaction_count[ghostcontrols_main]++] = &ghostcontrols_ghost_disp_self[0]->_lf__reaction_0;
+            ghostcontrols_pacman_disp_self[0]->_lf_line3_width = -2;
+            environments[ghostcontrols_main].startup_reactions[startup_reaction_count[ghostcontrols_main]++] = &ghostcontrols_pacman_disp_self[0]->_lf__reaction_0;
     
-            ghostcontrols_ghost_disp_self[0]->_lf__reaction_0.deadline = NEVER;
-            ghostcontrols_ghost_disp_self[0]->_lf__reaction_1.deadline = NEVER;
+            ghostcontrols_pacman_disp_self[0]->_lf__reaction_0.deadline = NEVER;
+            ghostcontrols_pacman_disp_self[0]->_lf__reaction_1.deadline = NEVER;
             #if !defined LF_SINGLE_THREADED
-            ghostcontrols_ghost_disp_self[0]->base.reactor_mutex = NULL;
+            ghostcontrols_pacman_disp_self[0]->base.reactor_mutex = NULL;
             #endif
-            //***** End initializing GhostControls.ghost.disp
+            //***** End initializing GhostControls.pacman.disp
         }
         {
-            _ghost_self_t *self = ghostcontrols_ghost_self[0];
-            // ***** Start initializing GhostControls.ghost.uwb of class UWB
-            ghostcontrols_ghost_uwb_self[0] = new__uwb();
-            ghostcontrols_ghost_uwb_self[0]->base.environment = &environments[ghostcontrols_main];
+            _pacman_self_t *self = ghostcontrols_pacman_self[0];
+            // ***** Start initializing GhostControls.pacman.uart of class UART
+            ghostcontrols_pacman_uart_self[0] = new__uart();
+            ghostcontrols_pacman_uart_self[0]->base.environment = &environments[ghostcontrols_main];
             bank_index = 0; SUPPRESS_UNUSED_WARNING(bank_index);
             
             
             // width of -2 indicates that it is not a multiport.
-            ghostcontrols_ghost_uwb_self[0]->_lf_dist_width = -2;
-            // width of -2 indicates that it is not a multiport.
-            ghostcontrols_ghost_uwb_self[0]->_lf_uart_data_width = -2;
-    
-            ghostcontrols_ghost_uwb_self[0]->_lf__reaction_0.deadline = NEVER;
-            #if !defined LF_SINGLE_THREADED
-            ghostcontrols_ghost_uwb_self[0]->base.reactor_mutex = NULL;
-            #endif
-            //***** End initializing GhostControls.ghost.uwb
-        }
-        {
-            _ghost_self_t *self = ghostcontrols_ghost_self[0];
-            // ***** Start initializing GhostControls.ghost.uart of class UART
-            ghostcontrols_ghost_uart_self[0] = new__uart();
-            ghostcontrols_ghost_uart_self[0]->base.environment = &environments[ghostcontrols_main];
-            bank_index = 0; SUPPRESS_UNUSED_WARNING(bank_index);
+            ghostcontrols_pacman_uart_self[0]->_lf_uwb_out_width = -2;
             
             
             // width of -2 indicates that it is not a multiport.
-            ghostcontrols_ghost_uart_self[0]->_lf_uwb_out_width = -2;
-            
-            
+            ghostcontrols_pacman_uart_self[0]->_lf_bt_out_width = -2;
             // width of -2 indicates that it is not a multiport.
-            ghostcontrols_ghost_uart_self[0]->_lf_bt_out_width = -2;
-            // width of -2 indicates that it is not a multiport.
-            ghostcontrols_ghost_uart_self[0]->_lf_bt_in_width = -2;
-            environments[ghostcontrols_main].startup_reactions[startup_reaction_count[ghostcontrols_main]++] = &ghostcontrols_ghost_uart_self[0]->_lf__reaction_0;
-            // Initiaizing timer GhostControls.ghost.uart.poll.
-            ghostcontrols_ghost_uart_self[0]->_lf__poll.offset = 0;
-            ghostcontrols_ghost_uart_self[0]->_lf__poll.period = USEC(500);
+            ghostcontrols_pacman_uart_self[0]->_lf_bt_in_width = -2;
+            environments[ghostcontrols_main].startup_reactions[startup_reaction_count[ghostcontrols_main]++] = &ghostcontrols_pacman_uart_self[0]->_lf__reaction_0;
+            // Initiaizing timer GhostControls.pacman.uart.poll.
+            ghostcontrols_pacman_uart_self[0]->_lf__poll.offset = 0;
+            ghostcontrols_pacman_uart_self[0]->_lf__poll.period = USEC(500);
             // Associate timer with the environment of its parent
-            environments[ghostcontrols_main].timer_triggers[timer_triggers_count[ghostcontrols_main]++] = &ghostcontrols_ghost_uart_self[0]->_lf__poll;
-            ghostcontrols_ghost_uart_self[0]->_lf__poll.mode = NULL;
+            environments[ghostcontrols_main].timer_triggers[timer_triggers_count[ghostcontrols_main]++] = &ghostcontrols_pacman_uart_self[0]->_lf__poll;
+            ghostcontrols_pacman_uart_self[0]->_lf__poll.mode = NULL;
     
-            ghostcontrols_ghost_uart_self[0]->_lf__reaction_0.deadline = NEVER;
-            ghostcontrols_ghost_uart_self[0]->_lf__reaction_1.deadline = NEVER;
-            ghostcontrols_ghost_uart_self[0]->_lf__reaction_2.deadline = NEVER;
+            ghostcontrols_pacman_uart_self[0]->_lf__reaction_0.deadline = NEVER;
+            ghostcontrols_pacman_uart_self[0]->_lf__reaction_1.deadline = NEVER;
+            ghostcontrols_pacman_uart_self[0]->_lf__reaction_2.deadline = NEVER;
             #if !defined LF_SINGLE_THREADED
-            ghostcontrols_ghost_uart_self[0]->base.reactor_mutex = NULL;
+            ghostcontrols_pacman_uart_self[0]->base.reactor_mutex = NULL;
             #endif
-            //***** End initializing GhostControls.ghost.uart
+            //***** End initializing GhostControls.pacman.uart
         }
         {
-            _ghost_self_t *self = ghostcontrols_ghost_self[0];
-            // ***** Start initializing GhostControls.ghost.control of class Motion_control
-            ghostcontrols_ghost_control_self[0] = new__motion_control();
-            ghostcontrols_ghost_control_self[0]->base.environment = &environments[ghostcontrols_main];
+            _pacman_self_t *self = ghostcontrols_pacman_self[0];
+            // ***** Start initializing GhostControls.pacman.control of class Motion_control
+            ghostcontrols_pacman_control_self[0] = new__motion_control();
+            ghostcontrols_pacman_control_self[0]->base.environment = &environments[ghostcontrols_main];
             bank_index = 0; SUPPRESS_UNUSED_WARNING(bank_index);
-            ghostcontrols_ghost_control_self[0]->p_encoder = MSEC(1);
-            ghostcontrols_ghost_control_self[0]->p_gyro = MSEC(1);
+            ghostcontrols_pacman_control_self[0]->p_encoder = MSEC(1);
+            ghostcontrols_pacman_control_self[0]->p_gyro = MSEC(1);
             // width of -2 indicates that it is not a multiport.
-            ghostcontrols_ghost_control_self[0]->_lf_turn_angle_width = -2;
+            ghostcontrols_pacman_control_self[0]->_lf_turn_angle_width = -2;
             // width of -2 indicates that it is not a multiport.
-            ghostcontrols_ghost_control_self[0]->_lf_target_speed_width = -2;
+            ghostcontrols_pacman_control_self[0]->_lf_target_speed_width = -2;
             // width of -2 indicates that it is not a multiport.
-            ghostcontrols_ghost_control_self[0]->_lf_stop_width = -2;
-            environments[ghostcontrols_main].startup_reactions[startup_reaction_count[ghostcontrols_main]++] = &ghostcontrols_ghost_control_self[0]->_lf__reaction_4;
-            environments[ghostcontrols_main].reset_reactions[reset_reaction_count[ghostcontrols_main]++] = &ghostcontrols_ghost_control_self[0]->_lf__reaction_4;
-            environments[ghostcontrols_main].startup_reactions[startup_reaction_count[ghostcontrols_main]++] = &ghostcontrols_ghost_control_self[0]->_lf__reaction_7;
-            environments[ghostcontrols_main].reset_reactions[reset_reaction_count[ghostcontrols_main]++] = &ghostcontrols_ghost_control_self[0]->_lf__reaction_7;
-            environments[ghostcontrols_main].startup_reactions[startup_reaction_count[ghostcontrols_main]++] = &ghostcontrols_ghost_control_self[0]->_lf__reaction_10;
-            environments[ghostcontrols_main].reset_reactions[reset_reaction_count[ghostcontrols_main]++] = &ghostcontrols_ghost_control_self[0]->_lf__reaction_10;
+            ghostcontrols_pacman_control_self[0]->_lf_stop_width = -2;
+            environments[ghostcontrols_main].startup_reactions[startup_reaction_count[ghostcontrols_main]++] = &ghostcontrols_pacman_control_self[0]->_lf__reaction_4;
+            environments[ghostcontrols_main].reset_reactions[reset_reaction_count[ghostcontrols_main]++] = &ghostcontrols_pacman_control_self[0]->_lf__reaction_4;
+            environments[ghostcontrols_main].startup_reactions[startup_reaction_count[ghostcontrols_main]++] = &ghostcontrols_pacman_control_self[0]->_lf__reaction_7;
+            environments[ghostcontrols_main].reset_reactions[reset_reaction_count[ghostcontrols_main]++] = &ghostcontrols_pacman_control_self[0]->_lf__reaction_7;
+            environments[ghostcontrols_main].startup_reactions[startup_reaction_count[ghostcontrols_main]++] = &ghostcontrols_pacman_control_self[0]->_lf__reaction_10;
+            environments[ghostcontrols_main].reset_reactions[reset_reaction_count[ghostcontrols_main]++] = &ghostcontrols_pacman_control_self[0]->_lf__reaction_10;
             { // For scoping
                 static float _initial = 0.1;
-                ghostcontrols_ghost_control_self[0]->speed = _initial;
+                ghostcontrols_pacman_control_self[0]->speed = _initial;
             } // End scoping.
             { // For scoping
                 static float _initial = 0;
-                ghostcontrols_ghost_control_self[0]->target_angle = _initial;
+                ghostcontrols_pacman_control_self[0]->target_angle = _initial;
             } // End scoping.
             { // For scoping
                 static float _initial = 0;
-                ghostcontrols_ghost_control_self[0]->start_angle = _initial;
+                ghostcontrols_pacman_control_self[0]->start_angle = _initial;
             } // End scoping.
             { // For scoping
                 static float _initial = 0;
-                ghostcontrols_ghost_control_self[0]->curr_angle = _initial;
+                ghostcontrols_pacman_control_self[0]->curr_angle = _initial;
             } // End scoping.
-            // Initiaizing timer GhostControls.ghost.control.t_encoder.
-            ghostcontrols_ghost_control_self[0]->_lf__t_encoder.offset = 0;
-            ghostcontrols_ghost_control_self[0]->_lf__t_encoder.period = ghostcontrols_ghost_control_self[0]->p_encoder;
+            // Initiaizing timer GhostControls.pacman.control.t_encoder.
+            ghostcontrols_pacman_control_self[0]->_lf__t_encoder.offset = 0;
+            ghostcontrols_pacman_control_self[0]->_lf__t_encoder.period = ghostcontrols_pacman_control_self[0]->p_encoder;
             // Associate timer with the environment of its parent
-            environments[ghostcontrols_main].timer_triggers[timer_triggers_count[ghostcontrols_main]++] = &ghostcontrols_ghost_control_self[0]->_lf__t_encoder;
-            ghostcontrols_ghost_control_self[0]->_lf__t_encoder.mode = NULL;
-            // Initiaizing timer GhostControls.ghost.control.t_gyro.
-            ghostcontrols_ghost_control_self[0]->_lf__t_gyro.offset = 0;
-            ghostcontrols_ghost_control_self[0]->_lf__t_gyro.period = ghostcontrols_ghost_control_self[0]->p_gyro;
+            environments[ghostcontrols_main].timer_triggers[timer_triggers_count[ghostcontrols_main]++] = &ghostcontrols_pacman_control_self[0]->_lf__t_encoder;
+            ghostcontrols_pacman_control_self[0]->_lf__t_encoder.mode = NULL;
+            // Initiaizing timer GhostControls.pacman.control.t_gyro.
+            ghostcontrols_pacman_control_self[0]->_lf__t_gyro.offset = 0;
+            ghostcontrols_pacman_control_self[0]->_lf__t_gyro.period = ghostcontrols_pacman_control_self[0]->p_gyro;
             // Associate timer with the environment of its parent
-            environments[ghostcontrols_main].timer_triggers[timer_triggers_count[ghostcontrols_main]++] = &ghostcontrols_ghost_control_self[0]->_lf__t_gyro;
-            ghostcontrols_ghost_control_self[0]->_lf__t_gyro.mode = NULL;
+            environments[ghostcontrols_main].timer_triggers[timer_triggers_count[ghostcontrols_main]++] = &ghostcontrols_pacman_control_self[0]->_lf__t_gyro;
+            ghostcontrols_pacman_control_self[0]->_lf__t_gyro.mode = NULL;
     
-            ghostcontrols_ghost_control_self[0]->_lf__reaction_0.deadline = NEVER;
-            ghostcontrols_ghost_control_self[0]->_lf__reaction_1.deadline = NEVER;
-            ghostcontrols_ghost_control_self[0]->_lf__reaction_2.deadline = NEVER;
-            ghostcontrols_ghost_control_self[0]->_lf__reaction_3.deadline = NEVER;
-            ghostcontrols_ghost_control_self[0]->_lf__reaction_4.deadline = NEVER;
-            ghostcontrols_ghost_control_self[0]->_lf__reaction_5.deadline = NEVER;
-            ghostcontrols_ghost_control_self[0]->_lf__reaction_6.deadline = NEVER;
-            ghostcontrols_ghost_control_self[0]->_lf__reaction_7.deadline = NEVER;
-            ghostcontrols_ghost_control_self[0]->_lf__reaction_8.deadline = NEVER;
-            ghostcontrols_ghost_control_self[0]->_lf__reaction_9.deadline = NEVER;
-            ghostcontrols_ghost_control_self[0]->_lf__reaction_10.deadline = NEVER;
-            ghostcontrols_ghost_control_self[0]->_lf__reaction_11.deadline = NEVER;
+            ghostcontrols_pacman_control_self[0]->_lf__reaction_0.deadline = NEVER;
+            ghostcontrols_pacman_control_self[0]->_lf__reaction_1.deadline = NEVER;
+            ghostcontrols_pacman_control_self[0]->_lf__reaction_2.deadline = NEVER;
+            ghostcontrols_pacman_control_self[0]->_lf__reaction_3.deadline = NEVER;
+            ghostcontrols_pacman_control_self[0]->_lf__reaction_4.deadline = NEVER;
+            ghostcontrols_pacman_control_self[0]->_lf__reaction_5.deadline = NEVER;
+            ghostcontrols_pacman_control_self[0]->_lf__reaction_6.deadline = NEVER;
+            ghostcontrols_pacman_control_self[0]->_lf__reaction_7.deadline = NEVER;
+            ghostcontrols_pacman_control_self[0]->_lf__reaction_8.deadline = NEVER;
+            ghostcontrols_pacman_control_self[0]->_lf__reaction_9.deadline = NEVER;
+            ghostcontrols_pacman_control_self[0]->_lf__reaction_10.deadline = NEVER;
+            ghostcontrols_pacman_control_self[0]->_lf__reaction_11.deadline = NEVER;
             #if !defined LF_SINGLE_THREADED
-            ghostcontrols_ghost_control_self[0]->base.reactor_mutex = NULL;
+            ghostcontrols_pacman_control_self[0]->base.reactor_mutex = NULL;
             #endif
             // Register for transition handling
-            environments[ghostcontrols_main].modes->modal_reactor_states[modal_reactor_count[ghostcontrols_main]++] = &((self_base_t*)ghostcontrols_ghost_control_self[0])->_lf__mode_state;
+            environments[ghostcontrols_main].modes->modal_reactor_states[modal_reactor_count[ghostcontrols_main]++] = &((self_base_t*)ghostcontrols_pacman_control_self[0])->_lf__mode_state;
             {
-                _motion_control_self_t *self = ghostcontrols_ghost_control_self[0];
-                // ***** Start initializing GhostControls.ghost.control.motors of class MotorsWithFeedback
-                ghostcontrols_ghost_control_motors_self[0] = new__motorswithfeedback();
-                ghostcontrols_ghost_control_motors_self[0]->base.environment = &environments[ghostcontrols_main];
+                _motion_control_self_t *self = ghostcontrols_pacman_control_self[0];
+                // ***** Start initializing GhostControls.pacman.control.motors of class MotorsWithFeedback
+                ghostcontrols_pacman_control_motors_self[0] = new__motorswithfeedback();
+                ghostcontrols_pacman_control_motors_self[0]->base.environment = &environments[ghostcontrols_main];
                 bank_index = 0; SUPPRESS_UNUSED_WARNING(bank_index);
-                ghostcontrols_ghost_control_motors_self[0]->p_gain = 0.5;
-                ghostcontrols_ghost_control_motors_self[0]->i_gain = 0.25;
+                ghostcontrols_pacman_control_motors_self[0]->p_gain = 0.5;
+                ghostcontrols_pacman_control_motors_self[0]->i_gain = 0.25;
                 // width of -2 indicates that it is not a multiport.
-                ghostcontrols_ghost_control_motors_self[0]->_lf_left_speed_width = -2;
+                ghostcontrols_pacman_control_motors_self[0]->_lf_left_speed_width = -2;
                 // width of -2 indicates that it is not a multiport.
-                ghostcontrols_ghost_control_motors_self[0]->_lf_right_speed_width = -2;
+                ghostcontrols_pacman_control_motors_self[0]->_lf_right_speed_width = -2;
                 // width of -2 indicates that it is not a multiport.
-                ghostcontrols_ghost_control_motors_self[0]->_lf_left_width = -2;
+                ghostcontrols_pacman_control_motors_self[0]->_lf_left_width = -2;
                 // width of -2 indicates that it is not a multiport.
-                ghostcontrols_ghost_control_motors_self[0]->_lf_right_width = -2;
-                ghostcontrols_ghost_control_motors_self[0]->prev_time = 0;
+                ghostcontrols_pacman_control_motors_self[0]->_lf_right_width = -2;
+                ghostcontrols_pacman_control_motors_self[0]->prev_time = 0;
                 { // For scoping
                     static int32_t _initial = 0;
-                    ghostcontrols_ghost_control_motors_self[0]->prev_left = _initial;
+                    ghostcontrols_pacman_control_motors_self[0]->prev_left = _initial;
                 } // End scoping.
                 { // For scoping
                     static int32_t _initial = 0;
-                    ghostcontrols_ghost_control_motors_self[0]->prev_right = _initial;
+                    ghostcontrols_pacman_control_motors_self[0]->prev_right = _initial;
                 } // End scoping.
                 { // For scoping
                     static float _initial = 0;
-                    ghostcontrols_ghost_control_motors_self[0]->target_speed_left = _initial;
+                    ghostcontrols_pacman_control_motors_self[0]->target_speed_left = _initial;
                 } // End scoping.
                 { // For scoping
                     static float _initial = 0;
-                    ghostcontrols_ghost_control_motors_self[0]->target_speed_right = _initial;
+                    ghostcontrols_pacman_control_motors_self[0]->target_speed_right = _initial;
                 } // End scoping.
     
-                ghostcontrols_ghost_control_motors_self[0]->_lf__reaction_0.deadline = NEVER;
-                ghostcontrols_ghost_control_motors_self[0]->_lf__reaction_1.deadline = NEVER;
-                ghostcontrols_ghost_control_motors_self[0]->_lf__reaction_2.deadline = NEVER;
+                ghostcontrols_pacman_control_motors_self[0]->_lf__reaction_0.deadline = NEVER;
+                ghostcontrols_pacman_control_motors_self[0]->_lf__reaction_1.deadline = NEVER;
+                ghostcontrols_pacman_control_motors_self[0]->_lf__reaction_2.deadline = NEVER;
                 #if !defined LF_SINGLE_THREADED
-                ghostcontrols_ghost_control_motors_self[0]->base.reactor_mutex = NULL;
+                ghostcontrols_pacman_control_motors_self[0]->base.reactor_mutex = NULL;
                 #endif
                 {
-                    _motorswithfeedback_self_t *self = ghostcontrols_ghost_control_motors_self[0];
-                    // ***** Start initializing GhostControls.ghost.control.motors.motors of class Motors
-                    _ostcontrols_ghost_control_motors_motors_self[0] = new__motors();
-                    _ostcontrols_ghost_control_motors_motors_self[0]->base.environment = &environments[ghostcontrols_main];
+                    _motorswithfeedback_self_t *self = ghostcontrols_pacman_control_motors_self[0];
+                    // ***** Start initializing GhostControls.pacman.control.motors.motors of class Motors
+                    _stcontrols_pacman_control_motors_motors_self[0] = new__motors();
+                    _stcontrols_pacman_control_motors_motors_self[0]->base.environment = &environments[ghostcontrols_main];
                     bank_index = 0; SUPPRESS_UNUSED_WARNING(bank_index);
                     // width of -2 indicates that it is not a multiport.
-                    _ostcontrols_ghost_control_motors_motors_self[0]->_lf_left_power_width = -2;
+                    _stcontrols_pacman_control_motors_motors_self[0]->_lf_left_power_width = -2;
                     // width of -2 indicates that it is not a multiport.
-                    _ostcontrols_ghost_control_motors_motors_self[0]->_lf_right_power_width = -2;
-                    environments[ghostcontrols_main].startup_reactions[startup_reaction_count[ghostcontrols_main]++] = &_ostcontrols_ghost_control_motors_motors_self[0]->_lf__reaction_0;
+                    _stcontrols_pacman_control_motors_motors_self[0]->_lf_right_power_width = -2;
+                    environments[ghostcontrols_main].startup_reactions[startup_reaction_count[ghostcontrols_main]++] = &_stcontrols_pacman_control_motors_motors_self[0]->_lf__reaction_0;
     
-                    _ostcontrols_ghost_control_motors_motors_self[0]->_lf__reaction_0.deadline = NEVER;
-                    _ostcontrols_ghost_control_motors_motors_self[0]->_lf__reaction_1.deadline = NEVER;
-                    _ostcontrols_ghost_control_motors_motors_self[0]->_lf__reaction_2.deadline = NEVER;
+                    _stcontrols_pacman_control_motors_motors_self[0]->_lf__reaction_0.deadline = NEVER;
+                    _stcontrols_pacman_control_motors_motors_self[0]->_lf__reaction_1.deadline = NEVER;
+                    _stcontrols_pacman_control_motors_motors_self[0]->_lf__reaction_2.deadline = NEVER;
                     #if !defined LF_SINGLE_THREADED
-                    _ostcontrols_ghost_control_motors_motors_self[0]->base.reactor_mutex = NULL;
+                    _stcontrols_pacman_control_motors_motors_self[0]->base.reactor_mutex = NULL;
                     #endif
-                    //***** End initializing GhostControls.ghost.control.motors.motors
+                    //***** End initializing GhostControls.pacman.control.motors.motors
                 }
                 {
-                    _motorswithfeedback_self_t *self = ghostcontrols_ghost_control_motors_self[0];
-                    // ***** Start initializing GhostControls.ghost.control.motors.control_left of class PIControl
-                    _trols_ghost_control_motors_control_left_self[0] = new__picontrol();
-                    _trols_ghost_control_motors_control_left_self[0]->base.environment = &environments[ghostcontrols_main];
+                    _motorswithfeedback_self_t *self = ghostcontrols_pacman_control_motors_self[0];
+                    // ***** Start initializing GhostControls.pacman.control.motors.control_left of class PIControl
+                    _rols_pacman_control_motors_control_left_self[0] = new__picontrol();
+                    _rols_pacman_control_motors_control_left_self[0]->base.environment = &environments[ghostcontrols_main];
                     bank_index = 0; SUPPRESS_UNUSED_WARNING(bank_index);
-                    _trols_ghost_control_motors_control_left_self[0]->p_gain = ghostcontrols_ghost_control_motors_self[0]->p_gain;
-                    _trols_ghost_control_motors_control_left_self[0]->i_gain = ghostcontrols_ghost_control_motors_self[0]->i_gain;
+                    _rols_pacman_control_motors_control_left_self[0]->p_gain = ghostcontrols_pacman_control_motors_self[0]->p_gain;
+                    _rols_pacman_control_motors_control_left_self[0]->i_gain = ghostcontrols_pacman_control_motors_self[0]->i_gain;
                     
                     
                     // width of -2 indicates that it is not a multiport.
-                    _trols_ghost_control_motors_control_left_self[0]->_lf_ctrl_width = -2;
+                    _rols_pacman_control_motors_control_left_self[0]->_lf_ctrl_width = -2;
                     // width of -2 indicates that it is not a multiport.
-                    _trols_ghost_control_motors_control_left_self[0]->_lf_err_width = -2;
+                    _rols_pacman_control_motors_control_left_self[0]->_lf_err_width = -2;
                     { // For scoping
                         static float _initial = 0;
-                        _trols_ghost_control_motors_control_left_self[0]->acum_err = _initial;
+                        _rols_pacman_control_motors_control_left_self[0]->acum_err = _initial;
                     } // End scoping.
     
-                    _trols_ghost_control_motors_control_left_self[0]->_lf__reaction_0.deadline = NEVER;
+                    _rols_pacman_control_motors_control_left_self[0]->_lf__reaction_0.deadline = NEVER;
                     #if !defined LF_SINGLE_THREADED
-                    _trols_ghost_control_motors_control_left_self[0]->base.reactor_mutex = NULL;
+                    _rols_pacman_control_motors_control_left_self[0]->base.reactor_mutex = NULL;
                     #endif
-                    //***** End initializing GhostControls.ghost.control.motors.control_left
+                    //***** End initializing GhostControls.pacman.control.motors.control_left
                 }
                 {
-                    _motorswithfeedback_self_t *self = ghostcontrols_ghost_control_motors_self[0];
-                    // ***** Start initializing GhostControls.ghost.control.motors.control_right of class PIControl
-                    _rols_ghost_control_motors_control_right_self[0] = new__picontrol();
-                    _rols_ghost_control_motors_control_right_self[0]->base.environment = &environments[ghostcontrols_main];
+                    _motorswithfeedback_self_t *self = ghostcontrols_pacman_control_motors_self[0];
+                    // ***** Start initializing GhostControls.pacman.control.motors.control_right of class PIControl
+                    _ols_pacman_control_motors_control_right_self[0] = new__picontrol();
+                    _ols_pacman_control_motors_control_right_self[0]->base.environment = &environments[ghostcontrols_main];
                     bank_index = 0; SUPPRESS_UNUSED_WARNING(bank_index);
-                    _rols_ghost_control_motors_control_right_self[0]->p_gain = ghostcontrols_ghost_control_motors_self[0]->p_gain;
-                    _rols_ghost_control_motors_control_right_self[0]->i_gain = ghostcontrols_ghost_control_motors_self[0]->i_gain;
+                    _ols_pacman_control_motors_control_right_self[0]->p_gain = ghostcontrols_pacman_control_motors_self[0]->p_gain;
+                    _ols_pacman_control_motors_control_right_self[0]->i_gain = ghostcontrols_pacman_control_motors_self[0]->i_gain;
                     
                     
                     // width of -2 indicates that it is not a multiport.
-                    _rols_ghost_control_motors_control_right_self[0]->_lf_ctrl_width = -2;
+                    _ols_pacman_control_motors_control_right_self[0]->_lf_ctrl_width = -2;
                     // width of -2 indicates that it is not a multiport.
-                    _rols_ghost_control_motors_control_right_self[0]->_lf_err_width = -2;
+                    _ols_pacman_control_motors_control_right_self[0]->_lf_err_width = -2;
                     { // For scoping
                         static float _initial = 0;
-                        _rols_ghost_control_motors_control_right_self[0]->acum_err = _initial;
+                        _ols_pacman_control_motors_control_right_self[0]->acum_err = _initial;
                     } // End scoping.
     
-                    _rols_ghost_control_motors_control_right_self[0]->_lf__reaction_0.deadline = NEVER;
+                    _ols_pacman_control_motors_control_right_self[0]->_lf__reaction_0.deadline = NEVER;
                     #if !defined LF_SINGLE_THREADED
-                    _rols_ghost_control_motors_control_right_self[0]->base.reactor_mutex = NULL;
+                    _ols_pacman_control_motors_control_right_self[0]->base.reactor_mutex = NULL;
                     #endif
-                    //***** End initializing GhostControls.ghost.control.motors.control_right
+                    //***** End initializing GhostControls.pacman.control.motors.control_right
                 }
-                //***** End initializing GhostControls.ghost.control.motors
+                //***** End initializing GhostControls.pacman.control.motors
             }
             {
-                _motion_control_self_t *self = ghostcontrols_ghost_control_self[0];
-                // ***** Start initializing GhostControls.ghost.control.encoder of class Encoders
-                ghostcontrols_ghost_control_encoder_self[0] = new__encoders();
-                ghostcontrols_ghost_control_encoder_self[0]->base.environment = &environments[ghostcontrols_main];
+                _motion_control_self_t *self = ghostcontrols_pacman_control_self[0];
+                // ***** Start initializing GhostControls.pacman.control.encoder of class Encoders
+                ghostcontrols_pacman_control_encoder_self[0] = new__encoders();
+                ghostcontrols_pacman_control_encoder_self[0]->base.environment = &environments[ghostcontrols_main];
                 bank_index = 0; SUPPRESS_UNUSED_WARNING(bank_index);
                 
                 
                 // width of -2 indicates that it is not a multiport.
-                ghostcontrols_ghost_control_encoder_self[0]->_lf_right_width = -2;
+                ghostcontrols_pacman_control_encoder_self[0]->_lf_right_width = -2;
                 
                 
                 // width of -2 indicates that it is not a multiport.
-                ghostcontrols_ghost_control_encoder_self[0]->_lf_left_width = -2;
+                ghostcontrols_pacman_control_encoder_self[0]->_lf_left_width = -2;
                 // width of -2 indicates that it is not a multiport.
-                ghostcontrols_ghost_control_encoder_self[0]->_lf_trigger_width = -2;
-                environments[ghostcontrols_main].startup_reactions[startup_reaction_count[ghostcontrols_main]++] = &ghostcontrols_ghost_control_encoder_self[0]->_lf__reaction_0;
+                ghostcontrols_pacman_control_encoder_self[0]->_lf_trigger_width = -2;
+                environments[ghostcontrols_main].startup_reactions[startup_reaction_count[ghostcontrols_main]++] = &ghostcontrols_pacman_control_encoder_self[0]->_lf__reaction_0;
     
-                ghostcontrols_ghost_control_encoder_self[0]->_lf__reaction_0.deadline = NEVER;
-                ghostcontrols_ghost_control_encoder_self[0]->_lf__reaction_1.deadline = NEVER;
+                ghostcontrols_pacman_control_encoder_self[0]->_lf__reaction_0.deadline = NEVER;
+                ghostcontrols_pacman_control_encoder_self[0]->_lf__reaction_1.deadline = NEVER;
                 #if !defined LF_SINGLE_THREADED
-                ghostcontrols_ghost_control_encoder_self[0]->base.reactor_mutex = NULL;
+                ghostcontrols_pacman_control_encoder_self[0]->base.reactor_mutex = NULL;
                 #endif
-                //***** End initializing GhostControls.ghost.control.encoder
+                //***** End initializing GhostControls.pacman.control.encoder
             }
             {
-                _motion_control_self_t *self = ghostcontrols_ghost_control_self[0];
-                // ***** Start initializing GhostControls.ghost.control.gyro of class GyroAngle
-                ghostcontrols_ghost_control_gyro_self[0] = new__gyroangle();
-                ghostcontrols_ghost_control_gyro_self[0]->base.environment = &environments[ghostcontrols_main];
+                _motion_control_self_t *self = ghostcontrols_pacman_control_self[0];
+                // ***** Start initializing GhostControls.pacman.control.gyro of class GyroAngle
+                ghostcontrols_pacman_control_gyro_self[0] = new__gyroangle();
+                ghostcontrols_pacman_control_gyro_self[0]->base.environment = &environments[ghostcontrols_main];
                 bank_index = 0; SUPPRESS_UNUSED_WARNING(bank_index);
                 
                 
                 // width of -2 indicates that it is not a multiport.
-                ghostcontrols_ghost_control_gyro_self[0]->_lf_x_width = -2;
+                ghostcontrols_pacman_control_gyro_self[0]->_lf_x_width = -2;
                 
                 
                 // width of -2 indicates that it is not a multiport.
-                ghostcontrols_ghost_control_gyro_self[0]->_lf_y_width = -2;
+                ghostcontrols_pacman_control_gyro_self[0]->_lf_y_width = -2;
                 
                 
                 // width of -2 indicates that it is not a multiport.
-                ghostcontrols_ghost_control_gyro_self[0]->_lf_z_width = -2;
+                ghostcontrols_pacman_control_gyro_self[0]->_lf_z_width = -2;
                 // width of -2 indicates that it is not a multiport.
-                ghostcontrols_ghost_control_gyro_self[0]->_lf_trigger_width = -2;
+                ghostcontrols_pacman_control_gyro_self[0]->_lf_trigger_width = -2;
     
                 #if !defined LF_SINGLE_THREADED
-                ghostcontrols_ghost_control_gyro_self[0]->base.reactor_mutex = NULL;
+                ghostcontrols_pacman_control_gyro_self[0]->base.reactor_mutex = NULL;
                 #endif
                 {
-                    _gyroangle_self_t *self = ghostcontrols_ghost_control_gyro_self[0];
-                    // ***** Start initializing GhostControls.ghost.control.gyro.g of class Gyro
-                    ghostcontrols_ghost_control_gyro_g_self[0] = new__gyro();
-                    ghostcontrols_ghost_control_gyro_g_self[0]->base.environment = &environments[ghostcontrols_main];
+                    _gyroangle_self_t *self = ghostcontrols_pacman_control_gyro_self[0];
+                    // ***** Start initializing GhostControls.pacman.control.gyro.g of class Gyro
+                    ghostcontrols_pacman_control_gyro_g_self[0] = new__gyro();
+                    ghostcontrols_pacman_control_gyro_g_self[0]->base.environment = &environments[ghostcontrols_main];
                     bank_index = 0; SUPPRESS_UNUSED_WARNING(bank_index);
                     
                     
                     // width of -2 indicates that it is not a multiport.
-                    ghostcontrols_ghost_control_gyro_g_self[0]->_lf_x_width = -2;
+                    ghostcontrols_pacman_control_gyro_g_self[0]->_lf_x_width = -2;
                     
                     
                     // width of -2 indicates that it is not a multiport.
-                    ghostcontrols_ghost_control_gyro_g_self[0]->_lf_y_width = -2;
+                    ghostcontrols_pacman_control_gyro_g_self[0]->_lf_y_width = -2;
                     
                     
                     // width of -2 indicates that it is not a multiport.
-                    ghostcontrols_ghost_control_gyro_g_self[0]->_lf_z_width = -2;
+                    ghostcontrols_pacman_control_gyro_g_self[0]->_lf_z_width = -2;
                     // width of -2 indicates that it is not a multiport.
-                    ghostcontrols_ghost_control_gyro_g_self[0]->_lf_trigger_width = -2;
-                    environments[ghostcontrols_main].startup_reactions[startup_reaction_count[ghostcontrols_main]++] = &ghostcontrols_ghost_control_gyro_g_self[0]->_lf__reaction_0;
+                    ghostcontrols_pacman_control_gyro_g_self[0]->_lf_trigger_width = -2;
+                    environments[ghostcontrols_main].startup_reactions[startup_reaction_count[ghostcontrols_main]++] = &ghostcontrols_pacman_control_gyro_g_self[0]->_lf__reaction_0;
     
-                    ghostcontrols_ghost_control_gyro_g_self[0]->_lf__reaction_0.deadline = NEVER;
-                    ghostcontrols_ghost_control_gyro_g_self[0]->_lf__reaction_1.deadline = NEVER;
+                    ghostcontrols_pacman_control_gyro_g_self[0]->_lf__reaction_0.deadline = NEVER;
+                    ghostcontrols_pacman_control_gyro_g_self[0]->_lf__reaction_1.deadline = NEVER;
                     #if !defined LF_SINGLE_THREADED
-                    ghostcontrols_ghost_control_gyro_g_self[0]->base.reactor_mutex = NULL;
+                    ghostcontrols_pacman_control_gyro_g_self[0]->base.reactor_mutex = NULL;
                     #endif
-                    //***** End initializing GhostControls.ghost.control.gyro.g
+                    //***** End initializing GhostControls.pacman.control.gyro.g
                 }
                 {
-                    _gyroangle_self_t *self = ghostcontrols_ghost_control_gyro_self[0];
-                    // ***** Start initializing GhostControls.ghost.control.gyro.integrator1 of class TrapezoidalIntegrator
-                    _controls_ghost_control_gyro_integrator1_self[0] = new__trapezoidalintegrator();
-                    _controls_ghost_control_gyro_integrator1_self[0]->base.environment = &environments[ghostcontrols_main];
+                    _gyroangle_self_t *self = ghostcontrols_pacman_control_gyro_self[0];
+                    // ***** Start initializing GhostControls.pacman.control.gyro.integrator1 of class TrapezoidalIntegrator
+                    _ontrols_pacman_control_gyro_integrator1_self[0] = new__trapezoidalintegrator();
+                    _ontrols_pacman_control_gyro_integrator1_self[0]->base.environment = &environments[ghostcontrols_main];
                     bank_index = 0; SUPPRESS_UNUSED_WARNING(bank_index);
                     
                     
                     // width of -2 indicates that it is not a multiport.
-                    _controls_ghost_control_gyro_integrator1_self[0]->_lf_out_width = -2;
+                    _ontrols_pacman_control_gyro_integrator1_self[0]->_lf_out_width = -2;
                     // width of -2 indicates that it is not a multiport.
-                    _controls_ghost_control_gyro_integrator1_self[0]->_lf_in_width = -2;
+                    _ontrols_pacman_control_gyro_integrator1_self[0]->_lf_in_width = -2;
                     { // For scoping
                         static float _initial = 0;
-                        _controls_ghost_control_gyro_integrator1_self[0]->s = _initial;
+                        _ontrols_pacman_control_gyro_integrator1_self[0]->s = _initial;
                     } // End scoping.
                     { // For scoping
                         static float _initial = 0;
-                        _controls_ghost_control_gyro_integrator1_self[0]->prev_in = _initial;
+                        _ontrols_pacman_control_gyro_integrator1_self[0]->prev_in = _initial;
                     } // End scoping.
                     { // For scoping
                         static instant_t _initial = 0;
-                        _controls_ghost_control_gyro_integrator1_self[0]->prev_time = _initial;
+                        _ontrols_pacman_control_gyro_integrator1_self[0]->prev_time = _initial;
                     } // End scoping.
     
-                    _controls_ghost_control_gyro_integrator1_self[0]->_lf__reaction_0.deadline = NEVER;
+                    _ontrols_pacman_control_gyro_integrator1_self[0]->_lf__reaction_0.deadline = NEVER;
                     #if !defined LF_SINGLE_THREADED
-                    _controls_ghost_control_gyro_integrator1_self[0]->base.reactor_mutex = NULL;
+                    _ontrols_pacman_control_gyro_integrator1_self[0]->base.reactor_mutex = NULL;
                     #endif
-                    //***** End initializing GhostControls.ghost.control.gyro.integrator1
+                    //***** End initializing GhostControls.pacman.control.gyro.integrator1
                 }
                 {
-                    _gyroangle_self_t *self = ghostcontrols_ghost_control_gyro_self[0];
-                    // ***** Start initializing GhostControls.ghost.control.gyro.integrator2 of class TrapezoidalIntegrator
-                    _controls_ghost_control_gyro_integrator2_self[0] = new__trapezoidalintegrator();
-                    _controls_ghost_control_gyro_integrator2_self[0]->base.environment = &environments[ghostcontrols_main];
+                    _gyroangle_self_t *self = ghostcontrols_pacman_control_gyro_self[0];
+                    // ***** Start initializing GhostControls.pacman.control.gyro.integrator2 of class TrapezoidalIntegrator
+                    _ontrols_pacman_control_gyro_integrator2_self[0] = new__trapezoidalintegrator();
+                    _ontrols_pacman_control_gyro_integrator2_self[0]->base.environment = &environments[ghostcontrols_main];
                     bank_index = 0; SUPPRESS_UNUSED_WARNING(bank_index);
                     
                     
                     // width of -2 indicates that it is not a multiport.
-                    _controls_ghost_control_gyro_integrator2_self[0]->_lf_out_width = -2;
+                    _ontrols_pacman_control_gyro_integrator2_self[0]->_lf_out_width = -2;
                     // width of -2 indicates that it is not a multiport.
-                    _controls_ghost_control_gyro_integrator2_self[0]->_lf_in_width = -2;
+                    _ontrols_pacman_control_gyro_integrator2_self[0]->_lf_in_width = -2;
                     { // For scoping
                         static float _initial = 0;
-                        _controls_ghost_control_gyro_integrator2_self[0]->s = _initial;
+                        _ontrols_pacman_control_gyro_integrator2_self[0]->s = _initial;
                     } // End scoping.
                     { // For scoping
                         static float _initial = 0;
-                        _controls_ghost_control_gyro_integrator2_self[0]->prev_in = _initial;
+                        _ontrols_pacman_control_gyro_integrator2_self[0]->prev_in = _initial;
                     } // End scoping.
                     { // For scoping
                         static instant_t _initial = 0;
-                        _controls_ghost_control_gyro_integrator2_self[0]->prev_time = _initial;
+                        _ontrols_pacman_control_gyro_integrator2_self[0]->prev_time = _initial;
                     } // End scoping.
     
-                    _controls_ghost_control_gyro_integrator2_self[0]->_lf__reaction_0.deadline = NEVER;
+                    _ontrols_pacman_control_gyro_integrator2_self[0]->_lf__reaction_0.deadline = NEVER;
                     #if !defined LF_SINGLE_THREADED
-                    _controls_ghost_control_gyro_integrator2_self[0]->base.reactor_mutex = NULL;
+                    _ontrols_pacman_control_gyro_integrator2_self[0]->base.reactor_mutex = NULL;
                     #endif
-                    //***** End initializing GhostControls.ghost.control.gyro.integrator2
+                    //***** End initializing GhostControls.pacman.control.gyro.integrator2
                 }
                 {
-                    _gyroangle_self_t *self = ghostcontrols_ghost_control_gyro_self[0];
-                    // ***** Start initializing GhostControls.ghost.control.gyro.integrator3 of class TrapezoidalIntegrator
-                    _controls_ghost_control_gyro_integrator3_self[0] = new__trapezoidalintegrator();
-                    _controls_ghost_control_gyro_integrator3_self[0]->base.environment = &environments[ghostcontrols_main];
+                    _gyroangle_self_t *self = ghostcontrols_pacman_control_gyro_self[0];
+                    // ***** Start initializing GhostControls.pacman.control.gyro.integrator3 of class TrapezoidalIntegrator
+                    _ontrols_pacman_control_gyro_integrator3_self[0] = new__trapezoidalintegrator();
+                    _ontrols_pacman_control_gyro_integrator3_self[0]->base.environment = &environments[ghostcontrols_main];
                     bank_index = 0; SUPPRESS_UNUSED_WARNING(bank_index);
                     
                     
                     // width of -2 indicates that it is not a multiport.
-                    _controls_ghost_control_gyro_integrator3_self[0]->_lf_out_width = -2;
+                    _ontrols_pacman_control_gyro_integrator3_self[0]->_lf_out_width = -2;
                     // width of -2 indicates that it is not a multiport.
-                    _controls_ghost_control_gyro_integrator3_self[0]->_lf_in_width = -2;
+                    _ontrols_pacman_control_gyro_integrator3_self[0]->_lf_in_width = -2;
                     { // For scoping
                         static float _initial = 0;
-                        _controls_ghost_control_gyro_integrator3_self[0]->s = _initial;
+                        _ontrols_pacman_control_gyro_integrator3_self[0]->s = _initial;
                     } // End scoping.
                     { // For scoping
                         static float _initial = 0;
-                        _controls_ghost_control_gyro_integrator3_self[0]->prev_in = _initial;
+                        _ontrols_pacman_control_gyro_integrator3_self[0]->prev_in = _initial;
                     } // End scoping.
                     { // For scoping
                         static instant_t _initial = 0;
-                        _controls_ghost_control_gyro_integrator3_self[0]->prev_time = _initial;
+                        _ontrols_pacman_control_gyro_integrator3_self[0]->prev_time = _initial;
                     } // End scoping.
     
-                    _controls_ghost_control_gyro_integrator3_self[0]->_lf__reaction_0.deadline = NEVER;
+                    _ontrols_pacman_control_gyro_integrator3_self[0]->_lf__reaction_0.deadline = NEVER;
                     #if !defined LF_SINGLE_THREADED
-                    _controls_ghost_control_gyro_integrator3_self[0]->base.reactor_mutex = NULL;
+                    _ontrols_pacman_control_gyro_integrator3_self[0]->base.reactor_mutex = NULL;
                     #endif
-                    //***** End initializing GhostControls.ghost.control.gyro.integrator3
+                    //***** End initializing GhostControls.pacman.control.gyro.integrator3
                 }
-                //***** End initializing GhostControls.ghost.control.gyro
+                //***** End initializing GhostControls.pacman.control.gyro
             }
-            //***** End initializing GhostControls.ghost.control
+            //***** End initializing GhostControls.pacman.control
         }
-        //***** End initializing GhostControls.ghost
+        {
+            _pacman_self_t *self = ghostcontrols_pacman_self[0];
+            // ***** Start initializing GhostControls.pacman.bt of class Bluetooth
+            ghostcontrols_pacman_bt_self[0] = new__bluetooth();
+            ghostcontrols_pacman_bt_self[0]->base.environment = &environments[ghostcontrols_main];
+            bank_index = 0; SUPPRESS_UNUSED_WARNING(bank_index);
+            
+            
+            // width of -2 indicates that it is not a multiport.
+            ghostcontrols_pacman_bt_self[0]->_lf_cmd_width = -2;
+            // width of -2 indicates that it is not a multiport.
+            ghostcontrols_pacman_bt_self[0]->_lf_uart_data_width = -2;
+    
+            ghostcontrols_pacman_bt_self[0]->_lf__reaction_0.deadline = NEVER;
+            #if !defined LF_SINGLE_THREADED
+            ghostcontrols_pacman_bt_self[0]->base.reactor_mutex = NULL;
+            #endif
+            //***** End initializing GhostControls.pacman.bt
+        }
+        //***** End initializing GhostControls.pacman
     }
     //***** End initializing GhostControls
     // **** Start deferred initialize for GhostControls
@@ -654,698 +609,635 @@ void _lf_initialize_trigger_objects() {
     
     
     
-        // **** Start deferred initialize for GhostControls.bt
+        // **** Start deferred initialize for GhostControls.pacman
         {
-            ghostcontrols_bt_self[0]->base.name = "bt";
-            ghostcontrols_bt_self[0]->base.parent = (self_base_t*)ghostcontrols_main_self[0];
+            ghostcontrols_pacman_self[0]->base.name = "pacman";
+            ghostcontrols_pacman_self[0]->base.parent = (self_base_t*)ghostcontrols_main_self[0];
         
             // Total number of outputs (single ports and multiport channels)
-            // produced by reaction_1 of GhostControls.bt.
-            ghostcontrols_bt_self[0]->_lf__reaction_0.num_outputs = 0;
-            {
-                int count = 0; SUPPRESS_UNUSED_WARNING(count);
-            }
-            
-            // ** End initialization for reaction 0 of GhostControls.bt
-            // Total number of outputs (single ports and multiport channels)
-            // produced by reaction_2 of GhostControls.bt.
-            ghostcontrols_bt_self[0]->_lf__reaction_1.num_outputs = 0;
-            {
-                int count = 0; SUPPRESS_UNUSED_WARNING(count);
-            }
-            
-            // ** End initialization for reaction 1 of GhostControls.bt
-        
-        }
-        // **** End of deferred initialize for GhostControls.bt
-        // **** Start deferred initialize for GhostControls.ghost
-        {
-            ghostcontrols_ghost_self[0]->base.name = "ghost";
-            ghostcontrols_ghost_self[0]->base.parent = (self_base_t*)ghostcontrols_main_self[0];
-        
-            // Total number of outputs (single ports and multiport channels)
-            // produced by reaction_1 of GhostControls.ghost.
-            ghostcontrols_ghost_self[0]->_lf__reaction_0.num_outputs = 0;
-            {
-                int count = 0; SUPPRESS_UNUSED_WARNING(count);
-            }
-            
-            // ** End initialization for reaction 0 of GhostControls.ghost
-            // Total number of outputs (single ports and multiport channels)
-            // produced by reaction_2 of GhostControls.ghost.
-            ghostcontrols_ghost_self[0]->_lf__reaction_1.num_outputs = 2;
+            // produced by reaction_1 of GhostControls.pacman.
+            ghostcontrols_pacman_self[0]->_lf__reaction_0.num_outputs = 3;
             // Allocate memory for triggers[] and triggered_sizes[] on the reaction_t
             // struct for this reaction.
-            ghostcontrols_ghost_self[0]->_lf__reaction_1.triggers = (trigger_t***)lf_allocate(
-                    2, sizeof(trigger_t**),
-                    &ghostcontrols_ghost_self[0]->base.allocations);
-            ghostcontrols_ghost_self[0]->_lf__reaction_1.triggered_sizes = (int*)lf_allocate(
-                    2, sizeof(int),
-                    &ghostcontrols_ghost_self[0]->base.allocations);
-            ghostcontrols_ghost_self[0]->_lf__reaction_1.output_produced = (bool**)lf_allocate(
-                    2, sizeof(bool*),
-                    &ghostcontrols_ghost_self[0]->base.allocations);
+            ghostcontrols_pacman_self[0]->_lf__reaction_0.triggers = (trigger_t***)lf_allocate(
+                    3, sizeof(trigger_t**),
+                    &ghostcontrols_pacman_self[0]->base.allocations);
+            ghostcontrols_pacman_self[0]->_lf__reaction_0.triggered_sizes = (int*)lf_allocate(
+                    3, sizeof(int),
+                    &ghostcontrols_pacman_self[0]->base.allocations);
+            ghostcontrols_pacman_self[0]->_lf__reaction_0.output_produced = (bool**)lf_allocate(
+                    3, sizeof(bool*),
+                    &ghostcontrols_pacman_self[0]->base.allocations);
             {
                 int count = 0; SUPPRESS_UNUSED_WARNING(count);
                 // Reaction writes to an input of a contained reactor.
                 {
-                    ghostcontrols_ghost_self[0]->_lf__reaction_1.output_produced[count++] = &ghostcontrols_ghost_self[0]->_lf_control.turn_angle.is_present;
+                    ghostcontrols_pacman_self[0]->_lf__reaction_0.output_produced[count++] = &ghostcontrols_pacman_self[0]->_lf_disp.line0.is_present;
                 }
                 // Reaction writes to an input of a contained reactor.
                 {
-                    ghostcontrols_ghost_self[0]->_lf__reaction_1.output_produced[count++] = &ghostcontrols_ghost_self[0]->_lf_uart.bt_in.is_present;
-                }
-            }
-            
-            // ** End initialization for reaction 1 of GhostControls.ghost
-            // Total number of outputs (single ports and multiport channels)
-            // produced by reaction_3 of GhostControls.ghost.
-            ghostcontrols_ghost_self[0]->_lf__reaction_2.num_outputs = 0;
-            {
-                int count = 0; SUPPRESS_UNUSED_WARNING(count);
-            }
-            
-            // ** End initialization for reaction 2 of GhostControls.ghost
-            // Total number of outputs (single ports and multiport channels)
-            // produced by reaction_4 of GhostControls.ghost.
-            ghostcontrols_ghost_self[0]->_lf__reaction_3.num_outputs = 2;
-            // Allocate memory for triggers[] and triggered_sizes[] on the reaction_t
-            // struct for this reaction.
-            ghostcontrols_ghost_self[0]->_lf__reaction_3.triggers = (trigger_t***)lf_allocate(
-                    2, sizeof(trigger_t**),
-                    &ghostcontrols_ghost_self[0]->base.allocations);
-            ghostcontrols_ghost_self[0]->_lf__reaction_3.triggered_sizes = (int*)lf_allocate(
-                    2, sizeof(int),
-                    &ghostcontrols_ghost_self[0]->base.allocations);
-            ghostcontrols_ghost_self[0]->_lf__reaction_3.output_produced = (bool**)lf_allocate(
-                    2, sizeof(bool*),
-                    &ghostcontrols_ghost_self[0]->base.allocations);
-            {
-                int count = 0; SUPPRESS_UNUSED_WARNING(count);
-                // Reaction writes to an input of a contained reactor.
-                {
-                    ghostcontrols_ghost_self[0]->_lf__reaction_3.output_produced[count++] = &ghostcontrols_ghost_self[0]->_lf_disp.line0.is_present;
+                    ghostcontrols_pacman_self[0]->_lf__reaction_0.output_produced[count++] = &ghostcontrols_pacman_self[0]->_lf_control.stop.is_present;
                 }
                 // Reaction writes to an input of a contained reactor.
                 {
-                    ghostcontrols_ghost_self[0]->_lf__reaction_3.output_produced[count++] = &ghostcontrols_ghost_self[0]->_lf_uart.bt_in.is_present;
+                    ghostcontrols_pacman_self[0]->_lf__reaction_0.output_produced[count++] = &ghostcontrols_pacman_self[0]->_lf_control.turn_angle.is_present;
                 }
             }
             
-            // ** End initialization for reaction 3 of GhostControls.ghost
+            // ** End initialization for reaction 0 of GhostControls.pacman
         
-            // **** Start deferred initialize for GhostControls.ghost.disp
+            // **** Start deferred initialize for GhostControls.pacman.disp
             {
-                ghostcontrols_ghost_disp_self[0]->base.name = "disp";
-                ghostcontrols_ghost_disp_self[0]->base.parent = (self_base_t*)ghostcontrols_ghost_self[0];
+                ghostcontrols_pacman_disp_self[0]->base.name = "disp";
+                ghostcontrols_pacman_disp_self[0]->base.parent = (self_base_t*)ghostcontrols_pacman_self[0];
             
                 // Total number of outputs (single ports and multiport channels)
-                // produced by reaction_1 of GhostControls.ghost.disp.
-                ghostcontrols_ghost_disp_self[0]->_lf__reaction_0.num_outputs = 0;
+                // produced by reaction_1 of GhostControls.pacman.disp.
+                ghostcontrols_pacman_disp_self[0]->_lf__reaction_0.num_outputs = 0;
                 {
                     int count = 0; SUPPRESS_UNUSED_WARNING(count);
                 }
                 
-                // ** End initialization for reaction 0 of GhostControls.ghost.disp
+                // ** End initialization for reaction 0 of GhostControls.pacman.disp
                 // Total number of outputs (single ports and multiport channels)
-                // produced by reaction_2 of GhostControls.ghost.disp.
-                ghostcontrols_ghost_disp_self[0]->_lf__reaction_1.num_outputs = 0;
+                // produced by reaction_2 of GhostControls.pacman.disp.
+                ghostcontrols_pacman_disp_self[0]->_lf__reaction_1.num_outputs = 0;
                 {
                     int count = 0; SUPPRESS_UNUSED_WARNING(count);
                 }
                 
-                // ** End initialization for reaction 1 of GhostControls.ghost.disp
+                // ** End initialization for reaction 1 of GhostControls.pacman.disp
             
             }
-            // **** End of deferred initialize for GhostControls.ghost.disp
-            // **** Start deferred initialize for GhostControls.ghost.uwb
+            // **** End of deferred initialize for GhostControls.pacman.disp
+            // **** Start deferred initialize for GhostControls.pacman.uart
             {
-                ghostcontrols_ghost_uwb_self[0]->base.name = "uwb";
-                ghostcontrols_ghost_uwb_self[0]->base.parent = (self_base_t*)ghostcontrols_ghost_self[0];
+                ghostcontrols_pacman_uart_self[0]->base.name = "uart";
+                ghostcontrols_pacman_uart_self[0]->base.parent = (self_base_t*)ghostcontrols_pacman_self[0];
             
                 // Total number of outputs (single ports and multiport channels)
-                // produced by reaction_1 of GhostControls.ghost.uwb.
-                ghostcontrols_ghost_uwb_self[0]->_lf__reaction_0.num_outputs = 1;
+                // produced by reaction_1 of GhostControls.pacman.uart.
+                ghostcontrols_pacman_uart_self[0]->_lf__reaction_0.num_outputs = 0;
+                {
+                    int count = 0; SUPPRESS_UNUSED_WARNING(count);
+                }
+                
+                // ** End initialization for reaction 0 of GhostControls.pacman.uart
+                // Total number of outputs (single ports and multiport channels)
+                // produced by reaction_2 of GhostControls.pacman.uart.
+                ghostcontrols_pacman_uart_self[0]->_lf__reaction_1.num_outputs = 1;
                 // Allocate memory for triggers[] and triggered_sizes[] on the reaction_t
                 // struct for this reaction.
-                ghostcontrols_ghost_uwb_self[0]->_lf__reaction_0.triggers = (trigger_t***)lf_allocate(
+                ghostcontrols_pacman_uart_self[0]->_lf__reaction_1.triggers = (trigger_t***)lf_allocate(
                         1, sizeof(trigger_t**),
-                        &ghostcontrols_ghost_uwb_self[0]->base.allocations);
-                ghostcontrols_ghost_uwb_self[0]->_lf__reaction_0.triggered_sizes = (int*)lf_allocate(
+                        &ghostcontrols_pacman_uart_self[0]->base.allocations);
+                ghostcontrols_pacman_uart_self[0]->_lf__reaction_1.triggered_sizes = (int*)lf_allocate(
                         1, sizeof(int),
-                        &ghostcontrols_ghost_uwb_self[0]->base.allocations);
-                ghostcontrols_ghost_uwb_self[0]->_lf__reaction_0.output_produced = (bool**)lf_allocate(
+                        &ghostcontrols_pacman_uart_self[0]->base.allocations);
+                ghostcontrols_pacman_uart_self[0]->_lf__reaction_1.output_produced = (bool**)lf_allocate(
                         1, sizeof(bool*),
-                        &ghostcontrols_ghost_uwb_self[0]->base.allocations);
+                        &ghostcontrols_pacman_uart_self[0]->base.allocations);
                 {
                     int count = 0; SUPPRESS_UNUSED_WARNING(count);
                     {
-                        ghostcontrols_ghost_uwb_self[0]->_lf__reaction_0.output_produced[count++] = &ghostcontrols_ghost_uwb_self[0]->_lf_dist.is_present;
+                        ghostcontrols_pacman_uart_self[0]->_lf__reaction_1.output_produced[count++] = &ghostcontrols_pacman_uart_self[0]->_lf_bt_out.is_present;
                     }
                 }
                 
-                // ** End initialization for reaction 0 of GhostControls.ghost.uwb
+                // ** End initialization for reaction 1 of GhostControls.pacman.uart
+                // Total number of outputs (single ports and multiport channels)
+                // produced by reaction_3 of GhostControls.pacman.uart.
+                ghostcontrols_pacman_uart_self[0]->_lf__reaction_2.num_outputs = 0;
+                {
+                    int count = 0; SUPPRESS_UNUSED_WARNING(count);
+                }
+                
+                // ** End initialization for reaction 2 of GhostControls.pacman.uart
             
             }
-            // **** End of deferred initialize for GhostControls.ghost.uwb
-            // **** Start deferred initialize for GhostControls.ghost.uart
+            // **** End of deferred initialize for GhostControls.pacman.uart
+            // **** Start deferred initialize for GhostControls.pacman.control
             {
-                ghostcontrols_ghost_uart_self[0]->base.name = "uart";
-                ghostcontrols_ghost_uart_self[0]->base.parent = (self_base_t*)ghostcontrols_ghost_self[0];
+                ghostcontrols_pacman_control_self[0]->base.name = "control";
+                ghostcontrols_pacman_control_self[0]->base.parent = (self_base_t*)ghostcontrols_pacman_self[0];
             
                 // Total number of outputs (single ports and multiport channels)
-                // produced by reaction_1 of GhostControls.ghost.uart.
-                ghostcontrols_ghost_uart_self[0]->_lf__reaction_0.num_outputs = 0;
-                {
-                    int count = 0; SUPPRESS_UNUSED_WARNING(count);
-                }
-                
-                // ** End initialization for reaction 0 of GhostControls.ghost.uart
-                // Total number of outputs (single ports and multiport channels)
-                // produced by reaction_2 of GhostControls.ghost.uart.
-                ghostcontrols_ghost_uart_self[0]->_lf__reaction_1.num_outputs = 1;
+                // produced by reaction_1 of GhostControls.pacman.control.
+                ghostcontrols_pacman_control_self[0]->_lf__reaction_0.num_outputs = 1;
                 // Allocate memory for triggers[] and triggered_sizes[] on the reaction_t
                 // struct for this reaction.
-                ghostcontrols_ghost_uart_self[0]->_lf__reaction_1.triggers = (trigger_t***)lf_allocate(
+                ghostcontrols_pacman_control_self[0]->_lf__reaction_0.triggers = (trigger_t***)lf_allocate(
                         1, sizeof(trigger_t**),
-                        &ghostcontrols_ghost_uart_self[0]->base.allocations);
-                ghostcontrols_ghost_uart_self[0]->_lf__reaction_1.triggered_sizes = (int*)lf_allocate(
+                        &ghostcontrols_pacman_control_self[0]->base.allocations);
+                ghostcontrols_pacman_control_self[0]->_lf__reaction_0.triggered_sizes = (int*)lf_allocate(
                         1, sizeof(int),
-                        &ghostcontrols_ghost_uart_self[0]->base.allocations);
-                ghostcontrols_ghost_uart_self[0]->_lf__reaction_1.output_produced = (bool**)lf_allocate(
+                        &ghostcontrols_pacman_control_self[0]->base.allocations);
+                ghostcontrols_pacman_control_self[0]->_lf__reaction_0.output_produced = (bool**)lf_allocate(
                         1, sizeof(bool*),
-                        &ghostcontrols_ghost_uart_self[0]->base.allocations);
+                        &ghostcontrols_pacman_control_self[0]->base.allocations);
                 {
                     int count = 0; SUPPRESS_UNUSED_WARNING(count);
+                    // Reaction writes to an input of a contained reactor.
                     {
-                        ghostcontrols_ghost_uart_self[0]->_lf__reaction_1.output_produced[count++] = &ghostcontrols_ghost_uart_self[0]->_lf_uwb_out.is_present;
+                        ghostcontrols_pacman_control_self[0]->_lf__reaction_0.output_produced[count++] = &ghostcontrols_pacman_control_self[0]->_lf_encoder.trigger.is_present;
                     }
                 }
                 
-                // ** End initialization for reaction 1 of GhostControls.ghost.uart
+                // ** End initialization for reaction 0 of GhostControls.pacman.control
                 // Total number of outputs (single ports and multiport channels)
-                // produced by reaction_3 of GhostControls.ghost.uart.
-                ghostcontrols_ghost_uart_self[0]->_lf__reaction_2.num_outputs = 0;
-                {
-                    int count = 0; SUPPRESS_UNUSED_WARNING(count);
-                }
-                
-                // ** End initialization for reaction 2 of GhostControls.ghost.uart
-            
-            }
-            // **** End of deferred initialize for GhostControls.ghost.uart
-            // **** Start deferred initialize for GhostControls.ghost.control
-            {
-                ghostcontrols_ghost_control_self[0]->base.name = "control";
-                ghostcontrols_ghost_control_self[0]->base.parent = (self_base_t*)ghostcontrols_ghost_self[0];
-            
-                // Total number of outputs (single ports and multiport channels)
-                // produced by reaction_1 of GhostControls.ghost.control.
-                ghostcontrols_ghost_control_self[0]->_lf__reaction_0.num_outputs = 1;
+                // produced by reaction_2 of GhostControls.pacman.control.
+                ghostcontrols_pacman_control_self[0]->_lf__reaction_1.num_outputs = 1;
                 // Allocate memory for triggers[] and triggered_sizes[] on the reaction_t
                 // struct for this reaction.
-                ghostcontrols_ghost_control_self[0]->_lf__reaction_0.triggers = (trigger_t***)lf_allocate(
+                ghostcontrols_pacman_control_self[0]->_lf__reaction_1.triggers = (trigger_t***)lf_allocate(
                         1, sizeof(trigger_t**),
-                        &ghostcontrols_ghost_control_self[0]->base.allocations);
-                ghostcontrols_ghost_control_self[0]->_lf__reaction_0.triggered_sizes = (int*)lf_allocate(
+                        &ghostcontrols_pacman_control_self[0]->base.allocations);
+                ghostcontrols_pacman_control_self[0]->_lf__reaction_1.triggered_sizes = (int*)lf_allocate(
                         1, sizeof(int),
-                        &ghostcontrols_ghost_control_self[0]->base.allocations);
-                ghostcontrols_ghost_control_self[0]->_lf__reaction_0.output_produced = (bool**)lf_allocate(
+                        &ghostcontrols_pacman_control_self[0]->base.allocations);
+                ghostcontrols_pacman_control_self[0]->_lf__reaction_1.output_produced = (bool**)lf_allocate(
                         1, sizeof(bool*),
-                        &ghostcontrols_ghost_control_self[0]->base.allocations);
+                        &ghostcontrols_pacman_control_self[0]->base.allocations);
                 {
                     int count = 0; SUPPRESS_UNUSED_WARNING(count);
                     // Reaction writes to an input of a contained reactor.
                     {
-                        ghostcontrols_ghost_control_self[0]->_lf__reaction_0.output_produced[count++] = &ghostcontrols_ghost_control_self[0]->_lf_encoder.trigger.is_present;
+                        ghostcontrols_pacman_control_self[0]->_lf__reaction_1.output_produced[count++] = &ghostcontrols_pacman_control_self[0]->_lf_gyro.trigger.is_present;
                     }
                 }
                 
-                // ** End initialization for reaction 0 of GhostControls.ghost.control
+                // ** End initialization for reaction 1 of GhostControls.pacman.control
                 // Total number of outputs (single ports and multiport channels)
-                // produced by reaction_2 of GhostControls.ghost.control.
-                ghostcontrols_ghost_control_self[0]->_lf__reaction_1.num_outputs = 1;
+                // produced by reaction_3 of GhostControls.pacman.control.
+                ghostcontrols_pacman_control_self[0]->_lf__reaction_2.num_outputs = 0;
+                {
+                    int count = 0; SUPPRESS_UNUSED_WARNING(count);
+                }
+                
+                // ** End initialization for reaction 2 of GhostControls.pacman.control
+                // Total number of outputs (single ports and multiport channels)
+                // produced by reaction_4 of GhostControls.pacman.control.
+                ghostcontrols_pacman_control_self[0]->_lf__reaction_3.num_outputs = 0;
+                {
+                    int count = 0; SUPPRESS_UNUSED_WARNING(count);
+                }
+                
+                // ** End initialization for reaction 3 of GhostControls.pacman.control
+                // Total number of outputs (single ports and multiport channels)
+                // produced by reaction_5 of GhostControls.pacman.control.
+                ghostcontrols_pacman_control_self[0]->_lf__reaction_4.num_outputs = 2;
                 // Allocate memory for triggers[] and triggered_sizes[] on the reaction_t
                 // struct for this reaction.
-                ghostcontrols_ghost_control_self[0]->_lf__reaction_1.triggers = (trigger_t***)lf_allocate(
-                        1, sizeof(trigger_t**),
-                        &ghostcontrols_ghost_control_self[0]->base.allocations);
-                ghostcontrols_ghost_control_self[0]->_lf__reaction_1.triggered_sizes = (int*)lf_allocate(
-                        1, sizeof(int),
-                        &ghostcontrols_ghost_control_self[0]->base.allocations);
-                ghostcontrols_ghost_control_self[0]->_lf__reaction_1.output_produced = (bool**)lf_allocate(
-                        1, sizeof(bool*),
-                        &ghostcontrols_ghost_control_self[0]->base.allocations);
-                {
-                    int count = 0; SUPPRESS_UNUSED_WARNING(count);
-                    // Reaction writes to an input of a contained reactor.
-                    {
-                        ghostcontrols_ghost_control_self[0]->_lf__reaction_1.output_produced[count++] = &ghostcontrols_ghost_control_self[0]->_lf_gyro.trigger.is_present;
-                    }
-                }
-                
-                // ** End initialization for reaction 1 of GhostControls.ghost.control
-                // Total number of outputs (single ports and multiport channels)
-                // produced by reaction_3 of GhostControls.ghost.control.
-                ghostcontrols_ghost_control_self[0]->_lf__reaction_2.num_outputs = 0;
-                {
-                    int count = 0; SUPPRESS_UNUSED_WARNING(count);
-                }
-                
-                // ** End initialization for reaction 2 of GhostControls.ghost.control
-                // Total number of outputs (single ports and multiport channels)
-                // produced by reaction_4 of GhostControls.ghost.control.
-                ghostcontrols_ghost_control_self[0]->_lf__reaction_3.num_outputs = 0;
-                {
-                    int count = 0; SUPPRESS_UNUSED_WARNING(count);
-                }
-                
-                // ** End initialization for reaction 3 of GhostControls.ghost.control
-                // Total number of outputs (single ports and multiport channels)
-                // produced by reaction_5 of GhostControls.ghost.control.
-                ghostcontrols_ghost_control_self[0]->_lf__reaction_4.num_outputs = 2;
-                // Allocate memory for triggers[] and triggered_sizes[] on the reaction_t
-                // struct for this reaction.
-                ghostcontrols_ghost_control_self[0]->_lf__reaction_4.triggers = (trigger_t***)lf_allocate(
+                ghostcontrols_pacman_control_self[0]->_lf__reaction_4.triggers = (trigger_t***)lf_allocate(
                         2, sizeof(trigger_t**),
-                        &ghostcontrols_ghost_control_self[0]->base.allocations);
-                ghostcontrols_ghost_control_self[0]->_lf__reaction_4.triggered_sizes = (int*)lf_allocate(
+                        &ghostcontrols_pacman_control_self[0]->base.allocations);
+                ghostcontrols_pacman_control_self[0]->_lf__reaction_4.triggered_sizes = (int*)lf_allocate(
                         2, sizeof(int),
-                        &ghostcontrols_ghost_control_self[0]->base.allocations);
-                ghostcontrols_ghost_control_self[0]->_lf__reaction_4.output_produced = (bool**)lf_allocate(
+                        &ghostcontrols_pacman_control_self[0]->base.allocations);
+                ghostcontrols_pacman_control_self[0]->_lf__reaction_4.output_produced = (bool**)lf_allocate(
                         2, sizeof(bool*),
-                        &ghostcontrols_ghost_control_self[0]->base.allocations);
+                        &ghostcontrols_pacman_control_self[0]->base.allocations);
                 {
                     int count = 0; SUPPRESS_UNUSED_WARNING(count);
                     // Reaction writes to an input of a contained reactor.
                     {
-                        ghostcontrols_ghost_control_self[0]->_lf__reaction_4.output_produced[count++] = &ghostcontrols_ghost_control_self[0]->_lf_motors.left_speed.is_present;
+                        ghostcontrols_pacman_control_self[0]->_lf__reaction_4.output_produced[count++] = &ghostcontrols_pacman_control_self[0]->_lf_motors.left_speed.is_present;
                     }
                     // Reaction writes to an input of a contained reactor.
                     {
-                        ghostcontrols_ghost_control_self[0]->_lf__reaction_4.output_produced[count++] = &ghostcontrols_ghost_control_self[0]->_lf_motors.right_speed.is_present;
+                        ghostcontrols_pacman_control_self[0]->_lf__reaction_4.output_produced[count++] = &ghostcontrols_pacman_control_self[0]->_lf_motors.right_speed.is_present;
                     }
                 }
                 
-                // ** End initialization for reaction 4 of GhostControls.ghost.control
+                // ** End initialization for reaction 4 of GhostControls.pacman.control
                 // Total number of outputs (single ports and multiport channels)
-                // produced by reaction_6 of GhostControls.ghost.control.
-                ghostcontrols_ghost_control_self[0]->_lf__reaction_5.num_outputs = 0;
+                // produced by reaction_6 of GhostControls.pacman.control.
+                ghostcontrols_pacman_control_self[0]->_lf__reaction_5.num_outputs = 0;
                 {
                     int count = 0; SUPPRESS_UNUSED_WARNING(count);
                 }
                 
-                // ** End initialization for reaction 5 of GhostControls.ghost.control
+                // ** End initialization for reaction 5 of GhostControls.pacman.control
                 // Total number of outputs (single ports and multiport channels)
-                // produced by reaction_7 of GhostControls.ghost.control.
-                ghostcontrols_ghost_control_self[0]->_lf__reaction_6.num_outputs = 0;
+                // produced by reaction_7 of GhostControls.pacman.control.
+                ghostcontrols_pacman_control_self[0]->_lf__reaction_6.num_outputs = 0;
                 {
                     int count = 0; SUPPRESS_UNUSED_WARNING(count);
                 }
                 
-                // ** End initialization for reaction 6 of GhostControls.ghost.control
+                // ** End initialization for reaction 6 of GhostControls.pacman.control
                 // Total number of outputs (single ports and multiport channels)
-                // produced by reaction_8 of GhostControls.ghost.control.
-                ghostcontrols_ghost_control_self[0]->_lf__reaction_7.num_outputs = 2;
+                // produced by reaction_8 of GhostControls.pacman.control.
+                ghostcontrols_pacman_control_self[0]->_lf__reaction_7.num_outputs = 2;
                 // Allocate memory for triggers[] and triggered_sizes[] on the reaction_t
                 // struct for this reaction.
-                ghostcontrols_ghost_control_self[0]->_lf__reaction_7.triggers = (trigger_t***)lf_allocate(
+                ghostcontrols_pacman_control_self[0]->_lf__reaction_7.triggers = (trigger_t***)lf_allocate(
                         2, sizeof(trigger_t**),
-                        &ghostcontrols_ghost_control_self[0]->base.allocations);
-                ghostcontrols_ghost_control_self[0]->_lf__reaction_7.triggered_sizes = (int*)lf_allocate(
+                        &ghostcontrols_pacman_control_self[0]->base.allocations);
+                ghostcontrols_pacman_control_self[0]->_lf__reaction_7.triggered_sizes = (int*)lf_allocate(
                         2, sizeof(int),
-                        &ghostcontrols_ghost_control_self[0]->base.allocations);
-                ghostcontrols_ghost_control_self[0]->_lf__reaction_7.output_produced = (bool**)lf_allocate(
+                        &ghostcontrols_pacman_control_self[0]->base.allocations);
+                ghostcontrols_pacman_control_self[0]->_lf__reaction_7.output_produced = (bool**)lf_allocate(
                         2, sizeof(bool*),
-                        &ghostcontrols_ghost_control_self[0]->base.allocations);
+                        &ghostcontrols_pacman_control_self[0]->base.allocations);
                 {
                     int count = 0; SUPPRESS_UNUSED_WARNING(count);
                     // Reaction writes to an input of a contained reactor.
                     {
-                        ghostcontrols_ghost_control_self[0]->_lf__reaction_7.output_produced[count++] = &ghostcontrols_ghost_control_self[0]->_lf_motors.left_speed.is_present;
+                        ghostcontrols_pacman_control_self[0]->_lf__reaction_7.output_produced[count++] = &ghostcontrols_pacman_control_self[0]->_lf_motors.left_speed.is_present;
                     }
                     // Reaction writes to an input of a contained reactor.
                     {
-                        ghostcontrols_ghost_control_self[0]->_lf__reaction_7.output_produced[count++] = &ghostcontrols_ghost_control_self[0]->_lf_motors.right_speed.is_present;
+                        ghostcontrols_pacman_control_self[0]->_lf__reaction_7.output_produced[count++] = &ghostcontrols_pacman_control_self[0]->_lf_motors.right_speed.is_present;
                     }
                 }
                 
-                // ** End initialization for reaction 7 of GhostControls.ghost.control
+                // ** End initialization for reaction 7 of GhostControls.pacman.control
                 // Total number of outputs (single ports and multiport channels)
-                // produced by reaction_9 of GhostControls.ghost.control.
-                ghostcontrols_ghost_control_self[0]->_lf__reaction_8.num_outputs = 0;
+                // produced by reaction_9 of GhostControls.pacman.control.
+                ghostcontrols_pacman_control_self[0]->_lf__reaction_8.num_outputs = 0;
                 {
                     int count = 0; SUPPRESS_UNUSED_WARNING(count);
                 }
                 
-                // ** End initialization for reaction 8 of GhostControls.ghost.control
+                // ** End initialization for reaction 8 of GhostControls.pacman.control
                 // Total number of outputs (single ports and multiport channels)
-                // produced by reaction_10 of GhostControls.ghost.control.
-                ghostcontrols_ghost_control_self[0]->_lf__reaction_9.num_outputs = 0;
+                // produced by reaction_10 of GhostControls.pacman.control.
+                ghostcontrols_pacman_control_self[0]->_lf__reaction_9.num_outputs = 0;
                 {
                     int count = 0; SUPPRESS_UNUSED_WARNING(count);
                 }
                 
-                // ** End initialization for reaction 9 of GhostControls.ghost.control
+                // ** End initialization for reaction 9 of GhostControls.pacman.control
                 // Total number of outputs (single ports and multiport channels)
-                // produced by reaction_11 of GhostControls.ghost.control.
-                ghostcontrols_ghost_control_self[0]->_lf__reaction_10.num_outputs = 2;
+                // produced by reaction_11 of GhostControls.pacman.control.
+                ghostcontrols_pacman_control_self[0]->_lf__reaction_10.num_outputs = 2;
                 // Allocate memory for triggers[] and triggered_sizes[] on the reaction_t
                 // struct for this reaction.
-                ghostcontrols_ghost_control_self[0]->_lf__reaction_10.triggers = (trigger_t***)lf_allocate(
+                ghostcontrols_pacman_control_self[0]->_lf__reaction_10.triggers = (trigger_t***)lf_allocate(
                         2, sizeof(trigger_t**),
-                        &ghostcontrols_ghost_control_self[0]->base.allocations);
-                ghostcontrols_ghost_control_self[0]->_lf__reaction_10.triggered_sizes = (int*)lf_allocate(
+                        &ghostcontrols_pacman_control_self[0]->base.allocations);
+                ghostcontrols_pacman_control_self[0]->_lf__reaction_10.triggered_sizes = (int*)lf_allocate(
                         2, sizeof(int),
-                        &ghostcontrols_ghost_control_self[0]->base.allocations);
-                ghostcontrols_ghost_control_self[0]->_lf__reaction_10.output_produced = (bool**)lf_allocate(
+                        &ghostcontrols_pacman_control_self[0]->base.allocations);
+                ghostcontrols_pacman_control_self[0]->_lf__reaction_10.output_produced = (bool**)lf_allocate(
                         2, sizeof(bool*),
-                        &ghostcontrols_ghost_control_self[0]->base.allocations);
+                        &ghostcontrols_pacman_control_self[0]->base.allocations);
                 {
                     int count = 0; SUPPRESS_UNUSED_WARNING(count);
                     // Reaction writes to an input of a contained reactor.
                     {
-                        ghostcontrols_ghost_control_self[0]->_lf__reaction_10.output_produced[count++] = &ghostcontrols_ghost_control_self[0]->_lf_motors.left_speed.is_present;
+                        ghostcontrols_pacman_control_self[0]->_lf__reaction_10.output_produced[count++] = &ghostcontrols_pacman_control_self[0]->_lf_motors.left_speed.is_present;
                     }
                     // Reaction writes to an input of a contained reactor.
                     {
-                        ghostcontrols_ghost_control_self[0]->_lf__reaction_10.output_produced[count++] = &ghostcontrols_ghost_control_self[0]->_lf_motors.right_speed.is_present;
+                        ghostcontrols_pacman_control_self[0]->_lf__reaction_10.output_produced[count++] = &ghostcontrols_pacman_control_self[0]->_lf_motors.right_speed.is_present;
                     }
                 }
                 
-                // ** End initialization for reaction 10 of GhostControls.ghost.control
+                // ** End initialization for reaction 10 of GhostControls.pacman.control
                 // Total number of outputs (single ports and multiport channels)
-                // produced by reaction_12 of GhostControls.ghost.control.
-                ghostcontrols_ghost_control_self[0]->_lf__reaction_11.num_outputs = 0;
+                // produced by reaction_12 of GhostControls.pacman.control.
+                ghostcontrols_pacman_control_self[0]->_lf__reaction_11.num_outputs = 0;
                 {
                     int count = 0; SUPPRESS_UNUSED_WARNING(count);
                 }
                 
-                // ** End initialization for reaction 11 of GhostControls.ghost.control
+                // ** End initialization for reaction 11 of GhostControls.pacman.control
             
-                // **** Start deferred initialize for GhostControls.ghost.control.motors
+                // **** Start deferred initialize for GhostControls.pacman.control.motors
                 {
-                    ghostcontrols_ghost_control_motors_self[0]->base.name = "motors";
-                    ghostcontrols_ghost_control_motors_self[0]->base.parent = (self_base_t*)ghostcontrols_ghost_control_self[0];
+                    ghostcontrols_pacman_control_motors_self[0]->base.name = "motors";
+                    ghostcontrols_pacman_control_motors_self[0]->base.parent = (self_base_t*)ghostcontrols_pacman_control_self[0];
                 
                     // Total number of outputs (single ports and multiport channels)
-                    // produced by reaction_1 of GhostControls.ghost.control.motors.
-                    ghostcontrols_ghost_control_motors_self[0]->_lf__reaction_0.num_outputs = 0;
+                    // produced by reaction_1 of GhostControls.pacman.control.motors.
+                    ghostcontrols_pacman_control_motors_self[0]->_lf__reaction_0.num_outputs = 0;
                     {
                         int count = 0; SUPPRESS_UNUSED_WARNING(count);
                     }
                     
-                    // ** End initialization for reaction 0 of GhostControls.ghost.control.motors
+                    // ** End initialization for reaction 0 of GhostControls.pacman.control.motors
                     // Total number of outputs (single ports and multiport channels)
-                    // produced by reaction_2 of GhostControls.ghost.control.motors.
-                    ghostcontrols_ghost_control_motors_self[0]->_lf__reaction_1.num_outputs = 0;
+                    // produced by reaction_2 of GhostControls.pacman.control.motors.
+                    ghostcontrols_pacman_control_motors_self[0]->_lf__reaction_1.num_outputs = 0;
                     {
                         int count = 0; SUPPRESS_UNUSED_WARNING(count);
                     }
                     
-                    // ** End initialization for reaction 1 of GhostControls.ghost.control.motors
+                    // ** End initialization for reaction 1 of GhostControls.pacman.control.motors
                     // Total number of outputs (single ports and multiport channels)
-                    // produced by reaction_3 of GhostControls.ghost.control.motors.
-                    ghostcontrols_ghost_control_motors_self[0]->_lf__reaction_2.num_outputs = 2;
+                    // produced by reaction_3 of GhostControls.pacman.control.motors.
+                    ghostcontrols_pacman_control_motors_self[0]->_lf__reaction_2.num_outputs = 2;
                     // Allocate memory for triggers[] and triggered_sizes[] on the reaction_t
                     // struct for this reaction.
-                    ghostcontrols_ghost_control_motors_self[0]->_lf__reaction_2.triggers = (trigger_t***)lf_allocate(
+                    ghostcontrols_pacman_control_motors_self[0]->_lf__reaction_2.triggers = (trigger_t***)lf_allocate(
                             2, sizeof(trigger_t**),
-                            &ghostcontrols_ghost_control_motors_self[0]->base.allocations);
-                    ghostcontrols_ghost_control_motors_self[0]->_lf__reaction_2.triggered_sizes = (int*)lf_allocate(
+                            &ghostcontrols_pacman_control_motors_self[0]->base.allocations);
+                    ghostcontrols_pacman_control_motors_self[0]->_lf__reaction_2.triggered_sizes = (int*)lf_allocate(
                             2, sizeof(int),
-                            &ghostcontrols_ghost_control_motors_self[0]->base.allocations);
-                    ghostcontrols_ghost_control_motors_self[0]->_lf__reaction_2.output_produced = (bool**)lf_allocate(
+                            &ghostcontrols_pacman_control_motors_self[0]->base.allocations);
+                    ghostcontrols_pacman_control_motors_self[0]->_lf__reaction_2.output_produced = (bool**)lf_allocate(
                             2, sizeof(bool*),
-                            &ghostcontrols_ghost_control_motors_self[0]->base.allocations);
+                            &ghostcontrols_pacman_control_motors_self[0]->base.allocations);
                     {
                         int count = 0; SUPPRESS_UNUSED_WARNING(count);
                         // Reaction writes to an input of a contained reactor.
                         {
-                            ghostcontrols_ghost_control_motors_self[0]->_lf__reaction_2.output_produced[count++] = &ghostcontrols_ghost_control_motors_self[0]->_lf_control_left.err.is_present;
+                            ghostcontrols_pacman_control_motors_self[0]->_lf__reaction_2.output_produced[count++] = &ghostcontrols_pacman_control_motors_self[0]->_lf_control_left.err.is_present;
                         }
                         // Reaction writes to an input of a contained reactor.
                         {
-                            ghostcontrols_ghost_control_motors_self[0]->_lf__reaction_2.output_produced[count++] = &ghostcontrols_ghost_control_motors_self[0]->_lf_control_right.err.is_present;
+                            ghostcontrols_pacman_control_motors_self[0]->_lf__reaction_2.output_produced[count++] = &ghostcontrols_pacman_control_motors_self[0]->_lf_control_right.err.is_present;
                         }
                     }
                     
-                    // ** End initialization for reaction 2 of GhostControls.ghost.control.motors
+                    // ** End initialization for reaction 2 of GhostControls.pacman.control.motors
                 
-                    // **** Start deferred initialize for GhostControls.ghost.control.motors.motors
+                    // **** Start deferred initialize for GhostControls.pacman.control.motors.motors
                     {
-                        _ostcontrols_ghost_control_motors_motors_self[0]->base.name = "motors";
-                        _ostcontrols_ghost_control_motors_motors_self[0]->base.parent = (self_base_t*)ghostcontrols_ghost_control_motors_self[0];
+                        _stcontrols_pacman_control_motors_motors_self[0]->base.name = "motors";
+                        _stcontrols_pacman_control_motors_motors_self[0]->base.parent = (self_base_t*)ghostcontrols_pacman_control_motors_self[0];
                     
                         // Total number of outputs (single ports and multiport channels)
-                        // produced by reaction_1 of GhostControls.ghost.control.motors.motors.
-                        _ostcontrols_ghost_control_motors_motors_self[0]->_lf__reaction_0.num_outputs = 0;
+                        // produced by reaction_1 of GhostControls.pacman.control.motors.motors.
+                        _stcontrols_pacman_control_motors_motors_self[0]->_lf__reaction_0.num_outputs = 0;
                         {
                             int count = 0; SUPPRESS_UNUSED_WARNING(count);
                         }
                         
-                        // ** End initialization for reaction 0 of GhostControls.ghost.control.motors.motors
+                        // ** End initialization for reaction 0 of GhostControls.pacman.control.motors.motors
                         // Total number of outputs (single ports and multiport channels)
-                        // produced by reaction_2 of GhostControls.ghost.control.motors.motors.
-                        _ostcontrols_ghost_control_motors_motors_self[0]->_lf__reaction_1.num_outputs = 0;
+                        // produced by reaction_2 of GhostControls.pacman.control.motors.motors.
+                        _stcontrols_pacman_control_motors_motors_self[0]->_lf__reaction_1.num_outputs = 0;
                         {
                             int count = 0; SUPPRESS_UNUSED_WARNING(count);
                         }
                         
-                        // ** End initialization for reaction 1 of GhostControls.ghost.control.motors.motors
+                        // ** End initialization for reaction 1 of GhostControls.pacman.control.motors.motors
                         // Total number of outputs (single ports and multiport channels)
-                        // produced by reaction_3 of GhostControls.ghost.control.motors.motors.
-                        _ostcontrols_ghost_control_motors_motors_self[0]->_lf__reaction_2.num_outputs = 0;
+                        // produced by reaction_3 of GhostControls.pacman.control.motors.motors.
+                        _stcontrols_pacman_control_motors_motors_self[0]->_lf__reaction_2.num_outputs = 0;
                         {
                             int count = 0; SUPPRESS_UNUSED_WARNING(count);
                         }
                         
-                        // ** End initialization for reaction 2 of GhostControls.ghost.control.motors.motors
+                        // ** End initialization for reaction 2 of GhostControls.pacman.control.motors.motors
                     
                     }
-                    // **** End of deferred initialize for GhostControls.ghost.control.motors.motors
-                    // **** Start deferred initialize for GhostControls.ghost.control.motors.control_left
+                    // **** End of deferred initialize for GhostControls.pacman.control.motors.motors
+                    // **** Start deferred initialize for GhostControls.pacman.control.motors.control_left
                     {
-                        _trols_ghost_control_motors_control_left_self[0]->base.name = "control_left";
-                        _trols_ghost_control_motors_control_left_self[0]->base.parent = (self_base_t*)ghostcontrols_ghost_control_motors_self[0];
+                        _rols_pacman_control_motors_control_left_self[0]->base.name = "control_left";
+                        _rols_pacman_control_motors_control_left_self[0]->base.parent = (self_base_t*)ghostcontrols_pacman_control_motors_self[0];
                     
                         // Total number of outputs (single ports and multiport channels)
-                        // produced by reaction_1 of GhostControls.ghost.control.motors.control_left.
-                        _trols_ghost_control_motors_control_left_self[0]->_lf__reaction_0.num_outputs = 1;
+                        // produced by reaction_1 of GhostControls.pacman.control.motors.control_left.
+                        _rols_pacman_control_motors_control_left_self[0]->_lf__reaction_0.num_outputs = 1;
                         // Allocate memory for triggers[] and triggered_sizes[] on the reaction_t
                         // struct for this reaction.
-                        _trols_ghost_control_motors_control_left_self[0]->_lf__reaction_0.triggers = (trigger_t***)lf_allocate(
+                        _rols_pacman_control_motors_control_left_self[0]->_lf__reaction_0.triggers = (trigger_t***)lf_allocate(
                                 1, sizeof(trigger_t**),
-                                &_trols_ghost_control_motors_control_left_self[0]->base.allocations);
-                        _trols_ghost_control_motors_control_left_self[0]->_lf__reaction_0.triggered_sizes = (int*)lf_allocate(
+                                &_rols_pacman_control_motors_control_left_self[0]->base.allocations);
+                        _rols_pacman_control_motors_control_left_self[0]->_lf__reaction_0.triggered_sizes = (int*)lf_allocate(
                                 1, sizeof(int),
-                                &_trols_ghost_control_motors_control_left_self[0]->base.allocations);
-                        _trols_ghost_control_motors_control_left_self[0]->_lf__reaction_0.output_produced = (bool**)lf_allocate(
+                                &_rols_pacman_control_motors_control_left_self[0]->base.allocations);
+                        _rols_pacman_control_motors_control_left_self[0]->_lf__reaction_0.output_produced = (bool**)lf_allocate(
                                 1, sizeof(bool*),
-                                &_trols_ghost_control_motors_control_left_self[0]->base.allocations);
+                                &_rols_pacman_control_motors_control_left_self[0]->base.allocations);
                         {
                             int count = 0; SUPPRESS_UNUSED_WARNING(count);
                             {
-                                _trols_ghost_control_motors_control_left_self[0]->_lf__reaction_0.output_produced[count++] = &_trols_ghost_control_motors_control_left_self[0]->_lf_ctrl.is_present;
+                                _rols_pacman_control_motors_control_left_self[0]->_lf__reaction_0.output_produced[count++] = &_rols_pacman_control_motors_control_left_self[0]->_lf_ctrl.is_present;
                             }
                         }
                         
-                        // ** End initialization for reaction 0 of GhostControls.ghost.control.motors.control_left
+                        // ** End initialization for reaction 0 of GhostControls.pacman.control.motors.control_left
                     
                     }
-                    // **** End of deferred initialize for GhostControls.ghost.control.motors.control_left
-                    // **** Start deferred initialize for GhostControls.ghost.control.motors.control_right
+                    // **** End of deferred initialize for GhostControls.pacman.control.motors.control_left
+                    // **** Start deferred initialize for GhostControls.pacman.control.motors.control_right
                     {
-                        _rols_ghost_control_motors_control_right_self[0]->base.name = "control_right";
-                        _rols_ghost_control_motors_control_right_self[0]->base.parent = (self_base_t*)ghostcontrols_ghost_control_motors_self[0];
+                        _ols_pacman_control_motors_control_right_self[0]->base.name = "control_right";
+                        _ols_pacman_control_motors_control_right_self[0]->base.parent = (self_base_t*)ghostcontrols_pacman_control_motors_self[0];
                     
                         // Total number of outputs (single ports and multiport channels)
-                        // produced by reaction_1 of GhostControls.ghost.control.motors.control_right.
-                        _rols_ghost_control_motors_control_right_self[0]->_lf__reaction_0.num_outputs = 1;
+                        // produced by reaction_1 of GhostControls.pacman.control.motors.control_right.
+                        _ols_pacman_control_motors_control_right_self[0]->_lf__reaction_0.num_outputs = 1;
                         // Allocate memory for triggers[] and triggered_sizes[] on the reaction_t
                         // struct for this reaction.
-                        _rols_ghost_control_motors_control_right_self[0]->_lf__reaction_0.triggers = (trigger_t***)lf_allocate(
+                        _ols_pacman_control_motors_control_right_self[0]->_lf__reaction_0.triggers = (trigger_t***)lf_allocate(
                                 1, sizeof(trigger_t**),
-                                &_rols_ghost_control_motors_control_right_self[0]->base.allocations);
-                        _rols_ghost_control_motors_control_right_self[0]->_lf__reaction_0.triggered_sizes = (int*)lf_allocate(
+                                &_ols_pacman_control_motors_control_right_self[0]->base.allocations);
+                        _ols_pacman_control_motors_control_right_self[0]->_lf__reaction_0.triggered_sizes = (int*)lf_allocate(
                                 1, sizeof(int),
-                                &_rols_ghost_control_motors_control_right_self[0]->base.allocations);
-                        _rols_ghost_control_motors_control_right_self[0]->_lf__reaction_0.output_produced = (bool**)lf_allocate(
+                                &_ols_pacman_control_motors_control_right_self[0]->base.allocations);
+                        _ols_pacman_control_motors_control_right_self[0]->_lf__reaction_0.output_produced = (bool**)lf_allocate(
                                 1, sizeof(bool*),
-                                &_rols_ghost_control_motors_control_right_self[0]->base.allocations);
+                                &_ols_pacman_control_motors_control_right_self[0]->base.allocations);
                         {
                             int count = 0; SUPPRESS_UNUSED_WARNING(count);
                             {
-                                _rols_ghost_control_motors_control_right_self[0]->_lf__reaction_0.output_produced[count++] = &_rols_ghost_control_motors_control_right_self[0]->_lf_ctrl.is_present;
+                                _ols_pacman_control_motors_control_right_self[0]->_lf__reaction_0.output_produced[count++] = &_ols_pacman_control_motors_control_right_self[0]->_lf_ctrl.is_present;
                             }
                         }
                         
-                        // ** End initialization for reaction 0 of GhostControls.ghost.control.motors.control_right
+                        // ** End initialization for reaction 0 of GhostControls.pacman.control.motors.control_right
                     
                     }
-                    // **** End of deferred initialize for GhostControls.ghost.control.motors.control_right
+                    // **** End of deferred initialize for GhostControls.pacman.control.motors.control_right
                 }
-                // **** End of deferred initialize for GhostControls.ghost.control.motors
-                // **** Start deferred initialize for GhostControls.ghost.control.encoder
+                // **** End of deferred initialize for GhostControls.pacman.control.motors
+                // **** Start deferred initialize for GhostControls.pacman.control.encoder
                 {
-                    ghostcontrols_ghost_control_encoder_self[0]->base.name = "encoder";
-                    ghostcontrols_ghost_control_encoder_self[0]->base.parent = (self_base_t*)ghostcontrols_ghost_control_self[0];
+                    ghostcontrols_pacman_control_encoder_self[0]->base.name = "encoder";
+                    ghostcontrols_pacman_control_encoder_self[0]->base.parent = (self_base_t*)ghostcontrols_pacman_control_self[0];
                 
                     // Total number of outputs (single ports and multiport channels)
-                    // produced by reaction_1 of GhostControls.ghost.control.encoder.
-                    ghostcontrols_ghost_control_encoder_self[0]->_lf__reaction_0.num_outputs = 0;
+                    // produced by reaction_1 of GhostControls.pacman.control.encoder.
+                    ghostcontrols_pacman_control_encoder_self[0]->_lf__reaction_0.num_outputs = 0;
                     {
                         int count = 0; SUPPRESS_UNUSED_WARNING(count);
                     }
                     
-                    // ** End initialization for reaction 0 of GhostControls.ghost.control.encoder
+                    // ** End initialization for reaction 0 of GhostControls.pacman.control.encoder
                     // Total number of outputs (single ports and multiport channels)
-                    // produced by reaction_2 of GhostControls.ghost.control.encoder.
-                    ghostcontrols_ghost_control_encoder_self[0]->_lf__reaction_1.num_outputs = 2;
+                    // produced by reaction_2 of GhostControls.pacman.control.encoder.
+                    ghostcontrols_pacman_control_encoder_self[0]->_lf__reaction_1.num_outputs = 2;
                     // Allocate memory for triggers[] and triggered_sizes[] on the reaction_t
                     // struct for this reaction.
-                    ghostcontrols_ghost_control_encoder_self[0]->_lf__reaction_1.triggers = (trigger_t***)lf_allocate(
+                    ghostcontrols_pacman_control_encoder_self[0]->_lf__reaction_1.triggers = (trigger_t***)lf_allocate(
                             2, sizeof(trigger_t**),
-                            &ghostcontrols_ghost_control_encoder_self[0]->base.allocations);
-                    ghostcontrols_ghost_control_encoder_self[0]->_lf__reaction_1.triggered_sizes = (int*)lf_allocate(
+                            &ghostcontrols_pacman_control_encoder_self[0]->base.allocations);
+                    ghostcontrols_pacman_control_encoder_self[0]->_lf__reaction_1.triggered_sizes = (int*)lf_allocate(
                             2, sizeof(int),
-                            &ghostcontrols_ghost_control_encoder_self[0]->base.allocations);
-                    ghostcontrols_ghost_control_encoder_self[0]->_lf__reaction_1.output_produced = (bool**)lf_allocate(
+                            &ghostcontrols_pacman_control_encoder_self[0]->base.allocations);
+                    ghostcontrols_pacman_control_encoder_self[0]->_lf__reaction_1.output_produced = (bool**)lf_allocate(
                             2, sizeof(bool*),
-                            &ghostcontrols_ghost_control_encoder_self[0]->base.allocations);
+                            &ghostcontrols_pacman_control_encoder_self[0]->base.allocations);
                     {
                         int count = 0; SUPPRESS_UNUSED_WARNING(count);
                         {
-                            ghostcontrols_ghost_control_encoder_self[0]->_lf__reaction_1.output_produced[count++] = &ghostcontrols_ghost_control_encoder_self[0]->_lf_left.is_present;
+                            ghostcontrols_pacman_control_encoder_self[0]->_lf__reaction_1.output_produced[count++] = &ghostcontrols_pacman_control_encoder_self[0]->_lf_left.is_present;
                         }
                         {
-                            ghostcontrols_ghost_control_encoder_self[0]->_lf__reaction_1.output_produced[count++] = &ghostcontrols_ghost_control_encoder_self[0]->_lf_right.is_present;
+                            ghostcontrols_pacman_control_encoder_self[0]->_lf__reaction_1.output_produced[count++] = &ghostcontrols_pacman_control_encoder_self[0]->_lf_right.is_present;
                         }
                     }
                     
-                    // ** End initialization for reaction 1 of GhostControls.ghost.control.encoder
+                    // ** End initialization for reaction 1 of GhostControls.pacman.control.encoder
                 
                 }
-                // **** End of deferred initialize for GhostControls.ghost.control.encoder
-                // **** Start deferred initialize for GhostControls.ghost.control.gyro
+                // **** End of deferred initialize for GhostControls.pacman.control.encoder
+                // **** Start deferred initialize for GhostControls.pacman.control.gyro
                 {
-                    ghostcontrols_ghost_control_gyro_self[0]->base.name = "gyro";
-                    ghostcontrols_ghost_control_gyro_self[0]->base.parent = (self_base_t*)ghostcontrols_ghost_control_self[0];
+                    ghostcontrols_pacman_control_gyro_self[0]->base.name = "gyro";
+                    ghostcontrols_pacman_control_gyro_self[0]->base.parent = (self_base_t*)ghostcontrols_pacman_control_self[0];
                 
                 
                 
-                    // **** Start deferred initialize for GhostControls.ghost.control.gyro.g
+                    // **** Start deferred initialize for GhostControls.pacman.control.gyro.g
                     {
-                        ghostcontrols_ghost_control_gyro_g_self[0]->base.name = "g";
-                        ghostcontrols_ghost_control_gyro_g_self[0]->base.parent = (self_base_t*)ghostcontrols_ghost_control_gyro_self[0];
+                        ghostcontrols_pacman_control_gyro_g_self[0]->base.name = "g";
+                        ghostcontrols_pacman_control_gyro_g_self[0]->base.parent = (self_base_t*)ghostcontrols_pacman_control_gyro_self[0];
                     
                         // Total number of outputs (single ports and multiport channels)
-                        // produced by reaction_1 of GhostControls.ghost.control.gyro.g.
-                        ghostcontrols_ghost_control_gyro_g_self[0]->_lf__reaction_0.num_outputs = 0;
+                        // produced by reaction_1 of GhostControls.pacman.control.gyro.g.
+                        ghostcontrols_pacman_control_gyro_g_self[0]->_lf__reaction_0.num_outputs = 0;
                         {
                             int count = 0; SUPPRESS_UNUSED_WARNING(count);
                         }
                         
-                        // ** End initialization for reaction 0 of GhostControls.ghost.control.gyro.g
+                        // ** End initialization for reaction 0 of GhostControls.pacman.control.gyro.g
                         // Total number of outputs (single ports and multiport channels)
-                        // produced by reaction_2 of GhostControls.ghost.control.gyro.g.
-                        ghostcontrols_ghost_control_gyro_g_self[0]->_lf__reaction_1.num_outputs = 3;
+                        // produced by reaction_2 of GhostControls.pacman.control.gyro.g.
+                        ghostcontrols_pacman_control_gyro_g_self[0]->_lf__reaction_1.num_outputs = 3;
                         // Allocate memory for triggers[] and triggered_sizes[] on the reaction_t
                         // struct for this reaction.
-                        ghostcontrols_ghost_control_gyro_g_self[0]->_lf__reaction_1.triggers = (trigger_t***)lf_allocate(
+                        ghostcontrols_pacman_control_gyro_g_self[0]->_lf__reaction_1.triggers = (trigger_t***)lf_allocate(
                                 3, sizeof(trigger_t**),
-                                &ghostcontrols_ghost_control_gyro_g_self[0]->base.allocations);
-                        ghostcontrols_ghost_control_gyro_g_self[0]->_lf__reaction_1.triggered_sizes = (int*)lf_allocate(
+                                &ghostcontrols_pacman_control_gyro_g_self[0]->base.allocations);
+                        ghostcontrols_pacman_control_gyro_g_self[0]->_lf__reaction_1.triggered_sizes = (int*)lf_allocate(
                                 3, sizeof(int),
-                                &ghostcontrols_ghost_control_gyro_g_self[0]->base.allocations);
-                        ghostcontrols_ghost_control_gyro_g_self[0]->_lf__reaction_1.output_produced = (bool**)lf_allocate(
+                                &ghostcontrols_pacman_control_gyro_g_self[0]->base.allocations);
+                        ghostcontrols_pacman_control_gyro_g_self[0]->_lf__reaction_1.output_produced = (bool**)lf_allocate(
                                 3, sizeof(bool*),
-                                &ghostcontrols_ghost_control_gyro_g_self[0]->base.allocations);
+                                &ghostcontrols_pacman_control_gyro_g_self[0]->base.allocations);
                         {
                             int count = 0; SUPPRESS_UNUSED_WARNING(count);
                             {
-                                ghostcontrols_ghost_control_gyro_g_self[0]->_lf__reaction_1.output_produced[count++] = &ghostcontrols_ghost_control_gyro_g_self[0]->_lf_x.is_present;
+                                ghostcontrols_pacman_control_gyro_g_self[0]->_lf__reaction_1.output_produced[count++] = &ghostcontrols_pacman_control_gyro_g_self[0]->_lf_x.is_present;
                             }
                             {
-                                ghostcontrols_ghost_control_gyro_g_self[0]->_lf__reaction_1.output_produced[count++] = &ghostcontrols_ghost_control_gyro_g_self[0]->_lf_y.is_present;
+                                ghostcontrols_pacman_control_gyro_g_self[0]->_lf__reaction_1.output_produced[count++] = &ghostcontrols_pacman_control_gyro_g_self[0]->_lf_y.is_present;
                             }
                             {
-                                ghostcontrols_ghost_control_gyro_g_self[0]->_lf__reaction_1.output_produced[count++] = &ghostcontrols_ghost_control_gyro_g_self[0]->_lf_z.is_present;
+                                ghostcontrols_pacman_control_gyro_g_self[0]->_lf__reaction_1.output_produced[count++] = &ghostcontrols_pacman_control_gyro_g_self[0]->_lf_z.is_present;
                             }
                         }
                         
-                        // ** End initialization for reaction 1 of GhostControls.ghost.control.gyro.g
+                        // ** End initialization for reaction 1 of GhostControls.pacman.control.gyro.g
                     
                     }
-                    // **** End of deferred initialize for GhostControls.ghost.control.gyro.g
-                    // **** Start deferred initialize for GhostControls.ghost.control.gyro.integrator1
+                    // **** End of deferred initialize for GhostControls.pacman.control.gyro.g
+                    // **** Start deferred initialize for GhostControls.pacman.control.gyro.integrator1
                     {
-                        _controls_ghost_control_gyro_integrator1_self[0]->base.name = "integrator1";
-                        _controls_ghost_control_gyro_integrator1_self[0]->base.parent = (self_base_t*)ghostcontrols_ghost_control_gyro_self[0];
+                        _ontrols_pacman_control_gyro_integrator1_self[0]->base.name = "integrator1";
+                        _ontrols_pacman_control_gyro_integrator1_self[0]->base.parent = (self_base_t*)ghostcontrols_pacman_control_gyro_self[0];
                     
                         // Total number of outputs (single ports and multiport channels)
-                        // produced by reaction_1 of GhostControls.ghost.control.gyro.integrator1.
-                        _controls_ghost_control_gyro_integrator1_self[0]->_lf__reaction_0.num_outputs = 0;
-                        {
-                            int count = 0; SUPPRESS_UNUSED_WARNING(count);
-                        }
-                        
-                        // ** End initialization for reaction 0 of GhostControls.ghost.control.gyro.integrator1
-                    
-                    }
-                    // **** End of deferred initialize for GhostControls.ghost.control.gyro.integrator1
-                    // **** Start deferred initialize for GhostControls.ghost.control.gyro.integrator2
-                    {
-                        _controls_ghost_control_gyro_integrator2_self[0]->base.name = "integrator2";
-                        _controls_ghost_control_gyro_integrator2_self[0]->base.parent = (self_base_t*)ghostcontrols_ghost_control_gyro_self[0];
-                    
-                        // Total number of outputs (single ports and multiport channels)
-                        // produced by reaction_1 of GhostControls.ghost.control.gyro.integrator2.
-                        _controls_ghost_control_gyro_integrator2_self[0]->_lf__reaction_0.num_outputs = 0;
+                        // produced by reaction_1 of GhostControls.pacman.control.gyro.integrator1.
+                        _ontrols_pacman_control_gyro_integrator1_self[0]->_lf__reaction_0.num_outputs = 0;
                         {
                             int count = 0; SUPPRESS_UNUSED_WARNING(count);
                         }
                         
-                        // ** End initialization for reaction 0 of GhostControls.ghost.control.gyro.integrator2
+                        // ** End initialization for reaction 0 of GhostControls.pacman.control.gyro.integrator1
                     
                     }
-                    // **** End of deferred initialize for GhostControls.ghost.control.gyro.integrator2
-                    // **** Start deferred initialize for GhostControls.ghost.control.gyro.integrator3
+                    // **** End of deferred initialize for GhostControls.pacman.control.gyro.integrator1
+                    // **** Start deferred initialize for GhostControls.pacman.control.gyro.integrator2
                     {
-                        _controls_ghost_control_gyro_integrator3_self[0]->base.name = "integrator3";
-                        _controls_ghost_control_gyro_integrator3_self[0]->base.parent = (self_base_t*)ghostcontrols_ghost_control_gyro_self[0];
+                        _ontrols_pacman_control_gyro_integrator2_self[0]->base.name = "integrator2";
+                        _ontrols_pacman_control_gyro_integrator2_self[0]->base.parent = (self_base_t*)ghostcontrols_pacman_control_gyro_self[0];
                     
                         // Total number of outputs (single ports and multiport channels)
-                        // produced by reaction_1 of GhostControls.ghost.control.gyro.integrator3.
-                        _controls_ghost_control_gyro_integrator3_self[0]->_lf__reaction_0.num_outputs = 1;
+                        // produced by reaction_1 of GhostControls.pacman.control.gyro.integrator2.
+                        _ontrols_pacman_control_gyro_integrator2_self[0]->_lf__reaction_0.num_outputs = 0;
+                        {
+                            int count = 0; SUPPRESS_UNUSED_WARNING(count);
+                        }
+                        
+                        // ** End initialization for reaction 0 of GhostControls.pacman.control.gyro.integrator2
+                    
+                    }
+                    // **** End of deferred initialize for GhostControls.pacman.control.gyro.integrator2
+                    // **** Start deferred initialize for GhostControls.pacman.control.gyro.integrator3
+                    {
+                        _ontrols_pacman_control_gyro_integrator3_self[0]->base.name = "integrator3";
+                        _ontrols_pacman_control_gyro_integrator3_self[0]->base.parent = (self_base_t*)ghostcontrols_pacman_control_gyro_self[0];
+                    
+                        // Total number of outputs (single ports and multiport channels)
+                        // produced by reaction_1 of GhostControls.pacman.control.gyro.integrator3.
+                        _ontrols_pacman_control_gyro_integrator3_self[0]->_lf__reaction_0.num_outputs = 1;
                         // Allocate memory for triggers[] and triggered_sizes[] on the reaction_t
                         // struct for this reaction.
-                        _controls_ghost_control_gyro_integrator3_self[0]->_lf__reaction_0.triggers = (trigger_t***)lf_allocate(
+                        _ontrols_pacman_control_gyro_integrator3_self[0]->_lf__reaction_0.triggers = (trigger_t***)lf_allocate(
                                 1, sizeof(trigger_t**),
-                                &_controls_ghost_control_gyro_integrator3_self[0]->base.allocations);
-                        _controls_ghost_control_gyro_integrator3_self[0]->_lf__reaction_0.triggered_sizes = (int*)lf_allocate(
+                                &_ontrols_pacman_control_gyro_integrator3_self[0]->base.allocations);
+                        _ontrols_pacman_control_gyro_integrator3_self[0]->_lf__reaction_0.triggered_sizes = (int*)lf_allocate(
                                 1, sizeof(int),
-                                &_controls_ghost_control_gyro_integrator3_self[0]->base.allocations);
-                        _controls_ghost_control_gyro_integrator3_self[0]->_lf__reaction_0.output_produced = (bool**)lf_allocate(
+                                &_ontrols_pacman_control_gyro_integrator3_self[0]->base.allocations);
+                        _ontrols_pacman_control_gyro_integrator3_self[0]->_lf__reaction_0.output_produced = (bool**)lf_allocate(
                                 1, sizeof(bool*),
-                                &_controls_ghost_control_gyro_integrator3_self[0]->base.allocations);
+                                &_ontrols_pacman_control_gyro_integrator3_self[0]->base.allocations);
                         {
                             int count = 0; SUPPRESS_UNUSED_WARNING(count);
                             {
-                                _controls_ghost_control_gyro_integrator3_self[0]->_lf__reaction_0.output_produced[count++] = &_controls_ghost_control_gyro_integrator3_self[0]->_lf_out.is_present;
+                                _ontrols_pacman_control_gyro_integrator3_self[0]->_lf__reaction_0.output_produced[count++] = &_ontrols_pacman_control_gyro_integrator3_self[0]->_lf_out.is_present;
                             }
                         }
                         
-                        // ** End initialization for reaction 0 of GhostControls.ghost.control.gyro.integrator3
+                        // ** End initialization for reaction 0 of GhostControls.pacman.control.gyro.integrator3
                     
                     }
-                    // **** End of deferred initialize for GhostControls.ghost.control.gyro.integrator3
+                    // **** End of deferred initialize for GhostControls.pacman.control.gyro.integrator3
                 }
-                // **** End of deferred initialize for GhostControls.ghost.control.gyro
+                // **** End of deferred initialize for GhostControls.pacman.control.gyro
             }
-            // **** End of deferred initialize for GhostControls.ghost.control
+            // **** End of deferred initialize for GhostControls.pacman.control
+            // **** Start deferred initialize for GhostControls.pacman.bt
+            {
+                ghostcontrols_pacman_bt_self[0]->base.name = "bt";
+                ghostcontrols_pacman_bt_self[0]->base.parent = (self_base_t*)ghostcontrols_pacman_self[0];
+            
+                // Total number of outputs (single ports and multiport channels)
+                // produced by reaction_1 of GhostControls.pacman.bt.
+                ghostcontrols_pacman_bt_self[0]->_lf__reaction_0.num_outputs = 1;
+                // Allocate memory for triggers[] and triggered_sizes[] on the reaction_t
+                // struct for this reaction.
+                ghostcontrols_pacman_bt_self[0]->_lf__reaction_0.triggers = (trigger_t***)lf_allocate(
+                        1, sizeof(trigger_t**),
+                        &ghostcontrols_pacman_bt_self[0]->base.allocations);
+                ghostcontrols_pacman_bt_self[0]->_lf__reaction_0.triggered_sizes = (int*)lf_allocate(
+                        1, sizeof(int),
+                        &ghostcontrols_pacman_bt_self[0]->base.allocations);
+                ghostcontrols_pacman_bt_self[0]->_lf__reaction_0.output_produced = (bool**)lf_allocate(
+                        1, sizeof(bool*),
+                        &ghostcontrols_pacman_bt_self[0]->base.allocations);
+                {
+                    int count = 0; SUPPRESS_UNUSED_WARNING(count);
+                    {
+                        ghostcontrols_pacman_bt_self[0]->_lf__reaction_0.output_produced[count++] = &ghostcontrols_pacman_bt_self[0]->_lf_cmd.is_present;
+                    }
+                }
+                
+                // ** End initialization for reaction 0 of GhostControls.pacman.bt
+            
+            }
+            // **** End of deferred initialize for GhostControls.pacman.bt
         }
-        // **** End of deferred initialize for GhostControls.ghost
+        // **** End of deferred initialize for GhostControls.pacman
     }
     // **** End of deferred initialize for GhostControls
     // **** Start non-nested deferred initialize for GhostControls
@@ -1353,88 +1245,91 @@ void _lf_initialize_trigger_objects() {
     
     
     
-        // **** Start non-nested deferred initialize for GhostControls.bt
+        // **** Start non-nested deferred initialize for GhostControls.pacman
         {
-        
-            for (int index486184027c8990b = 0; index486184027c8990b < 1; index486184027c8990b++) { ghostcontrols_bt_self[0]->_lf_cmd._base.source_reactor = (self_base_t*)ghostcontrols_bt_self[0]; }
-            {
-                int triggers_index[1] = { 0 }; // Number of bank members with the reaction.
-            }
-            // GhostControls.bt.reaction_1 dominating upstream reaction.
-            ghostcontrols_bt_self[0]->_lf__reaction_0.last_enabling_reaction = NULL;
-            // GhostControls.bt.reaction_2 dominating upstream reaction.
-            ghostcontrols_bt_self[0]->_lf__reaction_1.last_enabling_reaction = NULL;
-        }
-        // **** End of non-nested deferred initialize for GhostControls.bt
-        // **** Start non-nested deferred initialize for GhostControls.ghost
-        {
-            // Set number of destination reactors for port control.turn_angle.
-            // Iterate over range GhostControls.ghost.control.turn_angle(0,1)->[GhostControls.ghost.control.turn_angle(0,1)].
-            {
-                int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
-                int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
-                int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
-                int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                ghostcontrols_ghost_self[src_runtime]->_lf_control.turn_angle._base.num_destinations = 1;
-                ghostcontrols_ghost_self[src_runtime]->_lf_control.turn_angle._base.source_reactor = (self_base_t*)ghostcontrols_ghost_self[src_runtime];
-            }
-            // Set number of destination reactors for port uart.bt_in.
-            // Iterate over range GhostControls.ghost.uart.bt_in(0,1)->[GhostControls.ghost.uart.bt_in(0,1)].
-            {
-                int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
-                int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
-                int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
-                int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                ghostcontrols_ghost_self[src_runtime]->_lf_uart.bt_in._base.num_destinations = 1;
-                ghostcontrols_ghost_self[src_runtime]->_lf_uart.bt_in._base.source_reactor = (self_base_t*)ghostcontrols_ghost_self[src_runtime];
-            }
             // Set number of destination reactors for port disp.line0.
-            // Iterate over range GhostControls.ghost.disp.line0(0,1)->[GhostControls.ghost.disp.line0(0,1)].
+            // Iterate over range GhostControls.pacman.disp.line0(0,1)->[GhostControls.pacman.disp.line0(0,1)].
             {
                 int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
                 int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
                 int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
                 int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                ghostcontrols_ghost_self[src_runtime]->_lf_disp.line0._base.num_destinations = 1;
-                ghostcontrols_ghost_self[src_runtime]->_lf_disp.line0._base.source_reactor = (self_base_t*)ghostcontrols_ghost_self[src_runtime];
+                ghostcontrols_pacman_self[src_runtime]->_lf_disp.line0._base.num_destinations = 1;
+                ghostcontrols_pacman_self[src_runtime]->_lf_disp.line0._base.source_reactor = (self_base_t*)ghostcontrols_pacman_self[src_runtime];
+            }
+            // Set number of destination reactors for port control.stop.
+            // Iterate over range GhostControls.pacman.control.stop(0,1)->[GhostControls.pacman.control.stop(0,1)].
+            {
+                int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+                int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+                int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+                int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                ghostcontrols_pacman_self[src_runtime]->_lf_control.stop._base.num_destinations = 1;
+                ghostcontrols_pacman_self[src_runtime]->_lf_control.stop._base.source_reactor = (self_base_t*)ghostcontrols_pacman_self[src_runtime];
+            }
+            // Set number of destination reactors for port control.turn_angle.
+            // Iterate over range GhostControls.pacman.control.turn_angle(0,1)->[GhostControls.pacman.control.turn_angle(0,1)].
+            {
+                int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+                int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+                int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+                int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                ghostcontrols_pacman_self[src_runtime]->_lf_control.turn_angle._base.num_destinations = 1;
+                ghostcontrols_pacman_self[src_runtime]->_lf_control.turn_angle._base.source_reactor = (self_base_t*)ghostcontrols_pacman_self[src_runtime];
             }
         
             {
                 int triggers_index[1] = { 0 }; // Number of bank members with the reaction.
-                // Iterate over range GhostControls.ghost.control.turn_angle(0,1)->[GhostControls.ghost.control.turn_angle(0,1)].
+                // Iterate over range GhostControls.pacman.disp.line0(0,1)->[GhostControls.pacman.disp.line0(0,1)].
                 {
                     int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
                     int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
                     int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
                     int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                    // Reaction 1 of GhostControls.ghost triggers 1 downstream reactions
-                    // through port GhostControls.ghost.control.turn_angle.
-                    ghostcontrols_ghost_self[src_runtime]->_lf__reaction_1.triggered_sizes[triggers_index[src_runtime]] = 1;
-                    // For reaction 1 of GhostControls.ghost, allocate an
-                    // array of trigger pointers for downstream reactions through port GhostControls.ghost.control.turn_angle
+                    // Reaction 0 of GhostControls.pacman triggers 1 downstream reactions
+                    // through port GhostControls.pacman.disp.line0.
+                    ghostcontrols_pacman_self[src_runtime]->_lf__reaction_0.triggered_sizes[triggers_index[src_runtime]] = 1;
+                    // For reaction 0 of GhostControls.pacman, allocate an
+                    // array of trigger pointers for downstream reactions through port GhostControls.pacman.disp.line0
                     trigger_t** trigger_array = (trigger_t**)lf_allocate(
                             1, sizeof(trigger_t*),
-                            &ghostcontrols_ghost_self[src_runtime]->base.allocations); 
-                    ghostcontrols_ghost_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime]++] = trigger_array;
+                            &ghostcontrols_pacman_self[src_runtime]->base.allocations); 
+                    ghostcontrols_pacman_self[src_runtime]->_lf__reaction_0.triggers[triggers_index[src_runtime]++] = trigger_array;
                 }
-                // Iterate over range GhostControls.ghost.uart.bt_in(0,1)->[GhostControls.ghost.uart.bt_in(0,1)].
+                // Iterate over range GhostControls.pacman.control.stop(0,1)->[GhostControls.pacman.control.stop(0,1)].
                 {
                     int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
                     int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
                     int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
                     int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                    // Reaction 1 of GhostControls.ghost triggers 1 downstream reactions
-                    // through port GhostControls.ghost.uart.bt_in.
-                    ghostcontrols_ghost_self[src_runtime]->_lf__reaction_1.triggered_sizes[triggers_index[src_runtime]] = 1;
-                    // For reaction 1 of GhostControls.ghost, allocate an
-                    // array of trigger pointers for downstream reactions through port GhostControls.ghost.uart.bt_in
+                    // Reaction 0 of GhostControls.pacman triggers 1 downstream reactions
+                    // through port GhostControls.pacman.control.stop.
+                    ghostcontrols_pacman_self[src_runtime]->_lf__reaction_0.triggered_sizes[triggers_index[src_runtime]] = 1;
+                    // For reaction 0 of GhostControls.pacman, allocate an
+                    // array of trigger pointers for downstream reactions through port GhostControls.pacman.control.stop
                     trigger_t** trigger_array = (trigger_t**)lf_allocate(
                             1, sizeof(trigger_t*),
-                            &ghostcontrols_ghost_self[src_runtime]->base.allocations); 
-                    ghostcontrols_ghost_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime]++] = trigger_array;
+                            &ghostcontrols_pacman_self[src_runtime]->base.allocations); 
+                    ghostcontrols_pacman_self[src_runtime]->_lf__reaction_0.triggers[triggers_index[src_runtime]++] = trigger_array;
+                }
+                // Iterate over range GhostControls.pacman.control.turn_angle(0,1)->[GhostControls.pacman.control.turn_angle(0,1)].
+                {
+                    int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+                    int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+                    int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+                    int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                    // Reaction 0 of GhostControls.pacman triggers 1 downstream reactions
+                    // through port GhostControls.pacman.control.turn_angle.
+                    ghostcontrols_pacman_self[src_runtime]->_lf__reaction_0.triggered_sizes[triggers_index[src_runtime]] = 1;
+                    // For reaction 0 of GhostControls.pacman, allocate an
+                    // array of trigger pointers for downstream reactions through port GhostControls.pacman.control.turn_angle
+                    trigger_t** trigger_array = (trigger_t**)lf_allocate(
+                            1, sizeof(trigger_t*),
+                            &ghostcontrols_pacman_self[src_runtime]->base.allocations); 
+                    ghostcontrols_pacman_self[src_runtime]->_lf__reaction_0.triggers[triggers_index[src_runtime]++] = trigger_array;
                 }
                 for (int i = 0; i < 1; i++) triggers_index[i] = 0;
-                // Iterate over ranges GhostControls.ghost.control.turn_angle(0,1)->[GhostControls.ghost.control.turn_angle(0,1)] and GhostControls.ghost.control.turn_angle(0,1).
+                // Iterate over ranges GhostControls.pacman.disp.line0(0,1)->[GhostControls.pacman.disp.line0(0,1)] and GhostControls.pacman.disp.line0(0,1).
                 {
                     int src_runtime = 0; // Runtime index.
                     SUPPRESS_UNUSED_WARNING(src_runtime);
@@ -1442,18 +1337,18 @@ void _lf_initialize_trigger_objects() {
                     SUPPRESS_UNUSED_WARNING(src_channel);
                     int src_bank = 0; // Bank index.
                     SUPPRESS_UNUSED_WARNING(src_bank);
-                    // Iterate over range GhostControls.ghost.control.turn_angle(0,1).
+                    // Iterate over range GhostControls.pacman.disp.line0(0,1).
                     {
                         int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
                         int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
                         int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
                         int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                        // Point to destination port GhostControls.ghost.control.turn_angle's trigger struct.
-                        ghostcontrols_ghost_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime] + src_channel][0] = &ghostcontrols_ghost_control_self[dst_runtime]->_lf__turn_angle;
+                        // Point to destination port GhostControls.pacman.disp.line0's trigger struct.
+                        ghostcontrols_pacman_self[src_runtime]->_lf__reaction_0.triggers[triggers_index[src_runtime] + src_channel][0] = &ghostcontrols_pacman_disp_self[dst_runtime]->_lf__line0;
                     }
                 }
                 for (int i = 0; i < 1; i++) triggers_index[i] = 1;
-                // Iterate over ranges GhostControls.ghost.uart.bt_in(0,1)->[GhostControls.ghost.uart.bt_in(0,1)] and GhostControls.ghost.uart.bt_in(0,1).
+                // Iterate over ranges GhostControls.pacman.control.stop(0,1)->[GhostControls.pacman.control.stop(0,1)] and GhostControls.pacman.control.stop(0,1).
                 {
                     int src_runtime = 0; // Runtime index.
                     SUPPRESS_UNUSED_WARNING(src_runtime);
@@ -1461,53 +1356,18 @@ void _lf_initialize_trigger_objects() {
                     SUPPRESS_UNUSED_WARNING(src_channel);
                     int src_bank = 0; // Bank index.
                     SUPPRESS_UNUSED_WARNING(src_bank);
-                    // Iterate over range GhostControls.ghost.uart.bt_in(0,1).
+                    // Iterate over range GhostControls.pacman.control.stop(0,1).
                     {
                         int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
                         int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
                         int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
                         int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                        // Point to destination port GhostControls.ghost.uart.bt_in's trigger struct.
-                        ghostcontrols_ghost_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime] + src_channel][0] = &ghostcontrols_ghost_uart_self[dst_runtime]->_lf__bt_in;
+                        // Point to destination port GhostControls.pacman.control.stop's trigger struct.
+                        ghostcontrols_pacman_self[src_runtime]->_lf__reaction_0.triggers[triggers_index[src_runtime] + src_channel][0] = &ghostcontrols_pacman_control_self[dst_runtime]->_lf__stop;
                     }
                 }
-            }
-            {
-                int triggers_index[1] = { 0 }; // Number of bank members with the reaction.
-                // Iterate over range GhostControls.ghost.disp.line0(0,1)->[GhostControls.ghost.disp.line0(0,1)].
-                {
-                    int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
-                    int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
-                    int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
-                    int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                    // Reaction 3 of GhostControls.ghost triggers 1 downstream reactions
-                    // through port GhostControls.ghost.disp.line0.
-                    ghostcontrols_ghost_self[src_runtime]->_lf__reaction_3.triggered_sizes[triggers_index[src_runtime]] = 1;
-                    // For reaction 3 of GhostControls.ghost, allocate an
-                    // array of trigger pointers for downstream reactions through port GhostControls.ghost.disp.line0
-                    trigger_t** trigger_array = (trigger_t**)lf_allocate(
-                            1, sizeof(trigger_t*),
-                            &ghostcontrols_ghost_self[src_runtime]->base.allocations); 
-                    ghostcontrols_ghost_self[src_runtime]->_lf__reaction_3.triggers[triggers_index[src_runtime]++] = trigger_array;
-                }
-                // Iterate over range GhostControls.ghost.uart.bt_in(0,1)->[GhostControls.ghost.uart.bt_in(0,1)].
-                {
-                    int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
-                    int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
-                    int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
-                    int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                    // Reaction 3 of GhostControls.ghost triggers 1 downstream reactions
-                    // through port GhostControls.ghost.uart.bt_in.
-                    ghostcontrols_ghost_self[src_runtime]->_lf__reaction_3.triggered_sizes[triggers_index[src_runtime]] = 1;
-                    // For reaction 3 of GhostControls.ghost, allocate an
-                    // array of trigger pointers for downstream reactions through port GhostControls.ghost.uart.bt_in
-                    trigger_t** trigger_array = (trigger_t**)lf_allocate(
-                            1, sizeof(trigger_t*),
-                            &ghostcontrols_ghost_self[src_runtime]->base.allocations); 
-                    ghostcontrols_ghost_self[src_runtime]->_lf__reaction_3.triggers[triggers_index[src_runtime]++] = trigger_array;
-                }
-                for (int i = 0; i < 1; i++) triggers_index[i] = 0;
-                // Iterate over ranges GhostControls.ghost.disp.line0(0,1)->[GhostControls.ghost.disp.line0(0,1)] and GhostControls.ghost.disp.line0(0,1).
+                for (int i = 0; i < 1; i++) triggers_index[i] = 2;
+                // Iterate over ranges GhostControls.pacman.control.turn_angle(0,1)->[GhostControls.pacman.control.turn_angle(0,1)] and GhostControls.pacman.control.turn_angle(0,1).
                 {
                     int src_runtime = 0; // Runtime index.
                     SUPPRESS_UNUSED_WARNING(src_runtime);
@@ -1515,88 +1375,60 @@ void _lf_initialize_trigger_objects() {
                     SUPPRESS_UNUSED_WARNING(src_channel);
                     int src_bank = 0; // Bank index.
                     SUPPRESS_UNUSED_WARNING(src_bank);
-                    // Iterate over range GhostControls.ghost.disp.line0(0,1).
+                    // Iterate over range GhostControls.pacman.control.turn_angle(0,1).
                     {
                         int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
                         int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
                         int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
                         int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                        // Point to destination port GhostControls.ghost.disp.line0's trigger struct.
-                        ghostcontrols_ghost_self[src_runtime]->_lf__reaction_3.triggers[triggers_index[src_runtime] + src_channel][0] = &ghostcontrols_ghost_disp_self[dst_runtime]->_lf__line0;
-                    }
-                }
-                for (int i = 0; i < 1; i++) triggers_index[i] = 1;
-                // Iterate over ranges GhostControls.ghost.uart.bt_in(0,1)->[GhostControls.ghost.uart.bt_in(0,1)] and GhostControls.ghost.uart.bt_in(0,1).
-                {
-                    int src_runtime = 0; // Runtime index.
-                    SUPPRESS_UNUSED_WARNING(src_runtime);
-                    int src_channel = 0; // Channel index.
-                    SUPPRESS_UNUSED_WARNING(src_channel);
-                    int src_bank = 0; // Bank index.
-                    SUPPRESS_UNUSED_WARNING(src_bank);
-                    // Iterate over range GhostControls.ghost.uart.bt_in(0,1).
-                    {
-                        int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
-                        int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
-                        int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
-                        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                        // Point to destination port GhostControls.ghost.uart.bt_in's trigger struct.
-                        ghostcontrols_ghost_self[src_runtime]->_lf__reaction_3.triggers[triggers_index[src_runtime] + src_channel][0] = &ghostcontrols_ghost_uart_self[dst_runtime]->_lf__bt_in;
+                        // Point to destination port GhostControls.pacman.control.turn_angle's trigger struct.
+                        ghostcontrols_pacman_self[src_runtime]->_lf__reaction_0.triggers[triggers_index[src_runtime] + src_channel][0] = &ghostcontrols_pacman_control_self[dst_runtime]->_lf__turn_angle;
                     }
                 }
             }
-            // GhostControls.ghost.reaction_1 dominating upstream reaction.
-            ghostcontrols_ghost_self[0]->_lf__reaction_0.last_enabling_reaction = NULL;
-            // GhostControls.ghost.reaction_2 dominating upstream reaction.
-            ghostcontrols_ghost_self[0]->_lf__reaction_1.last_enabling_reaction = NULL;
-            // GhostControls.ghost.reaction_3 dominating upstream reaction.
-            ghostcontrols_ghost_self[0]->_lf__reaction_2.last_enabling_reaction = NULL;
-            // GhostControls.ghost.reaction_4 dominating upstream reaction.
-            ghostcontrols_ghost_self[0]->_lf__reaction_3.last_enabling_reaction = NULL;
-            // **** Start non-nested deferred initialize for GhostControls.ghost.disp
+        
+            // **** Start non-nested deferred initialize for GhostControls.pacman.disp
             {
             
             
             
-                // GhostControls.ghost.disp.reaction_1 dominating upstream reaction.
-                ghostcontrols_ghost_disp_self[0]->_lf__reaction_0.last_enabling_reaction = NULL;
-                // GhostControls.ghost.disp.reaction_2 dominating upstream reaction.
-                ghostcontrols_ghost_disp_self[0]->_lf__reaction_1.last_enabling_reaction = NULL;
+            
             }
-            // **** End of non-nested deferred initialize for GhostControls.ghost.disp
-            // **** Start non-nested deferred initialize for GhostControls.ghost.uwb
+            // **** End of non-nested deferred initialize for GhostControls.pacman.disp
+            // **** Start non-nested deferred initialize for GhostControls.pacman.uart
             {
             
-                // For reference counting, set num_destinations for port GhostControls.ghost.uwb.dist.
-                // Iterate over range GhostControls.ghost.uwb.dist(0,1)->[GhostControls.ghost.uwb.dist(0,1)].
+                for (int index486184027c8990b = 0; index486184027c8990b < 1; index486184027c8990b++) { ghostcontrols_pacman_uart_self[0]->_lf_uwb_out._base.source_reactor = (self_base_t*)ghostcontrols_pacman_uart_self[0]; }
+                // For reference counting, set num_destinations for port GhostControls.pacman.uart.bt_out.
+                // Iterate over range GhostControls.pacman.uart.bt_out(0,1)->[GhostControls.pacman.bt.uart_data(0,1)].
                 {
                     int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
                     int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
                     int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
                     int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                    ghostcontrols_ghost_uwb_self[src_runtime]->_lf_dist._base.num_destinations = 1;
-                    ghostcontrols_ghost_uwb_self[src_runtime]->_lf_dist._base.source_reactor = (self_base_t*)ghostcontrols_ghost_uwb_self[src_runtime];
+                    ghostcontrols_pacman_uart_self[src_runtime]->_lf_bt_out._base.num_destinations = 1;
+                    ghostcontrols_pacman_uart_self[src_runtime]->_lf_bt_out._base.source_reactor = (self_base_t*)ghostcontrols_pacman_uart_self[src_runtime];
                 }
                 {
                     int triggers_index[1] = { 0 }; // Number of bank members with the reaction.
-                    // Iterate over range GhostControls.ghost.uwb.dist(0,1)->[GhostControls.ghost.uwb.dist(0,1)].
+                    // Iterate over range GhostControls.pacman.uart.bt_out(0,1)->[GhostControls.pacman.bt.uart_data(0,1)].
                     {
                         int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
                         int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
                         int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
                         int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                        // Reaction 0 of GhostControls.ghost.uwb triggers 1 downstream reactions
-                        // through port GhostControls.ghost.uwb.dist.
-                        ghostcontrols_ghost_uwb_self[src_runtime]->_lf__reaction_0.triggered_sizes[triggers_index[src_runtime]] = 1;
-                        // For reaction 0 of GhostControls.ghost.uwb, allocate an
-                        // array of trigger pointers for downstream reactions through port GhostControls.ghost.uwb.dist
+                        // Reaction 1 of GhostControls.pacman.uart triggers 1 downstream reactions
+                        // through port GhostControls.pacman.uart.bt_out.
+                        ghostcontrols_pacman_uart_self[src_runtime]->_lf__reaction_1.triggered_sizes[triggers_index[src_runtime]] = 1;
+                        // For reaction 1 of GhostControls.pacman.uart, allocate an
+                        // array of trigger pointers for downstream reactions through port GhostControls.pacman.uart.bt_out
                         trigger_t** trigger_array = (trigger_t**)lf_allocate(
                                 1, sizeof(trigger_t*),
-                                &ghostcontrols_ghost_uwb_self[src_runtime]->base.allocations); 
-                        ghostcontrols_ghost_uwb_self[src_runtime]->_lf__reaction_0.triggers[triggers_index[src_runtime]++] = trigger_array;
+                                &ghostcontrols_pacman_uart_self[src_runtime]->base.allocations); 
+                        ghostcontrols_pacman_uart_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime]++] = trigger_array;
                     }
                     for (int i = 0; i < 1; i++) triggers_index[i] = 0;
-                    // Iterate over ranges GhostControls.ghost.uwb.dist(0,1)->[GhostControls.ghost.uwb.dist(0,1)] and GhostControls.ghost.uwb.dist(0,1).
+                    // Iterate over ranges GhostControls.pacman.uart.bt_out(0,1)->[GhostControls.pacman.bt.uart_data(0,1)] and GhostControls.pacman.bt.uart_data(0,1).
                     {
                         int src_runtime = 0; // Runtime index.
                         SUPPRESS_UNUSED_WARNING(src_runtime);
@@ -1604,145 +1436,83 @@ void _lf_initialize_trigger_objects() {
                         SUPPRESS_UNUSED_WARNING(src_channel);
                         int src_bank = 0; // Bank index.
                         SUPPRESS_UNUSED_WARNING(src_bank);
-                        // Iterate over range GhostControls.ghost.uwb.dist(0,1).
+                        // Iterate over range GhostControls.pacman.bt.uart_data(0,1).
                         {
                             int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
                             int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
                             int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
                             int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                            // Port GhostControls.ghost.uwb.dist has reactions in its parent's parent.
-                            // Point to the trigger struct for those reactions.
-                            ghostcontrols_ghost_uwb_self[src_runtime]->_lf__reaction_0.triggers[triggers_index[src_runtime] + src_channel][0] = &ghostcontrols_ghost_self[dst_runtime]->_lf_uwb.dist_trigger;
+                            // Point to destination port GhostControls.pacman.bt.uart_data's trigger struct.
+                            ghostcontrols_pacman_uart_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime] + src_channel][0] = &ghostcontrols_pacman_bt_self[dst_runtime]->_lf__uart_data;
                         }
                     }
                 }
-                // GhostControls.ghost.uwb.reaction_1 dominating upstream reaction.
-                ghostcontrols_ghost_uwb_self[0]->_lf__reaction_0.last_enabling_reaction = &(ghostcontrols_ghost_uart_self[0]->_lf__reaction_1);
-            }
-            // **** End of non-nested deferred initialize for GhostControls.ghost.uwb
-            // **** Start non-nested deferred initialize for GhostControls.ghost.uart
-            {
             
-                // For reference counting, set num_destinations for port GhostControls.ghost.uart.uwb_out.
-                // Iterate over range GhostControls.ghost.uart.uwb_out(0,1)->[GhostControls.ghost.uwb.uart_data(0,1)].
-                {
-                    int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
-                    int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
-                    int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
-                    int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                    ghostcontrols_ghost_uart_self[src_runtime]->_lf_uwb_out._base.num_destinations = 1;
-                    ghostcontrols_ghost_uart_self[src_runtime]->_lf_uwb_out._base.source_reactor = (self_base_t*)ghostcontrols_ghost_uart_self[src_runtime];
-                }
-                for (int index486184027c8990b = 0; index486184027c8990b < 1; index486184027c8990b++) { ghostcontrols_ghost_uart_self[0]->_lf_bt_out._base.source_reactor = (self_base_t*)ghostcontrols_ghost_uart_self[0]; }
-                {
-                    int triggers_index[1] = { 0 }; // Number of bank members with the reaction.
-                    // Iterate over range GhostControls.ghost.uart.uwb_out(0,1)->[GhostControls.ghost.uwb.uart_data(0,1)].
-                    {
-                        int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
-                        int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
-                        int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
-                        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                        // Reaction 1 of GhostControls.ghost.uart triggers 1 downstream reactions
-                        // through port GhostControls.ghost.uart.uwb_out.
-                        ghostcontrols_ghost_uart_self[src_runtime]->_lf__reaction_1.triggered_sizes[triggers_index[src_runtime]] = 1;
-                        // For reaction 1 of GhostControls.ghost.uart, allocate an
-                        // array of trigger pointers for downstream reactions through port GhostControls.ghost.uart.uwb_out
-                        trigger_t** trigger_array = (trigger_t**)lf_allocate(
-                                1, sizeof(trigger_t*),
-                                &ghostcontrols_ghost_uart_self[src_runtime]->base.allocations); 
-                        ghostcontrols_ghost_uart_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime]++] = trigger_array;
-                    }
-                    for (int i = 0; i < 1; i++) triggers_index[i] = 0;
-                    // Iterate over ranges GhostControls.ghost.uart.uwb_out(0,1)->[GhostControls.ghost.uwb.uart_data(0,1)] and GhostControls.ghost.uwb.uart_data(0,1).
-                    {
-                        int src_runtime = 0; // Runtime index.
-                        SUPPRESS_UNUSED_WARNING(src_runtime);
-                        int src_channel = 0; // Channel index.
-                        SUPPRESS_UNUSED_WARNING(src_channel);
-                        int src_bank = 0; // Bank index.
-                        SUPPRESS_UNUSED_WARNING(src_bank);
-                        // Iterate over range GhostControls.ghost.uwb.uart_data(0,1).
-                        {
-                            int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
-                            int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
-                            int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
-                            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                            // Point to destination port GhostControls.ghost.uwb.uart_data's trigger struct.
-                            ghostcontrols_ghost_uart_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime] + src_channel][0] = &ghostcontrols_ghost_uwb_self[dst_runtime]->_lf__uart_data;
-                        }
-                    }
-                }
-                // GhostControls.ghost.uart.reaction_1 dominating upstream reaction.
-                ghostcontrols_ghost_uart_self[0]->_lf__reaction_0.last_enabling_reaction = NULL;
-                // GhostControls.ghost.uart.reaction_2 dominating upstream reaction.
-                ghostcontrols_ghost_uart_self[0]->_lf__reaction_1.last_enabling_reaction = NULL;
-                // GhostControls.ghost.uart.reaction_3 dominating upstream reaction.
-                ghostcontrols_ghost_uart_self[0]->_lf__reaction_2.last_enabling_reaction = NULL;
             }
-            // **** End of non-nested deferred initialize for GhostControls.ghost.uart
-            // **** Start non-nested deferred initialize for GhostControls.ghost.control
+            // **** End of non-nested deferred initialize for GhostControls.pacman.uart
+            // **** Start non-nested deferred initialize for GhostControls.pacman.control
             {
                 // Set number of destination reactors for port encoder.trigger.
-                // Iterate over range GhostControls.ghost.control.encoder.trigger(0,1)->[GhostControls.ghost.control.encoder.trigger(0,1)].
+                // Iterate over range GhostControls.pacman.control.encoder.trigger(0,1)->[GhostControls.pacman.control.encoder.trigger(0,1)].
                 {
                     int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
                     int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
                     int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
                     int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                    ghostcontrols_ghost_control_self[src_runtime]->_lf_encoder.trigger._base.num_destinations = 1;
-                    ghostcontrols_ghost_control_self[src_runtime]->_lf_encoder.trigger._base.source_reactor = (self_base_t*)ghostcontrols_ghost_control_self[src_runtime];
+                    ghostcontrols_pacman_control_self[src_runtime]->_lf_encoder.trigger._base.num_destinations = 1;
+                    ghostcontrols_pacman_control_self[src_runtime]->_lf_encoder.trigger._base.source_reactor = (self_base_t*)ghostcontrols_pacman_control_self[src_runtime];
                 }
                 // Set number of destination reactors for port gyro.trigger.
-                // Iterate over range GhostControls.ghost.control.gyro.trigger(0,1)->[GhostControls.ghost.control.gyro.g.trigger(0,1)].
+                // Iterate over range GhostControls.pacman.control.gyro.trigger(0,1)->[GhostControls.pacman.control.gyro.g.trigger(0,1)].
                 {
                     int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
                     int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
                     int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
                     int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                    ghostcontrols_ghost_control_self[src_runtime]->_lf_gyro.trigger._base.num_destinations = 1;
-                    ghostcontrols_ghost_control_self[src_runtime]->_lf_gyro.trigger._base.source_reactor = (self_base_t*)ghostcontrols_ghost_control_self[src_runtime];
+                    ghostcontrols_pacman_control_self[src_runtime]->_lf_gyro.trigger._base.num_destinations = 1;
+                    ghostcontrols_pacman_control_self[src_runtime]->_lf_gyro.trigger._base.source_reactor = (self_base_t*)ghostcontrols_pacman_control_self[src_runtime];
                 }
                 // Set number of destination reactors for port motors.left_speed.
-                // Iterate over range GhostControls.ghost.control.motors.left_speed(0,1)->[GhostControls.ghost.control.motors.left_speed(0,1)].
+                // Iterate over range GhostControls.pacman.control.motors.left_speed(0,1)->[GhostControls.pacman.control.motors.left_speed(0,1)].
                 {
                     int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
                     int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
                     int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
                     int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                    ghostcontrols_ghost_control_self[src_runtime]->_lf_motors.left_speed._base.num_destinations = 1;
-                    ghostcontrols_ghost_control_self[src_runtime]->_lf_motors.left_speed._base.source_reactor = (self_base_t*)ghostcontrols_ghost_control_self[src_runtime];
+                    ghostcontrols_pacman_control_self[src_runtime]->_lf_motors.left_speed._base.num_destinations = 1;
+                    ghostcontrols_pacman_control_self[src_runtime]->_lf_motors.left_speed._base.source_reactor = (self_base_t*)ghostcontrols_pacman_control_self[src_runtime];
                 }
                 // Set number of destination reactors for port motors.right_speed.
-                // Iterate over range GhostControls.ghost.control.motors.right_speed(0,1)->[GhostControls.ghost.control.motors.right_speed(0,1)].
+                // Iterate over range GhostControls.pacman.control.motors.right_speed(0,1)->[GhostControls.pacman.control.motors.right_speed(0,1)].
                 {
                     int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
                     int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
                     int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
                     int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                    ghostcontrols_ghost_control_self[src_runtime]->_lf_motors.right_speed._base.num_destinations = 1;
-                    ghostcontrols_ghost_control_self[src_runtime]->_lf_motors.right_speed._base.source_reactor = (self_base_t*)ghostcontrols_ghost_control_self[src_runtime];
+                    ghostcontrols_pacman_control_self[src_runtime]->_lf_motors.right_speed._base.num_destinations = 1;
+                    ghostcontrols_pacman_control_self[src_runtime]->_lf_motors.right_speed._base.source_reactor = (self_base_t*)ghostcontrols_pacman_control_self[src_runtime];
                 }
             
                 {
                     int triggers_index[1] = { 0 }; // Number of bank members with the reaction.
-                    // Iterate over range GhostControls.ghost.control.encoder.trigger(0,1)->[GhostControls.ghost.control.encoder.trigger(0,1)].
+                    // Iterate over range GhostControls.pacman.control.encoder.trigger(0,1)->[GhostControls.pacman.control.encoder.trigger(0,1)].
                     {
                         int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
                         int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
                         int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
                         int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                        // Reaction 0 of GhostControls.ghost.control triggers 1 downstream reactions
-                        // through port GhostControls.ghost.control.encoder.trigger.
-                        ghostcontrols_ghost_control_self[src_runtime]->_lf__reaction_0.triggered_sizes[triggers_index[src_runtime]] = 1;
-                        // For reaction 0 of GhostControls.ghost.control, allocate an
-                        // array of trigger pointers for downstream reactions through port GhostControls.ghost.control.encoder.trigger
+                        // Reaction 0 of GhostControls.pacman.control triggers 1 downstream reactions
+                        // through port GhostControls.pacman.control.encoder.trigger.
+                        ghostcontrols_pacman_control_self[src_runtime]->_lf__reaction_0.triggered_sizes[triggers_index[src_runtime]] = 1;
+                        // For reaction 0 of GhostControls.pacman.control, allocate an
+                        // array of trigger pointers for downstream reactions through port GhostControls.pacman.control.encoder.trigger
                         trigger_t** trigger_array = (trigger_t**)lf_allocate(
                                 1, sizeof(trigger_t*),
-                                &ghostcontrols_ghost_control_self[src_runtime]->base.allocations); 
-                        ghostcontrols_ghost_control_self[src_runtime]->_lf__reaction_0.triggers[triggers_index[src_runtime]++] = trigger_array;
+                                &ghostcontrols_pacman_control_self[src_runtime]->base.allocations); 
+                        ghostcontrols_pacman_control_self[src_runtime]->_lf__reaction_0.triggers[triggers_index[src_runtime]++] = trigger_array;
                     }
                     for (int i = 0; i < 1; i++) triggers_index[i] = 0;
-                    // Iterate over ranges GhostControls.ghost.control.encoder.trigger(0,1)->[GhostControls.ghost.control.encoder.trigger(0,1)] and GhostControls.ghost.control.encoder.trigger(0,1).
+                    // Iterate over ranges GhostControls.pacman.control.encoder.trigger(0,1)->[GhostControls.pacman.control.encoder.trigger(0,1)] and GhostControls.pacman.control.encoder.trigger(0,1).
                     {
                         int src_runtime = 0; // Runtime index.
                         SUPPRESS_UNUSED_WARNING(src_runtime);
@@ -1750,37 +1520,37 @@ void _lf_initialize_trigger_objects() {
                         SUPPRESS_UNUSED_WARNING(src_channel);
                         int src_bank = 0; // Bank index.
                         SUPPRESS_UNUSED_WARNING(src_bank);
-                        // Iterate over range GhostControls.ghost.control.encoder.trigger(0,1).
+                        // Iterate over range GhostControls.pacman.control.encoder.trigger(0,1).
                         {
                             int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
                             int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
                             int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
                             int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                            // Point to destination port GhostControls.ghost.control.encoder.trigger's trigger struct.
-                            ghostcontrols_ghost_control_self[src_runtime]->_lf__reaction_0.triggers[triggers_index[src_runtime] + src_channel][0] = &ghostcontrols_ghost_control_encoder_self[dst_runtime]->_lf__trigger;
+                            // Point to destination port GhostControls.pacman.control.encoder.trigger's trigger struct.
+                            ghostcontrols_pacman_control_self[src_runtime]->_lf__reaction_0.triggers[triggers_index[src_runtime] + src_channel][0] = &ghostcontrols_pacman_control_encoder_self[dst_runtime]->_lf__trigger;
                         }
                     }
                 }
                 {
                     int triggers_index[1] = { 0 }; // Number of bank members with the reaction.
-                    // Iterate over range GhostControls.ghost.control.gyro.trigger(0,1)->[GhostControls.ghost.control.gyro.g.trigger(0,1)].
+                    // Iterate over range GhostControls.pacman.control.gyro.trigger(0,1)->[GhostControls.pacman.control.gyro.g.trigger(0,1)].
                     {
                         int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
                         int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
                         int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
                         int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                        // Reaction 1 of GhostControls.ghost.control triggers 1 downstream reactions
-                        // through port GhostControls.ghost.control.gyro.trigger.
-                        ghostcontrols_ghost_control_self[src_runtime]->_lf__reaction_1.triggered_sizes[triggers_index[src_runtime]] = 1;
-                        // For reaction 1 of GhostControls.ghost.control, allocate an
-                        // array of trigger pointers for downstream reactions through port GhostControls.ghost.control.gyro.trigger
+                        // Reaction 1 of GhostControls.pacman.control triggers 1 downstream reactions
+                        // through port GhostControls.pacman.control.gyro.trigger.
+                        ghostcontrols_pacman_control_self[src_runtime]->_lf__reaction_1.triggered_sizes[triggers_index[src_runtime]] = 1;
+                        // For reaction 1 of GhostControls.pacman.control, allocate an
+                        // array of trigger pointers for downstream reactions through port GhostControls.pacman.control.gyro.trigger
                         trigger_t** trigger_array = (trigger_t**)lf_allocate(
                                 1, sizeof(trigger_t*),
-                                &ghostcontrols_ghost_control_self[src_runtime]->base.allocations); 
-                        ghostcontrols_ghost_control_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime]++] = trigger_array;
+                                &ghostcontrols_pacman_control_self[src_runtime]->base.allocations); 
+                        ghostcontrols_pacman_control_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime]++] = trigger_array;
                     }
                     for (int i = 0; i < 1; i++) triggers_index[i] = 0;
-                    // Iterate over ranges GhostControls.ghost.control.gyro.trigger(0,1)->[GhostControls.ghost.control.gyro.g.trigger(0,1)] and GhostControls.ghost.control.gyro.g.trigger(0,1).
+                    // Iterate over ranges GhostControls.pacman.control.gyro.trigger(0,1)->[GhostControls.pacman.control.gyro.g.trigger(0,1)] and GhostControls.pacman.control.gyro.g.trigger(0,1).
                     {
                         int src_runtime = 0; // Runtime index.
                         SUPPRESS_UNUSED_WARNING(src_runtime);
@@ -1788,53 +1558,53 @@ void _lf_initialize_trigger_objects() {
                         SUPPRESS_UNUSED_WARNING(src_channel);
                         int src_bank = 0; // Bank index.
                         SUPPRESS_UNUSED_WARNING(src_bank);
-                        // Iterate over range GhostControls.ghost.control.gyro.g.trigger(0,1).
+                        // Iterate over range GhostControls.pacman.control.gyro.g.trigger(0,1).
                         {
                             int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
                             int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
                             int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
                             int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                            // Point to destination port GhostControls.ghost.control.gyro.g.trigger's trigger struct.
-                            ghostcontrols_ghost_control_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime] + src_channel][0] = &ghostcontrols_ghost_control_gyro_g_self[dst_runtime]->_lf__trigger;
+                            // Point to destination port GhostControls.pacman.control.gyro.g.trigger's trigger struct.
+                            ghostcontrols_pacman_control_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime] + src_channel][0] = &ghostcontrols_pacman_control_gyro_g_self[dst_runtime]->_lf__trigger;
                         }
                     }
                 }
                 {
                     int triggers_index[1] = { 0 }; // Number of bank members with the reaction.
-                    // Iterate over range GhostControls.ghost.control.motors.left_speed(0,1)->[GhostControls.ghost.control.motors.left_speed(0,1)].
+                    // Iterate over range GhostControls.pacman.control.motors.left_speed(0,1)->[GhostControls.pacman.control.motors.left_speed(0,1)].
                     {
                         int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
                         int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
                         int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
                         int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                        // Reaction 4 of GhostControls.ghost.control triggers 1 downstream reactions
-                        // through port GhostControls.ghost.control.motors.left_speed.
-                        ghostcontrols_ghost_control_self[src_runtime]->_lf__reaction_4.triggered_sizes[triggers_index[src_runtime]] = 1;
-                        // For reaction 4 of GhostControls.ghost.control, allocate an
-                        // array of trigger pointers for downstream reactions through port GhostControls.ghost.control.motors.left_speed
+                        // Reaction 4 of GhostControls.pacman.control triggers 1 downstream reactions
+                        // through port GhostControls.pacman.control.motors.left_speed.
+                        ghostcontrols_pacman_control_self[src_runtime]->_lf__reaction_4.triggered_sizes[triggers_index[src_runtime]] = 1;
+                        // For reaction 4 of GhostControls.pacman.control, allocate an
+                        // array of trigger pointers for downstream reactions through port GhostControls.pacman.control.motors.left_speed
                         trigger_t** trigger_array = (trigger_t**)lf_allocate(
                                 1, sizeof(trigger_t*),
-                                &ghostcontrols_ghost_control_self[src_runtime]->base.allocations); 
-                        ghostcontrols_ghost_control_self[src_runtime]->_lf__reaction_4.triggers[triggers_index[src_runtime]++] = trigger_array;
+                                &ghostcontrols_pacman_control_self[src_runtime]->base.allocations); 
+                        ghostcontrols_pacman_control_self[src_runtime]->_lf__reaction_4.triggers[triggers_index[src_runtime]++] = trigger_array;
                     }
-                    // Iterate over range GhostControls.ghost.control.motors.right_speed(0,1)->[GhostControls.ghost.control.motors.right_speed(0,1)].
+                    // Iterate over range GhostControls.pacman.control.motors.right_speed(0,1)->[GhostControls.pacman.control.motors.right_speed(0,1)].
                     {
                         int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
                         int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
                         int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
                         int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                        // Reaction 4 of GhostControls.ghost.control triggers 1 downstream reactions
-                        // through port GhostControls.ghost.control.motors.right_speed.
-                        ghostcontrols_ghost_control_self[src_runtime]->_lf__reaction_4.triggered_sizes[triggers_index[src_runtime]] = 1;
-                        // For reaction 4 of GhostControls.ghost.control, allocate an
-                        // array of trigger pointers for downstream reactions through port GhostControls.ghost.control.motors.right_speed
+                        // Reaction 4 of GhostControls.pacman.control triggers 1 downstream reactions
+                        // through port GhostControls.pacman.control.motors.right_speed.
+                        ghostcontrols_pacman_control_self[src_runtime]->_lf__reaction_4.triggered_sizes[triggers_index[src_runtime]] = 1;
+                        // For reaction 4 of GhostControls.pacman.control, allocate an
+                        // array of trigger pointers for downstream reactions through port GhostControls.pacman.control.motors.right_speed
                         trigger_t** trigger_array = (trigger_t**)lf_allocate(
                                 1, sizeof(trigger_t*),
-                                &ghostcontrols_ghost_control_self[src_runtime]->base.allocations); 
-                        ghostcontrols_ghost_control_self[src_runtime]->_lf__reaction_4.triggers[triggers_index[src_runtime]++] = trigger_array;
+                                &ghostcontrols_pacman_control_self[src_runtime]->base.allocations); 
+                        ghostcontrols_pacman_control_self[src_runtime]->_lf__reaction_4.triggers[triggers_index[src_runtime]++] = trigger_array;
                     }
                     for (int i = 0; i < 1; i++) triggers_index[i] = 0;
-                    // Iterate over ranges GhostControls.ghost.control.motors.left_speed(0,1)->[GhostControls.ghost.control.motors.left_speed(0,1)] and GhostControls.ghost.control.motors.left_speed(0,1).
+                    // Iterate over ranges GhostControls.pacman.control.motors.left_speed(0,1)->[GhostControls.pacman.control.motors.left_speed(0,1)] and GhostControls.pacman.control.motors.left_speed(0,1).
                     {
                         int src_runtime = 0; // Runtime index.
                         SUPPRESS_UNUSED_WARNING(src_runtime);
@@ -1842,18 +1612,18 @@ void _lf_initialize_trigger_objects() {
                         SUPPRESS_UNUSED_WARNING(src_channel);
                         int src_bank = 0; // Bank index.
                         SUPPRESS_UNUSED_WARNING(src_bank);
-                        // Iterate over range GhostControls.ghost.control.motors.left_speed(0,1).
+                        // Iterate over range GhostControls.pacman.control.motors.left_speed(0,1).
                         {
                             int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
                             int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
                             int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
                             int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                            // Point to destination port GhostControls.ghost.control.motors.left_speed's trigger struct.
-                            ghostcontrols_ghost_control_self[src_runtime]->_lf__reaction_4.triggers[triggers_index[src_runtime] + src_channel][0] = &ghostcontrols_ghost_control_motors_self[dst_runtime]->_lf__left_speed;
+                            // Point to destination port GhostControls.pacman.control.motors.left_speed's trigger struct.
+                            ghostcontrols_pacman_control_self[src_runtime]->_lf__reaction_4.triggers[triggers_index[src_runtime] + src_channel][0] = &ghostcontrols_pacman_control_motors_self[dst_runtime]->_lf__left_speed;
                         }
                     }
                     for (int i = 0; i < 1; i++) triggers_index[i] = 1;
-                    // Iterate over ranges GhostControls.ghost.control.motors.right_speed(0,1)->[GhostControls.ghost.control.motors.right_speed(0,1)] and GhostControls.ghost.control.motors.right_speed(0,1).
+                    // Iterate over ranges GhostControls.pacman.control.motors.right_speed(0,1)->[GhostControls.pacman.control.motors.right_speed(0,1)] and GhostControls.pacman.control.motors.right_speed(0,1).
                     {
                         int src_runtime = 0; // Runtime index.
                         SUPPRESS_UNUSED_WARNING(src_runtime);
@@ -1861,53 +1631,53 @@ void _lf_initialize_trigger_objects() {
                         SUPPRESS_UNUSED_WARNING(src_channel);
                         int src_bank = 0; // Bank index.
                         SUPPRESS_UNUSED_WARNING(src_bank);
-                        // Iterate over range GhostControls.ghost.control.motors.right_speed(0,1).
+                        // Iterate over range GhostControls.pacman.control.motors.right_speed(0,1).
                         {
                             int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
                             int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
                             int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
                             int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                            // Point to destination port GhostControls.ghost.control.motors.right_speed's trigger struct.
-                            ghostcontrols_ghost_control_self[src_runtime]->_lf__reaction_4.triggers[triggers_index[src_runtime] + src_channel][0] = &ghostcontrols_ghost_control_motors_self[dst_runtime]->_lf__right_speed;
+                            // Point to destination port GhostControls.pacman.control.motors.right_speed's trigger struct.
+                            ghostcontrols_pacman_control_self[src_runtime]->_lf__reaction_4.triggers[triggers_index[src_runtime] + src_channel][0] = &ghostcontrols_pacman_control_motors_self[dst_runtime]->_lf__right_speed;
                         }
                     }
                 }
                 {
                     int triggers_index[1] = { 0 }; // Number of bank members with the reaction.
-                    // Iterate over range GhostControls.ghost.control.motors.left_speed(0,1)->[GhostControls.ghost.control.motors.left_speed(0,1)].
+                    // Iterate over range GhostControls.pacman.control.motors.left_speed(0,1)->[GhostControls.pacman.control.motors.left_speed(0,1)].
                     {
                         int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
                         int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
                         int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
                         int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                        // Reaction 7 of GhostControls.ghost.control triggers 1 downstream reactions
-                        // through port GhostControls.ghost.control.motors.left_speed.
-                        ghostcontrols_ghost_control_self[src_runtime]->_lf__reaction_7.triggered_sizes[triggers_index[src_runtime]] = 1;
-                        // For reaction 7 of GhostControls.ghost.control, allocate an
-                        // array of trigger pointers for downstream reactions through port GhostControls.ghost.control.motors.left_speed
+                        // Reaction 7 of GhostControls.pacman.control triggers 1 downstream reactions
+                        // through port GhostControls.pacman.control.motors.left_speed.
+                        ghostcontrols_pacman_control_self[src_runtime]->_lf__reaction_7.triggered_sizes[triggers_index[src_runtime]] = 1;
+                        // For reaction 7 of GhostControls.pacman.control, allocate an
+                        // array of trigger pointers for downstream reactions through port GhostControls.pacman.control.motors.left_speed
                         trigger_t** trigger_array = (trigger_t**)lf_allocate(
                                 1, sizeof(trigger_t*),
-                                &ghostcontrols_ghost_control_self[src_runtime]->base.allocations); 
-                        ghostcontrols_ghost_control_self[src_runtime]->_lf__reaction_7.triggers[triggers_index[src_runtime]++] = trigger_array;
+                                &ghostcontrols_pacman_control_self[src_runtime]->base.allocations); 
+                        ghostcontrols_pacman_control_self[src_runtime]->_lf__reaction_7.triggers[triggers_index[src_runtime]++] = trigger_array;
                     }
-                    // Iterate over range GhostControls.ghost.control.motors.right_speed(0,1)->[GhostControls.ghost.control.motors.right_speed(0,1)].
+                    // Iterate over range GhostControls.pacman.control.motors.right_speed(0,1)->[GhostControls.pacman.control.motors.right_speed(0,1)].
                     {
                         int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
                         int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
                         int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
                         int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                        // Reaction 7 of GhostControls.ghost.control triggers 1 downstream reactions
-                        // through port GhostControls.ghost.control.motors.right_speed.
-                        ghostcontrols_ghost_control_self[src_runtime]->_lf__reaction_7.triggered_sizes[triggers_index[src_runtime]] = 1;
-                        // For reaction 7 of GhostControls.ghost.control, allocate an
-                        // array of trigger pointers for downstream reactions through port GhostControls.ghost.control.motors.right_speed
+                        // Reaction 7 of GhostControls.pacman.control triggers 1 downstream reactions
+                        // through port GhostControls.pacman.control.motors.right_speed.
+                        ghostcontrols_pacman_control_self[src_runtime]->_lf__reaction_7.triggered_sizes[triggers_index[src_runtime]] = 1;
+                        // For reaction 7 of GhostControls.pacman.control, allocate an
+                        // array of trigger pointers for downstream reactions through port GhostControls.pacman.control.motors.right_speed
                         trigger_t** trigger_array = (trigger_t**)lf_allocate(
                                 1, sizeof(trigger_t*),
-                                &ghostcontrols_ghost_control_self[src_runtime]->base.allocations); 
-                        ghostcontrols_ghost_control_self[src_runtime]->_lf__reaction_7.triggers[triggers_index[src_runtime]++] = trigger_array;
+                                &ghostcontrols_pacman_control_self[src_runtime]->base.allocations); 
+                        ghostcontrols_pacman_control_self[src_runtime]->_lf__reaction_7.triggers[triggers_index[src_runtime]++] = trigger_array;
                     }
                     for (int i = 0; i < 1; i++) triggers_index[i] = 0;
-                    // Iterate over ranges GhostControls.ghost.control.motors.left_speed(0,1)->[GhostControls.ghost.control.motors.left_speed(0,1)] and GhostControls.ghost.control.motors.left_speed(0,1).
+                    // Iterate over ranges GhostControls.pacman.control.motors.left_speed(0,1)->[GhostControls.pacman.control.motors.left_speed(0,1)] and GhostControls.pacman.control.motors.left_speed(0,1).
                     {
                         int src_runtime = 0; // Runtime index.
                         SUPPRESS_UNUSED_WARNING(src_runtime);
@@ -1915,18 +1685,18 @@ void _lf_initialize_trigger_objects() {
                         SUPPRESS_UNUSED_WARNING(src_channel);
                         int src_bank = 0; // Bank index.
                         SUPPRESS_UNUSED_WARNING(src_bank);
-                        // Iterate over range GhostControls.ghost.control.motors.left_speed(0,1).
+                        // Iterate over range GhostControls.pacman.control.motors.left_speed(0,1).
                         {
                             int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
                             int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
                             int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
                             int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                            // Point to destination port GhostControls.ghost.control.motors.left_speed's trigger struct.
-                            ghostcontrols_ghost_control_self[src_runtime]->_lf__reaction_7.triggers[triggers_index[src_runtime] + src_channel][0] = &ghostcontrols_ghost_control_motors_self[dst_runtime]->_lf__left_speed;
+                            // Point to destination port GhostControls.pacman.control.motors.left_speed's trigger struct.
+                            ghostcontrols_pacman_control_self[src_runtime]->_lf__reaction_7.triggers[triggers_index[src_runtime] + src_channel][0] = &ghostcontrols_pacman_control_motors_self[dst_runtime]->_lf__left_speed;
                         }
                     }
                     for (int i = 0; i < 1; i++) triggers_index[i] = 1;
-                    // Iterate over ranges GhostControls.ghost.control.motors.right_speed(0,1)->[GhostControls.ghost.control.motors.right_speed(0,1)] and GhostControls.ghost.control.motors.right_speed(0,1).
+                    // Iterate over ranges GhostControls.pacman.control.motors.right_speed(0,1)->[GhostControls.pacman.control.motors.right_speed(0,1)] and GhostControls.pacman.control.motors.right_speed(0,1).
                     {
                         int src_runtime = 0; // Runtime index.
                         SUPPRESS_UNUSED_WARNING(src_runtime);
@@ -1934,53 +1704,53 @@ void _lf_initialize_trigger_objects() {
                         SUPPRESS_UNUSED_WARNING(src_channel);
                         int src_bank = 0; // Bank index.
                         SUPPRESS_UNUSED_WARNING(src_bank);
-                        // Iterate over range GhostControls.ghost.control.motors.right_speed(0,1).
+                        // Iterate over range GhostControls.pacman.control.motors.right_speed(0,1).
                         {
                             int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
                             int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
                             int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
                             int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                            // Point to destination port GhostControls.ghost.control.motors.right_speed's trigger struct.
-                            ghostcontrols_ghost_control_self[src_runtime]->_lf__reaction_7.triggers[triggers_index[src_runtime] + src_channel][0] = &ghostcontrols_ghost_control_motors_self[dst_runtime]->_lf__right_speed;
+                            // Point to destination port GhostControls.pacman.control.motors.right_speed's trigger struct.
+                            ghostcontrols_pacman_control_self[src_runtime]->_lf__reaction_7.triggers[triggers_index[src_runtime] + src_channel][0] = &ghostcontrols_pacman_control_motors_self[dst_runtime]->_lf__right_speed;
                         }
                     }
                 }
                 {
                     int triggers_index[1] = { 0 }; // Number of bank members with the reaction.
-                    // Iterate over range GhostControls.ghost.control.motors.left_speed(0,1)->[GhostControls.ghost.control.motors.left_speed(0,1)].
+                    // Iterate over range GhostControls.pacman.control.motors.left_speed(0,1)->[GhostControls.pacman.control.motors.left_speed(0,1)].
                     {
                         int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
                         int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
                         int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
                         int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                        // Reaction 10 of GhostControls.ghost.control triggers 1 downstream reactions
-                        // through port GhostControls.ghost.control.motors.left_speed.
-                        ghostcontrols_ghost_control_self[src_runtime]->_lf__reaction_10.triggered_sizes[triggers_index[src_runtime]] = 1;
-                        // For reaction 10 of GhostControls.ghost.control, allocate an
-                        // array of trigger pointers for downstream reactions through port GhostControls.ghost.control.motors.left_speed
+                        // Reaction 10 of GhostControls.pacman.control triggers 1 downstream reactions
+                        // through port GhostControls.pacman.control.motors.left_speed.
+                        ghostcontrols_pacman_control_self[src_runtime]->_lf__reaction_10.triggered_sizes[triggers_index[src_runtime]] = 1;
+                        // For reaction 10 of GhostControls.pacman.control, allocate an
+                        // array of trigger pointers for downstream reactions through port GhostControls.pacman.control.motors.left_speed
                         trigger_t** trigger_array = (trigger_t**)lf_allocate(
                                 1, sizeof(trigger_t*),
-                                &ghostcontrols_ghost_control_self[src_runtime]->base.allocations); 
-                        ghostcontrols_ghost_control_self[src_runtime]->_lf__reaction_10.triggers[triggers_index[src_runtime]++] = trigger_array;
+                                &ghostcontrols_pacman_control_self[src_runtime]->base.allocations); 
+                        ghostcontrols_pacman_control_self[src_runtime]->_lf__reaction_10.triggers[triggers_index[src_runtime]++] = trigger_array;
                     }
-                    // Iterate over range GhostControls.ghost.control.motors.right_speed(0,1)->[GhostControls.ghost.control.motors.right_speed(0,1)].
+                    // Iterate over range GhostControls.pacman.control.motors.right_speed(0,1)->[GhostControls.pacman.control.motors.right_speed(0,1)].
                     {
                         int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
                         int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
                         int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
                         int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                        // Reaction 10 of GhostControls.ghost.control triggers 1 downstream reactions
-                        // through port GhostControls.ghost.control.motors.right_speed.
-                        ghostcontrols_ghost_control_self[src_runtime]->_lf__reaction_10.triggered_sizes[triggers_index[src_runtime]] = 1;
-                        // For reaction 10 of GhostControls.ghost.control, allocate an
-                        // array of trigger pointers for downstream reactions through port GhostControls.ghost.control.motors.right_speed
+                        // Reaction 10 of GhostControls.pacman.control triggers 1 downstream reactions
+                        // through port GhostControls.pacman.control.motors.right_speed.
+                        ghostcontrols_pacman_control_self[src_runtime]->_lf__reaction_10.triggered_sizes[triggers_index[src_runtime]] = 1;
+                        // For reaction 10 of GhostControls.pacman.control, allocate an
+                        // array of trigger pointers for downstream reactions through port GhostControls.pacman.control.motors.right_speed
                         trigger_t** trigger_array = (trigger_t**)lf_allocate(
                                 1, sizeof(trigger_t*),
-                                &ghostcontrols_ghost_control_self[src_runtime]->base.allocations); 
-                        ghostcontrols_ghost_control_self[src_runtime]->_lf__reaction_10.triggers[triggers_index[src_runtime]++] = trigger_array;
+                                &ghostcontrols_pacman_control_self[src_runtime]->base.allocations); 
+                        ghostcontrols_pacman_control_self[src_runtime]->_lf__reaction_10.triggers[triggers_index[src_runtime]++] = trigger_array;
                     }
                     for (int i = 0; i < 1; i++) triggers_index[i] = 0;
-                    // Iterate over ranges GhostControls.ghost.control.motors.left_speed(0,1)->[GhostControls.ghost.control.motors.left_speed(0,1)] and GhostControls.ghost.control.motors.left_speed(0,1).
+                    // Iterate over ranges GhostControls.pacman.control.motors.left_speed(0,1)->[GhostControls.pacman.control.motors.left_speed(0,1)] and GhostControls.pacman.control.motors.left_speed(0,1).
                     {
                         int src_runtime = 0; // Runtime index.
                         SUPPRESS_UNUSED_WARNING(src_runtime);
@@ -1988,18 +1758,18 @@ void _lf_initialize_trigger_objects() {
                         SUPPRESS_UNUSED_WARNING(src_channel);
                         int src_bank = 0; // Bank index.
                         SUPPRESS_UNUSED_WARNING(src_bank);
-                        // Iterate over range GhostControls.ghost.control.motors.left_speed(0,1).
+                        // Iterate over range GhostControls.pacman.control.motors.left_speed(0,1).
                         {
                             int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
                             int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
                             int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
                             int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                            // Point to destination port GhostControls.ghost.control.motors.left_speed's trigger struct.
-                            ghostcontrols_ghost_control_self[src_runtime]->_lf__reaction_10.triggers[triggers_index[src_runtime] + src_channel][0] = &ghostcontrols_ghost_control_motors_self[dst_runtime]->_lf__left_speed;
+                            // Point to destination port GhostControls.pacman.control.motors.left_speed's trigger struct.
+                            ghostcontrols_pacman_control_self[src_runtime]->_lf__reaction_10.triggers[triggers_index[src_runtime] + src_channel][0] = &ghostcontrols_pacman_control_motors_self[dst_runtime]->_lf__left_speed;
                         }
                     }
                     for (int i = 0; i < 1; i++) triggers_index[i] = 1;
-                    // Iterate over ranges GhostControls.ghost.control.motors.right_speed(0,1)->[GhostControls.ghost.control.motors.right_speed(0,1)] and GhostControls.ghost.control.motors.right_speed(0,1).
+                    // Iterate over ranges GhostControls.pacman.control.motors.right_speed(0,1)->[GhostControls.pacman.control.motors.right_speed(0,1)] and GhostControls.pacman.control.motors.right_speed(0,1).
                     {
                         int src_runtime = 0; // Runtime index.
                         SUPPRESS_UNUSED_WARNING(src_runtime);
@@ -2007,100 +1777,77 @@ void _lf_initialize_trigger_objects() {
                         SUPPRESS_UNUSED_WARNING(src_channel);
                         int src_bank = 0; // Bank index.
                         SUPPRESS_UNUSED_WARNING(src_bank);
-                        // Iterate over range GhostControls.ghost.control.motors.right_speed(0,1).
+                        // Iterate over range GhostControls.pacman.control.motors.right_speed(0,1).
                         {
                             int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
                             int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
                             int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
                             int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                            // Point to destination port GhostControls.ghost.control.motors.right_speed's trigger struct.
-                            ghostcontrols_ghost_control_self[src_runtime]->_lf__reaction_10.triggers[triggers_index[src_runtime] + src_channel][0] = &ghostcontrols_ghost_control_motors_self[dst_runtime]->_lf__right_speed;
+                            // Point to destination port GhostControls.pacman.control.motors.right_speed's trigger struct.
+                            ghostcontrols_pacman_control_self[src_runtime]->_lf__reaction_10.triggers[triggers_index[src_runtime] + src_channel][0] = &ghostcontrols_pacman_control_motors_self[dst_runtime]->_lf__right_speed;
                         }
                     }
                 }
-                // GhostControls.ghost.control.reaction_1 dominating upstream reaction.
-                ghostcontrols_ghost_control_self[0]->_lf__reaction_0.last_enabling_reaction = NULL;
-                // GhostControls.ghost.control.reaction_2 dominating upstream reaction.
-                ghostcontrols_ghost_control_self[0]->_lf__reaction_1.last_enabling_reaction = NULL;
-                // GhostControls.ghost.control.reaction_3 dominating upstream reaction.
-                ghostcontrols_ghost_control_self[0]->_lf__reaction_2.last_enabling_reaction = NULL;
-                // GhostControls.ghost.control.reaction_4 dominating upstream reaction.
-                ghostcontrols_ghost_control_self[0]->_lf__reaction_3.last_enabling_reaction = NULL;
-                // GhostControls.ghost.control.FORWARD.reaction_5 dominating upstream reaction.
-                ghostcontrols_ghost_control_self[0]->_lf__reaction_4.last_enabling_reaction = NULL;
-                // GhostControls.ghost.control.FORWARD.reaction_6 dominating upstream reaction.
-                ghostcontrols_ghost_control_self[0]->_lf__reaction_5.last_enabling_reaction = NULL;
-                // GhostControls.ghost.control.FORWARD.reaction_7 dominating upstream reaction.
-                ghostcontrols_ghost_control_self[0]->_lf__reaction_6.last_enabling_reaction = NULL;
-                // GhostControls.ghost.control.ROTATE.reaction_8 dominating upstream reaction.
-                ghostcontrols_ghost_control_self[0]->_lf__reaction_7.last_enabling_reaction = NULL;
-                // GhostControls.ghost.control.ROTATE.reaction_9 dominating upstream reaction.
-                ghostcontrols_ghost_control_self[0]->_lf__reaction_8.last_enabling_reaction = NULL;
-                // GhostControls.ghost.control.ROTATE.reaction_10 dominating upstream reaction.
-                ghostcontrols_ghost_control_self[0]->_lf__reaction_9.last_enabling_reaction = NULL;
-                // GhostControls.ghost.control.STOP.reaction_11 dominating upstream reaction.
-                ghostcontrols_ghost_control_self[0]->_lf__reaction_10.last_enabling_reaction = NULL;
-                // GhostControls.ghost.control.STOP.reaction_12 dominating upstream reaction.
-                ghostcontrols_ghost_control_self[0]->_lf__reaction_11.last_enabling_reaction = NULL;
-                // **** Start non-nested deferred initialize for GhostControls.ghost.control.motors
+            
+                // **** Start non-nested deferred initialize for GhostControls.pacman.control.motors
                 {
                     // Set number of destination reactors for port control_left.err.
-                    // Iterate over range GhostControls.ghost.control.motors.control_left.err(0,1)->[GhostControls.ghost.control.motors.control_left.err(0,1)].
+                    // Iterate over range GhostControls.pacman.control.motors.control_left.err(0,1)->[GhostControls.pacman.control.motors.control_left.err(0,1)].
                     {
                         int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
                         int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
                         int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
                         int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                        ghostcontrols_ghost_control_motors_self[src_runtime]->_lf_control_left.err._base.num_destinations = 1;
-                        ghostcontrols_ghost_control_motors_self[src_runtime]->_lf_control_left.err._base.source_reactor = (self_base_t*)ghostcontrols_ghost_control_motors_self[src_runtime];
+                        ghostcontrols_pacman_control_motors_self[src_runtime]->_lf_control_left.err._base.num_destinations = 1;
+                        ghostcontrols_pacman_control_motors_self[src_runtime]->_lf_control_left.err._base.source_reactor = (self_base_t*)ghostcontrols_pacman_control_motors_self[src_runtime];
                     }
                     // Set number of destination reactors for port control_right.err.
-                    // Iterate over range GhostControls.ghost.control.motors.control_right.err(0,1)->[GhostControls.ghost.control.motors.control_right.err(0,1)].
+                    // Iterate over range GhostControls.pacman.control.motors.control_right.err(0,1)->[GhostControls.pacman.control.motors.control_right.err(0,1)].
                     {
                         int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
                         int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
                         int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
                         int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                        ghostcontrols_ghost_control_motors_self[src_runtime]->_lf_control_right.err._base.num_destinations = 1;
-                        ghostcontrols_ghost_control_motors_self[src_runtime]->_lf_control_right.err._base.source_reactor = (self_base_t*)ghostcontrols_ghost_control_motors_self[src_runtime];
+                        ghostcontrols_pacman_control_motors_self[src_runtime]->_lf_control_right.err._base.num_destinations = 1;
+                        ghostcontrols_pacman_control_motors_self[src_runtime]->_lf_control_right.err._base.source_reactor = (self_base_t*)ghostcontrols_pacman_control_motors_self[src_runtime];
                     }
                 
                     {
                         int triggers_index[1] = { 0 }; // Number of bank members with the reaction.
-                        // Iterate over range GhostControls.ghost.control.motors.control_left.err(0,1)->[GhostControls.ghost.control.motors.control_left.err(0,1)].
+                        // Iterate over range GhostControls.pacman.control.motors.control_left.err(0,1)->[GhostControls.pacman.control.motors.control_left.err(0,1)].
                         {
                             int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
                             int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
                             int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
                             int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                            // Reaction 2 of GhostControls.ghost.control.motors triggers 1 downstream reactions
-                            // through port GhostControls.ghost.control.motors.control_left.err.
-                            ghostcontrols_ghost_control_motors_self[src_runtime]->_lf__reaction_2.triggered_sizes[triggers_index[src_runtime]] = 1;
-                            // For reaction 2 of GhostControls.ghost.control.motors, allocate an
-                            // array of trigger pointers for downstream reactions through port GhostControls.ghost.control.motors.control_left.err
+                            // Reaction 2 of GhostControls.pacman.control.motors triggers 1 downstream reactions
+                            // through port GhostControls.pacman.control.motors.control_left.err.
+                            ghostcontrols_pacman_control_motors_self[src_runtime]->_lf__reaction_2.triggered_sizes[triggers_index[src_runtime]] = 1;
+                            // For reaction 2 of GhostControls.pacman.control.motors, allocate an
+                            // array of trigger pointers for downstream reactions through port GhostControls.pacman.control.motors.control_left.err
                             trigger_t** trigger_array = (trigger_t**)lf_allocate(
                                     1, sizeof(trigger_t*),
-                                    &ghostcontrols_ghost_control_motors_self[src_runtime]->base.allocations); 
-                            ghostcontrols_ghost_control_motors_self[src_runtime]->_lf__reaction_2.triggers[triggers_index[src_runtime]++] = trigger_array;
+                                    &ghostcontrols_pacman_control_motors_self[src_runtime]->base.allocations); 
+                            ghostcontrols_pacman_control_motors_self[src_runtime]->_lf__reaction_2.triggers[triggers_index[src_runtime]++] = trigger_array;
                         }
-                        // Iterate over range GhostControls.ghost.control.motors.control_right.err(0,1)->[GhostControls.ghost.control.motors.control_right.err(0,1)].
+                        // Iterate over range GhostControls.pacman.control.motors.control_right.err(0,1)->[GhostControls.pacman.control.motors.control_right.err(0,1)].
                         {
                             int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
                             int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
                             int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
                             int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                            // Reaction 2 of GhostControls.ghost.control.motors triggers 1 downstream reactions
-                            // through port GhostControls.ghost.control.motors.control_right.err.
-                            ghostcontrols_ghost_control_motors_self[src_runtime]->_lf__reaction_2.triggered_sizes[triggers_index[src_runtime]] = 1;
-                            // For reaction 2 of GhostControls.ghost.control.motors, allocate an
-                            // array of trigger pointers for downstream reactions through port GhostControls.ghost.control.motors.control_right.err
+                            // Reaction 2 of GhostControls.pacman.control.motors triggers 1 downstream reactions
+                            // through port GhostControls.pacman.control.motors.control_right.err.
+                            ghostcontrols_pacman_control_motors_self[src_runtime]->_lf__reaction_2.triggered_sizes[triggers_index[src_runtime]] = 1;
+                            // For reaction 2 of GhostControls.pacman.control.motors, allocate an
+                            // array of trigger pointers for downstream reactions through port GhostControls.pacman.control.motors.control_right.err
                             trigger_t** trigger_array = (trigger_t**)lf_allocate(
                                     1, sizeof(trigger_t*),
-                                    &ghostcontrols_ghost_control_motors_self[src_runtime]->base.allocations); 
-                            ghostcontrols_ghost_control_motors_self[src_runtime]->_lf__reaction_2.triggers[triggers_index[src_runtime]++] = trigger_array;
+                                    &ghostcontrols_pacman_control_motors_self[src_runtime]->base.allocations); 
+                            ghostcontrols_pacman_control_motors_self[src_runtime]->_lf__reaction_2.triggers[triggers_index[src_runtime]++] = trigger_array;
                         }
                         for (int i = 0; i < 1; i++) triggers_index[i] = 0;
-                        // Iterate over ranges GhostControls.ghost.control.motors.control_left.err(0,1)->[GhostControls.ghost.control.motors.control_left.err(0,1)] and GhostControls.ghost.control.motors.control_left.err(0,1).
+                        // Iterate over ranges GhostControls.pacman.control.motors.control_left.err(0,1)->[GhostControls.pacman.control.motors.control_left.err(0,1)] and GhostControls.pacman.control.motors.control_left.err(0,1).
                         {
                             int src_runtime = 0; // Runtime index.
                             SUPPRESS_UNUSED_WARNING(src_runtime);
@@ -2108,18 +1855,18 @@ void _lf_initialize_trigger_objects() {
                             SUPPRESS_UNUSED_WARNING(src_channel);
                             int src_bank = 0; // Bank index.
                             SUPPRESS_UNUSED_WARNING(src_bank);
-                            // Iterate over range GhostControls.ghost.control.motors.control_left.err(0,1).
+                            // Iterate over range GhostControls.pacman.control.motors.control_left.err(0,1).
                             {
                                 int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
                                 int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
                                 int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
                                 int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                                // Point to destination port GhostControls.ghost.control.motors.control_left.err's trigger struct.
-                                ghostcontrols_ghost_control_motors_self[src_runtime]->_lf__reaction_2.triggers[triggers_index[src_runtime] + src_channel][0] = &_trols_ghost_control_motors_control_left_self[dst_runtime]->_lf__err;
+                                // Point to destination port GhostControls.pacman.control.motors.control_left.err's trigger struct.
+                                ghostcontrols_pacman_control_motors_self[src_runtime]->_lf__reaction_2.triggers[triggers_index[src_runtime] + src_channel][0] = &_rols_pacman_control_motors_control_left_self[dst_runtime]->_lf__err;
                             }
                         }
                         for (int i = 0; i < 1; i++) triggers_index[i] = 1;
-                        // Iterate over ranges GhostControls.ghost.control.motors.control_right.err(0,1)->[GhostControls.ghost.control.motors.control_right.err(0,1)] and GhostControls.ghost.control.motors.control_right.err(0,1).
+                        // Iterate over ranges GhostControls.pacman.control.motors.control_right.err(0,1)->[GhostControls.pacman.control.motors.control_right.err(0,1)] and GhostControls.pacman.control.motors.control_right.err(0,1).
                         {
                             int src_runtime = 0; // Runtime index.
                             SUPPRESS_UNUSED_WARNING(src_runtime);
@@ -2127,69 +1874,59 @@ void _lf_initialize_trigger_objects() {
                             SUPPRESS_UNUSED_WARNING(src_channel);
                             int src_bank = 0; // Bank index.
                             SUPPRESS_UNUSED_WARNING(src_bank);
-                            // Iterate over range GhostControls.ghost.control.motors.control_right.err(0,1).
+                            // Iterate over range GhostControls.pacman.control.motors.control_right.err(0,1).
                             {
                                 int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
                                 int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
                                 int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
                                 int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                                // Point to destination port GhostControls.ghost.control.motors.control_right.err's trigger struct.
-                                ghostcontrols_ghost_control_motors_self[src_runtime]->_lf__reaction_2.triggers[triggers_index[src_runtime] + src_channel][0] = &_rols_ghost_control_motors_control_right_self[dst_runtime]->_lf__err;
+                                // Point to destination port GhostControls.pacman.control.motors.control_right.err's trigger struct.
+                                ghostcontrols_pacman_control_motors_self[src_runtime]->_lf__reaction_2.triggers[triggers_index[src_runtime] + src_channel][0] = &_ols_pacman_control_motors_control_right_self[dst_runtime]->_lf__err;
                             }
                         }
                     }
-                    // GhostControls.ghost.control.motors.reaction_1 dominating upstream reaction.
-                    ghostcontrols_ghost_control_motors_self[0]->_lf__reaction_0.last_enabling_reaction = NULL;
-                    // GhostControls.ghost.control.motors.reaction_2 dominating upstream reaction.
-                    ghostcontrols_ghost_control_motors_self[0]->_lf__reaction_1.last_enabling_reaction = NULL;
-                    // GhostControls.ghost.control.motors.reaction_3 dominating upstream reaction.
-                    ghostcontrols_ghost_control_motors_self[0]->_lf__reaction_2.last_enabling_reaction = NULL;
-                    // **** Start non-nested deferred initialize for GhostControls.ghost.control.motors.motors
+                
+                    // **** Start non-nested deferred initialize for GhostControls.pacman.control.motors.motors
                     {
                     
                     
                     
-                        // GhostControls.ghost.control.motors.motors.reaction_1 dominating upstream reaction.
-                        _ostcontrols_ghost_control_motors_motors_self[0]->_lf__reaction_0.last_enabling_reaction = NULL;
-                        // GhostControls.ghost.control.motors.motors.reaction_2 dominating upstream reaction.
-                        _ostcontrols_ghost_control_motors_motors_self[0]->_lf__reaction_1.last_enabling_reaction = NULL;
-                        // GhostControls.ghost.control.motors.motors.reaction_3 dominating upstream reaction.
-                        _ostcontrols_ghost_control_motors_motors_self[0]->_lf__reaction_2.last_enabling_reaction = NULL;
+                    
                     }
-                    // **** End of non-nested deferred initialize for GhostControls.ghost.control.motors.motors
-                    // **** Start non-nested deferred initialize for GhostControls.ghost.control.motors.control_left
+                    // **** End of non-nested deferred initialize for GhostControls.pacman.control.motors.motors
+                    // **** Start non-nested deferred initialize for GhostControls.pacman.control.motors.control_left
                     {
                     
-                        // For reference counting, set num_destinations for port GhostControls.ghost.control.motors.control_left.ctrl.
-                        // Iterate over range GhostControls.ghost.control.motors.control_left.ctrl(0,1)->[GhostControls.ghost.control.motors.motors.left_power(0,1)].
+                        // For reference counting, set num_destinations for port GhostControls.pacman.control.motors.control_left.ctrl.
+                        // Iterate over range GhostControls.pacman.control.motors.control_left.ctrl(0,1)->[GhostControls.pacman.control.motors.motors.left_power(0,1)].
                         {
                             int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
                             int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
                             int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
                             int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                            _trols_ghost_control_motors_control_left_self[src_runtime]->_lf_ctrl._base.num_destinations = 1;
-                            _trols_ghost_control_motors_control_left_self[src_runtime]->_lf_ctrl._base.source_reactor = (self_base_t*)_trols_ghost_control_motors_control_left_self[src_runtime];
+                            _rols_pacman_control_motors_control_left_self[src_runtime]->_lf_ctrl._base.num_destinations = 1;
+                            _rols_pacman_control_motors_control_left_self[src_runtime]->_lf_ctrl._base.source_reactor = (self_base_t*)_rols_pacman_control_motors_control_left_self[src_runtime];
                         }
                         {
                             int triggers_index[1] = { 0 }; // Number of bank members with the reaction.
-                            // Iterate over range GhostControls.ghost.control.motors.control_left.ctrl(0,1)->[GhostControls.ghost.control.motors.motors.left_power(0,1)].
+                            // Iterate over range GhostControls.pacman.control.motors.control_left.ctrl(0,1)->[GhostControls.pacman.control.motors.motors.left_power(0,1)].
                             {
                                 int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
                                 int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
                                 int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
                                 int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                                // Reaction 0 of GhostControls.ghost.control.motors.control_left triggers 1 downstream reactions
-                                // through port GhostControls.ghost.control.motors.control_left.ctrl.
-                                _trols_ghost_control_motors_control_left_self[src_runtime]->_lf__reaction_0.triggered_sizes[triggers_index[src_runtime]] = 1;
-                                // For reaction 0 of GhostControls.ghost.control.motors.control_left, allocate an
-                                // array of trigger pointers for downstream reactions through port GhostControls.ghost.control.motors.control_left.ctrl
+                                // Reaction 0 of GhostControls.pacman.control.motors.control_left triggers 1 downstream reactions
+                                // through port GhostControls.pacman.control.motors.control_left.ctrl.
+                                _rols_pacman_control_motors_control_left_self[src_runtime]->_lf__reaction_0.triggered_sizes[triggers_index[src_runtime]] = 1;
+                                // For reaction 0 of GhostControls.pacman.control.motors.control_left, allocate an
+                                // array of trigger pointers for downstream reactions through port GhostControls.pacman.control.motors.control_left.ctrl
                                 trigger_t** trigger_array = (trigger_t**)lf_allocate(
                                         1, sizeof(trigger_t*),
-                                        &_trols_ghost_control_motors_control_left_self[src_runtime]->base.allocations); 
-                                _trols_ghost_control_motors_control_left_self[src_runtime]->_lf__reaction_0.triggers[triggers_index[src_runtime]++] = trigger_array;
+                                        &_rols_pacman_control_motors_control_left_self[src_runtime]->base.allocations); 
+                                _rols_pacman_control_motors_control_left_self[src_runtime]->_lf__reaction_0.triggers[triggers_index[src_runtime]++] = trigger_array;
                             }
                             for (int i = 0; i < 1; i++) triggers_index[i] = 0;
-                            // Iterate over ranges GhostControls.ghost.control.motors.control_left.ctrl(0,1)->[GhostControls.ghost.control.motors.motors.left_power(0,1)] and GhostControls.ghost.control.motors.motors.left_power(0,1).
+                            // Iterate over ranges GhostControls.pacman.control.motors.control_left.ctrl(0,1)->[GhostControls.pacman.control.motors.motors.left_power(0,1)] and GhostControls.pacman.control.motors.motors.left_power(0,1).
                             {
                                 int src_runtime = 0; // Runtime index.
                                 SUPPRESS_UNUSED_WARNING(src_runtime);
@@ -2197,54 +1934,53 @@ void _lf_initialize_trigger_objects() {
                                 SUPPRESS_UNUSED_WARNING(src_channel);
                                 int src_bank = 0; // Bank index.
                                 SUPPRESS_UNUSED_WARNING(src_bank);
-                                // Iterate over range GhostControls.ghost.control.motors.motors.left_power(0,1).
+                                // Iterate over range GhostControls.pacman.control.motors.motors.left_power(0,1).
                                 {
                                     int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
                                     int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
                                     int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
                                     int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                                    // Point to destination port GhostControls.ghost.control.motors.motors.left_power's trigger struct.
-                                    _trols_ghost_control_motors_control_left_self[src_runtime]->_lf__reaction_0.triggers[triggers_index[src_runtime] + src_channel][0] = &_ostcontrols_ghost_control_motors_motors_self[dst_runtime]->_lf__left_power;
+                                    // Point to destination port GhostControls.pacman.control.motors.motors.left_power's trigger struct.
+                                    _rols_pacman_control_motors_control_left_self[src_runtime]->_lf__reaction_0.triggers[triggers_index[src_runtime] + src_channel][0] = &_stcontrols_pacman_control_motors_motors_self[dst_runtime]->_lf__left_power;
                                 }
                             }
                         }
-                        // GhostControls.ghost.control.motors.control_left.reaction_1 dominating upstream reaction.
-                        _trols_ghost_control_motors_control_left_self[0]->_lf__reaction_0.last_enabling_reaction = &(ghostcontrols_ghost_control_motors_self[0]->_lf__reaction_2);
+                    
                     }
-                    // **** End of non-nested deferred initialize for GhostControls.ghost.control.motors.control_left
-                    // **** Start non-nested deferred initialize for GhostControls.ghost.control.motors.control_right
+                    // **** End of non-nested deferred initialize for GhostControls.pacman.control.motors.control_left
+                    // **** Start non-nested deferred initialize for GhostControls.pacman.control.motors.control_right
                     {
                     
-                        // For reference counting, set num_destinations for port GhostControls.ghost.control.motors.control_right.ctrl.
-                        // Iterate over range GhostControls.ghost.control.motors.control_right.ctrl(0,1)->[GhostControls.ghost.control.motors.motors.right_power(0,1)].
+                        // For reference counting, set num_destinations for port GhostControls.pacman.control.motors.control_right.ctrl.
+                        // Iterate over range GhostControls.pacman.control.motors.control_right.ctrl(0,1)->[GhostControls.pacman.control.motors.motors.right_power(0,1)].
                         {
                             int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
                             int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
                             int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
                             int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                            _rols_ghost_control_motors_control_right_self[src_runtime]->_lf_ctrl._base.num_destinations = 1;
-                            _rols_ghost_control_motors_control_right_self[src_runtime]->_lf_ctrl._base.source_reactor = (self_base_t*)_rols_ghost_control_motors_control_right_self[src_runtime];
+                            _ols_pacman_control_motors_control_right_self[src_runtime]->_lf_ctrl._base.num_destinations = 1;
+                            _ols_pacman_control_motors_control_right_self[src_runtime]->_lf_ctrl._base.source_reactor = (self_base_t*)_ols_pacman_control_motors_control_right_self[src_runtime];
                         }
                         {
                             int triggers_index[1] = { 0 }; // Number of bank members with the reaction.
-                            // Iterate over range GhostControls.ghost.control.motors.control_right.ctrl(0,1)->[GhostControls.ghost.control.motors.motors.right_power(0,1)].
+                            // Iterate over range GhostControls.pacman.control.motors.control_right.ctrl(0,1)->[GhostControls.pacman.control.motors.motors.right_power(0,1)].
                             {
                                 int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
                                 int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
                                 int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
                                 int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                                // Reaction 0 of GhostControls.ghost.control.motors.control_right triggers 1 downstream reactions
-                                // through port GhostControls.ghost.control.motors.control_right.ctrl.
-                                _rols_ghost_control_motors_control_right_self[src_runtime]->_lf__reaction_0.triggered_sizes[triggers_index[src_runtime]] = 1;
-                                // For reaction 0 of GhostControls.ghost.control.motors.control_right, allocate an
-                                // array of trigger pointers for downstream reactions through port GhostControls.ghost.control.motors.control_right.ctrl
+                                // Reaction 0 of GhostControls.pacman.control.motors.control_right triggers 1 downstream reactions
+                                // through port GhostControls.pacman.control.motors.control_right.ctrl.
+                                _ols_pacman_control_motors_control_right_self[src_runtime]->_lf__reaction_0.triggered_sizes[triggers_index[src_runtime]] = 1;
+                                // For reaction 0 of GhostControls.pacman.control.motors.control_right, allocate an
+                                // array of trigger pointers for downstream reactions through port GhostControls.pacman.control.motors.control_right.ctrl
                                 trigger_t** trigger_array = (trigger_t**)lf_allocate(
                                         1, sizeof(trigger_t*),
-                                        &_rols_ghost_control_motors_control_right_self[src_runtime]->base.allocations); 
-                                _rols_ghost_control_motors_control_right_self[src_runtime]->_lf__reaction_0.triggers[triggers_index[src_runtime]++] = trigger_array;
+                                        &_ols_pacman_control_motors_control_right_self[src_runtime]->base.allocations); 
+                                _ols_pacman_control_motors_control_right_self[src_runtime]->_lf__reaction_0.triggers[triggers_index[src_runtime]++] = trigger_array;
                             }
                             for (int i = 0; i < 1; i++) triggers_index[i] = 0;
-                            // Iterate over ranges GhostControls.ghost.control.motors.control_right.ctrl(0,1)->[GhostControls.ghost.control.motors.motors.right_power(0,1)] and GhostControls.ghost.control.motors.motors.right_power(0,1).
+                            // Iterate over ranges GhostControls.pacman.control.motors.control_right.ctrl(0,1)->[GhostControls.pacman.control.motors.motors.right_power(0,1)] and GhostControls.pacman.control.motors.motors.right_power(0,1).
                             {
                                 int src_runtime = 0; // Runtime index.
                                 SUPPRESS_UNUSED_WARNING(src_runtime);
@@ -2252,82 +1988,81 @@ void _lf_initialize_trigger_objects() {
                                 SUPPRESS_UNUSED_WARNING(src_channel);
                                 int src_bank = 0; // Bank index.
                                 SUPPRESS_UNUSED_WARNING(src_bank);
-                                // Iterate over range GhostControls.ghost.control.motors.motors.right_power(0,1).
+                                // Iterate over range GhostControls.pacman.control.motors.motors.right_power(0,1).
                                 {
                                     int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
                                     int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
                                     int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
                                     int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                                    // Point to destination port GhostControls.ghost.control.motors.motors.right_power's trigger struct.
-                                    _rols_ghost_control_motors_control_right_self[src_runtime]->_lf__reaction_0.triggers[triggers_index[src_runtime] + src_channel][0] = &_ostcontrols_ghost_control_motors_motors_self[dst_runtime]->_lf__right_power;
+                                    // Point to destination port GhostControls.pacman.control.motors.motors.right_power's trigger struct.
+                                    _ols_pacman_control_motors_control_right_self[src_runtime]->_lf__reaction_0.triggers[triggers_index[src_runtime] + src_channel][0] = &_stcontrols_pacman_control_motors_motors_self[dst_runtime]->_lf__right_power;
                                 }
                             }
                         }
-                        // GhostControls.ghost.control.motors.control_right.reaction_1 dominating upstream reaction.
-                        _rols_ghost_control_motors_control_right_self[0]->_lf__reaction_0.last_enabling_reaction = &(ghostcontrols_ghost_control_motors_self[0]->_lf__reaction_2);
+                    
                     }
-                    // **** End of non-nested deferred initialize for GhostControls.ghost.control.motors.control_right
+                    // **** End of non-nested deferred initialize for GhostControls.pacman.control.motors.control_right
                 }
-                // **** End of non-nested deferred initialize for GhostControls.ghost.control.motors
-                // **** Start non-nested deferred initialize for GhostControls.ghost.control.encoder
+                // **** End of non-nested deferred initialize for GhostControls.pacman.control.motors
+                // **** Start non-nested deferred initialize for GhostControls.pacman.control.encoder
                 {
                 
-                    // For reference counting, set num_destinations for port GhostControls.ghost.control.encoder.right.
-                    // Iterate over range GhostControls.ghost.control.encoder.right(0,1)->[GhostControls.ghost.control.motors.right(0,1)].
+                    // For reference counting, set num_destinations for port GhostControls.pacman.control.encoder.right.
+                    // Iterate over range GhostControls.pacman.control.encoder.right(0,1)->[GhostControls.pacman.control.motors.right(0,1)].
                     {
                         int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
                         int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
                         int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
                         int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                        ghostcontrols_ghost_control_encoder_self[src_runtime]->_lf_right._base.num_destinations = 1;
-                        ghostcontrols_ghost_control_encoder_self[src_runtime]->_lf_right._base.source_reactor = (self_base_t*)ghostcontrols_ghost_control_encoder_self[src_runtime];
+                        ghostcontrols_pacman_control_encoder_self[src_runtime]->_lf_right._base.num_destinations = 1;
+                        ghostcontrols_pacman_control_encoder_self[src_runtime]->_lf_right._base.source_reactor = (self_base_t*)ghostcontrols_pacman_control_encoder_self[src_runtime];
                     }
-                    // For reference counting, set num_destinations for port GhostControls.ghost.control.encoder.left.
-                    // Iterate over range GhostControls.ghost.control.encoder.left(0,1)->[GhostControls.ghost.control.motors.left(0,1)].
+                    // For reference counting, set num_destinations for port GhostControls.pacman.control.encoder.left.
+                    // Iterate over range GhostControls.pacman.control.encoder.left(0,1)->[GhostControls.pacman.control.motors.left(0,1)].
                     {
                         int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
                         int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
                         int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
                         int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                        ghostcontrols_ghost_control_encoder_self[src_runtime]->_lf_left._base.num_destinations = 1;
-                        ghostcontrols_ghost_control_encoder_self[src_runtime]->_lf_left._base.source_reactor = (self_base_t*)ghostcontrols_ghost_control_encoder_self[src_runtime];
+                        ghostcontrols_pacman_control_encoder_self[src_runtime]->_lf_left._base.num_destinations = 1;
+                        ghostcontrols_pacman_control_encoder_self[src_runtime]->_lf_left._base.source_reactor = (self_base_t*)ghostcontrols_pacman_control_encoder_self[src_runtime];
                     }
                     {
                         int triggers_index[1] = { 0 }; // Number of bank members with the reaction.
-                        // Iterate over range GhostControls.ghost.control.encoder.left(0,1)->[GhostControls.ghost.control.motors.left(0,1)].
+                        // Iterate over range GhostControls.pacman.control.encoder.left(0,1)->[GhostControls.pacman.control.motors.left(0,1)].
                         {
                             int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
                             int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
                             int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
                             int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                            // Reaction 1 of GhostControls.ghost.control.encoder triggers 1 downstream reactions
-                            // through port GhostControls.ghost.control.encoder.left.
-                            ghostcontrols_ghost_control_encoder_self[src_runtime]->_lf__reaction_1.triggered_sizes[triggers_index[src_runtime]] = 1;
-                            // For reaction 1 of GhostControls.ghost.control.encoder, allocate an
-                            // array of trigger pointers for downstream reactions through port GhostControls.ghost.control.encoder.left
+                            // Reaction 1 of GhostControls.pacman.control.encoder triggers 1 downstream reactions
+                            // through port GhostControls.pacman.control.encoder.left.
+                            ghostcontrols_pacman_control_encoder_self[src_runtime]->_lf__reaction_1.triggered_sizes[triggers_index[src_runtime]] = 1;
+                            // For reaction 1 of GhostControls.pacman.control.encoder, allocate an
+                            // array of trigger pointers for downstream reactions through port GhostControls.pacman.control.encoder.left
                             trigger_t** trigger_array = (trigger_t**)lf_allocate(
                                     1, sizeof(trigger_t*),
-                                    &ghostcontrols_ghost_control_encoder_self[src_runtime]->base.allocations); 
-                            ghostcontrols_ghost_control_encoder_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime]++] = trigger_array;
+                                    &ghostcontrols_pacman_control_encoder_self[src_runtime]->base.allocations); 
+                            ghostcontrols_pacman_control_encoder_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime]++] = trigger_array;
                         }
-                        // Iterate over range GhostControls.ghost.control.encoder.right(0,1)->[GhostControls.ghost.control.motors.right(0,1)].
+                        // Iterate over range GhostControls.pacman.control.encoder.right(0,1)->[GhostControls.pacman.control.motors.right(0,1)].
                         {
                             int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
                             int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
                             int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
                             int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                            // Reaction 1 of GhostControls.ghost.control.encoder triggers 1 downstream reactions
-                            // through port GhostControls.ghost.control.encoder.right.
-                            ghostcontrols_ghost_control_encoder_self[src_runtime]->_lf__reaction_1.triggered_sizes[triggers_index[src_runtime]] = 1;
-                            // For reaction 1 of GhostControls.ghost.control.encoder, allocate an
-                            // array of trigger pointers for downstream reactions through port GhostControls.ghost.control.encoder.right
+                            // Reaction 1 of GhostControls.pacman.control.encoder triggers 1 downstream reactions
+                            // through port GhostControls.pacman.control.encoder.right.
+                            ghostcontrols_pacman_control_encoder_self[src_runtime]->_lf__reaction_1.triggered_sizes[triggers_index[src_runtime]] = 1;
+                            // For reaction 1 of GhostControls.pacman.control.encoder, allocate an
+                            // array of trigger pointers for downstream reactions through port GhostControls.pacman.control.encoder.right
                             trigger_t** trigger_array = (trigger_t**)lf_allocate(
                                     1, sizeof(trigger_t*),
-                                    &ghostcontrols_ghost_control_encoder_self[src_runtime]->base.allocations); 
-                            ghostcontrols_ghost_control_encoder_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime]++] = trigger_array;
+                                    &ghostcontrols_pacman_control_encoder_self[src_runtime]->base.allocations); 
+                            ghostcontrols_pacman_control_encoder_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime]++] = trigger_array;
                         }
                         for (int i = 0; i < 1; i++) triggers_index[i] = 0;
-                        // Iterate over ranges GhostControls.ghost.control.encoder.left(0,1)->[GhostControls.ghost.control.motors.left(0,1)] and GhostControls.ghost.control.motors.left(0,1).
+                        // Iterate over ranges GhostControls.pacman.control.encoder.left(0,1)->[GhostControls.pacman.control.motors.left(0,1)] and GhostControls.pacman.control.motors.left(0,1).
                         {
                             int src_runtime = 0; // Runtime index.
                             SUPPRESS_UNUSED_WARNING(src_runtime);
@@ -2335,18 +2070,18 @@ void _lf_initialize_trigger_objects() {
                             SUPPRESS_UNUSED_WARNING(src_channel);
                             int src_bank = 0; // Bank index.
                             SUPPRESS_UNUSED_WARNING(src_bank);
-                            // Iterate over range GhostControls.ghost.control.motors.left(0,1).
+                            // Iterate over range GhostControls.pacman.control.motors.left(0,1).
                             {
                                 int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
                                 int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
                                 int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
                                 int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                                // Point to destination port GhostControls.ghost.control.motors.left's trigger struct.
-                                ghostcontrols_ghost_control_encoder_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime] + src_channel][0] = &ghostcontrols_ghost_control_motors_self[dst_runtime]->_lf__left;
+                                // Point to destination port GhostControls.pacman.control.motors.left's trigger struct.
+                                ghostcontrols_pacman_control_encoder_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime] + src_channel][0] = &ghostcontrols_pacman_control_motors_self[dst_runtime]->_lf__left;
                             }
                         }
                         for (int i = 0; i < 1; i++) triggers_index[i] = 1;
-                        // Iterate over ranges GhostControls.ghost.control.encoder.right(0,1)->[GhostControls.ghost.control.motors.right(0,1)] and GhostControls.ghost.control.motors.right(0,1).
+                        // Iterate over ranges GhostControls.pacman.control.encoder.right(0,1)->[GhostControls.pacman.control.motors.right(0,1)] and GhostControls.pacman.control.motors.right(0,1).
                         {
                             int src_runtime = 0; // Runtime index.
                             SUPPRESS_UNUSED_WARNING(src_runtime);
@@ -2354,125 +2089,122 @@ void _lf_initialize_trigger_objects() {
                             SUPPRESS_UNUSED_WARNING(src_channel);
                             int src_bank = 0; // Bank index.
                             SUPPRESS_UNUSED_WARNING(src_bank);
-                            // Iterate over range GhostControls.ghost.control.motors.right(0,1).
+                            // Iterate over range GhostControls.pacman.control.motors.right(0,1).
                             {
                                 int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
                                 int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
                                 int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
                                 int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                                // Point to destination port GhostControls.ghost.control.motors.right's trigger struct.
-                                ghostcontrols_ghost_control_encoder_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime] + src_channel][0] = &ghostcontrols_ghost_control_motors_self[dst_runtime]->_lf__right;
+                                // Point to destination port GhostControls.pacman.control.motors.right's trigger struct.
+                                ghostcontrols_pacman_control_encoder_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime] + src_channel][0] = &ghostcontrols_pacman_control_motors_self[dst_runtime]->_lf__right;
                             }
                         }
                     }
-                    // GhostControls.ghost.control.encoder.reaction_1 dominating upstream reaction.
-                    ghostcontrols_ghost_control_encoder_self[0]->_lf__reaction_0.last_enabling_reaction = NULL;
-                    // GhostControls.ghost.control.encoder.reaction_2 dominating upstream reaction.
-                    ghostcontrols_ghost_control_encoder_self[0]->_lf__reaction_1.last_enabling_reaction = NULL;
+                
                 }
-                // **** End of non-nested deferred initialize for GhostControls.ghost.control.encoder
-                // **** Start non-nested deferred initialize for GhostControls.ghost.control.gyro
+                // **** End of non-nested deferred initialize for GhostControls.pacman.control.encoder
+                // **** Start non-nested deferred initialize for GhostControls.pacman.control.gyro
                 {
                 
-                    for (int index486184027c8990b = 0; index486184027c8990b < 1; index486184027c8990b++) { ghostcontrols_ghost_control_gyro_self[0]->_lf_x._base.source_reactor = (self_base_t*)ghostcontrols_ghost_control_gyro_self[0]; }
-                    for (int index486184027c8990b = 0; index486184027c8990b < 1; index486184027c8990b++) { ghostcontrols_ghost_control_gyro_self[0]->_lf_y._base.source_reactor = (self_base_t*)ghostcontrols_ghost_control_gyro_self[0]; }
-                    // For reference counting, set num_destinations for port GhostControls.ghost.control.gyro.z.
-                    // Iterate over range GhostControls.ghost.control.gyro.z(0,1)->[GhostControls.ghost.control.gyro.z(0,1)].
+                    for (int index486184027c8990b = 0; index486184027c8990b < 1; index486184027c8990b++) { ghostcontrols_pacman_control_gyro_self[0]->_lf_x._base.source_reactor = (self_base_t*)ghostcontrols_pacman_control_gyro_self[0]; }
+                    for (int index486184027c8990b = 0; index486184027c8990b < 1; index486184027c8990b++) { ghostcontrols_pacman_control_gyro_self[0]->_lf_y._base.source_reactor = (self_base_t*)ghostcontrols_pacman_control_gyro_self[0]; }
+                    // For reference counting, set num_destinations for port GhostControls.pacman.control.gyro.z.
+                    // Iterate over range GhostControls.pacman.control.gyro.z(0,1)->[GhostControls.pacman.control.gyro.z(0,1)].
                     {
                         int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
                         int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
                         int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
                         int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                        ghostcontrols_ghost_control_gyro_self[src_runtime]->_lf_z._base.num_destinations = 1;
-                        ghostcontrols_ghost_control_gyro_self[src_runtime]->_lf_z._base.source_reactor = (self_base_t*)ghostcontrols_ghost_control_gyro_self[src_runtime];
+                        ghostcontrols_pacman_control_gyro_self[src_runtime]->_lf_z._base.num_destinations = 1;
+                        ghostcontrols_pacman_control_gyro_self[src_runtime]->_lf_z._base.source_reactor = (self_base_t*)ghostcontrols_pacman_control_gyro_self[src_runtime];
                     }
                 
                 
-                    // **** Start non-nested deferred initialize for GhostControls.ghost.control.gyro.g
+                    // **** Start non-nested deferred initialize for GhostControls.pacman.control.gyro.g
                     {
                     
-                        // For reference counting, set num_destinations for port GhostControls.ghost.control.gyro.g.x.
-                        // Iterate over range GhostControls.ghost.control.gyro.g.x(0,1)->[GhostControls.ghost.control.gyro.integrator1.in(0,1)].
+                        // For reference counting, set num_destinations for port GhostControls.pacman.control.gyro.g.x.
+                        // Iterate over range GhostControls.pacman.control.gyro.g.x(0,1)->[GhostControls.pacman.control.gyro.integrator1.in(0,1)].
                         {
                             int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
                             int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
                             int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
                             int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                            ghostcontrols_ghost_control_gyro_g_self[src_runtime]->_lf_x._base.num_destinations = 1;
-                            ghostcontrols_ghost_control_gyro_g_self[src_runtime]->_lf_x._base.source_reactor = (self_base_t*)ghostcontrols_ghost_control_gyro_g_self[src_runtime];
+                            ghostcontrols_pacman_control_gyro_g_self[src_runtime]->_lf_x._base.num_destinations = 1;
+                            ghostcontrols_pacman_control_gyro_g_self[src_runtime]->_lf_x._base.source_reactor = (self_base_t*)ghostcontrols_pacman_control_gyro_g_self[src_runtime];
                         }
-                        // For reference counting, set num_destinations for port GhostControls.ghost.control.gyro.g.y.
-                        // Iterate over range GhostControls.ghost.control.gyro.g.y(0,1)->[GhostControls.ghost.control.gyro.integrator2.in(0,1)].
+                        // For reference counting, set num_destinations for port GhostControls.pacman.control.gyro.g.y.
+                        // Iterate over range GhostControls.pacman.control.gyro.g.y(0,1)->[GhostControls.pacman.control.gyro.integrator2.in(0,1)].
                         {
                             int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
                             int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
                             int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
                             int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                            ghostcontrols_ghost_control_gyro_g_self[src_runtime]->_lf_y._base.num_destinations = 1;
-                            ghostcontrols_ghost_control_gyro_g_self[src_runtime]->_lf_y._base.source_reactor = (self_base_t*)ghostcontrols_ghost_control_gyro_g_self[src_runtime];
+                            ghostcontrols_pacman_control_gyro_g_self[src_runtime]->_lf_y._base.num_destinations = 1;
+                            ghostcontrols_pacman_control_gyro_g_self[src_runtime]->_lf_y._base.source_reactor = (self_base_t*)ghostcontrols_pacman_control_gyro_g_self[src_runtime];
                         }
-                        // For reference counting, set num_destinations for port GhostControls.ghost.control.gyro.g.z.
-                        // Iterate over range GhostControls.ghost.control.gyro.g.z(0,1)->[GhostControls.ghost.control.gyro.integrator3.in(0,1)].
+                        // For reference counting, set num_destinations for port GhostControls.pacman.control.gyro.g.z.
+                        // Iterate over range GhostControls.pacman.control.gyro.g.z(0,1)->[GhostControls.pacman.control.gyro.integrator3.in(0,1)].
                         {
                             int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
                             int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
                             int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
                             int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                            ghostcontrols_ghost_control_gyro_g_self[src_runtime]->_lf_z._base.num_destinations = 1;
-                            ghostcontrols_ghost_control_gyro_g_self[src_runtime]->_lf_z._base.source_reactor = (self_base_t*)ghostcontrols_ghost_control_gyro_g_self[src_runtime];
+                            ghostcontrols_pacman_control_gyro_g_self[src_runtime]->_lf_z._base.num_destinations = 1;
+                            ghostcontrols_pacman_control_gyro_g_self[src_runtime]->_lf_z._base.source_reactor = (self_base_t*)ghostcontrols_pacman_control_gyro_g_self[src_runtime];
                         }
                         {
                             int triggers_index[1] = { 0 }; // Number of bank members with the reaction.
-                            // Iterate over range GhostControls.ghost.control.gyro.g.x(0,1)->[GhostControls.ghost.control.gyro.integrator1.in(0,1)].
+                            // Iterate over range GhostControls.pacman.control.gyro.g.x(0,1)->[GhostControls.pacman.control.gyro.integrator1.in(0,1)].
                             {
                                 int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
                                 int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
                                 int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
                                 int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                                // Reaction 1 of GhostControls.ghost.control.gyro.g triggers 1 downstream reactions
-                                // through port GhostControls.ghost.control.gyro.g.x.
-                                ghostcontrols_ghost_control_gyro_g_self[src_runtime]->_lf__reaction_1.triggered_sizes[triggers_index[src_runtime]] = 1;
-                                // For reaction 1 of GhostControls.ghost.control.gyro.g, allocate an
-                                // array of trigger pointers for downstream reactions through port GhostControls.ghost.control.gyro.g.x
+                                // Reaction 1 of GhostControls.pacman.control.gyro.g triggers 1 downstream reactions
+                                // through port GhostControls.pacman.control.gyro.g.x.
+                                ghostcontrols_pacman_control_gyro_g_self[src_runtime]->_lf__reaction_1.triggered_sizes[triggers_index[src_runtime]] = 1;
+                                // For reaction 1 of GhostControls.pacman.control.gyro.g, allocate an
+                                // array of trigger pointers for downstream reactions through port GhostControls.pacman.control.gyro.g.x
                                 trigger_t** trigger_array = (trigger_t**)lf_allocate(
                                         1, sizeof(trigger_t*),
-                                        &ghostcontrols_ghost_control_gyro_g_self[src_runtime]->base.allocations); 
-                                ghostcontrols_ghost_control_gyro_g_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime]++] = trigger_array;
+                                        &ghostcontrols_pacman_control_gyro_g_self[src_runtime]->base.allocations); 
+                                ghostcontrols_pacman_control_gyro_g_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime]++] = trigger_array;
                             }
-                            // Iterate over range GhostControls.ghost.control.gyro.g.y(0,1)->[GhostControls.ghost.control.gyro.integrator2.in(0,1)].
+                            // Iterate over range GhostControls.pacman.control.gyro.g.y(0,1)->[GhostControls.pacman.control.gyro.integrator2.in(0,1)].
                             {
                                 int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
                                 int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
                                 int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
                                 int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                                // Reaction 1 of GhostControls.ghost.control.gyro.g triggers 1 downstream reactions
-                                // through port GhostControls.ghost.control.gyro.g.y.
-                                ghostcontrols_ghost_control_gyro_g_self[src_runtime]->_lf__reaction_1.triggered_sizes[triggers_index[src_runtime]] = 1;
-                                // For reaction 1 of GhostControls.ghost.control.gyro.g, allocate an
-                                // array of trigger pointers for downstream reactions through port GhostControls.ghost.control.gyro.g.y
+                                // Reaction 1 of GhostControls.pacman.control.gyro.g triggers 1 downstream reactions
+                                // through port GhostControls.pacman.control.gyro.g.y.
+                                ghostcontrols_pacman_control_gyro_g_self[src_runtime]->_lf__reaction_1.triggered_sizes[triggers_index[src_runtime]] = 1;
+                                // For reaction 1 of GhostControls.pacman.control.gyro.g, allocate an
+                                // array of trigger pointers for downstream reactions through port GhostControls.pacman.control.gyro.g.y
                                 trigger_t** trigger_array = (trigger_t**)lf_allocate(
                                         1, sizeof(trigger_t*),
-                                        &ghostcontrols_ghost_control_gyro_g_self[src_runtime]->base.allocations); 
-                                ghostcontrols_ghost_control_gyro_g_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime]++] = trigger_array;
+                                        &ghostcontrols_pacman_control_gyro_g_self[src_runtime]->base.allocations); 
+                                ghostcontrols_pacman_control_gyro_g_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime]++] = trigger_array;
                             }
-                            // Iterate over range GhostControls.ghost.control.gyro.g.z(0,1)->[GhostControls.ghost.control.gyro.integrator3.in(0,1)].
+                            // Iterate over range GhostControls.pacman.control.gyro.g.z(0,1)->[GhostControls.pacman.control.gyro.integrator3.in(0,1)].
                             {
                                 int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
                                 int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
                                 int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
                                 int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                                // Reaction 1 of GhostControls.ghost.control.gyro.g triggers 1 downstream reactions
-                                // through port GhostControls.ghost.control.gyro.g.z.
-                                ghostcontrols_ghost_control_gyro_g_self[src_runtime]->_lf__reaction_1.triggered_sizes[triggers_index[src_runtime]] = 1;
-                                // For reaction 1 of GhostControls.ghost.control.gyro.g, allocate an
-                                // array of trigger pointers for downstream reactions through port GhostControls.ghost.control.gyro.g.z
+                                // Reaction 1 of GhostControls.pacman.control.gyro.g triggers 1 downstream reactions
+                                // through port GhostControls.pacman.control.gyro.g.z.
+                                ghostcontrols_pacman_control_gyro_g_self[src_runtime]->_lf__reaction_1.triggered_sizes[triggers_index[src_runtime]] = 1;
+                                // For reaction 1 of GhostControls.pacman.control.gyro.g, allocate an
+                                // array of trigger pointers for downstream reactions through port GhostControls.pacman.control.gyro.g.z
                                 trigger_t** trigger_array = (trigger_t**)lf_allocate(
                                         1, sizeof(trigger_t*),
-                                        &ghostcontrols_ghost_control_gyro_g_self[src_runtime]->base.allocations); 
-                                ghostcontrols_ghost_control_gyro_g_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime]++] = trigger_array;
+                                        &ghostcontrols_pacman_control_gyro_g_self[src_runtime]->base.allocations); 
+                                ghostcontrols_pacman_control_gyro_g_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime]++] = trigger_array;
                             }
                             for (int i = 0; i < 1; i++) triggers_index[i] = 0;
-                            // Iterate over ranges GhostControls.ghost.control.gyro.g.x(0,1)->[GhostControls.ghost.control.gyro.integrator1.in(0,1)] and GhostControls.ghost.control.gyro.integrator1.in(0,1).
+                            // Iterate over ranges GhostControls.pacman.control.gyro.g.x(0,1)->[GhostControls.pacman.control.gyro.integrator1.in(0,1)] and GhostControls.pacman.control.gyro.integrator1.in(0,1).
                             {
                                 int src_runtime = 0; // Runtime index.
                                 SUPPRESS_UNUSED_WARNING(src_runtime);
@@ -2480,18 +2212,18 @@ void _lf_initialize_trigger_objects() {
                                 SUPPRESS_UNUSED_WARNING(src_channel);
                                 int src_bank = 0; // Bank index.
                                 SUPPRESS_UNUSED_WARNING(src_bank);
-                                // Iterate over range GhostControls.ghost.control.gyro.integrator1.in(0,1).
+                                // Iterate over range GhostControls.pacman.control.gyro.integrator1.in(0,1).
                                 {
                                     int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
                                     int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
                                     int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
                                     int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                                    // Point to destination port GhostControls.ghost.control.gyro.integrator1.in's trigger struct.
-                                    ghostcontrols_ghost_control_gyro_g_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime] + src_channel][0] = &_controls_ghost_control_gyro_integrator1_self[dst_runtime]->_lf__in;
+                                    // Point to destination port GhostControls.pacman.control.gyro.integrator1.in's trigger struct.
+                                    ghostcontrols_pacman_control_gyro_g_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime] + src_channel][0] = &_ontrols_pacman_control_gyro_integrator1_self[dst_runtime]->_lf__in;
                                 }
                             }
                             for (int i = 0; i < 1; i++) triggers_index[i] = 1;
-                            // Iterate over ranges GhostControls.ghost.control.gyro.g.y(0,1)->[GhostControls.ghost.control.gyro.integrator2.in(0,1)] and GhostControls.ghost.control.gyro.integrator2.in(0,1).
+                            // Iterate over ranges GhostControls.pacman.control.gyro.g.y(0,1)->[GhostControls.pacman.control.gyro.integrator2.in(0,1)] and GhostControls.pacman.control.gyro.integrator2.in(0,1).
                             {
                                 int src_runtime = 0; // Runtime index.
                                 SUPPRESS_UNUSED_WARNING(src_runtime);
@@ -2499,18 +2231,18 @@ void _lf_initialize_trigger_objects() {
                                 SUPPRESS_UNUSED_WARNING(src_channel);
                                 int src_bank = 0; // Bank index.
                                 SUPPRESS_UNUSED_WARNING(src_bank);
-                                // Iterate over range GhostControls.ghost.control.gyro.integrator2.in(0,1).
+                                // Iterate over range GhostControls.pacman.control.gyro.integrator2.in(0,1).
                                 {
                                     int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
                                     int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
                                     int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
                                     int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                                    // Point to destination port GhostControls.ghost.control.gyro.integrator2.in's trigger struct.
-                                    ghostcontrols_ghost_control_gyro_g_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime] + src_channel][0] = &_controls_ghost_control_gyro_integrator2_self[dst_runtime]->_lf__in;
+                                    // Point to destination port GhostControls.pacman.control.gyro.integrator2.in's trigger struct.
+                                    ghostcontrols_pacman_control_gyro_g_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime] + src_channel][0] = &_ontrols_pacman_control_gyro_integrator2_self[dst_runtime]->_lf__in;
                                 }
                             }
                             for (int i = 0; i < 1; i++) triggers_index[i] = 2;
-                            // Iterate over ranges GhostControls.ghost.control.gyro.g.z(0,1)->[GhostControls.ghost.control.gyro.integrator3.in(0,1)] and GhostControls.ghost.control.gyro.integrator3.in(0,1).
+                            // Iterate over ranges GhostControls.pacman.control.gyro.g.z(0,1)->[GhostControls.pacman.control.gyro.integrator3.in(0,1)] and GhostControls.pacman.control.gyro.integrator3.in(0,1).
                             {
                                 int src_runtime = 0; // Runtime index.
                                 SUPPRESS_UNUSED_WARNING(src_runtime);
@@ -2518,78 +2250,73 @@ void _lf_initialize_trigger_objects() {
                                 SUPPRESS_UNUSED_WARNING(src_channel);
                                 int src_bank = 0; // Bank index.
                                 SUPPRESS_UNUSED_WARNING(src_bank);
-                                // Iterate over range GhostControls.ghost.control.gyro.integrator3.in(0,1).
+                                // Iterate over range GhostControls.pacman.control.gyro.integrator3.in(0,1).
                                 {
                                     int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
                                     int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
                                     int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
                                     int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                                    // Point to destination port GhostControls.ghost.control.gyro.integrator3.in's trigger struct.
-                                    ghostcontrols_ghost_control_gyro_g_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime] + src_channel][0] = &_controls_ghost_control_gyro_integrator3_self[dst_runtime]->_lf__in;
+                                    // Point to destination port GhostControls.pacman.control.gyro.integrator3.in's trigger struct.
+                                    ghostcontrols_pacman_control_gyro_g_self[src_runtime]->_lf__reaction_1.triggers[triggers_index[src_runtime] + src_channel][0] = &_ontrols_pacman_control_gyro_integrator3_self[dst_runtime]->_lf__in;
                                 }
                             }
                         }
-                        // GhostControls.ghost.control.gyro.g.reaction_1 dominating upstream reaction.
-                        ghostcontrols_ghost_control_gyro_g_self[0]->_lf__reaction_0.last_enabling_reaction = NULL;
-                        // GhostControls.ghost.control.gyro.g.reaction_2 dominating upstream reaction.
-                        ghostcontrols_ghost_control_gyro_g_self[0]->_lf__reaction_1.last_enabling_reaction = NULL;
+                    
                     }
-                    // **** End of non-nested deferred initialize for GhostControls.ghost.control.gyro.g
-                    // **** Start non-nested deferred initialize for GhostControls.ghost.control.gyro.integrator1
+                    // **** End of non-nested deferred initialize for GhostControls.pacman.control.gyro.g
+                    // **** Start non-nested deferred initialize for GhostControls.pacman.control.gyro.integrator1
                     {
                     
-                        for (int index486184027c8990b = 0; index486184027c8990b < 1; index486184027c8990b++) { _controls_ghost_control_gyro_integrator1_self[0]->_lf_out._base.source_reactor = (self_base_t*)_controls_ghost_control_gyro_integrator1_self[0]; }
+                        for (int index486184027c8990b = 0; index486184027c8990b < 1; index486184027c8990b++) { _ontrols_pacman_control_gyro_integrator1_self[0]->_lf_out._base.source_reactor = (self_base_t*)_ontrols_pacman_control_gyro_integrator1_self[0]; }
                         {
                             int triggers_index[1] = { 0 }; // Number of bank members with the reaction.
                         }
-                        // GhostControls.ghost.control.gyro.integrator1.reaction_1 dominating upstream reaction.
-                        _controls_ghost_control_gyro_integrator1_self[0]->_lf__reaction_0.last_enabling_reaction = &(ghostcontrols_ghost_control_gyro_g_self[0]->_lf__reaction_1);
+                    
                     }
-                    // **** End of non-nested deferred initialize for GhostControls.ghost.control.gyro.integrator1
-                    // **** Start non-nested deferred initialize for GhostControls.ghost.control.gyro.integrator2
+                    // **** End of non-nested deferred initialize for GhostControls.pacman.control.gyro.integrator1
+                    // **** Start non-nested deferred initialize for GhostControls.pacman.control.gyro.integrator2
                     {
                     
-                        for (int index486184027c8990b = 0; index486184027c8990b < 1; index486184027c8990b++) { _controls_ghost_control_gyro_integrator2_self[0]->_lf_out._base.source_reactor = (self_base_t*)_controls_ghost_control_gyro_integrator2_self[0]; }
+                        for (int index486184027c8990b = 0; index486184027c8990b < 1; index486184027c8990b++) { _ontrols_pacman_control_gyro_integrator2_self[0]->_lf_out._base.source_reactor = (self_base_t*)_ontrols_pacman_control_gyro_integrator2_self[0]; }
                         {
                             int triggers_index[1] = { 0 }; // Number of bank members with the reaction.
                         }
-                        // GhostControls.ghost.control.gyro.integrator2.reaction_1 dominating upstream reaction.
-                        _controls_ghost_control_gyro_integrator2_self[0]->_lf__reaction_0.last_enabling_reaction = &(ghostcontrols_ghost_control_gyro_g_self[0]->_lf__reaction_1);
+                    
                     }
-                    // **** End of non-nested deferred initialize for GhostControls.ghost.control.gyro.integrator2
-                    // **** Start non-nested deferred initialize for GhostControls.ghost.control.gyro.integrator3
+                    // **** End of non-nested deferred initialize for GhostControls.pacman.control.gyro.integrator2
+                    // **** Start non-nested deferred initialize for GhostControls.pacman.control.gyro.integrator3
                     {
                     
-                        // For reference counting, set num_destinations for port GhostControls.ghost.control.gyro.integrator3.out.
-                        // Iterate over range GhostControls.ghost.control.gyro.integrator3.out(0,1)->[GhostControls.ghost.control.gyro.z(0,1)].
+                        // For reference counting, set num_destinations for port GhostControls.pacman.control.gyro.integrator3.out.
+                        // Iterate over range GhostControls.pacman.control.gyro.integrator3.out(0,1)->[GhostControls.pacman.control.gyro.z(0,1)].
                         {
                             int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
                             int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
                             int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
                             int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                            _controls_ghost_control_gyro_integrator3_self[src_runtime]->_lf_out._base.num_destinations = 1;
-                            _controls_ghost_control_gyro_integrator3_self[src_runtime]->_lf_out._base.source_reactor = (self_base_t*)_controls_ghost_control_gyro_integrator3_self[src_runtime];
+                            _ontrols_pacman_control_gyro_integrator3_self[src_runtime]->_lf_out._base.num_destinations = 1;
+                            _ontrols_pacman_control_gyro_integrator3_self[src_runtime]->_lf_out._base.source_reactor = (self_base_t*)_ontrols_pacman_control_gyro_integrator3_self[src_runtime];
                         }
                         {
                             int triggers_index[1] = { 0 }; // Number of bank members with the reaction.
-                            // Iterate over range GhostControls.ghost.control.gyro.integrator3.out(0,1)->[GhostControls.ghost.control.gyro.z(0,1)].
+                            // Iterate over range GhostControls.pacman.control.gyro.integrator3.out(0,1)->[GhostControls.pacman.control.gyro.z(0,1)].
                             {
                                 int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
                                 int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
                                 int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
                                 int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                                // Reaction 0 of GhostControls.ghost.control.gyro.integrator3 triggers 1 downstream reactions
-                                // through port GhostControls.ghost.control.gyro.integrator3.out.
-                                _controls_ghost_control_gyro_integrator3_self[src_runtime]->_lf__reaction_0.triggered_sizes[triggers_index[src_runtime]] = 1;
-                                // For reaction 0 of GhostControls.ghost.control.gyro.integrator3, allocate an
-                                // array of trigger pointers for downstream reactions through port GhostControls.ghost.control.gyro.integrator3.out
+                                // Reaction 0 of GhostControls.pacman.control.gyro.integrator3 triggers 1 downstream reactions
+                                // through port GhostControls.pacman.control.gyro.integrator3.out.
+                                _ontrols_pacman_control_gyro_integrator3_self[src_runtime]->_lf__reaction_0.triggered_sizes[triggers_index[src_runtime]] = 1;
+                                // For reaction 0 of GhostControls.pacman.control.gyro.integrator3, allocate an
+                                // array of trigger pointers for downstream reactions through port GhostControls.pacman.control.gyro.integrator3.out
                                 trigger_t** trigger_array = (trigger_t**)lf_allocate(
                                         1, sizeof(trigger_t*),
-                                        &_controls_ghost_control_gyro_integrator3_self[src_runtime]->base.allocations); 
-                                _controls_ghost_control_gyro_integrator3_self[src_runtime]->_lf__reaction_0.triggers[triggers_index[src_runtime]++] = trigger_array;
+                                        &_ontrols_pacman_control_gyro_integrator3_self[src_runtime]->base.allocations); 
+                                _ontrols_pacman_control_gyro_integrator3_self[src_runtime]->_lf__reaction_0.triggers[triggers_index[src_runtime]++] = trigger_array;
                             }
                             for (int i = 0; i < 1; i++) triggers_index[i] = 0;
-                            // Iterate over ranges GhostControls.ghost.control.gyro.integrator3.out(0,1)->[GhostControls.ghost.control.gyro.z(0,1)] and GhostControls.ghost.control.gyro.z(0,1).
+                            // Iterate over ranges GhostControls.pacman.control.gyro.integrator3.out(0,1)->[GhostControls.pacman.control.gyro.z(0,1)] and GhostControls.pacman.control.gyro.z(0,1).
                             {
                                 int src_runtime = 0; // Runtime index.
                                 SUPPRESS_UNUSED_WARNING(src_runtime);
@@ -2597,37 +2324,109 @@ void _lf_initialize_trigger_objects() {
                                 SUPPRESS_UNUSED_WARNING(src_channel);
                                 int src_bank = 0; // Bank index.
                                 SUPPRESS_UNUSED_WARNING(src_bank);
-                                // Iterate over range GhostControls.ghost.control.gyro.z(0,1).
+                                // Iterate over range GhostControls.pacman.control.gyro.z(0,1).
                                 {
                                     int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
                                     int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
                                     int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
                                     int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-                                    // Port GhostControls.ghost.control.gyro.integrator3.out has reactions in its parent's parent.
+                                    // Port GhostControls.pacman.control.gyro.integrator3.out has reactions in its parent's parent.
                                     // Point to the trigger struct for those reactions.
-                                    _controls_ghost_control_gyro_integrator3_self[src_runtime]->_lf__reaction_0.triggers[triggers_index[src_runtime] + src_channel][0] = &ghostcontrols_ghost_control_self[dst_runtime]->_lf_gyro.z_trigger;
+                                    _ontrols_pacman_control_gyro_integrator3_self[src_runtime]->_lf__reaction_0.triggers[triggers_index[src_runtime] + src_channel][0] = &ghostcontrols_pacman_control_self[dst_runtime]->_lf_gyro.z_trigger;
                                 }
                             }
                         }
-                        // GhostControls.ghost.control.gyro.integrator3.reaction_1 dominating upstream reaction.
-                        _controls_ghost_control_gyro_integrator3_self[0]->_lf__reaction_0.last_enabling_reaction = &(ghostcontrols_ghost_control_gyro_g_self[0]->_lf__reaction_1);
+                    
                     }
-                    // **** End of non-nested deferred initialize for GhostControls.ghost.control.gyro.integrator3
+                    // **** End of non-nested deferred initialize for GhostControls.pacman.control.gyro.integrator3
                 }
-                // **** End of non-nested deferred initialize for GhostControls.ghost.control.gyro
+                // **** End of non-nested deferred initialize for GhostControls.pacman.control.gyro
             }
-            // **** End of non-nested deferred initialize for GhostControls.ghost.control
+            // **** End of non-nested deferred initialize for GhostControls.pacman.control
+            // **** Start non-nested deferred initialize for GhostControls.pacman.bt
+            {
+            
+                // For reference counting, set num_destinations for port GhostControls.pacman.bt.cmd.
+                // Iterate over range GhostControls.pacman.bt.cmd(0,1)->[GhostControls.pacman.bt.cmd(0,1)].
+                {
+                    int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+                    int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+                    int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+                    int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                    ghostcontrols_pacman_bt_self[src_runtime]->_lf_cmd._base.num_destinations = 1;
+                    ghostcontrols_pacman_bt_self[src_runtime]->_lf_cmd._base.source_reactor = (self_base_t*)ghostcontrols_pacman_bt_self[src_runtime];
+                }
+                {
+                    int triggers_index[1] = { 0 }; // Number of bank members with the reaction.
+                    // Iterate over range GhostControls.pacman.bt.cmd(0,1)->[GhostControls.pacman.bt.cmd(0,1)].
+                    {
+                        int src_runtime = 0; SUPPRESS_UNUSED_WARNING(src_runtime); // Runtime index.
+                        int src_channel = 0; SUPPRESS_UNUSED_WARNING(src_channel); // Channel index.
+                        int src_bank = 0; SUPPRESS_UNUSED_WARNING(src_bank); // Bank index.
+                        int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                        // Reaction 0 of GhostControls.pacman.bt triggers 1 downstream reactions
+                        // through port GhostControls.pacman.bt.cmd.
+                        ghostcontrols_pacman_bt_self[src_runtime]->_lf__reaction_0.triggered_sizes[triggers_index[src_runtime]] = 1;
+                        // For reaction 0 of GhostControls.pacman.bt, allocate an
+                        // array of trigger pointers for downstream reactions through port GhostControls.pacman.bt.cmd
+                        trigger_t** trigger_array = (trigger_t**)lf_allocate(
+                                1, sizeof(trigger_t*),
+                                &ghostcontrols_pacman_bt_self[src_runtime]->base.allocations); 
+                        ghostcontrols_pacman_bt_self[src_runtime]->_lf__reaction_0.triggers[triggers_index[src_runtime]++] = trigger_array;
+                    }
+                    for (int i = 0; i < 1; i++) triggers_index[i] = 0;
+                    // Iterate over ranges GhostControls.pacman.bt.cmd(0,1)->[GhostControls.pacman.bt.cmd(0,1)] and GhostControls.pacman.bt.cmd(0,1).
+                    {
+                        int src_runtime = 0; // Runtime index.
+                        SUPPRESS_UNUSED_WARNING(src_runtime);
+                        int src_channel = 0; // Channel index.
+                        SUPPRESS_UNUSED_WARNING(src_channel);
+                        int src_bank = 0; // Bank index.
+                        SUPPRESS_UNUSED_WARNING(src_bank);
+                        // Iterate over range GhostControls.pacman.bt.cmd(0,1).
+                        {
+                            int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+                            int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+                            int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+                            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+                            // Port GhostControls.pacman.bt.cmd has reactions in its parent's parent.
+                            // Point to the trigger struct for those reactions.
+                            ghostcontrols_pacman_bt_self[src_runtime]->_lf__reaction_0.triggers[triggers_index[src_runtime] + src_channel][0] = &ghostcontrols_pacman_self[dst_runtime]->_lf_bt.cmd_trigger;
+                        }
+                    }
+                }
+            
+            }
+            // **** End of non-nested deferred initialize for GhostControls.pacman.bt
         }
-        // **** End of non-nested deferred initialize for GhostControls.ghost
+        // **** End of non-nested deferred initialize for GhostControls.pacman
     }
     // **** End of non-nested deferred initialize for GhostControls
     // Connect inputs and outputs for reactor GhostControls.
-    // Connect inputs and outputs for reactor GhostControls.bt.
+    // Connect inputs and outputs for reactor GhostControls.pacman.
+    // Connect inputs and outputs for reactor GhostControls.pacman.disp.
+    // Connect GhostControls.pacman.disp.line0(0,1)->[GhostControls.pacman.disp.line0(0,1)] to port GhostControls.pacman.disp.line0(0,1)
+    // Iterate over ranges GhostControls.pacman.disp.line0(0,1)->[GhostControls.pacman.disp.line0(0,1)] and GhostControls.pacman.disp.line0(0,1).
+    {
+        int src_runtime = 0; // Runtime index.
+        SUPPRESS_UNUSED_WARNING(src_runtime);
+        int src_channel = 0; // Channel index.
+        SUPPRESS_UNUSED_WARNING(src_channel);
+        int src_bank = 0; // Bank index.
+        SUPPRESS_UNUSED_WARNING(src_bank);
+        // Iterate over range GhostControls.pacman.disp.line0(0,1).
+        {
+            int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+            int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+            int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+            ghostcontrols_pacman_disp_self[dst_runtime]->_lf_line0 = (_display_line0_t*)&ghostcontrols_pacman_self[src_runtime]->_lf_disp.line0;
+        }
+    }
+    // Connect inputs and outputs for reactor GhostControls.pacman.uart.
     
-    // Connect inputs and outputs for reactor GhostControls.ghost.
-    // Connect inputs and outputs for reactor GhostControls.ghost.disp.
-    // Connect GhostControls.ghost.disp.line0(0,1)->[GhostControls.ghost.disp.line0(0,1)] to port GhostControls.ghost.disp.line0(0,1)
-    // Iterate over ranges GhostControls.ghost.disp.line0(0,1)->[GhostControls.ghost.disp.line0(0,1)] and GhostControls.ghost.disp.line0(0,1).
+    // Connect GhostControls.pacman.uart.bt_out(0,1)->[GhostControls.pacman.bt.uart_data(0,1)] to port GhostControls.pacman.bt.uart_data(0,1)
+    // Iterate over ranges GhostControls.pacman.uart.bt_out(0,1)->[GhostControls.pacman.bt.uart_data(0,1)] and GhostControls.pacman.bt.uart_data(0,1).
     {
         int src_runtime = 0; // Runtime index.
         SUPPRESS_UNUSED_WARNING(src_runtime);
@@ -2635,18 +2434,18 @@ void _lf_initialize_trigger_objects() {
         SUPPRESS_UNUSED_WARNING(src_channel);
         int src_bank = 0; // Bank index.
         SUPPRESS_UNUSED_WARNING(src_bank);
-        // Iterate over range GhostControls.ghost.disp.line0(0,1).
+        // Iterate over range GhostControls.pacman.bt.uart_data(0,1).
         {
             int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
             int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
             int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
             int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-            ghostcontrols_ghost_disp_self[dst_runtime]->_lf_line0 = (_display_line0_t*)&ghostcontrols_ghost_self[src_runtime]->_lf_disp.line0;
+            ghostcontrols_pacman_bt_self[dst_runtime]->_lf_uart_data = (_bluetooth_uart_data_t*)&ghostcontrols_pacman_uart_self[src_runtime]->_lf_bt_out;
         }
     }
-    // Connect inputs and outputs for reactor GhostControls.ghost.uwb.
-    // Connect GhostControls.ghost.uwb.dist(0,1)->[GhostControls.ghost.uwb.dist(0,1)] to port GhostControls.ghost.uwb.dist(0,1)
-    // Iterate over ranges GhostControls.ghost.uwb.dist(0,1)->[GhostControls.ghost.uwb.dist(0,1)] and GhostControls.ghost.uwb.dist(0,1).
+    // Connect inputs and outputs for reactor GhostControls.pacman.control.
+    // Connect GhostControls.pacman.control.turn_angle(0,1)->[GhostControls.pacman.control.turn_angle(0,1)] to port GhostControls.pacman.control.turn_angle(0,1)
+    // Iterate over ranges GhostControls.pacman.control.turn_angle(0,1)->[GhostControls.pacman.control.turn_angle(0,1)] and GhostControls.pacman.control.turn_angle(0,1).
     {
         int src_runtime = 0; // Runtime index.
         SUPPRESS_UNUSED_WARNING(src_runtime);
@@ -2654,18 +2453,17 @@ void _lf_initialize_trigger_objects() {
         SUPPRESS_UNUSED_WARNING(src_channel);
         int src_bank = 0; // Bank index.
         SUPPRESS_UNUSED_WARNING(src_bank);
-        // Iterate over range GhostControls.ghost.uwb.dist(0,1).
+        // Iterate over range GhostControls.pacman.control.turn_angle(0,1).
         {
             int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
             int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
             int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
             int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-            ghostcontrols_ghost_self[dst_runtime]->_lf_uwb.dist = (_uwb_dist_t*)&ghostcontrols_ghost_uwb_self[src_runtime]->_lf_dist;
+            ghostcontrols_pacman_control_self[dst_runtime]->_lf_turn_angle = (_motion_control_turn_angle_t*)&ghostcontrols_pacman_self[src_runtime]->_lf_control.turn_angle;
         }
     }
-    // Connect inputs and outputs for reactor GhostControls.ghost.uart.
-    // Connect GhostControls.ghost.uart.bt_in(0,1)->[GhostControls.ghost.uart.bt_in(0,1)] to port GhostControls.ghost.uart.bt_in(0,1)
-    // Iterate over ranges GhostControls.ghost.uart.bt_in(0,1)->[GhostControls.ghost.uart.bt_in(0,1)] and GhostControls.ghost.uart.bt_in(0,1).
+    // Connect GhostControls.pacman.control.stop(0,1)->[GhostControls.pacman.control.stop(0,1)] to port GhostControls.pacman.control.stop(0,1)
+    // Iterate over ranges GhostControls.pacman.control.stop(0,1)->[GhostControls.pacman.control.stop(0,1)] and GhostControls.pacman.control.stop(0,1).
     {
         int src_runtime = 0; // Runtime index.
         SUPPRESS_UNUSED_WARNING(src_runtime);
@@ -2673,17 +2471,18 @@ void _lf_initialize_trigger_objects() {
         SUPPRESS_UNUSED_WARNING(src_channel);
         int src_bank = 0; // Bank index.
         SUPPRESS_UNUSED_WARNING(src_bank);
-        // Iterate over range GhostControls.ghost.uart.bt_in(0,1).
+        // Iterate over range GhostControls.pacman.control.stop(0,1).
         {
             int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
             int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
             int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
             int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-            ghostcontrols_ghost_uart_self[dst_runtime]->_lf_bt_in = (_uart_bt_in_t*)&ghostcontrols_ghost_self[src_runtime]->_lf_uart.bt_in;
+            ghostcontrols_pacman_control_self[dst_runtime]->_lf_stop = (_motion_control_stop_t*)&ghostcontrols_pacman_self[src_runtime]->_lf_control.stop;
         }
     }
-    // Connect GhostControls.ghost.uart.uwb_out(0,1)->[GhostControls.ghost.uwb.uart_data(0,1)] to port GhostControls.ghost.uwb.uart_data(0,1)
-    // Iterate over ranges GhostControls.ghost.uart.uwb_out(0,1)->[GhostControls.ghost.uwb.uart_data(0,1)] and GhostControls.ghost.uwb.uart_data(0,1).
+    // Connect inputs and outputs for reactor GhostControls.pacman.control.motors.
+    // Connect GhostControls.pacman.control.motors.left_speed(0,1)->[GhostControls.pacman.control.motors.left_speed(0,1)] to port GhostControls.pacman.control.motors.left_speed(0,1)
+    // Iterate over ranges GhostControls.pacman.control.motors.left_speed(0,1)->[GhostControls.pacman.control.motors.left_speed(0,1)] and GhostControls.pacman.control.motors.left_speed(0,1).
     {
         int src_runtime = 0; // Runtime index.
         SUPPRESS_UNUSED_WARNING(src_runtime);
@@ -2691,283 +2490,244 @@ void _lf_initialize_trigger_objects() {
         SUPPRESS_UNUSED_WARNING(src_channel);
         int src_bank = 0; // Bank index.
         SUPPRESS_UNUSED_WARNING(src_bank);
-        // Iterate over range GhostControls.ghost.uwb.uart_data(0,1).
+        // Iterate over range GhostControls.pacman.control.motors.left_speed(0,1).
         {
             int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
             int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
             int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
             int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-            ghostcontrols_ghost_uwb_self[dst_runtime]->_lf_uart_data = (_uwb_uart_data_t*)&ghostcontrols_ghost_uart_self[src_runtime]->_lf_uwb_out;
+            ghostcontrols_pacman_control_motors_self[dst_runtime]->_lf_left_speed = (_motorswithfeedback_left_speed_t*)&ghostcontrols_pacman_control_self[src_runtime]->_lf_motors.left_speed;
         }
     }
+    // Connect GhostControls.pacman.control.motors.right_speed(0,1)->[GhostControls.pacman.control.motors.right_speed(0,1)] to port GhostControls.pacman.control.motors.right_speed(0,1)
+    // Iterate over ranges GhostControls.pacman.control.motors.right_speed(0,1)->[GhostControls.pacman.control.motors.right_speed(0,1)] and GhostControls.pacman.control.motors.right_speed(0,1).
+    {
+        int src_runtime = 0; // Runtime index.
+        SUPPRESS_UNUSED_WARNING(src_runtime);
+        int src_channel = 0; // Channel index.
+        SUPPRESS_UNUSED_WARNING(src_channel);
+        int src_bank = 0; // Bank index.
+        SUPPRESS_UNUSED_WARNING(src_bank);
+        // Iterate over range GhostControls.pacman.control.motors.right_speed(0,1).
+        {
+            int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+            int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+            int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+            ghostcontrols_pacman_control_motors_self[dst_runtime]->_lf_right_speed = (_motorswithfeedback_right_speed_t*)&ghostcontrols_pacman_control_self[src_runtime]->_lf_motors.right_speed;
+        }
+    }
+    // Connect inputs and outputs for reactor GhostControls.pacman.control.motors.motors.
+    // Connect inputs and outputs for reactor GhostControls.pacman.control.motors.control_left.
+    // Connect GhostControls.pacman.control.motors.control_left.err(0,1)->[GhostControls.pacman.control.motors.control_left.err(0,1)] to port GhostControls.pacman.control.motors.control_left.err(0,1)
+    // Iterate over ranges GhostControls.pacman.control.motors.control_left.err(0,1)->[GhostControls.pacman.control.motors.control_left.err(0,1)] and GhostControls.pacman.control.motors.control_left.err(0,1).
+    {
+        int src_runtime = 0; // Runtime index.
+        SUPPRESS_UNUSED_WARNING(src_runtime);
+        int src_channel = 0; // Channel index.
+        SUPPRESS_UNUSED_WARNING(src_channel);
+        int src_bank = 0; // Bank index.
+        SUPPRESS_UNUSED_WARNING(src_bank);
+        // Iterate over range GhostControls.pacman.control.motors.control_left.err(0,1).
+        {
+            int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+            int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+            int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+            _rols_pacman_control_motors_control_left_self[dst_runtime]->_lf_err = (_picontrol_err_t*)&ghostcontrols_pacman_control_motors_self[src_runtime]->_lf_control_left.err;
+        }
+    }
+    // Connect GhostControls.pacman.control.motors.control_left.ctrl(0,1)->[GhostControls.pacman.control.motors.motors.left_power(0,1)] to port GhostControls.pacman.control.motors.motors.left_power(0,1)
+    // Iterate over ranges GhostControls.pacman.control.motors.control_left.ctrl(0,1)->[GhostControls.pacman.control.motors.motors.left_power(0,1)] and GhostControls.pacman.control.motors.motors.left_power(0,1).
+    {
+        int src_runtime = 0; // Runtime index.
+        SUPPRESS_UNUSED_WARNING(src_runtime);
+        int src_channel = 0; // Channel index.
+        SUPPRESS_UNUSED_WARNING(src_channel);
+        int src_bank = 0; // Bank index.
+        SUPPRESS_UNUSED_WARNING(src_bank);
+        // Iterate over range GhostControls.pacman.control.motors.motors.left_power(0,1).
+        {
+            int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+            int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+            int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+            _stcontrols_pacman_control_motors_motors_self[dst_runtime]->_lf_left_power = (_motors_left_power_t*)&_rols_pacman_control_motors_control_left_self[src_runtime]->_lf_ctrl;
+        }
+    }
+    // Connect inputs and outputs for reactor GhostControls.pacman.control.motors.control_right.
+    // Connect GhostControls.pacman.control.motors.control_right.err(0,1)->[GhostControls.pacman.control.motors.control_right.err(0,1)] to port GhostControls.pacman.control.motors.control_right.err(0,1)
+    // Iterate over ranges GhostControls.pacman.control.motors.control_right.err(0,1)->[GhostControls.pacman.control.motors.control_right.err(0,1)] and GhostControls.pacman.control.motors.control_right.err(0,1).
+    {
+        int src_runtime = 0; // Runtime index.
+        SUPPRESS_UNUSED_WARNING(src_runtime);
+        int src_channel = 0; // Channel index.
+        SUPPRESS_UNUSED_WARNING(src_channel);
+        int src_bank = 0; // Bank index.
+        SUPPRESS_UNUSED_WARNING(src_bank);
+        // Iterate over range GhostControls.pacman.control.motors.control_right.err(0,1).
+        {
+            int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+            int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+            int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+            _ols_pacman_control_motors_control_right_self[dst_runtime]->_lf_err = (_picontrol_err_t*)&ghostcontrols_pacman_control_motors_self[src_runtime]->_lf_control_right.err;
+        }
+    }
+    // Connect GhostControls.pacman.control.motors.control_right.ctrl(0,1)->[GhostControls.pacman.control.motors.motors.right_power(0,1)] to port GhostControls.pacman.control.motors.motors.right_power(0,1)
+    // Iterate over ranges GhostControls.pacman.control.motors.control_right.ctrl(0,1)->[GhostControls.pacman.control.motors.motors.right_power(0,1)] and GhostControls.pacman.control.motors.motors.right_power(0,1).
+    {
+        int src_runtime = 0; // Runtime index.
+        SUPPRESS_UNUSED_WARNING(src_runtime);
+        int src_channel = 0; // Channel index.
+        SUPPRESS_UNUSED_WARNING(src_channel);
+        int src_bank = 0; // Bank index.
+        SUPPRESS_UNUSED_WARNING(src_bank);
+        // Iterate over range GhostControls.pacman.control.motors.motors.right_power(0,1).
+        {
+            int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+            int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+            int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+            _stcontrols_pacman_control_motors_motors_self[dst_runtime]->_lf_right_power = (_motors_right_power_t*)&_ols_pacman_control_motors_control_right_self[src_runtime]->_lf_ctrl;
+        }
+    }
+    // Connect inputs and outputs for reactor GhostControls.pacman.control.encoder.
+    // Connect GhostControls.pacman.control.encoder.trigger(0,1)->[GhostControls.pacman.control.encoder.trigger(0,1)] to port GhostControls.pacman.control.encoder.trigger(0,1)
+    // Iterate over ranges GhostControls.pacman.control.encoder.trigger(0,1)->[GhostControls.pacman.control.encoder.trigger(0,1)] and GhostControls.pacman.control.encoder.trigger(0,1).
+    {
+        int src_runtime = 0; // Runtime index.
+        SUPPRESS_UNUSED_WARNING(src_runtime);
+        int src_channel = 0; // Channel index.
+        SUPPRESS_UNUSED_WARNING(src_channel);
+        int src_bank = 0; // Bank index.
+        SUPPRESS_UNUSED_WARNING(src_bank);
+        // Iterate over range GhostControls.pacman.control.encoder.trigger(0,1).
+        {
+            int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+            int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+            int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+            ghostcontrols_pacman_control_encoder_self[dst_runtime]->_lf_trigger = (_encoders_trigger_t*)&ghostcontrols_pacman_control_self[src_runtime]->_lf_encoder.trigger;
+        }
+    }
+    // Connect GhostControls.pacman.control.encoder.right(0,1)->[GhostControls.pacman.control.motors.right(0,1)] to port GhostControls.pacman.control.motors.right(0,1)
+    // Iterate over ranges GhostControls.pacman.control.encoder.right(0,1)->[GhostControls.pacman.control.motors.right(0,1)] and GhostControls.pacman.control.motors.right(0,1).
+    {
+        int src_runtime = 0; // Runtime index.
+        SUPPRESS_UNUSED_WARNING(src_runtime);
+        int src_channel = 0; // Channel index.
+        SUPPRESS_UNUSED_WARNING(src_channel);
+        int src_bank = 0; // Bank index.
+        SUPPRESS_UNUSED_WARNING(src_bank);
+        // Iterate over range GhostControls.pacman.control.motors.right(0,1).
+        {
+            int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+            int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+            int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+            ghostcontrols_pacman_control_motors_self[dst_runtime]->_lf_right = (_motorswithfeedback_right_t*)&ghostcontrols_pacman_control_encoder_self[src_runtime]->_lf_right;
+        }
+    }
+    // Connect GhostControls.pacman.control.encoder.left(0,1)->[GhostControls.pacman.control.motors.left(0,1)] to port GhostControls.pacman.control.motors.left(0,1)
+    // Iterate over ranges GhostControls.pacman.control.encoder.left(0,1)->[GhostControls.pacman.control.motors.left(0,1)] and GhostControls.pacman.control.motors.left(0,1).
+    {
+        int src_runtime = 0; // Runtime index.
+        SUPPRESS_UNUSED_WARNING(src_runtime);
+        int src_channel = 0; // Channel index.
+        SUPPRESS_UNUSED_WARNING(src_channel);
+        int src_bank = 0; // Bank index.
+        SUPPRESS_UNUSED_WARNING(src_bank);
+        // Iterate over range GhostControls.pacman.control.motors.left(0,1).
+        {
+            int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+            int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+            int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+            ghostcontrols_pacman_control_motors_self[dst_runtime]->_lf_left = (_motorswithfeedback_left_t*)&ghostcontrols_pacman_control_encoder_self[src_runtime]->_lf_left;
+        }
+    }
+    // Connect inputs and outputs for reactor GhostControls.pacman.control.gyro.
+    // Connect GhostControls.pacman.control.gyro.trigger(0,1)->[GhostControls.pacman.control.gyro.g.trigger(0,1)] to port GhostControls.pacman.control.gyro.g.trigger(0,1)
+    // Iterate over ranges GhostControls.pacman.control.gyro.trigger(0,1)->[GhostControls.pacman.control.gyro.g.trigger(0,1)] and GhostControls.pacman.control.gyro.g.trigger(0,1).
+    {
+        int src_runtime = 0; // Runtime index.
+        SUPPRESS_UNUSED_WARNING(src_runtime);
+        int src_channel = 0; // Channel index.
+        SUPPRESS_UNUSED_WARNING(src_channel);
+        int src_bank = 0; // Bank index.
+        SUPPRESS_UNUSED_WARNING(src_bank);
+        // Iterate over range GhostControls.pacman.control.gyro.g.trigger(0,1).
+        {
+            int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+            int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+            int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+            ghostcontrols_pacman_control_gyro_g_self[dst_runtime]->_lf_trigger = (_gyro_trigger_t*)&ghostcontrols_pacman_control_self[src_runtime]->_lf_gyro.trigger;
+        }
+    }
+    // Connect inputs and outputs for reactor GhostControls.pacman.control.gyro.g.
+    // Connect GhostControls.pacman.control.gyro.g.x(0,1)->[GhostControls.pacman.control.gyro.integrator1.in(0,1)] to port GhostControls.pacman.control.gyro.integrator1.in(0,1)
+    // Iterate over ranges GhostControls.pacman.control.gyro.g.x(0,1)->[GhostControls.pacman.control.gyro.integrator1.in(0,1)] and GhostControls.pacman.control.gyro.integrator1.in(0,1).
+    {
+        int src_runtime = 0; // Runtime index.
+        SUPPRESS_UNUSED_WARNING(src_runtime);
+        int src_channel = 0; // Channel index.
+        SUPPRESS_UNUSED_WARNING(src_channel);
+        int src_bank = 0; // Bank index.
+        SUPPRESS_UNUSED_WARNING(src_bank);
+        // Iterate over range GhostControls.pacman.control.gyro.integrator1.in(0,1).
+        {
+            int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+            int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+            int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+            _ontrols_pacman_control_gyro_integrator1_self[dst_runtime]->_lf_in = (_trapezoidalintegrator_in_t*)&ghostcontrols_pacman_control_gyro_g_self[src_runtime]->_lf_x;
+        }
+    }
+    // Connect GhostControls.pacman.control.gyro.g.y(0,1)->[GhostControls.pacman.control.gyro.integrator2.in(0,1)] to port GhostControls.pacman.control.gyro.integrator2.in(0,1)
+    // Iterate over ranges GhostControls.pacman.control.gyro.g.y(0,1)->[GhostControls.pacman.control.gyro.integrator2.in(0,1)] and GhostControls.pacman.control.gyro.integrator2.in(0,1).
+    {
+        int src_runtime = 0; // Runtime index.
+        SUPPRESS_UNUSED_WARNING(src_runtime);
+        int src_channel = 0; // Channel index.
+        SUPPRESS_UNUSED_WARNING(src_channel);
+        int src_bank = 0; // Bank index.
+        SUPPRESS_UNUSED_WARNING(src_bank);
+        // Iterate over range GhostControls.pacman.control.gyro.integrator2.in(0,1).
+        {
+            int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+            int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+            int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+            _ontrols_pacman_control_gyro_integrator2_self[dst_runtime]->_lf_in = (_trapezoidalintegrator_in_t*)&ghostcontrols_pacman_control_gyro_g_self[src_runtime]->_lf_y;
+        }
+    }
+    // Connect GhostControls.pacman.control.gyro.g.z(0,1)->[GhostControls.pacman.control.gyro.integrator3.in(0,1)] to port GhostControls.pacman.control.gyro.integrator3.in(0,1)
+    // Iterate over ranges GhostControls.pacman.control.gyro.g.z(0,1)->[GhostControls.pacman.control.gyro.integrator3.in(0,1)] and GhostControls.pacman.control.gyro.integrator3.in(0,1).
+    {
+        int src_runtime = 0; // Runtime index.
+        SUPPRESS_UNUSED_WARNING(src_runtime);
+        int src_channel = 0; // Channel index.
+        SUPPRESS_UNUSED_WARNING(src_channel);
+        int src_bank = 0; // Bank index.
+        SUPPRESS_UNUSED_WARNING(src_bank);
+        // Iterate over range GhostControls.pacman.control.gyro.integrator3.in(0,1).
+        {
+            int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+            int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+            int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+            _ontrols_pacman_control_gyro_integrator3_self[dst_runtime]->_lf_in = (_trapezoidalintegrator_in_t*)&ghostcontrols_pacman_control_gyro_g_self[src_runtime]->_lf_z;
+        }
+    }
+    // Connect inputs and outputs for reactor GhostControls.pacman.control.gyro.integrator1.
     
-    // Connect inputs and outputs for reactor GhostControls.ghost.control.
-    // Connect GhostControls.ghost.control.turn_angle(0,1)->[GhostControls.ghost.control.turn_angle(0,1)] to port GhostControls.ghost.control.turn_angle(0,1)
-    // Iterate over ranges GhostControls.ghost.control.turn_angle(0,1)->[GhostControls.ghost.control.turn_angle(0,1)] and GhostControls.ghost.control.turn_angle(0,1).
-    {
-        int src_runtime = 0; // Runtime index.
-        SUPPRESS_UNUSED_WARNING(src_runtime);
-        int src_channel = 0; // Channel index.
-        SUPPRESS_UNUSED_WARNING(src_channel);
-        int src_bank = 0; // Bank index.
-        SUPPRESS_UNUSED_WARNING(src_bank);
-        // Iterate over range GhostControls.ghost.control.turn_angle(0,1).
-        {
-            int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
-            int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
-            int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
-            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-            ghostcontrols_ghost_control_self[dst_runtime]->_lf_turn_angle = (_motion_control_turn_angle_t*)&ghostcontrols_ghost_self[src_runtime]->_lf_control.turn_angle;
-        }
-    }
-    // Connect inputs and outputs for reactor GhostControls.ghost.control.motors.
-    // Connect GhostControls.ghost.control.motors.left_speed(0,1)->[GhostControls.ghost.control.motors.left_speed(0,1)] to port GhostControls.ghost.control.motors.left_speed(0,1)
-    // Iterate over ranges GhostControls.ghost.control.motors.left_speed(0,1)->[GhostControls.ghost.control.motors.left_speed(0,1)] and GhostControls.ghost.control.motors.left_speed(0,1).
-    {
-        int src_runtime = 0; // Runtime index.
-        SUPPRESS_UNUSED_WARNING(src_runtime);
-        int src_channel = 0; // Channel index.
-        SUPPRESS_UNUSED_WARNING(src_channel);
-        int src_bank = 0; // Bank index.
-        SUPPRESS_UNUSED_WARNING(src_bank);
-        // Iterate over range GhostControls.ghost.control.motors.left_speed(0,1).
-        {
-            int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
-            int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
-            int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
-            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-            ghostcontrols_ghost_control_motors_self[dst_runtime]->_lf_left_speed = (_motorswithfeedback_left_speed_t*)&ghostcontrols_ghost_control_self[src_runtime]->_lf_motors.left_speed;
-        }
-    }
-    // Connect GhostControls.ghost.control.motors.right_speed(0,1)->[GhostControls.ghost.control.motors.right_speed(0,1)] to port GhostControls.ghost.control.motors.right_speed(0,1)
-    // Iterate over ranges GhostControls.ghost.control.motors.right_speed(0,1)->[GhostControls.ghost.control.motors.right_speed(0,1)] and GhostControls.ghost.control.motors.right_speed(0,1).
-    {
-        int src_runtime = 0; // Runtime index.
-        SUPPRESS_UNUSED_WARNING(src_runtime);
-        int src_channel = 0; // Channel index.
-        SUPPRESS_UNUSED_WARNING(src_channel);
-        int src_bank = 0; // Bank index.
-        SUPPRESS_UNUSED_WARNING(src_bank);
-        // Iterate over range GhostControls.ghost.control.motors.right_speed(0,1).
-        {
-            int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
-            int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
-            int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
-            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-            ghostcontrols_ghost_control_motors_self[dst_runtime]->_lf_right_speed = (_motorswithfeedback_right_speed_t*)&ghostcontrols_ghost_control_self[src_runtime]->_lf_motors.right_speed;
-        }
-    }
-    // Connect inputs and outputs for reactor GhostControls.ghost.control.motors.motors.
-    // Connect inputs and outputs for reactor GhostControls.ghost.control.motors.control_left.
-    // Connect GhostControls.ghost.control.motors.control_left.err(0,1)->[GhostControls.ghost.control.motors.control_left.err(0,1)] to port GhostControls.ghost.control.motors.control_left.err(0,1)
-    // Iterate over ranges GhostControls.ghost.control.motors.control_left.err(0,1)->[GhostControls.ghost.control.motors.control_left.err(0,1)] and GhostControls.ghost.control.motors.control_left.err(0,1).
-    {
-        int src_runtime = 0; // Runtime index.
-        SUPPRESS_UNUSED_WARNING(src_runtime);
-        int src_channel = 0; // Channel index.
-        SUPPRESS_UNUSED_WARNING(src_channel);
-        int src_bank = 0; // Bank index.
-        SUPPRESS_UNUSED_WARNING(src_bank);
-        // Iterate over range GhostControls.ghost.control.motors.control_left.err(0,1).
-        {
-            int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
-            int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
-            int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
-            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-            _trols_ghost_control_motors_control_left_self[dst_runtime]->_lf_err = (_picontrol_err_t*)&ghostcontrols_ghost_control_motors_self[src_runtime]->_lf_control_left.err;
-        }
-    }
-    // Connect GhostControls.ghost.control.motors.control_left.ctrl(0,1)->[GhostControls.ghost.control.motors.motors.left_power(0,1)] to port GhostControls.ghost.control.motors.motors.left_power(0,1)
-    // Iterate over ranges GhostControls.ghost.control.motors.control_left.ctrl(0,1)->[GhostControls.ghost.control.motors.motors.left_power(0,1)] and GhostControls.ghost.control.motors.motors.left_power(0,1).
-    {
-        int src_runtime = 0; // Runtime index.
-        SUPPRESS_UNUSED_WARNING(src_runtime);
-        int src_channel = 0; // Channel index.
-        SUPPRESS_UNUSED_WARNING(src_channel);
-        int src_bank = 0; // Bank index.
-        SUPPRESS_UNUSED_WARNING(src_bank);
-        // Iterate over range GhostControls.ghost.control.motors.motors.left_power(0,1).
-        {
-            int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
-            int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
-            int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
-            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-            _ostcontrols_ghost_control_motors_motors_self[dst_runtime]->_lf_left_power = (_motors_left_power_t*)&_trols_ghost_control_motors_control_left_self[src_runtime]->_lf_ctrl;
-        }
-    }
-    // Connect inputs and outputs for reactor GhostControls.ghost.control.motors.control_right.
-    // Connect GhostControls.ghost.control.motors.control_right.err(0,1)->[GhostControls.ghost.control.motors.control_right.err(0,1)] to port GhostControls.ghost.control.motors.control_right.err(0,1)
-    // Iterate over ranges GhostControls.ghost.control.motors.control_right.err(0,1)->[GhostControls.ghost.control.motors.control_right.err(0,1)] and GhostControls.ghost.control.motors.control_right.err(0,1).
-    {
-        int src_runtime = 0; // Runtime index.
-        SUPPRESS_UNUSED_WARNING(src_runtime);
-        int src_channel = 0; // Channel index.
-        SUPPRESS_UNUSED_WARNING(src_channel);
-        int src_bank = 0; // Bank index.
-        SUPPRESS_UNUSED_WARNING(src_bank);
-        // Iterate over range GhostControls.ghost.control.motors.control_right.err(0,1).
-        {
-            int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
-            int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
-            int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
-            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-            _rols_ghost_control_motors_control_right_self[dst_runtime]->_lf_err = (_picontrol_err_t*)&ghostcontrols_ghost_control_motors_self[src_runtime]->_lf_control_right.err;
-        }
-    }
-    // Connect GhostControls.ghost.control.motors.control_right.ctrl(0,1)->[GhostControls.ghost.control.motors.motors.right_power(0,1)] to port GhostControls.ghost.control.motors.motors.right_power(0,1)
-    // Iterate over ranges GhostControls.ghost.control.motors.control_right.ctrl(0,1)->[GhostControls.ghost.control.motors.motors.right_power(0,1)] and GhostControls.ghost.control.motors.motors.right_power(0,1).
-    {
-        int src_runtime = 0; // Runtime index.
-        SUPPRESS_UNUSED_WARNING(src_runtime);
-        int src_channel = 0; // Channel index.
-        SUPPRESS_UNUSED_WARNING(src_channel);
-        int src_bank = 0; // Bank index.
-        SUPPRESS_UNUSED_WARNING(src_bank);
-        // Iterate over range GhostControls.ghost.control.motors.motors.right_power(0,1).
-        {
-            int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
-            int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
-            int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
-            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-            _ostcontrols_ghost_control_motors_motors_self[dst_runtime]->_lf_right_power = (_motors_right_power_t*)&_rols_ghost_control_motors_control_right_self[src_runtime]->_lf_ctrl;
-        }
-    }
-    // Connect inputs and outputs for reactor GhostControls.ghost.control.encoder.
-    // Connect GhostControls.ghost.control.encoder.trigger(0,1)->[GhostControls.ghost.control.encoder.trigger(0,1)] to port GhostControls.ghost.control.encoder.trigger(0,1)
-    // Iterate over ranges GhostControls.ghost.control.encoder.trigger(0,1)->[GhostControls.ghost.control.encoder.trigger(0,1)] and GhostControls.ghost.control.encoder.trigger(0,1).
-    {
-        int src_runtime = 0; // Runtime index.
-        SUPPRESS_UNUSED_WARNING(src_runtime);
-        int src_channel = 0; // Channel index.
-        SUPPRESS_UNUSED_WARNING(src_channel);
-        int src_bank = 0; // Bank index.
-        SUPPRESS_UNUSED_WARNING(src_bank);
-        // Iterate over range GhostControls.ghost.control.encoder.trigger(0,1).
-        {
-            int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
-            int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
-            int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
-            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-            ghostcontrols_ghost_control_encoder_self[dst_runtime]->_lf_trigger = (_encoders_trigger_t*)&ghostcontrols_ghost_control_self[src_runtime]->_lf_encoder.trigger;
-        }
-    }
-    // Connect GhostControls.ghost.control.encoder.right(0,1)->[GhostControls.ghost.control.motors.right(0,1)] to port GhostControls.ghost.control.motors.right(0,1)
-    // Iterate over ranges GhostControls.ghost.control.encoder.right(0,1)->[GhostControls.ghost.control.motors.right(0,1)] and GhostControls.ghost.control.motors.right(0,1).
-    {
-        int src_runtime = 0; // Runtime index.
-        SUPPRESS_UNUSED_WARNING(src_runtime);
-        int src_channel = 0; // Channel index.
-        SUPPRESS_UNUSED_WARNING(src_channel);
-        int src_bank = 0; // Bank index.
-        SUPPRESS_UNUSED_WARNING(src_bank);
-        // Iterate over range GhostControls.ghost.control.motors.right(0,1).
-        {
-            int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
-            int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
-            int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
-            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-            ghostcontrols_ghost_control_motors_self[dst_runtime]->_lf_right = (_motorswithfeedback_right_t*)&ghostcontrols_ghost_control_encoder_self[src_runtime]->_lf_right;
-        }
-    }
-    // Connect GhostControls.ghost.control.encoder.left(0,1)->[GhostControls.ghost.control.motors.left(0,1)] to port GhostControls.ghost.control.motors.left(0,1)
-    // Iterate over ranges GhostControls.ghost.control.encoder.left(0,1)->[GhostControls.ghost.control.motors.left(0,1)] and GhostControls.ghost.control.motors.left(0,1).
-    {
-        int src_runtime = 0; // Runtime index.
-        SUPPRESS_UNUSED_WARNING(src_runtime);
-        int src_channel = 0; // Channel index.
-        SUPPRESS_UNUSED_WARNING(src_channel);
-        int src_bank = 0; // Bank index.
-        SUPPRESS_UNUSED_WARNING(src_bank);
-        // Iterate over range GhostControls.ghost.control.motors.left(0,1).
-        {
-            int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
-            int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
-            int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
-            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-            ghostcontrols_ghost_control_motors_self[dst_runtime]->_lf_left = (_motorswithfeedback_left_t*)&ghostcontrols_ghost_control_encoder_self[src_runtime]->_lf_left;
-        }
-    }
-    // Connect inputs and outputs for reactor GhostControls.ghost.control.gyro.
-    // Connect GhostControls.ghost.control.gyro.trigger(0,1)->[GhostControls.ghost.control.gyro.g.trigger(0,1)] to port GhostControls.ghost.control.gyro.g.trigger(0,1)
-    // Iterate over ranges GhostControls.ghost.control.gyro.trigger(0,1)->[GhostControls.ghost.control.gyro.g.trigger(0,1)] and GhostControls.ghost.control.gyro.g.trigger(0,1).
-    {
-        int src_runtime = 0; // Runtime index.
-        SUPPRESS_UNUSED_WARNING(src_runtime);
-        int src_channel = 0; // Channel index.
-        SUPPRESS_UNUSED_WARNING(src_channel);
-        int src_bank = 0; // Bank index.
-        SUPPRESS_UNUSED_WARNING(src_bank);
-        // Iterate over range GhostControls.ghost.control.gyro.g.trigger(0,1).
-        {
-            int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
-            int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
-            int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
-            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-            ghostcontrols_ghost_control_gyro_g_self[dst_runtime]->_lf_trigger = (_gyro_trigger_t*)&ghostcontrols_ghost_control_self[src_runtime]->_lf_gyro.trigger;
-        }
-    }
-    // Connect inputs and outputs for reactor GhostControls.ghost.control.gyro.g.
-    // Connect GhostControls.ghost.control.gyro.g.x(0,1)->[GhostControls.ghost.control.gyro.integrator1.in(0,1)] to port GhostControls.ghost.control.gyro.integrator1.in(0,1)
-    // Iterate over ranges GhostControls.ghost.control.gyro.g.x(0,1)->[GhostControls.ghost.control.gyro.integrator1.in(0,1)] and GhostControls.ghost.control.gyro.integrator1.in(0,1).
-    {
-        int src_runtime = 0; // Runtime index.
-        SUPPRESS_UNUSED_WARNING(src_runtime);
-        int src_channel = 0; // Channel index.
-        SUPPRESS_UNUSED_WARNING(src_channel);
-        int src_bank = 0; // Bank index.
-        SUPPRESS_UNUSED_WARNING(src_bank);
-        // Iterate over range GhostControls.ghost.control.gyro.integrator1.in(0,1).
-        {
-            int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
-            int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
-            int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
-            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-            _controls_ghost_control_gyro_integrator1_self[dst_runtime]->_lf_in = (_trapezoidalintegrator_in_t*)&ghostcontrols_ghost_control_gyro_g_self[src_runtime]->_lf_x;
-        }
-    }
-    // Connect GhostControls.ghost.control.gyro.g.y(0,1)->[GhostControls.ghost.control.gyro.integrator2.in(0,1)] to port GhostControls.ghost.control.gyro.integrator2.in(0,1)
-    // Iterate over ranges GhostControls.ghost.control.gyro.g.y(0,1)->[GhostControls.ghost.control.gyro.integrator2.in(0,1)] and GhostControls.ghost.control.gyro.integrator2.in(0,1).
-    {
-        int src_runtime = 0; // Runtime index.
-        SUPPRESS_UNUSED_WARNING(src_runtime);
-        int src_channel = 0; // Channel index.
-        SUPPRESS_UNUSED_WARNING(src_channel);
-        int src_bank = 0; // Bank index.
-        SUPPRESS_UNUSED_WARNING(src_bank);
-        // Iterate over range GhostControls.ghost.control.gyro.integrator2.in(0,1).
-        {
-            int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
-            int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
-            int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
-            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-            _controls_ghost_control_gyro_integrator2_self[dst_runtime]->_lf_in = (_trapezoidalintegrator_in_t*)&ghostcontrols_ghost_control_gyro_g_self[src_runtime]->_lf_y;
-        }
-    }
-    // Connect GhostControls.ghost.control.gyro.g.z(0,1)->[GhostControls.ghost.control.gyro.integrator3.in(0,1)] to port GhostControls.ghost.control.gyro.integrator3.in(0,1)
-    // Iterate over ranges GhostControls.ghost.control.gyro.g.z(0,1)->[GhostControls.ghost.control.gyro.integrator3.in(0,1)] and GhostControls.ghost.control.gyro.integrator3.in(0,1).
-    {
-        int src_runtime = 0; // Runtime index.
-        SUPPRESS_UNUSED_WARNING(src_runtime);
-        int src_channel = 0; // Channel index.
-        SUPPRESS_UNUSED_WARNING(src_channel);
-        int src_bank = 0; // Bank index.
-        SUPPRESS_UNUSED_WARNING(src_bank);
-        // Iterate over range GhostControls.ghost.control.gyro.integrator3.in(0,1).
-        {
-            int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
-            int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
-            int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
-            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-            _controls_ghost_control_gyro_integrator3_self[dst_runtime]->_lf_in = (_trapezoidalintegrator_in_t*)&ghostcontrols_ghost_control_gyro_g_self[src_runtime]->_lf_z;
-        }
-    }
-    // Connect inputs and outputs for reactor GhostControls.ghost.control.gyro.integrator1.
+    // Connect inputs and outputs for reactor GhostControls.pacman.control.gyro.integrator2.
     
-    // Connect inputs and outputs for reactor GhostControls.ghost.control.gyro.integrator2.
-    
-    // Connect inputs and outputs for reactor GhostControls.ghost.control.gyro.integrator3.
-    // Connect GhostControls.ghost.control.gyro.integrator3.out(0,1)->[GhostControls.ghost.control.gyro.z(0,1)] to port GhostControls.ghost.control.gyro.z(0,1)
-    // Iterate over ranges GhostControls.ghost.control.gyro.integrator3.out(0,1)->[GhostControls.ghost.control.gyro.z(0,1)] and GhostControls.ghost.control.gyro.z(0,1).
+    // Connect inputs and outputs for reactor GhostControls.pacman.control.gyro.integrator3.
+    // Connect GhostControls.pacman.control.gyro.integrator3.out(0,1)->[GhostControls.pacman.control.gyro.z(0,1)] to port GhostControls.pacman.control.gyro.z(0,1)
+    // Iterate over ranges GhostControls.pacman.control.gyro.integrator3.out(0,1)->[GhostControls.pacman.control.gyro.z(0,1)] and GhostControls.pacman.control.gyro.z(0,1).
     {
         int src_runtime = 0; // Runtime index.
         SUPPRESS_UNUSED_WARNING(src_runtime);
@@ -2975,20 +2735,35 @@ void _lf_initialize_trigger_objects() {
         SUPPRESS_UNUSED_WARNING(src_channel);
         int src_bank = 0; // Bank index.
         SUPPRESS_UNUSED_WARNING(src_bank);
-        // Iterate over range GhostControls.ghost.control.gyro.z(0,1).
+        // Iterate over range GhostControls.pacman.control.gyro.z(0,1).
         {
             int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
             int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
             int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
             int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
-            ghostcontrols_ghost_control_self[dst_runtime]->_lf_gyro.z = (_gyroangle_z_t*)&_controls_ghost_control_gyro_integrator3_self[src_runtime]->_lf_out;
+            ghostcontrols_pacman_control_self[dst_runtime]->_lf_gyro.z = (_gyroangle_z_t*)&_ontrols_pacman_control_gyro_integrator3_self[src_runtime]->_lf_out;
         }
     }
+    // Connect inputs and outputs for reactor GhostControls.pacman.bt.
+    // Connect GhostControls.pacman.bt.cmd(0,1)->[GhostControls.pacman.bt.cmd(0,1)] to port GhostControls.pacman.bt.cmd(0,1)
+    // Iterate over ranges GhostControls.pacman.bt.cmd(0,1)->[GhostControls.pacman.bt.cmd(0,1)] and GhostControls.pacman.bt.cmd(0,1).
     {
-    }
-    {
+        int src_runtime = 0; // Runtime index.
+        SUPPRESS_UNUSED_WARNING(src_runtime);
+        int src_channel = 0; // Channel index.
+        SUPPRESS_UNUSED_WARNING(src_channel);
+        int src_bank = 0; // Bank index.
+        SUPPRESS_UNUSED_WARNING(src_bank);
+        // Iterate over range GhostControls.pacman.bt.cmd(0,1).
         {
+            int dst_runtime = 0; SUPPRESS_UNUSED_WARNING(dst_runtime); // Runtime index.
+            int dst_channel = 0; SUPPRESS_UNUSED_WARNING(dst_channel); // Channel index.
+            int dst_bank = 0; SUPPRESS_UNUSED_WARNING(dst_bank); // Bank index.
+            int range_count = 0; SUPPRESS_UNUSED_WARNING(range_count);
+            ghostcontrols_pacman_self[dst_runtime]->_lf_bt.cmd = (_bluetooth_cmd_t*)&ghostcontrols_pacman_bt_self[src_runtime]->_lf_cmd;
         }
+    }
+    {
         {
         }
         {
@@ -3001,27 +2776,27 @@ void _lf_initialize_trigger_objects() {
                 }
                 {
                 }
-                // Add port GhostControls.ghost.control.motors.control_left.err to array of is_present fields.
+                // Add port GhostControls.pacman.control.motors.control_left.err to array of is_present fields.
                 {
                     int count = 0; SUPPRESS_UNUSED_WARNING(count);
                     {
                         {
-                            environments[ghostcontrols_main].is_present_fields[0 + (0) * 1 + count] = &ghostcontrols_ghost_control_motors_self[0]->_lf_control_left.err.is_present;
+                            environments[ghostcontrols_main].is_present_fields[0 + (0) * 1 + count] = &ghostcontrols_pacman_control_motors_self[0]->_lf_control_left.err.is_present;
                             #ifdef FEDERATED_DECENTRALIZED
-                            environments[ghostcontrols_main]._lf_intended_tag_fields[0 + (0) * 1 + count] = &ghostcontrols_ghost_control_motors_self[0]->_lf_control_left.err.intended_tag;
+                            environments[ghostcontrols_main]._lf_intended_tag_fields[0 + (0) * 1 + count] = &ghostcontrols_pacman_control_motors_self[0]->_lf_control_left.err.intended_tag;
                             #endif // FEDERATED_DECENTRALIZED
                             count++;
                         }
                     }
                 }
-                // Add port GhostControls.ghost.control.motors.control_right.err to array of is_present fields.
+                // Add port GhostControls.pacman.control.motors.control_right.err to array of is_present fields.
                 {
                     int count = 0; SUPPRESS_UNUSED_WARNING(count);
                     {
                         {
-                            environments[ghostcontrols_main].is_present_fields[1 + (0) * 1 + count] = &ghostcontrols_ghost_control_motors_self[0]->_lf_control_right.err.is_present;
+                            environments[ghostcontrols_main].is_present_fields[1 + (0) * 1 + count] = &ghostcontrols_pacman_control_motors_self[0]->_lf_control_right.err.is_present;
                             #ifdef FEDERATED_DECENTRALIZED
-                            environments[ghostcontrols_main]._lf_intended_tag_fields[1 + (0) * 1 + count] = &ghostcontrols_ghost_control_motors_self[0]->_lf_control_right.err.intended_tag;
+                            environments[ghostcontrols_main]._lf_intended_tag_fields[1 + (0) * 1 + count] = &ghostcontrols_pacman_control_motors_self[0]->_lf_control_right.err.intended_tag;
                             #endif // FEDERATED_DECENTRALIZED
                             count++;
                         }
@@ -3030,11 +2805,11 @@ void _lf_initialize_trigger_objects() {
                 {
                     int count = 0; SUPPRESS_UNUSED_WARNING(count);
                     {
-                        // Add output port GhostControls.ghost.control.motors.control_left.ctrl to array of is_present fields.
-                        environments[ghostcontrols_main].is_present_fields[(0) * 1 + 2 + count] = &_trols_ghost_control_motors_control_left_self[0]->_lf_ctrl.is_present;
+                        // Add output port GhostControls.pacman.control.motors.control_left.ctrl to array of is_present fields.
+                        environments[ghostcontrols_main].is_present_fields[(0) * 1 + 2 + count] = &_rols_pacman_control_motors_control_left_self[0]->_lf_ctrl.is_present;
                         #ifdef FEDERATED_DECENTRALIZED
-                        // Add output port GhostControls.ghost.control.motors.control_left.ctrl to array of intended_tag fields.
-                        environments[ghostcontrols_main]._lf_intended_tag_fields[(0) * 1 + 2 + count] = &_trols_ghost_control_motors_control_left_self[0]->_lf_ctrl.intended_tag;
+                        // Add output port GhostControls.pacman.control.motors.control_left.ctrl to array of intended_tag fields.
+                        environments[ghostcontrols_main]._lf_intended_tag_fields[(0) * 1 + 2 + count] = &_rols_pacman_control_motors_control_left_self[0]->_lf_ctrl.intended_tag;
                         #endif // FEDERATED_DECENTRALIZED
                         count++;
                     }
@@ -3042,11 +2817,11 @@ void _lf_initialize_trigger_objects() {
                 {
                     int count = 0; SUPPRESS_UNUSED_WARNING(count);
                     {
-                        // Add output port GhostControls.ghost.control.motors.control_right.ctrl to array of is_present fields.
-                        environments[ghostcontrols_main].is_present_fields[(0) * 1 + 3 + count] = &_rols_ghost_control_motors_control_right_self[0]->_lf_ctrl.is_present;
+                        // Add output port GhostControls.pacman.control.motors.control_right.ctrl to array of is_present fields.
+                        environments[ghostcontrols_main].is_present_fields[(0) * 1 + 3 + count] = &_ols_pacman_control_motors_control_right_self[0]->_lf_ctrl.is_present;
                         #ifdef FEDERATED_DECENTRALIZED
-                        // Add output port GhostControls.ghost.control.motors.control_right.ctrl to array of intended_tag fields.
-                        environments[ghostcontrols_main]._lf_intended_tag_fields[(0) * 1 + 3 + count] = &_rols_ghost_control_motors_control_right_self[0]->_lf_ctrl.intended_tag;
+                        // Add output port GhostControls.pacman.control.motors.control_right.ctrl to array of intended_tag fields.
+                        environments[ghostcontrols_main]._lf_intended_tag_fields[(0) * 1 + 3 + count] = &_ols_pacman_control_motors_control_right_self[0]->_lf_ctrl.intended_tag;
                         #endif // FEDERATED_DECENTRALIZED
                         count++;
                     }
@@ -3066,37 +2841,25 @@ void _lf_initialize_trigger_objects() {
                 {
                     int count = 0; SUPPRESS_UNUSED_WARNING(count);
                     {
-                        // Add output port GhostControls.ghost.control.gyro.g.x to array of is_present fields.
-                        environments[ghostcontrols_main].is_present_fields[(0) * 3 + 4 + count] = &ghostcontrols_ghost_control_gyro_g_self[0]->_lf_x.is_present;
+                        // Add output port GhostControls.pacman.control.gyro.g.x to array of is_present fields.
+                        environments[ghostcontrols_main].is_present_fields[(0) * 3 + 4 + count] = &ghostcontrols_pacman_control_gyro_g_self[0]->_lf_x.is_present;
                         #ifdef FEDERATED_DECENTRALIZED
-                        // Add output port GhostControls.ghost.control.gyro.g.x to array of intended_tag fields.
-                        environments[ghostcontrols_main]._lf_intended_tag_fields[(0) * 3 + 4 + count] = &ghostcontrols_ghost_control_gyro_g_self[0]->_lf_x.intended_tag;
+                        // Add output port GhostControls.pacman.control.gyro.g.x to array of intended_tag fields.
+                        environments[ghostcontrols_main]._lf_intended_tag_fields[(0) * 3 + 4 + count] = &ghostcontrols_pacman_control_gyro_g_self[0]->_lf_x.intended_tag;
                         #endif // FEDERATED_DECENTRALIZED
                         count++;
-                        // Add output port GhostControls.ghost.control.gyro.g.y to array of is_present fields.
-                        environments[ghostcontrols_main].is_present_fields[(0) * 3 + 4 + count] = &ghostcontrols_ghost_control_gyro_g_self[0]->_lf_y.is_present;
+                        // Add output port GhostControls.pacman.control.gyro.g.y to array of is_present fields.
+                        environments[ghostcontrols_main].is_present_fields[(0) * 3 + 4 + count] = &ghostcontrols_pacman_control_gyro_g_self[0]->_lf_y.is_present;
                         #ifdef FEDERATED_DECENTRALIZED
-                        // Add output port GhostControls.ghost.control.gyro.g.y to array of intended_tag fields.
-                        environments[ghostcontrols_main]._lf_intended_tag_fields[(0) * 3 + 4 + count] = &ghostcontrols_ghost_control_gyro_g_self[0]->_lf_y.intended_tag;
+                        // Add output port GhostControls.pacman.control.gyro.g.y to array of intended_tag fields.
+                        environments[ghostcontrols_main]._lf_intended_tag_fields[(0) * 3 + 4 + count] = &ghostcontrols_pacman_control_gyro_g_self[0]->_lf_y.intended_tag;
                         #endif // FEDERATED_DECENTRALIZED
                         count++;
-                        // Add output port GhostControls.ghost.control.gyro.g.z to array of is_present fields.
-                        environments[ghostcontrols_main].is_present_fields[(0) * 3 + 4 + count] = &ghostcontrols_ghost_control_gyro_g_self[0]->_lf_z.is_present;
+                        // Add output port GhostControls.pacman.control.gyro.g.z to array of is_present fields.
+                        environments[ghostcontrols_main].is_present_fields[(0) * 3 + 4 + count] = &ghostcontrols_pacman_control_gyro_g_self[0]->_lf_z.is_present;
                         #ifdef FEDERATED_DECENTRALIZED
-                        // Add output port GhostControls.ghost.control.gyro.g.z to array of intended_tag fields.
-                        environments[ghostcontrols_main]._lf_intended_tag_fields[(0) * 3 + 4 + count] = &ghostcontrols_ghost_control_gyro_g_self[0]->_lf_z.intended_tag;
-                        #endif // FEDERATED_DECENTRALIZED
-                        count++;
-                    }
-                }
-                {
-                    int count = 0; SUPPRESS_UNUSED_WARNING(count);
-                    {
-                        // Add output port GhostControls.ghost.control.gyro.integrator1.out to array of is_present fields.
-                        environments[ghostcontrols_main].is_present_fields[(0) * 1 + 7 + count] = &_controls_ghost_control_gyro_integrator1_self[0]->_lf_out.is_present;
-                        #ifdef FEDERATED_DECENTRALIZED
-                        // Add output port GhostControls.ghost.control.gyro.integrator1.out to array of intended_tag fields.
-                        environments[ghostcontrols_main]._lf_intended_tag_fields[(0) * 1 + 7 + count] = &_controls_ghost_control_gyro_integrator1_self[0]->_lf_out.intended_tag;
+                        // Add output port GhostControls.pacman.control.gyro.g.z to array of intended_tag fields.
+                        environments[ghostcontrols_main]._lf_intended_tag_fields[(0) * 3 + 4 + count] = &ghostcontrols_pacman_control_gyro_g_self[0]->_lf_z.intended_tag;
                         #endif // FEDERATED_DECENTRALIZED
                         count++;
                     }
@@ -3104,11 +2867,11 @@ void _lf_initialize_trigger_objects() {
                 {
                     int count = 0; SUPPRESS_UNUSED_WARNING(count);
                     {
-                        // Add output port GhostControls.ghost.control.gyro.integrator2.out to array of is_present fields.
-                        environments[ghostcontrols_main].is_present_fields[(0) * 1 + 8 + count] = &_controls_ghost_control_gyro_integrator2_self[0]->_lf_out.is_present;
+                        // Add output port GhostControls.pacman.control.gyro.integrator1.out to array of is_present fields.
+                        environments[ghostcontrols_main].is_present_fields[(0) * 1 + 7 + count] = &_ontrols_pacman_control_gyro_integrator1_self[0]->_lf_out.is_present;
                         #ifdef FEDERATED_DECENTRALIZED
-                        // Add output port GhostControls.ghost.control.gyro.integrator2.out to array of intended_tag fields.
-                        environments[ghostcontrols_main]._lf_intended_tag_fields[(0) * 1 + 8 + count] = &_controls_ghost_control_gyro_integrator2_self[0]->_lf_out.intended_tag;
+                        // Add output port GhostControls.pacman.control.gyro.integrator1.out to array of intended_tag fields.
+                        environments[ghostcontrols_main]._lf_intended_tag_fields[(0) * 1 + 7 + count] = &_ontrols_pacman_control_gyro_integrator1_self[0]->_lf_out.intended_tag;
                         #endif // FEDERATED_DECENTRALIZED
                         count++;
                     }
@@ -3116,63 +2879,75 @@ void _lf_initialize_trigger_objects() {
                 {
                     int count = 0; SUPPRESS_UNUSED_WARNING(count);
                     {
-                        // Add output port GhostControls.ghost.control.gyro.integrator3.out to array of is_present fields.
-                        environments[ghostcontrols_main].is_present_fields[(0) * 1 + 9 + count] = &_controls_ghost_control_gyro_integrator3_self[0]->_lf_out.is_present;
+                        // Add output port GhostControls.pacman.control.gyro.integrator2.out to array of is_present fields.
+                        environments[ghostcontrols_main].is_present_fields[(0) * 1 + 8 + count] = &_ontrols_pacman_control_gyro_integrator2_self[0]->_lf_out.is_present;
                         #ifdef FEDERATED_DECENTRALIZED
-                        // Add output port GhostControls.ghost.control.gyro.integrator3.out to array of intended_tag fields.
-                        environments[ghostcontrols_main]._lf_intended_tag_fields[(0) * 1 + 9 + count] = &_controls_ghost_control_gyro_integrator3_self[0]->_lf_out.intended_tag;
+                        // Add output port GhostControls.pacman.control.gyro.integrator2.out to array of intended_tag fields.
+                        environments[ghostcontrols_main]._lf_intended_tag_fields[(0) * 1 + 8 + count] = &_ontrols_pacman_control_gyro_integrator2_self[0]->_lf_out.intended_tag;
+                        #endif // FEDERATED_DECENTRALIZED
+                        count++;
+                    }
+                }
+                {
+                    int count = 0; SUPPRESS_UNUSED_WARNING(count);
+                    {
+                        // Add output port GhostControls.pacman.control.gyro.integrator3.out to array of is_present fields.
+                        environments[ghostcontrols_main].is_present_fields[(0) * 1 + 9 + count] = &_ontrols_pacman_control_gyro_integrator3_self[0]->_lf_out.is_present;
+                        #ifdef FEDERATED_DECENTRALIZED
+                        // Add output port GhostControls.pacman.control.gyro.integrator3.out to array of intended_tag fields.
+                        environments[ghostcontrols_main]._lf_intended_tag_fields[(0) * 1 + 9 + count] = &_ontrols_pacman_control_gyro_integrator3_self[0]->_lf_out.intended_tag;
                         #endif // FEDERATED_DECENTRALIZED
                         count++;
                     }
                 }
             }
-            // Add port GhostControls.ghost.control.encoder.trigger to array of is_present fields.
+            // Add port GhostControls.pacman.control.encoder.trigger to array of is_present fields.
             {
                 int count = 0; SUPPRESS_UNUSED_WARNING(count);
                 {
                     {
-                        environments[ghostcontrols_main].is_present_fields[10 + (0) * 1 + count] = &ghostcontrols_ghost_control_self[0]->_lf_encoder.trigger.is_present;
+                        environments[ghostcontrols_main].is_present_fields[10 + (0) * 1 + count] = &ghostcontrols_pacman_control_self[0]->_lf_encoder.trigger.is_present;
                         #ifdef FEDERATED_DECENTRALIZED
-                        environments[ghostcontrols_main]._lf_intended_tag_fields[10 + (0) * 1 + count] = &ghostcontrols_ghost_control_self[0]->_lf_encoder.trigger.intended_tag;
+                        environments[ghostcontrols_main]._lf_intended_tag_fields[10 + (0) * 1 + count] = &ghostcontrols_pacman_control_self[0]->_lf_encoder.trigger.intended_tag;
                         #endif // FEDERATED_DECENTRALIZED
                         count++;
                     }
                 }
             }
-            // Add port GhostControls.ghost.control.gyro.trigger to array of is_present fields.
+            // Add port GhostControls.pacman.control.gyro.trigger to array of is_present fields.
             {
                 int count = 0; SUPPRESS_UNUSED_WARNING(count);
                 {
                     {
-                        environments[ghostcontrols_main].is_present_fields[11 + (0) * 1 + count] = &ghostcontrols_ghost_control_self[0]->_lf_gyro.trigger.is_present;
+                        environments[ghostcontrols_main].is_present_fields[11 + (0) * 1 + count] = &ghostcontrols_pacman_control_self[0]->_lf_gyro.trigger.is_present;
                         #ifdef FEDERATED_DECENTRALIZED
-                        environments[ghostcontrols_main]._lf_intended_tag_fields[11 + (0) * 1 + count] = &ghostcontrols_ghost_control_self[0]->_lf_gyro.trigger.intended_tag;
+                        environments[ghostcontrols_main]._lf_intended_tag_fields[11 + (0) * 1 + count] = &ghostcontrols_pacman_control_self[0]->_lf_gyro.trigger.intended_tag;
                         #endif // FEDERATED_DECENTRALIZED
                         count++;
                     }
                 }
             }
-            // Add port GhostControls.ghost.control.motors.left_speed to array of is_present fields.
+            // Add port GhostControls.pacman.control.motors.left_speed to array of is_present fields.
             {
                 int count = 0; SUPPRESS_UNUSED_WARNING(count);
                 {
                     {
-                        environments[ghostcontrols_main].is_present_fields[12 + (0) * 1 + count] = &ghostcontrols_ghost_control_self[0]->_lf_motors.left_speed.is_present;
+                        environments[ghostcontrols_main].is_present_fields[12 + (0) * 1 + count] = &ghostcontrols_pacman_control_self[0]->_lf_motors.left_speed.is_present;
                         #ifdef FEDERATED_DECENTRALIZED
-                        environments[ghostcontrols_main]._lf_intended_tag_fields[12 + (0) * 1 + count] = &ghostcontrols_ghost_control_self[0]->_lf_motors.left_speed.intended_tag;
+                        environments[ghostcontrols_main]._lf_intended_tag_fields[12 + (0) * 1 + count] = &ghostcontrols_pacman_control_self[0]->_lf_motors.left_speed.intended_tag;
                         #endif // FEDERATED_DECENTRALIZED
                         count++;
                     }
                 }
             }
-            // Add port GhostControls.ghost.control.motors.right_speed to array of is_present fields.
+            // Add port GhostControls.pacman.control.motors.right_speed to array of is_present fields.
             {
                 int count = 0; SUPPRESS_UNUSED_WARNING(count);
                 {
                     {
-                        environments[ghostcontrols_main].is_present_fields[13 + (0) * 1 + count] = &ghostcontrols_ghost_control_self[0]->_lf_motors.right_speed.is_present;
+                        environments[ghostcontrols_main].is_present_fields[13 + (0) * 1 + count] = &ghostcontrols_pacman_control_self[0]->_lf_motors.right_speed.is_present;
                         #ifdef FEDERATED_DECENTRALIZED
-                        environments[ghostcontrols_main]._lf_intended_tag_fields[13 + (0) * 1 + count] = &ghostcontrols_ghost_control_self[0]->_lf_motors.right_speed.intended_tag;
+                        environments[ghostcontrols_main]._lf_intended_tag_fields[13 + (0) * 1 + count] = &ghostcontrols_pacman_control_self[0]->_lf_motors.right_speed.intended_tag;
                         #endif // FEDERATED_DECENTRALIZED
                         count++;
                     }
@@ -3181,18 +2956,18 @@ void _lf_initialize_trigger_objects() {
             {
                 int count = 0; SUPPRESS_UNUSED_WARNING(count);
                 {
-                    // Add output port GhostControls.ghost.control.encoder.right to array of is_present fields.
-                    environments[ghostcontrols_main].is_present_fields[(0) * 2 + 14 + count] = &ghostcontrols_ghost_control_encoder_self[0]->_lf_right.is_present;
+                    // Add output port GhostControls.pacman.control.encoder.right to array of is_present fields.
+                    environments[ghostcontrols_main].is_present_fields[(0) * 2 + 14 + count] = &ghostcontrols_pacman_control_encoder_self[0]->_lf_right.is_present;
                     #ifdef FEDERATED_DECENTRALIZED
-                    // Add output port GhostControls.ghost.control.encoder.right to array of intended_tag fields.
-                    environments[ghostcontrols_main]._lf_intended_tag_fields[(0) * 2 + 14 + count] = &ghostcontrols_ghost_control_encoder_self[0]->_lf_right.intended_tag;
+                    // Add output port GhostControls.pacman.control.encoder.right to array of intended_tag fields.
+                    environments[ghostcontrols_main]._lf_intended_tag_fields[(0) * 2 + 14 + count] = &ghostcontrols_pacman_control_encoder_self[0]->_lf_right.intended_tag;
                     #endif // FEDERATED_DECENTRALIZED
                     count++;
-                    // Add output port GhostControls.ghost.control.encoder.left to array of is_present fields.
-                    environments[ghostcontrols_main].is_present_fields[(0) * 2 + 14 + count] = &ghostcontrols_ghost_control_encoder_self[0]->_lf_left.is_present;
+                    // Add output port GhostControls.pacman.control.encoder.left to array of is_present fields.
+                    environments[ghostcontrols_main].is_present_fields[(0) * 2 + 14 + count] = &ghostcontrols_pacman_control_encoder_self[0]->_lf_left.is_present;
                     #ifdef FEDERATED_DECENTRALIZED
-                    // Add output port GhostControls.ghost.control.encoder.left to array of intended_tag fields.
-                    environments[ghostcontrols_main]._lf_intended_tag_fields[(0) * 2 + 14 + count] = &ghostcontrols_ghost_control_encoder_self[0]->_lf_left.intended_tag;
+                    // Add output port GhostControls.pacman.control.encoder.left to array of intended_tag fields.
+                    environments[ghostcontrols_main]._lf_intended_tag_fields[(0) * 2 + 14 + count] = &ghostcontrols_pacman_control_encoder_self[0]->_lf_left.intended_tag;
                     #endif // FEDERATED_DECENTRALIZED
                     count++;
                 }
@@ -3203,40 +2978,42 @@ void _lf_initialize_trigger_objects() {
                 }
             }
         }
-        // Add port GhostControls.ghost.control.turn_angle to array of is_present fields.
+        {
+        }
+        // Add port GhostControls.pacman.disp.line0 to array of is_present fields.
         {
             int count = 0; SUPPRESS_UNUSED_WARNING(count);
             {
                 {
-                    environments[ghostcontrols_main].is_present_fields[16 + (0) * 1 + count] = &ghostcontrols_ghost_self[0]->_lf_control.turn_angle.is_present;
+                    environments[ghostcontrols_main].is_present_fields[16 + (0) * 1 + count] = &ghostcontrols_pacman_self[0]->_lf_disp.line0.is_present;
                     #ifdef FEDERATED_DECENTRALIZED
-                    environments[ghostcontrols_main]._lf_intended_tag_fields[16 + (0) * 1 + count] = &ghostcontrols_ghost_self[0]->_lf_control.turn_angle.intended_tag;
+                    environments[ghostcontrols_main]._lf_intended_tag_fields[16 + (0) * 1 + count] = &ghostcontrols_pacman_self[0]->_lf_disp.line0.intended_tag;
                     #endif // FEDERATED_DECENTRALIZED
                     count++;
                 }
             }
         }
-        // Add port GhostControls.ghost.uart.bt_in to array of is_present fields.
+        // Add port GhostControls.pacman.control.stop to array of is_present fields.
         {
             int count = 0; SUPPRESS_UNUSED_WARNING(count);
             {
                 {
-                    environments[ghostcontrols_main].is_present_fields[17 + (0) * 1 + count] = &ghostcontrols_ghost_self[0]->_lf_uart.bt_in.is_present;
+                    environments[ghostcontrols_main].is_present_fields[17 + (0) * 1 + count] = &ghostcontrols_pacman_self[0]->_lf_control.stop.is_present;
                     #ifdef FEDERATED_DECENTRALIZED
-                    environments[ghostcontrols_main]._lf_intended_tag_fields[17 + (0) * 1 + count] = &ghostcontrols_ghost_self[0]->_lf_uart.bt_in.intended_tag;
+                    environments[ghostcontrols_main]._lf_intended_tag_fields[17 + (0) * 1 + count] = &ghostcontrols_pacman_self[0]->_lf_control.stop.intended_tag;
                     #endif // FEDERATED_DECENTRALIZED
                     count++;
                 }
             }
         }
-        // Add port GhostControls.ghost.disp.line0 to array of is_present fields.
+        // Add port GhostControls.pacman.control.turn_angle to array of is_present fields.
         {
             int count = 0; SUPPRESS_UNUSED_WARNING(count);
             {
                 {
-                    environments[ghostcontrols_main].is_present_fields[18 + (0) * 1 + count] = &ghostcontrols_ghost_self[0]->_lf_disp.line0.is_present;
+                    environments[ghostcontrols_main].is_present_fields[18 + (0) * 1 + count] = &ghostcontrols_pacman_self[0]->_lf_control.turn_angle.is_present;
                     #ifdef FEDERATED_DECENTRALIZED
-                    environments[ghostcontrols_main]._lf_intended_tag_fields[18 + (0) * 1 + count] = &ghostcontrols_ghost_self[0]->_lf_disp.line0.intended_tag;
+                    environments[ghostcontrols_main]._lf_intended_tag_fields[18 + (0) * 1 + count] = &ghostcontrols_pacman_self[0]->_lf_control.turn_angle.intended_tag;
                     #endif // FEDERATED_DECENTRALIZED
                     count++;
                 }
@@ -3245,11 +3022,18 @@ void _lf_initialize_trigger_objects() {
         {
             int count = 0; SUPPRESS_UNUSED_WARNING(count);
             {
-                // Add output port GhostControls.ghost.uwb.dist to array of is_present fields.
-                environments[ghostcontrols_main].is_present_fields[(0) * 1 + 19 + count] = &ghostcontrols_ghost_uwb_self[0]->_lf_dist.is_present;
+                // Add output port GhostControls.pacman.uart.uwb_out to array of is_present fields.
+                environments[ghostcontrols_main].is_present_fields[(0) * 2 + 19 + count] = &ghostcontrols_pacman_uart_self[0]->_lf_uwb_out.is_present;
                 #ifdef FEDERATED_DECENTRALIZED
-                // Add output port GhostControls.ghost.uwb.dist to array of intended_tag fields.
-                environments[ghostcontrols_main]._lf_intended_tag_fields[(0) * 1 + 19 + count] = &ghostcontrols_ghost_uwb_self[0]->_lf_dist.intended_tag;
+                // Add output port GhostControls.pacman.uart.uwb_out to array of intended_tag fields.
+                environments[ghostcontrols_main]._lf_intended_tag_fields[(0) * 2 + 19 + count] = &ghostcontrols_pacman_uart_self[0]->_lf_uwb_out.intended_tag;
+                #endif // FEDERATED_DECENTRALIZED
+                count++;
+                // Add output port GhostControls.pacman.uart.bt_out to array of is_present fields.
+                environments[ghostcontrols_main].is_present_fields[(0) * 2 + 19 + count] = &ghostcontrols_pacman_uart_self[0]->_lf_bt_out.is_present;
+                #ifdef FEDERATED_DECENTRALIZED
+                // Add output port GhostControls.pacman.uart.bt_out to array of intended_tag fields.
+                environments[ghostcontrols_main]._lf_intended_tag_fields[(0) * 2 + 19 + count] = &ghostcontrols_pacman_uart_self[0]->_lf_bt_out.intended_tag;
                 #endif // FEDERATED_DECENTRALIZED
                 count++;
             }
@@ -3257,231 +3041,192 @@ void _lf_initialize_trigger_objects() {
         {
             int count = 0; SUPPRESS_UNUSED_WARNING(count);
             {
-                // Add output port GhostControls.ghost.uart.uwb_out to array of is_present fields.
-                environments[ghostcontrols_main].is_present_fields[(0) * 2 + 20 + count] = &ghostcontrols_ghost_uart_self[0]->_lf_uwb_out.is_present;
+                // Add output port GhostControls.pacman.bt.cmd to array of is_present fields.
+                environments[ghostcontrols_main].is_present_fields[(0) * 1 + 21 + count] = &ghostcontrols_pacman_bt_self[0]->_lf_cmd.is_present;
                 #ifdef FEDERATED_DECENTRALIZED
-                // Add output port GhostControls.ghost.uart.uwb_out to array of intended_tag fields.
-                environments[ghostcontrols_main]._lf_intended_tag_fields[(0) * 2 + 20 + count] = &ghostcontrols_ghost_uart_self[0]->_lf_uwb_out.intended_tag;
-                #endif // FEDERATED_DECENTRALIZED
-                count++;
-                // Add output port GhostControls.ghost.uart.bt_out to array of is_present fields.
-                environments[ghostcontrols_main].is_present_fields[(0) * 2 + 20 + count] = &ghostcontrols_ghost_uart_self[0]->_lf_bt_out.is_present;
-                #ifdef FEDERATED_DECENTRALIZED
-                // Add output port GhostControls.ghost.uart.bt_out to array of intended_tag fields.
-                environments[ghostcontrols_main]._lf_intended_tag_fields[(0) * 2 + 20 + count] = &ghostcontrols_ghost_uart_self[0]->_lf_bt_out.intended_tag;
+                // Add output port GhostControls.pacman.bt.cmd to array of intended_tag fields.
+                environments[ghostcontrols_main]._lf_intended_tag_fields[(0) * 1 + 21 + count] = &ghostcontrols_pacman_bt_self[0]->_lf_cmd.intended_tag;
                 #endif // FEDERATED_DECENTRALIZED
                 count++;
             }
-        }
-    }
-    {
-        int count = 0; SUPPRESS_UNUSED_WARNING(count);
-        {
-            // Add output port GhostControls.bt.cmd to array of is_present fields.
-            environments[ghostcontrols_main].is_present_fields[(0) * 1 + 22 + count] = &ghostcontrols_bt_self[0]->_lf_cmd.is_present;
-            #ifdef FEDERATED_DECENTRALIZED
-            // Add output port GhostControls.bt.cmd to array of intended_tag fields.
-            environments[ghostcontrols_main]._lf_intended_tag_fields[(0) * 1 + 22 + count] = &ghostcontrols_bt_self[0]->_lf_cmd.intended_tag;
-            #endif // FEDERATED_DECENTRALIZED
-            count++;
         }
     }
     
     // Set reaction priorities for ReactorInstance GhostControls
     {
     
-        // Set reaction priorities for ReactorInstance GhostControls.bt
+        // Set reaction priorities for ReactorInstance GhostControls.pacman
         {
-            // index is the OR of level 0 and 
-            // deadline 9223372036854775807 shifted left 16 bits.
-            ghostcontrols_bt_self[0]->_lf__reaction_0.index = lf_combine_deadline_and_level(9223372036854775807, 0);
-            // index is the OR of level 1 and 
-            // deadline 9223372036854775807 shifted left 16 bits.
-            ghostcontrols_bt_self[0]->_lf__reaction_1.index = lf_combine_deadline_and_level(9223372036854775807, 1);
-        }
-    
-    
-        // Set reaction priorities for ReactorInstance GhostControls.ghost
-        {
-            // index is the OR of level 0 and 
-            // deadline 9223372036854775807 shifted left 16 bits.
-            ghostcontrols_ghost_self[0]->_lf__reaction_0.index = lf_combine_deadline_and_level(9223372036854775807, 0);
-            // index is the OR of level 1 and 
-            // deadline 9223372036854775807 shifted left 16 bits.
-            ghostcontrols_ghost_self[0]->_lf__reaction_1.index = lf_combine_deadline_and_level(9223372036854775807, 1);
             // index is the OR of level 3 and 
             // deadline 9223372036854775807 shifted left 16 bits.
-            ghostcontrols_ghost_self[0]->_lf__reaction_2.index = lf_combine_deadline_and_level(9223372036854775807, 3);
-            // index is the OR of level 4 and 
-            // deadline 9223372036854775807 shifted left 16 bits.
-            ghostcontrols_ghost_self[0]->_lf__reaction_3.index = lf_combine_deadline_and_level(9223372036854775807, 4);
+            ghostcontrols_pacman_self[0]->_lf__reaction_0.index = lf_combine_deadline_and_level(9223372036854775807, 3);
         
-            // Set reaction priorities for ReactorInstance GhostControls.ghost.disp
+            // Set reaction priorities for ReactorInstance GhostControls.pacman.disp
             {
                 // index is the OR of level 0 and 
                 // deadline 9223372036854775807 shifted left 16 bits.
-                ghostcontrols_ghost_disp_self[0]->_lf__reaction_0.index = lf_combine_deadline_and_level(9223372036854775807, 0);
-                // index is the OR of level 5 and 
-                // deadline 9223372036854775807 shifted left 16 bits.
-                ghostcontrols_ghost_disp_self[0]->_lf__reaction_1.index = lf_combine_deadline_and_level(9223372036854775807, 5);
-            }
-        
-        
-            // Set reaction priorities for ReactorInstance GhostControls.ghost.uwb
-            {
-                // index is the OR of level 2 and 
-                // deadline 9223372036854775807 shifted left 16 bits.
-                ghostcontrols_ghost_uwb_self[0]->_lf__reaction_0.index = lf_combine_deadline_and_level(9223372036854775807, 2);
-            }
-        
-        
-            // Set reaction priorities for ReactorInstance GhostControls.ghost.uart
-            {
-                // index is the OR of level 0 and 
-                // deadline 9223372036854775807 shifted left 16 bits.
-                ghostcontrols_ghost_uart_self[0]->_lf__reaction_0.index = lf_combine_deadline_and_level(9223372036854775807, 0);
-                // index is the OR of level 1 and 
-                // deadline 9223372036854775807 shifted left 16 bits.
-                ghostcontrols_ghost_uart_self[0]->_lf__reaction_1.index = lf_combine_deadline_and_level(9223372036854775807, 1);
-                // index is the OR of level 5 and 
-                // deadline 9223372036854775807 shifted left 16 bits.
-                ghostcontrols_ghost_uart_self[0]->_lf__reaction_2.index = lf_combine_deadline_and_level(9223372036854775807, 5);
-            }
-        
-        
-            // Set reaction priorities for ReactorInstance GhostControls.ghost.control
-            {
-                // index is the OR of level 0 and 
-                // deadline 9223372036854775807 shifted left 16 bits.
-                ghostcontrols_ghost_control_self[0]->_lf__reaction_0.index = lf_combine_deadline_and_level(9223372036854775807, 0);
-                // index is the OR of level 1 and 
-                // deadline 9223372036854775807 shifted left 16 bits.
-                ghostcontrols_ghost_control_self[0]->_lf__reaction_1.index = lf_combine_deadline_and_level(9223372036854775807, 1);
-                // index is the OR of level 2 and 
-                // deadline 9223372036854775807 shifted left 16 bits.
-                ghostcontrols_ghost_control_self[0]->_lf__reaction_2.index = lf_combine_deadline_and_level(9223372036854775807, 2);
+                ghostcontrols_pacman_disp_self[0]->_lf__reaction_0.index = lf_combine_deadline_and_level(9223372036854775807, 0);
                 // index is the OR of level 4 and 
                 // deadline 9223372036854775807 shifted left 16 bits.
-                ghostcontrols_ghost_control_self[0]->_lf__reaction_3.index = lf_combine_deadline_and_level(9223372036854775807, 4);
+                ghostcontrols_pacman_disp_self[0]->_lf__reaction_1.index = lf_combine_deadline_and_level(9223372036854775807, 4);
+            }
+        
+        
+            // Set reaction priorities for ReactorInstance GhostControls.pacman.uart
+            {
+                // index is the OR of level 0 and 
+                // deadline 9223372036854775807 shifted left 16 bits.
+                ghostcontrols_pacman_uart_self[0]->_lf__reaction_0.index = lf_combine_deadline_and_level(9223372036854775807, 0);
+                // index is the OR of level 1 and 
+                // deadline 9223372036854775807 shifted left 16 bits.
+                ghostcontrols_pacman_uart_self[0]->_lf__reaction_1.index = lf_combine_deadline_and_level(9223372036854775807, 1);
+                // index is the OR of level 2 and 
+                // deadline 9223372036854775807 shifted left 16 bits.
+                ghostcontrols_pacman_uart_self[0]->_lf__reaction_2.index = lf_combine_deadline_and_level(9223372036854775807, 2);
+            }
+        
+        
+            // Set reaction priorities for ReactorInstance GhostControls.pacman.control
+            {
+                // index is the OR of level 0 and 
+                // deadline 9223372036854775807 shifted left 16 bits.
+                ghostcontrols_pacman_control_self[0]->_lf__reaction_0.index = lf_combine_deadline_and_level(9223372036854775807, 0);
+                // index is the OR of level 1 and 
+                // deadline 9223372036854775807 shifted left 16 bits.
+                ghostcontrols_pacman_control_self[0]->_lf__reaction_1.index = lf_combine_deadline_and_level(9223372036854775807, 1);
+                // index is the OR of level 2 and 
+                // deadline 9223372036854775807 shifted left 16 bits.
+                ghostcontrols_pacman_control_self[0]->_lf__reaction_2.index = lf_combine_deadline_and_level(9223372036854775807, 2);
+                // index is the OR of level 4 and 
+                // deadline 9223372036854775807 shifted left 16 bits.
+                ghostcontrols_pacman_control_self[0]->_lf__reaction_3.index = lf_combine_deadline_and_level(9223372036854775807, 4);
                 // index is the OR of level 5 and 
                 // deadline 9223372036854775807 shifted left 16 bits.
-                ghostcontrols_ghost_control_self[0]->_lf__reaction_4.index = lf_combine_deadline_and_level(9223372036854775807, 5);
+                ghostcontrols_pacman_control_self[0]->_lf__reaction_4.index = lf_combine_deadline_and_level(9223372036854775807, 5);
                 // index is the OR of level 6 and 
                 // deadline 9223372036854775807 shifted left 16 bits.
-                ghostcontrols_ghost_control_self[0]->_lf__reaction_5.index = lf_combine_deadline_and_level(9223372036854775807, 6);
+                ghostcontrols_pacman_control_self[0]->_lf__reaction_5.index = lf_combine_deadline_and_level(9223372036854775807, 6);
                 // index is the OR of level 7 and 
                 // deadline 9223372036854775807 shifted left 16 bits.
-                ghostcontrols_ghost_control_self[0]->_lf__reaction_6.index = lf_combine_deadline_and_level(9223372036854775807, 7);
+                ghostcontrols_pacman_control_self[0]->_lf__reaction_6.index = lf_combine_deadline_and_level(9223372036854775807, 7);
                 // index is the OR of level 8 and 
                 // deadline 9223372036854775807 shifted left 16 bits.
-                ghostcontrols_ghost_control_self[0]->_lf__reaction_7.index = lf_combine_deadline_and_level(9223372036854775807, 8);
+                ghostcontrols_pacman_control_self[0]->_lf__reaction_7.index = lf_combine_deadline_and_level(9223372036854775807, 8);
                 // index is the OR of level 9 and 
                 // deadline 9223372036854775807 shifted left 16 bits.
-                ghostcontrols_ghost_control_self[0]->_lf__reaction_8.index = lf_combine_deadline_and_level(9223372036854775807, 9);
+                ghostcontrols_pacman_control_self[0]->_lf__reaction_8.index = lf_combine_deadline_and_level(9223372036854775807, 9);
                 // index is the OR of level 10 and 
                 // deadline 9223372036854775807 shifted left 16 bits.
-                ghostcontrols_ghost_control_self[0]->_lf__reaction_9.index = lf_combine_deadline_and_level(9223372036854775807, 10);
+                ghostcontrols_pacman_control_self[0]->_lf__reaction_9.index = lf_combine_deadline_and_level(9223372036854775807, 10);
                 // index is the OR of level 11 and 
                 // deadline 9223372036854775807 shifted left 16 bits.
-                ghostcontrols_ghost_control_self[0]->_lf__reaction_10.index = lf_combine_deadline_and_level(9223372036854775807, 11);
+                ghostcontrols_pacman_control_self[0]->_lf__reaction_10.index = lf_combine_deadline_and_level(9223372036854775807, 11);
                 // index is the OR of level 12 and 
                 // deadline 9223372036854775807 shifted left 16 bits.
-                ghostcontrols_ghost_control_self[0]->_lf__reaction_11.index = lf_combine_deadline_and_level(9223372036854775807, 12);
+                ghostcontrols_pacman_control_self[0]->_lf__reaction_11.index = lf_combine_deadline_and_level(9223372036854775807, 12);
             
-                // Set reaction priorities for ReactorInstance GhostControls.ghost.control.motors
+                // Set reaction priorities for ReactorInstance GhostControls.pacman.control.motors
                 {
                     // index is the OR of level 12 and 
                     // deadline 9223372036854775807 shifted left 16 bits.
-                    ghostcontrols_ghost_control_motors_self[0]->_lf__reaction_0.index = lf_combine_deadline_and_level(9223372036854775807, 12);
+                    ghostcontrols_pacman_control_motors_self[0]->_lf__reaction_0.index = lf_combine_deadline_and_level(9223372036854775807, 12);
                     // index is the OR of level 13 and 
                     // deadline 9223372036854775807 shifted left 16 bits.
-                    ghostcontrols_ghost_control_motors_self[0]->_lf__reaction_1.index = lf_combine_deadline_and_level(9223372036854775807, 13);
+                    ghostcontrols_pacman_control_motors_self[0]->_lf__reaction_1.index = lf_combine_deadline_and_level(9223372036854775807, 13);
                     // index is the OR of level 14 and 
                     // deadline 9223372036854775807 shifted left 16 bits.
-                    ghostcontrols_ghost_control_motors_self[0]->_lf__reaction_2.index = lf_combine_deadline_and_level(9223372036854775807, 14);
+                    ghostcontrols_pacman_control_motors_self[0]->_lf__reaction_2.index = lf_combine_deadline_and_level(9223372036854775807, 14);
                 
-                    // Set reaction priorities for ReactorInstance GhostControls.ghost.control.motors.motors
+                    // Set reaction priorities for ReactorInstance GhostControls.pacman.control.motors.motors
                     {
                         // index is the OR of level 0 and 
                         // deadline 9223372036854775807 shifted left 16 bits.
-                        _ostcontrols_ghost_control_motors_motors_self[0]->_lf__reaction_0.index = lf_combine_deadline_and_level(9223372036854775807, 0);
+                        _stcontrols_pacman_control_motors_motors_self[0]->_lf__reaction_0.index = lf_combine_deadline_and_level(9223372036854775807, 0);
                         // index is the OR of level 16 and 
                         // deadline 9223372036854775807 shifted left 16 bits.
-                        _ostcontrols_ghost_control_motors_motors_self[0]->_lf__reaction_1.index = lf_combine_deadline_and_level(9223372036854775807, 16);
+                        _stcontrols_pacman_control_motors_motors_self[0]->_lf__reaction_1.index = lf_combine_deadline_and_level(9223372036854775807, 16);
                         // index is the OR of level 17 and 
                         // deadline 9223372036854775807 shifted left 16 bits.
-                        _ostcontrols_ghost_control_motors_motors_self[0]->_lf__reaction_2.index = lf_combine_deadline_and_level(9223372036854775807, 17);
+                        _stcontrols_pacman_control_motors_motors_self[0]->_lf__reaction_2.index = lf_combine_deadline_and_level(9223372036854775807, 17);
                     }
                 
                 
-                    // Set reaction priorities for ReactorInstance GhostControls.ghost.control.motors.control_left
+                    // Set reaction priorities for ReactorInstance GhostControls.pacman.control.motors.control_left
                     {
                         // index is the OR of level 15 and 
                         // deadline 9223372036854775807 shifted left 16 bits.
-                        _trols_ghost_control_motors_control_left_self[0]->_lf__reaction_0.index = lf_combine_deadline_and_level(9223372036854775807, 15);
+                        _rols_pacman_control_motors_control_left_self[0]->_lf__reaction_0.index = lf_combine_deadline_and_level(9223372036854775807, 15);
                     }
                 
                 
-                    // Set reaction priorities for ReactorInstance GhostControls.ghost.control.motors.control_right
+                    // Set reaction priorities for ReactorInstance GhostControls.pacman.control.motors.control_right
                     {
                         // index is the OR of level 15 and 
                         // deadline 9223372036854775807 shifted left 16 bits.
-                        _rols_ghost_control_motors_control_right_self[0]->_lf__reaction_0.index = lf_combine_deadline_and_level(9223372036854775807, 15);
+                        _ols_pacman_control_motors_control_right_self[0]->_lf__reaction_0.index = lf_combine_deadline_and_level(9223372036854775807, 15);
                     }
                 
                 }
             
             
-                // Set reaction priorities for ReactorInstance GhostControls.ghost.control.encoder
+                // Set reaction priorities for ReactorInstance GhostControls.pacman.control.encoder
                 {
                     // index is the OR of level 0 and 
                     // deadline 9223372036854775807 shifted left 16 bits.
-                    ghostcontrols_ghost_control_encoder_self[0]->_lf__reaction_0.index = lf_combine_deadline_and_level(9223372036854775807, 0);
+                    ghostcontrols_pacman_control_encoder_self[0]->_lf__reaction_0.index = lf_combine_deadline_and_level(9223372036854775807, 0);
                     // index is the OR of level 1 and 
                     // deadline 9223372036854775807 shifted left 16 bits.
-                    ghostcontrols_ghost_control_encoder_self[0]->_lf__reaction_1.index = lf_combine_deadline_and_level(9223372036854775807, 1);
+                    ghostcontrols_pacman_control_encoder_self[0]->_lf__reaction_1.index = lf_combine_deadline_and_level(9223372036854775807, 1);
                 }
             
             
-                // Set reaction priorities for ReactorInstance GhostControls.ghost.control.gyro
+                // Set reaction priorities for ReactorInstance GhostControls.pacman.control.gyro
                 {
                 
-                    // Set reaction priorities for ReactorInstance GhostControls.ghost.control.gyro.g
+                    // Set reaction priorities for ReactorInstance GhostControls.pacman.control.gyro.g
                     {
                         // index is the OR of level 0 and 
                         // deadline 9223372036854775807 shifted left 16 bits.
-                        ghostcontrols_ghost_control_gyro_g_self[0]->_lf__reaction_0.index = lf_combine_deadline_and_level(9223372036854775807, 0);
+                        ghostcontrols_pacman_control_gyro_g_self[0]->_lf__reaction_0.index = lf_combine_deadline_and_level(9223372036854775807, 0);
                         // index is the OR of level 2 and 
                         // deadline 9223372036854775807 shifted left 16 bits.
-                        ghostcontrols_ghost_control_gyro_g_self[0]->_lf__reaction_1.index = lf_combine_deadline_and_level(9223372036854775807, 2);
+                        ghostcontrols_pacman_control_gyro_g_self[0]->_lf__reaction_1.index = lf_combine_deadline_and_level(9223372036854775807, 2);
                     }
                 
                 
-                    // Set reaction priorities for ReactorInstance GhostControls.ghost.control.gyro.integrator1
+                    // Set reaction priorities for ReactorInstance GhostControls.pacman.control.gyro.integrator1
                     {
                         // index is the OR of level 3 and 
                         // deadline 9223372036854775807 shifted left 16 bits.
-                        _controls_ghost_control_gyro_integrator1_self[0]->_lf__reaction_0.index = lf_combine_deadline_and_level(9223372036854775807, 3);
+                        _ontrols_pacman_control_gyro_integrator1_self[0]->_lf__reaction_0.index = lf_combine_deadline_and_level(9223372036854775807, 3);
                     }
                 
                 
-                    // Set reaction priorities for ReactorInstance GhostControls.ghost.control.gyro.integrator2
+                    // Set reaction priorities for ReactorInstance GhostControls.pacman.control.gyro.integrator2
                     {
                         // index is the OR of level 3 and 
                         // deadline 9223372036854775807 shifted left 16 bits.
-                        _controls_ghost_control_gyro_integrator2_self[0]->_lf__reaction_0.index = lf_combine_deadline_and_level(9223372036854775807, 3);
+                        _ontrols_pacman_control_gyro_integrator2_self[0]->_lf__reaction_0.index = lf_combine_deadline_and_level(9223372036854775807, 3);
                     }
                 
                 
-                    // Set reaction priorities for ReactorInstance GhostControls.ghost.control.gyro.integrator3
+                    // Set reaction priorities for ReactorInstance GhostControls.pacman.control.gyro.integrator3
                     {
                         // index is the OR of level 3 and 
                         // deadline 9223372036854775807 shifted left 16 bits.
-                        _controls_ghost_control_gyro_integrator3_self[0]->_lf__reaction_0.index = lf_combine_deadline_and_level(9223372036854775807, 3);
+                        _ontrols_pacman_control_gyro_integrator3_self[0]->_lf__reaction_0.index = lf_combine_deadline_and_level(9223372036854775807, 3);
                     }
                 
                 }
             
+            }
+        
+        
+            // Set reaction priorities for ReactorInstance GhostControls.pacman.bt
+            {
+                // index is the OR of level 2 and 
+                // deadline 9223372036854775807 shifted left 16 bits.
+                ghostcontrols_pacman_bt_self[0]->_lf__reaction_0.index = lf_combine_deadline_and_level(9223372036854775807, 2);
             }
         
         }

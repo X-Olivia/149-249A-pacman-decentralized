@@ -10,7 +10,6 @@
 #if defined(LF_SINGLE_THREADED)
 
 #include <assert.h>
-#include <stdlib.h>
 #include <string.h>
 
 #include "reactor.h"
@@ -18,7 +17,6 @@
 #include "low_level_platform.h"
 #include "reactor_common.h"
 #include "environment.h"
-#include "tracepoint.h"
 
 // Embedded platforms with no command line interface shouldnt have signals
 #if !defined(NO_CLI)
@@ -172,7 +170,7 @@ int _lf_do_step(environment_t* env) {
           (*handler)(reaction->self);
           // If the reaction produced outputs, put the resulting
           // triggered reactions into the queue.
-          schedule_output_reactions(env, reaction, 0, true);
+          schedule_output_reactions(env, reaction, 0);
         }
         tracepoint_reaction_ends(env, reaction, 0);
       }
@@ -184,7 +182,7 @@ int _lf_do_step(environment_t* env) {
 
       // If the reaction produced outputs, put the resulting triggered
       // reactions into the queue.
-      schedule_output_reactions(env, reaction, 0, true);
+      schedule_output_reactions(env, reaction, 0);
     }
     // There cannot be any subsequent events that trigger this reaction at the
     //  current tag, so it is safe to conclude that it is now inactive.
@@ -290,47 +288,6 @@ void lf_request_stop(void) {
   lf_set_stop_tag(env, new_stop_tag);
 }
 
-int lf_add_worker_thread(environment_t* env) {
-  (void)env;
-  lf_print_error("lf_add_worker_thread() is not supported by the single-threaded runtime.");
-  return -1;
-}
-
-int lf_added_worker_thread_count(environment_t* env) {
-  (void)env;
-  return 0;
-}
-
-void _lf_async_begin(lf_async_state_t* state, void* self, void* action, void* port) {
-  (void)state;
-  (void)self;
-  (void)action;
-  (void)port;
-  lf_print_error_and_exit("lf_async() is not supported by the single-threaded runtime.");
-}
-
-void _lf_async_end(lf_async_state_t* state) {
-  (void)state;
-  lf_print_error_and_exit("lf_async() is not supported by the single-threaded runtime.");
-}
-
-void lf_async_resume(void* action) {
-  (void)action;
-  // Nothing can be waiting because lf_async() is not supported by the single-threaded runtime.
-}
-
-void _lf_await(void* self, void* port) {
-  (void)self;
-  (void)port;
-  lf_print_error_and_exit("lf_await() is not supported by the single-threaded runtime.");
-}
-
-void _lf_await_resume(void* self, void* port) {
-  (void)self;
-  (void)port;
-  // Nothing can be waiting because lf_await() is not supported by the single-threaded runtime.
-}
-
 /**
  * The main loop of the LF program.
  *
@@ -414,16 +371,6 @@ int lf_reactor_c_main(int argc, const char* argv[]) {
       while (next(env) != 0)
         ;
     }
-    // Persist remaining in-memory trace records before returning from main().
-    lf_tracing_flush();
-#ifdef FEDERATED
-    // Leave _lf_normal_termination false. termination() then skips the
-    // heap-walking cleanup, and lf_terminate_execution() does not try to
-    // talk to the dead RTI. Returning from main is the single call to exit().
-    if (lf_rti_has_failed()) {
-      return EXIT_FAILURE;
-    }
-#endif
     _lf_normal_termination = true;
     return 0;
   } else {

@@ -8,7 +8,6 @@
 #include "include/api/reaction_macros.h"
 void _picontrolreaction_function_0(void* instance_args) {
     _picontrol_self_t* self = (_picontrol_self_t*)instance_args; SUPPRESS_UNUSED_WARNING(self);
-    enum { _lf_await_requires_a_single_non_mutable_input_port__err = 1 };
     _picontrol_err_t* err = self->_lf_err;
     int err_width = self->_lf_err_width; SUPPRESS_UNUSED_WARNING(err_width);
     _picontrol_ctrl_t* ctrl = &self->_lf_ctrl;
@@ -16,7 +15,7 @@ void _picontrolreaction_function_0(void* instance_args) {
     self->acum_err += err->value;
     lf_set(ctrl, err->value * self->p_gain +
                 (self->acum_err) * self->i_gain);
-#line 20 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/GhostControls/_picontrol.c"
+#line 19 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/GhostControls/_picontrol.c"
 }
 #include "include/api/reaction_macros_undef.h"
 _picontrol_self_t* new__picontrol() {

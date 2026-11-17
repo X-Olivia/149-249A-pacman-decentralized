@@ -43,10 +43,12 @@ reactor UART {
                 buf_ptr = 0;
 
                 // parse the string "use:data" -> "use", "data"
+                printf("%s\n", buffer);
                 char* use = strtok(buffer, ":");
                 char* data = strtok(NULL, "");
+                
                 if (use != NULL && data != NULL) {
-                    if (strcmp(use, "UWB") == 0) {
+                    if  (strcmp(use, "UWB") == 0) {
                         lf_set(uwb_out, data);
                     } else if (strcmp(use, "BT") == 0) {
                         lf_set(bt_out, data);

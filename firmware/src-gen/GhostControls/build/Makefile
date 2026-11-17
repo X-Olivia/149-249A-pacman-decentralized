@@ -426,30 +426,6 @@ _encoders.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/GhostControls.dir/build.make CMakeFiles/GhostControls.dir/_encoders.c.s
 .PHONY : _encoders.c.s
 
-_ghost.o: _ghost.c.o
-.PHONY : _ghost.o
-
-# target to build an object file
-_ghost.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GhostControls.dir/build.make CMakeFiles/GhostControls.dir/_ghost.c.o
-.PHONY : _ghost.c.o
-
-_ghost.i: _ghost.c.i
-.PHONY : _ghost.i
-
-# target to preprocess a source file
-_ghost.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GhostControls.dir/build.make CMakeFiles/GhostControls.dir/_ghost.c.i
-.PHONY : _ghost.c.i
-
-_ghost.s: _ghost.c.s
-.PHONY : _ghost.s
-
-# target to generate assembly for a file
-_ghost.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GhostControls.dir/build.make CMakeFiles/GhostControls.dir/_ghost.c.s
-.PHONY : _ghost.c.s
-
 _ghostcontrols_main.o: _ghostcontrols_main.c.o
 .PHONY : _ghostcontrols_main.o
 
@@ -594,6 +570,30 @@ _motorswithfeedback.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/GhostControls.dir/build.make CMakeFiles/GhostControls.dir/_motorswithfeedback.c.s
 .PHONY : _motorswithfeedback.c.s
 
+_pacman.o: _pacman.c.o
+.PHONY : _pacman.o
+
+# target to build an object file
+_pacman.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GhostControls.dir/build.make CMakeFiles/GhostControls.dir/_pacman.c.o
+.PHONY : _pacman.c.o
+
+_pacman.i: _pacman.c.i
+.PHONY : _pacman.i
+
+# target to preprocess a source file
+_pacman.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GhostControls.dir/build.make CMakeFiles/GhostControls.dir/_pacman.c.i
+.PHONY : _pacman.c.i
+
+_pacman.s: _pacman.c.s
+.PHONY : _pacman.s
+
+# target to generate assembly for a file
+_pacman.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GhostControls.dir/build.make CMakeFiles/GhostControls.dir/_pacman.c.s
+.PHONY : _pacman.c.s
+
 _picontrol.o: _picontrol.c.o
 .PHONY : _picontrol.o
 
@@ -665,30 +665,6 @@ _uart.s: _uart.c.s
 _uart.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/GhostControls.dir/build.make CMakeFiles/GhostControls.dir/_uart.c.s
 .PHONY : _uart.c.s
-
-_uwb.o: _uwb.c.o
-.PHONY : _uwb.o
-
-# target to build an object file
-_uwb.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GhostControls.dir/build.make CMakeFiles/GhostControls.dir/_uwb.c.o
-.PHONY : _uwb.c.o
-
-_uwb.i: _uwb.c.i
-.PHONY : _uwb.i
-
-# target to preprocess a source file
-_uwb.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GhostControls.dir/build.make CMakeFiles/GhostControls.dir/_uwb.c.i
-.PHONY : _uwb.c.i
-
-_uwb.s: _uwb.c.s
-.PHONY : _uwb.s
-
-# target to generate assembly for a file
-_uwb.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GhostControls.dir/build.make CMakeFiles/GhostControls.dir/_uwb.c.s
-.PHONY : _uwb.c.s
 
 home/ducky/Downloads/149-249A-pacman-decentralized/firmware/pico-sdk/lib/tinyusb/src/class/audio/audio_device.o: home/ducky/Downloads/149-249A-pacman-decentralized/firmware/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.o
 .PHONY : home/ducky/Downloads/149-249A-pacman-decentralized/firmware/pico-sdk/lib/tinyusb/src/class/audio/audio_device.o
@@ -2663,9 +2639,6 @@ help:
 	@echo "... _encoders.o"
 	@echo "... _encoders.i"
 	@echo "... _encoders.s"
-	@echo "... _ghost.o"
-	@echo "... _ghost.i"
-	@echo "... _ghost.s"
 	@echo "... _ghostcontrols_main.o"
 	@echo "... _ghostcontrols_main.i"
 	@echo "... _ghostcontrols_main.s"
@@ -2684,6 +2657,9 @@ help:
 	@echo "... _motorswithfeedback.o"
 	@echo "... _motorswithfeedback.i"
 	@echo "... _motorswithfeedback.s"
+	@echo "... _pacman.o"
+	@echo "... _pacman.i"
+	@echo "... _pacman.s"
 	@echo "... _picontrol.o"
 	@echo "... _picontrol.i"
 	@echo "... _picontrol.s"
@@ -2693,9 +2669,6 @@ help:
 	@echo "... _uart.o"
 	@echo "... _uart.i"
 	@echo "... _uart.s"
-	@echo "... _uwb.o"
-	@echo "... _uwb.i"
-	@echo "... _uwb.s"
 	@echo "... home/ducky/Downloads/149-249A-pacman-decentralized/firmware/pico-sdk/lib/tinyusb/src/class/audio/audio_device.o"
 	@echo "... home/ducky/Downloads/149-249A-pacman-decentralized/firmware/pico-sdk/lib/tinyusb/src/class/audio/audio_device.i"
 	@echo "... home/ducky/Downloads/149-249A-pacman-decentralized/firmware/pico-sdk/lib/tinyusb/src/class/audio/audio_device.s"

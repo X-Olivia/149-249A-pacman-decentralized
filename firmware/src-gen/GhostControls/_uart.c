@@ -36,10 +36,12 @@ void _uartreaction_function_1(void* instance_args) {
             buf_ptr = 0;
     
             // parse the string "use:data" -> "use", "data"
+            printf("%s\n", buffer);
             char* use = strtok(buffer, ":");
             char* data = strtok(NULL, "");
+    
             if (use != NULL && data != NULL) {
-                if (strcmp(use, "UWB") == 0) {
+                if  (strcmp(use, "UWB") == 0) {
                     lf_set(uwb_out, data);
                 } else if (strcmp(use, "BT") == 0) {
                     lf_set(bt_out, data);
@@ -50,21 +52,20 @@ void _uartreaction_function_1(void* instance_args) {
             buf_ptr++;
         }
     }
-#line 54 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/GhostControls/_uart.c"
+#line 56 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/GhostControls/_uart.c"
 }
 #include "include/api/reaction_macros_undef.h"
 #include "include/api/reaction_macros.h"
 void _uartreaction_function_2(void* instance_args) {
     _uart_self_t* self = (_uart_self_t*)instance_args; SUPPRESS_UNUSED_WARNING(self);
-    enum { _lf_await_requires_a_single_non_mutable_input_port__bt_in = 1 };
     _uart_bt_in_t* bt_in = self->_lf_bt_in;
     int bt_in_width = self->_lf_bt_in_width; SUPPRESS_UNUSED_WARNING(bt_in_width);
-    #line 64 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/lib/UART.lf"
+    #line 66 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/lib/UART.lf"
     // send message to bluetooth
     char message[MESSAGE_SIZE + 1] = {0};
     snprintf(message, MESSAGE_SIZE + 1, "BT:%s\n", bt_in->value);
     uart_puts(uart0, message);
-#line 68 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/GhostControls/_uart.c"
+#line 69 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/GhostControls/_uart.c"
 }
 #include "include/api/reaction_macros_undef.h"
 _uart_self_t* new__uart() {

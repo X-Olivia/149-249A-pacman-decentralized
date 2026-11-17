@@ -24,6 +24,8 @@ preamble {=
   #include <stdlib.h>
   #include <time.h>
   #include <string.h>
+  #include <stdio.h>
+  #include "pico/stdlib.h"
 
   #define MAX_ENTRIES 20
   #define TIME_BEFORE_ROTATE_ALLOWED SEC(2)
@@ -88,7 +90,7 @@ reactor Motion_control(p_encoder: time = 1ms, p_gyro: time = 1ms){
   =}
 
   // for now, just forward
-  initial mode FORWARD {
+  mode FORWARD {
     reaction(startup, reset) -> motors.left_speed, motors.right_speed{=
       lf_set(motors.left_speed, self->speed);
       lf_set(motors.right_speed, self->speed);
@@ -127,7 +129,7 @@ reactor Motion_control(p_encoder: time = 1ms, p_gyro: time = 1ms){
     =}
   }
 
-  mode STOP {
+  initial mode STOP {
     reaction(startup, reset) -> motors.left_speed, motors.right_speed{=
       lf_set(motors.left_speed, 0);
       lf_set(motors.right_speed, 0);
@@ -294,25 +296,36 @@ reactor Ghost(p_turn: time = 1 s){
 }
 
 reactor Pacman(sample_period: time = 10 ms){
-  input cmd: char
+  // input cmd: char
   disp = new Display()
+  uart = new UART()
   control = new Motion_control()
+  bt = new Bluetooth()
+  uart.bt_out->bt.uart_data
 
-  reaction(cmd) -> control.turn_angle, control.stop{=
+  method turn(command: char, control: _motion_control_turn_angle_t*, rel_dir: int, disp: _display_line0_t*){=
+    lf_set(control, rel_dir);
+    static char buf[17];
+    snprintf(buf, 17, "Cmd: %c", command);
+    printf("%s\n", buf);
+    lf_set(disp, buf);
+  =}
+
+  reaction(bt.cmd) -> disp.line0, control.stop, control.turn_angle{=
     float s = 0.1f;  // 30% power; keep low for the first test
-    switch (cmd->value) {
-      case 'w': lf_set(control.turn_angle, 0); break;
-      case 's': lf_set(control.turn_angle, 180); break;
-      case 'a': lf_set(control.turn_angle, 90); break;
-      case 'd': lf_set(control.turn_angle, -90); break;
+    switch (bt.cmd->value) {
+      case 'w': turn(bt.cmd->value, control.turn_angle, 0, disp.line0); break;
+      case 's': turn(bt.cmd->value, control.turn_angle, 180, disp.line0); break;
+      case 'a': turn(bt.cmd->value, control.turn_angle, 90, disp.line0); break;
+      case 'd': turn(bt.cmd->value, control.turn_angle, -90, disp.line0); break;
       case 'S': lf_set(control.stop, true); break;
+      
     }
   =}
 }
 
 main reactor {
-  bt = new Bluetooth()
-  ghost = new Ghost()
-  // pacman = new Pacman()
+  // ghost = new Ghost()
+  pacman = new Pacman()
   // bt.cmd -> pacman.cmd
 }

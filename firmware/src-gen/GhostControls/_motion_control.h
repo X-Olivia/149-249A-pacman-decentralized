@@ -4,30 +4,30 @@
 #include "_encoders.h"
 #include "_gyroangle.h"
 #include "_motorswithfeedback.h"
-#ifndef TOP_LEVEL_PREAMBLE_849074129_H
-#define TOP_LEVEL_PREAMBLE_849074129_H
+#ifndef TOP_LEVEL_PREAMBLE_557982257_H
+#define TOP_LEVEL_PREAMBLE_557982257_H
 #include <pico/stdlib.h>
 #include <display.h>        // Do not use "display.h". Doesn't work.
-#endif // TOP_LEVEL_PREAMBLE_849074129_H
-#ifndef TOP_LEVEL_PREAMBLE_57283843_H
-#define TOP_LEVEL_PREAMBLE_57283843_H
+#endif // TOP_LEVEL_PREAMBLE_557982257_H
+#ifndef TOP_LEVEL_PREAMBLE_123629835_H
+#define TOP_LEVEL_PREAMBLE_123629835_H
 #include <pico/stdlib.h>
 #include <imu.h>
-#endif // TOP_LEVEL_PREAMBLE_57283843_H
-#ifndef TOP_LEVEL_PREAMBLE_656887876_H
-#define TOP_LEVEL_PREAMBLE_656887876_H
+#endif // TOP_LEVEL_PREAMBLE_123629835_H
+#ifndef TOP_LEVEL_PREAMBLE_62156248_H
+#define TOP_LEVEL_PREAMBLE_62156248_H
 #include <motors.h>
 #include <math.h>
-#endif // TOP_LEVEL_PREAMBLE_656887876_H
-#ifndef TOP_LEVEL_PREAMBLE_438944489_H
-#define TOP_LEVEL_PREAMBLE_438944489_H
+#endif // TOP_LEVEL_PREAMBLE_62156248_H
+#ifndef TOP_LEVEL_PREAMBLE_1591683105_H
+#define TOP_LEVEL_PREAMBLE_1591683105_H
 #include <math.h>
 #define WHEEL_DIAMETER 0.032 // meters
 #define COUNTS_PER_REV 360 //CPR
 #define TICKS_PER_METER (WHEEL_DIAMETER * M_PI) / COUNTS_PER_REV
-#endif // TOP_LEVEL_PREAMBLE_438944489_H
-#ifndef TOP_LEVEL_PREAMBLE_1275538575_H
-#define TOP_LEVEL_PREAMBLE_1275538575_H
+#endif // TOP_LEVEL_PREAMBLE_1591683105_H
+#ifndef TOP_LEVEL_PREAMBLE_598977164_H
+#define TOP_LEVEL_PREAMBLE_598977164_H
 #include <math.h>
 #include <hardware/pio.h>
 #include <quadrature_encoder.pio.h>
@@ -37,9 +37,9 @@
 #define LEFT_ENCODER_AB 12
 #define RIGHT_SM 0
 #define LEFT_SM 1
-#endif // TOP_LEVEL_PREAMBLE_1275538575_H
-#ifndef TOP_LEVEL_PREAMBLE_1422415458_H
-#define TOP_LEVEL_PREAMBLE_1422415458_H
+#endif // TOP_LEVEL_PREAMBLE_598977164_H
+#ifndef TOP_LEVEL_PREAMBLE_671981276_H
+#define TOP_LEVEL_PREAMBLE_671981276_H
 #include "hardware/uart.h"
 #include "hardware/gpio.h"
 
@@ -47,31 +47,33 @@
 #define PIN_UART_TX 28
 #define PIN_UART_RX 29
 #define BAUD_RATE 9600
-#endif // TOP_LEVEL_PREAMBLE_1422415458_H
-#ifndef TOP_LEVEL_PREAMBLE_839646298_H
-#define TOP_LEVEL_PREAMBLE_839646298_H
+#endif // TOP_LEVEL_PREAMBLE_671981276_H
+#ifndef TOP_LEVEL_PREAMBLE_1125509551_H
+#define TOP_LEVEL_PREAMBLE_1125509551_H
 #include <stdio.h>
 #include "pico/stdlib.h"
 #include "hardware/uart.h"
 #include <stdlib.h>
-#endif // TOP_LEVEL_PREAMBLE_839646298_H
-#ifndef TOP_LEVEL_PREAMBLE_314583580_H
-#define TOP_LEVEL_PREAMBLE_314583580_H
+#endif // TOP_LEVEL_PREAMBLE_1125509551_H
+#ifndef TOP_LEVEL_PREAMBLE_430983166_H
+#define TOP_LEVEL_PREAMBLE_430983166_H
 #include <stdio.h>
 #include <string.h>
 #include "pico/stdlib.h"
 #include "hardware/uart.h"
 #include <stdlib.h>
 #define MESSAGE_SIZE 128
-#endif // TOP_LEVEL_PREAMBLE_314583580_H
-#ifndef TOP_LEVEL_PREAMBLE_583605588_H
-#define TOP_LEVEL_PREAMBLE_583605588_H
+#endif // TOP_LEVEL_PREAMBLE_430983166_H
+#ifndef TOP_LEVEL_PREAMBLE_911561694_H
+#define TOP_LEVEL_PREAMBLE_911561694_H
 #include "hardware/uart.h"
 #include "hardware/gpio.h"
 #include <float.h>
 #include <stdlib.h>
 #include <time.h>
 #include <string.h>
+#include <stdio.h>
+#include "pico/stdlib.h"
 
 #define MAX_ENTRIES 20
 #define TIME_BEFORE_ROTATE_ALLOWED SEC(2)
@@ -99,7 +101,15 @@ typedef struct path_arr {
 } path_arr;
 
 typedef dist_arr dist_arr_list_t[NUM_DIRS];
-#endif // TOP_LEVEL_PREAMBLE_583605588_H
+#endif // TOP_LEVEL_PREAMBLE_911561694_H
+
+
+
+
+
+
+
+
 typedef struct {
     token_type_t type;
     lf_token_t* token;
@@ -144,20 +154,20 @@ typedef struct {
 } _motion_control_stop_t;
 typedef struct {
     struct self_base_t base;
-    #line 56 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/GhostControls.lf"
+    #line 58 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/GhostControls.lf"
     interval_t p_encoder;
-    #line 56 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/GhostControls.lf"
+    #line 58 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/GhostControls.lf"
     interval_t p_gyro;
-#line 152 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/GhostControls/_motion_control.h"
-    #line 61 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/GhostControls.lf"
-    float speed;
-    #line 62 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/GhostControls.lf"
-    float target_angle;
+#line 162 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/GhostControls/_motion_control.h"
     #line 63 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/GhostControls.lf"
-    float start_angle;
+    float speed;
     #line 64 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/GhostControls.lf"
+    float target_angle;
+    #line 65 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/GhostControls.lf"
+    float start_angle;
+    #line 66 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/GhostControls.lf"
     float curr_angle;
-#line 161 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/GhostControls/_motion_control.h"
+#line 171 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/GhostControls/_motion_control.h"
     _motion_control_turn_angle_t* _lf_turn_angle;
     // width of -2 indicates that it is not a multiport.
     int _lf_turn_angle_width;

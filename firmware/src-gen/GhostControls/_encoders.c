@@ -20,7 +20,6 @@ void _encodersreaction_function_0(void* instance_args) {
 #include "include/api/reaction_macros.h"
 void _encodersreaction_function_1(void* instance_args) {
     _encoders_self_t* self = (_encoders_self_t*)instance_args; SUPPRESS_UNUSED_WARNING(self);
-    enum { _lf_await_requires_a_single_non_mutable_input_port__trigger = 1 };
     _encoders_trigger_t* trigger = self->_lf_trigger;
     int trigger_width = self->_lf_trigger_width; SUPPRESS_UNUSED_WARNING(trigger_width);
     _encoders_left_t* left = &self->_lf_left;
@@ -31,7 +30,7 @@ void _encodersreaction_function_1(void* instance_args) {
     int32_t lcount = -quadrature_encoder_get_count(pio0, LEFT_SM);
     lf_set(right, rcount);
     lf_set(left, lcount);
-#line 35 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/GhostControls/_encoders.c"
+#line 34 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/GhostControls/_encoders.c"
 }
 #include "include/api/reaction_macros_undef.h"
 _encoders_self_t* new__encoders() {

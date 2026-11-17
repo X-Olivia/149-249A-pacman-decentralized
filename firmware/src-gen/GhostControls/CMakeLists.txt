@@ -1,7 +1,5 @@
 
 cmake_minimum_required(VERSION 3.19)
-# Define the root of the pico-sdk library.
-set(PICO_SDK_PATH /home/ducky/Downloads/149-249A-pacman-decentralized/firmware/pico-sdk)
 include(pico_sdk_import.cmake)
 project(GhostControls LANGUAGES C CXX ASM)
 
@@ -46,7 +44,7 @@ set(CMAKE_SYSTEM_NAME Rp2040)
 
 # Set default values for build parameters
 set(MODAL_REACTORS TRUE CACHE STRING "")
-set(LF_REACTION_GRAPH_BREADTH 8 CACHE STRING "")
+set(LF_REACTION_GRAPH_BREADTH 6 CACHE STRING "")
 set(LF_SINGLE_THREADED 1 CACHE STRING "")
 set(LOG_LEVEL 2 CACHE STRING "")
 set(NUMBER_OF_WATCHDOGS 0 CACHE STRING "")
@@ -63,10 +61,8 @@ add_executable(
     ${LF_MAIN_TARGET}
     lib/schedule.c
     _ghostcontrols_main.c
-    _bluetooth.c
-    _ghost.c
+    _pacman.c
     _display.c
-    _uwb.c
     _uart.c
     _motion_control.c
     _motorswithfeedback.c
@@ -76,6 +72,7 @@ add_executable(
     _gyroangle.c
     _gyro.c
     _trapezoidalintegrator.c
+    _bluetooth.c
     GhostControls.c
 )
 

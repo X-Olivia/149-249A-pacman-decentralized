@@ -114,10 +114,8 @@ CMakeFiles/GhostControls.dir/GhostControls.c.o: \
  /home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/GhostControls/include/core/mixed_radix.h \
  /home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/GhostControls/include/core/port.h \
  /home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/GhostControls/include/core/environment.h \
- /home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/GhostControls/_bluetooth.h \
  /home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/GhostControls/_display.h \
  /home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/GhostControls/robot-lib/src/display.h \
- /home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/GhostControls/_uwb.h \
  /home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/GhostControls/_uart.h \
  /nix/store/c353gqsmf8mvg72vivm9fb2dv210wnkm-gcc-arm-embedded-14.2.rel1/arm-none-eabi/include/string.h \
  /nix/store/c353gqsmf8mvg72vivm9fb2dv210wnkm-gcc-arm-embedded-14.2.rel1/arm-none-eabi/include/sys/_locale.h \
@@ -159,5 +157,6 @@ CMakeFiles/GhostControls.dir/GhostControls.c.o: \
  /nix/store/c353gqsmf8mvg72vivm9fb2dv210wnkm-gcc-arm-embedded-14.2.rel1/arm-none-eabi/include/sys/_pthreadtypes.h \
  /nix/store/c353gqsmf8mvg72vivm9fb2dv210wnkm-gcc-arm-embedded-14.2.rel1/arm-none-eabi/include/sys/sched.h \
  /nix/store/c353gqsmf8mvg72vivm9fb2dv210wnkm-gcc-arm-embedded-14.2.rel1/arm-none-eabi/include/machine/types.h \
- /home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/GhostControls/_ghost.h \
+ /home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/GhostControls/_bluetooth.h \
+ /home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/GhostControls/_pacman.h \
  /home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/GhostControls/_ghostcontrols_main.h

@@ -1,11 +1,11 @@
 #ifndef _trapezoidalintegrator_H
 #define _trapezoidalintegrator_H
 #ifndef _TRAPEZOIDALINTEGRATOR_H // necessary for arduino-cli, which automatically includes headers that are not used
-#ifndef TOP_LEVEL_PREAMBLE_57283843_H
-#define TOP_LEVEL_PREAMBLE_57283843_H
+#ifndef TOP_LEVEL_PREAMBLE_123629835_H
+#define TOP_LEVEL_PREAMBLE_123629835_H
 /*Correspondence: Range: [(21, 2), (22, 16)) -> Range: [(0, 0), (1, 16)) (verbatim=true; src=/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/lib/IMU.lf)*/#include <pico/stdlib.h>
 #include <imu.h>
-#endif // TOP_LEVEL_PREAMBLE_57283843_H
+#endif // TOP_LEVEL_PREAMBLE_123629835_H
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -21,10 +21,6 @@ typedef struct trapezoidalintegrator_self_t{
     instant_t prev_time;
     int end[0]; // placeholder; MSVC does not compile empty structs
 } trapezoidalintegrator_self_t;
-#ifndef _LF_AWAIT_MARKER__in
-#define _LF_AWAIT_MARKER__in
-enum { _lf_await_requires_a_single_non_mutable_input_port__in = 1 };
-#endif
 typedef struct {
     token_type_t type;
     lf_token_t* token;

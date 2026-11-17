@@ -28,7 +28,7 @@ set(CMAKE_TARGET_DEFINITIONS_ASM
   "INITIAL_REACT_QUEUE_SIZE=10"
   "LF_FILE_SEPARATOR=\"/\""
   "LF_PACKAGE_DIRECTORY=\"/home/ducky/Downloads/149-249A-pacman-decentralized/firmware\""
-  "LF_REACTION_GRAPH_BREADTH=8"
+  "LF_REACTION_GRAPH_BREADTH=6"
   "LF_SINGLE_THREADED=1"
   "LF_SOURCE_DIRECTORY=\"/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src\""
   "LF_SOURCE_GEN_DIRECTORY=\"/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/GhostControls\""

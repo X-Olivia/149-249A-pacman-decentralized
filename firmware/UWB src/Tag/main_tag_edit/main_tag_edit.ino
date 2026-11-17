@@ -1617,7 +1617,6 @@ void loop()
         // Switch to next anchor
         switchToNextAnchor();
         curr_stage = 0;
-        delay(100);
         break;
 
     default:

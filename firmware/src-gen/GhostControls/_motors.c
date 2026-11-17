@@ -37,13 +37,12 @@ void _motorsreaction_function_0(void* instance_args) {
 #define set_power(...) _motors_method_set_power(self, ##__VA_ARGS__)
 void _motorsreaction_function_1(void* instance_args) {
     _motors_self_t* self = (_motors_self_t*)instance_args; SUPPRESS_UNUSED_WARNING(self);
-    enum { _lf_await_requires_a_single_non_mutable_input_port__left_power = 1 };
     _motors_left_power_t* left_power = self->_lf_left_power;
     int left_power_width = self->_lf_left_power_width; SUPPRESS_UNUSED_WARNING(left_power_width);
     #line 41 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/lib/Motors.lf"
     bool forward = (left_power->value >= 0.0f);
     set_power(left_power->value, forward, true);
-#line 47 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/GhostControls/_motors.c"
+#line 46 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/GhostControls/_motors.c"
 }
 #undef set_power
 #include "include/api/reaction_macros_undef.h"
@@ -51,13 +50,12 @@ void _motorsreaction_function_1(void* instance_args) {
 #define set_power(...) _motors_method_set_power(self, ##__VA_ARGS__)
 void _motorsreaction_function_2(void* instance_args) {
     _motors_self_t* self = (_motors_self_t*)instance_args; SUPPRESS_UNUSED_WARNING(self);
-    enum { _lf_await_requires_a_single_non_mutable_input_port__right_power = 1 };
     _motors_right_power_t* right_power = self->_lf_right_power;
     int right_power_width = self->_lf_right_power_width; SUPPRESS_UNUSED_WARNING(right_power_width);
     #line 46 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/lib/Motors.lf"
     bool forward = (right_power->value >= 0.0f);
     set_power(right_power->value, forward, false);
-#line 61 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/GhostControls/_motors.c"
+#line 59 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src-gen/GhostControls/_motors.c"
 }
 #undef set_power
 #include "include/api/reaction_macros_undef.h"

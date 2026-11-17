@@ -5,30 +5,30 @@
 #include "_uart.h"
 #include "_uwb.h"
 #include "_motion_control.h"
-#ifndef TOP_LEVEL_PREAMBLE_849074129_H
-#define TOP_LEVEL_PREAMBLE_849074129_H
+#ifndef TOP_LEVEL_PREAMBLE_2084411835_H
+#define TOP_LEVEL_PREAMBLE_2084411835_H
 #include <pico/stdlib.h>
 #include <display.h>        // Do not use "display.h". Doesn't work.
-#endif // TOP_LEVEL_PREAMBLE_849074129_H
-#ifndef TOP_LEVEL_PREAMBLE_57283843_H
-#define TOP_LEVEL_PREAMBLE_57283843_H
+#endif // TOP_LEVEL_PREAMBLE_2084411835_H
+#ifndef TOP_LEVEL_PREAMBLE_159977067_H
+#define TOP_LEVEL_PREAMBLE_159977067_H
 #include <pico/stdlib.h>
 #include <imu.h>
-#endif // TOP_LEVEL_PREAMBLE_57283843_H
-#ifndef TOP_LEVEL_PREAMBLE_656887876_H
-#define TOP_LEVEL_PREAMBLE_656887876_H
+#endif // TOP_LEVEL_PREAMBLE_159977067_H
+#ifndef TOP_LEVEL_PREAMBLE_881667483_H
+#define TOP_LEVEL_PREAMBLE_881667483_H
 #include <motors.h>
 #include <math.h>
-#endif // TOP_LEVEL_PREAMBLE_656887876_H
-#ifndef TOP_LEVEL_PREAMBLE_438944489_H
-#define TOP_LEVEL_PREAMBLE_438944489_H
+#endif // TOP_LEVEL_PREAMBLE_881667483_H
+#ifndef TOP_LEVEL_PREAMBLE_692182414_H
+#define TOP_LEVEL_PREAMBLE_692182414_H
 #include <math.h>
 #define WHEEL_DIAMETER 0.032 // meters
 #define COUNTS_PER_REV 360 //CPR
 #define TICKS_PER_METER (WHEEL_DIAMETER * M_PI) / COUNTS_PER_REV
-#endif // TOP_LEVEL_PREAMBLE_438944489_H
-#ifndef TOP_LEVEL_PREAMBLE_1275538575_H
-#define TOP_LEVEL_PREAMBLE_1275538575_H
+#endif // TOP_LEVEL_PREAMBLE_692182414_H
+#ifndef TOP_LEVEL_PREAMBLE_1270661713_H
+#define TOP_LEVEL_PREAMBLE_1270661713_H
 #include <math.h>
 #include <hardware/pio.h>
 #include <quadrature_encoder.pio.h>
@@ -38,9 +38,9 @@
 #define LEFT_ENCODER_AB 12
 #define RIGHT_SM 0
 #define LEFT_SM 1
-#endif // TOP_LEVEL_PREAMBLE_1275538575_H
-#ifndef TOP_LEVEL_PREAMBLE_1422415458_H
-#define TOP_LEVEL_PREAMBLE_1422415458_H
+#endif // TOP_LEVEL_PREAMBLE_1270661713_H
+#ifndef TOP_LEVEL_PREAMBLE_1218470570_H
+#define TOP_LEVEL_PREAMBLE_1218470570_H
 #include "hardware/uart.h"
 #include "hardware/gpio.h"
 
@@ -48,25 +48,25 @@
 #define PIN_UART_TX 28
 #define PIN_UART_RX 29
 #define BAUD_RATE 9600
-#endif // TOP_LEVEL_PREAMBLE_1422415458_H
-#ifndef TOP_LEVEL_PREAMBLE_839646298_H
-#define TOP_LEVEL_PREAMBLE_839646298_H
+#endif // TOP_LEVEL_PREAMBLE_1218470570_H
+#ifndef TOP_LEVEL_PREAMBLE_612268186_H
+#define TOP_LEVEL_PREAMBLE_612268186_H
 #include <stdio.h>
 #include "pico/stdlib.h"
 #include "hardware/uart.h"
 #include <stdlib.h>
-#endif // TOP_LEVEL_PREAMBLE_839646298_H
-#ifndef TOP_LEVEL_PREAMBLE_314583580_H
-#define TOP_LEVEL_PREAMBLE_314583580_H
+#endif // TOP_LEVEL_PREAMBLE_612268186_H
+#ifndef TOP_LEVEL_PREAMBLE_1817351236_H
+#define TOP_LEVEL_PREAMBLE_1817351236_H
 #include <stdio.h>
 #include <string.h>
 #include "pico/stdlib.h"
 #include "hardware/uart.h"
 #include <stdlib.h>
 #define MESSAGE_SIZE 128
-#endif // TOP_LEVEL_PREAMBLE_314583580_H
-#ifndef TOP_LEVEL_PREAMBLE_583605588_H
-#define TOP_LEVEL_PREAMBLE_583605588_H
+#endif // TOP_LEVEL_PREAMBLE_1817351236_H
+#ifndef TOP_LEVEL_PREAMBLE_1533237483_H
+#define TOP_LEVEL_PREAMBLE_1533237483_H
 #include "hardware/uart.h"
 #include "hardware/gpio.h"
 #include <float.h>
@@ -100,7 +100,7 @@ typedef struct path_arr {
 } path_arr;
 
 typedef dist_arr dist_arr_list_t[NUM_DIRS];
-#endif // TOP_LEVEL_PREAMBLE_583605588_H
+#endif // TOP_LEVEL_PREAMBLE_1533237483_H
 typedef struct {
     struct self_base_t base;
     #line 143 "/home/ducky/Downloads/149-249A-pacman-decentralized/firmware/src/GhostControls.lf"
