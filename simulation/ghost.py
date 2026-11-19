@@ -7,11 +7,13 @@ from maze import heading_of
 from sensor import BACK, FRONT, IR, LEFT, RIGHT, UWB
 
 SECONDS_BETWEEN_STEPS=0.01
+SECONDS_BETWEEN_TURN=1
+MAX_ENTRIES=5
 
 # Default UWB model (pixels / degrees).
 UWB_NOISE_DIST=5.0
 UWB_NOISE_ANGLE_DEG=5.0
-UWB_MAX_RANGE=300.0
+UWB_MAX_RANGE=3000.0
 
 # "range" mode (distance only): Yacqub's rate-of-change algorithm.
 NUM_DIRS=4
@@ -38,6 +40,25 @@ class Ghost:
   takes the exit whose direction has the lowest average change.
   """
 
+  class Dist_arr:
+    def __init__(self):
+      self.dist = [0]*MAX_ENTRIES
+      self.tail = 0
+      self.size = 0
+    def add_dist(self, dist):
+      self.dist[self.tail] = dist
+      self.tail = (self.tail + 1) % MAX_ENTRIES
+      self.size = min(self.size + 1, MAX_ENTRIES)
+    def reset_dist(self):
+      for i in range(len(self.dist)):
+        self.dist[i] = 0
+      self.tail = 0
+      self.size = 0
+    def get_last(self):
+      return self.dist[self.tail - 1]
+    def get_average(self):
+      return sum(self.dist) / self.size if self.size > 0 else 0
+
   def __init__(self, id, x, y, theta, color, maze, speed=60.0,
                target_id="pacman", uwb_mode="angle", rng=None):
     self.id = id
@@ -47,6 +68,7 @@ class Ghost:
     self.maze = maze
     self.uwb_mode = uwb_mode
     self.rng = rng or random.Random()
+    self.time = 0 # might wrap around.....
 
     self._x, self._y, self._theta = x, y, theta
     self._start_pose = (x, y, theta)
@@ -56,12 +78,14 @@ class Ghost:
 
     self._uwb = None  # attached with register_uwb()
     self._ir = IR(self, maze)
-    self._decided_at = None  # intersection (x, y) where we last decided
+    self._decided_at = 0  # timestep last decided at
+    self._random_at = 0
 
     # for "range" mode (as in the original step alg)
     self._last_distance = None
     self._curr_dir = 0  # 0..3: turns of 90 deg right since the start
-    self._dir_to_dists = {key: [] for key in range(NUM_DIRS)}
+
+    self._dir_to_dists = {key: self.Dist_arr() for key in range(NUM_DIRS)}
 
   # --- sensors ----------------------------------------------------------
 
@@ -84,19 +108,24 @@ class Ghost:
   def _turn(self, rel_deg):
     """Turn on the spot by a relative direction (FRONT/RIGHT/BACK/LEFT)."""
     with self._lock:
+      # print("ROC:")
+      # dists = ["RIGHT", "DOWN", "LEFT", "UP"]
+      # print("Curr dir: ", self._curr_dir)
+      # for i in range(4):
+      #   print(dists[i], ": ", self.__get_dist_roc(i))
       self._theta = (self._theta + math.radians(rel_deg)) % (2 * math.pi)
       if rel_deg % 360 != FRONT:
         self._curr_dir = (self._curr_dir + rel_deg // 90) % NUM_DIRS
-        self._dir_to_dists[self._curr_dir] = []
+        self._dir_to_dists[self._curr_dir].reset_dist()
 
   def __reset_all_dists(self):
     for key in range(NUM_DIRS):
-      self._dir_to_dists[key] = []
+      self._dir_to_dists[key].reset_dist()
 
   def __get_dist_roc(self, dir):
     assert dir >= 0 and dir < NUM_DIRS
-    distances = self._dir_to_dists[dir]
-    return sum(distances) / len(distances) if len(distances) > 0 else 0
+    # return self._dir_to_dists[dir].get_average()
+    return self._dir_to_dists[dir].dist[-1] if self._dir_to_dists[dir].size > 0 else 0
 
   def _record_distance(self):
     """range mode, every step: log the distance change for the current dir."""
@@ -105,7 +134,7 @@ class Ghost:
       self._last_distance = None
       return
     if self._last_distance is not None:
-      self._dir_to_dists[self._curr_dir].append(distance - self._last_distance)
+      self._dir_to_dists[self._curr_dir].add_dist(self._last_distance - distance)
     self._last_distance = distance
 
   def _forward(self, d):
@@ -118,15 +147,21 @@ class Ghost:
     """Stop for good (game over)."""
     self._halted = True
 
+  def unhalt(self):
+    """Stop for good (game over)."""
+    self._halted = False
+
   def reset(self):
     """Back to the start with all memory cleared (R in the GUI)."""
     with self._lock:
       self._x, self._y, self._theta = self._start_pose
-      self._decided_at = None
+      self._decided_at = 0
       self._last_distance = None
       self._curr_dir = 0
-      self._dir_to_dists = {key: [] for key in range(NUM_DIRS)}
+      self.__reset_all_dists()
       self._halted = False
+      self.time = 0
+      self._random_at = 0
 
   def _choose_exit(self, exits):
     """Pick one relative direction out of `exits` (BACK already removed
@@ -153,16 +188,17 @@ class Ghost:
     # "range" mode
     roc = {e: self.__get_dist_roc((self._curr_dir + e // 90) % NUM_DIRS)
            for e in exits}
-    last = self._dir_to_dists[self._curr_dir][-1:]
-    if FRONT in exits and last and last[0] <= 0:
+    last = self._dir_to_dists[self._curr_dir].get_last()
+    if FRONT in exits and last < 0:
       choice = FRONT  # getting closer: keep going
     else:
       # move in the direction with the best average rate of change
       best = min(roc.values())
       choice = next(e for e in TIE_ORDER if e in exits and roc[e] == best)
     # every once in a while try a new path if dist increases for too long
-    if len(self._dir_to_dists[self._curr_dir]) >= NUM_STEPS_BEFORE_RESET:
+    if (self.time - self._random_at) / SECONDS_BETWEEN_STEPS >= NUM_STEPS_BEFORE_RESET:
       self.__reset_all_dists()
+      self._random_at = self.time
     return choice
 
   def _step(self):
@@ -170,14 +206,14 @@ class Ghost:
       return
     if self.uwb_mode == "range":
       self._record_distance()
-    x, y, _ = self.pose()
-    if self._ir.at_intersection() and self._decided_at != (x, y):
+    if self._ir.at_intersection() and self.time >= self._decided_at + SECONDS_BETWEEN_TURN:
       exits = self._ir.exits()
       forward_exits = exits - {BACK}
       choice = self._choose_exit(forward_exits or exits)  # dead end: go back
       self._turn(choice)
-      self._decided_at = (x, y)
+      self._decided_at = self.time
     self._forward(self.speed * SECONDS_BETWEEN_STEPS)
+    self.time += SECONDS_BETWEEN_STEPS
 
   # --- thread -----------------------------------------------------------
 

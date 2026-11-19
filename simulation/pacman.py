@@ -66,6 +66,10 @@ class Pacman:
     """Stop for good (game over)."""
     self._halted = True
 
+  def unhalt(self):
+    """Stop for good (game over)."""
+    self._halted = False
+
   def reset(self):
     """Back to the start, stopped, with no queued keys (R in the GUI)."""
     while True:
