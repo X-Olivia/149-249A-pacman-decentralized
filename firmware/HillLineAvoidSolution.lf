@@ -1,7 +1,3 @@
-/**
- * Template for robot driving lab exercises. This template just periodically switches between a
- * STOPPED and a DRIVING mode, updating the LCD display on each change of mode.
- */
 target C {
   platform: {
     name: "rp2040",
@@ -14,108 +10,190 @@ import Display from "lib/Display.lf"
 import Motors from "lib/Motors.lf"
 import Line from "lib/Line.lf"
 
-
-
 reactor Robot {
-  input drive: bool      // Toggle mode.
-  output notify: string  // Notify of mode change.
+  preamble {=
+    #include <stdbool.h>
+    #define MIN_POWER 0.01f
+    #define MAX_POWER 0.20f
+    #define NUM_IR_SENSORS 5
+
+    #define THRESHOLD_BLACK 200
+
+    #define K_P (0.02f / 2.0f)
+    #define K_D (K_P * 12)
+
+    float _clamp(float v) {
+      return fminf(MAX_POWER, fmaxf(MIN_POWER, v));
+    }  
+
+    float _weighted_sum(uint16_t *inputs, float *weights, int n) {
+      float sum = 0.0f;
+      for (int i = 0; i < n; i++) {
+        sum += ((float)inputs[i] * weights[i]);
+      }
+      return sum;
+    }
+
+    float _compute_err(uint16_t *ir_vals) {
+      float weights_biased[] = { -2.0f, -1.0f, 0.0f, 1.0f, 2.0f };
+      float weights_equal[] = { 1.0f, 1.0f, 1.0f, 1.0f, 1.0f };
+      float err = _weighted_sum(ir_vals, weights_biased, NUM_IR_SENSORS) / \
+        (_weighted_sum(ir_vals, weights_equal, NUM_IR_SENSORS) + 1);
+      return err;
+    }
+
+    float compute_pd(uint16_t *ir_vals, float err_prev) {
+      float err_curr = _compute_err(ir_vals);
+      float P = K_P * err_curr;
+      float D = K_D * (err_curr - err_prev);
+      return P + D; // this is the correction value
+    }
+
+
+    // turn following
+    
+    bool is_turn(uint16_t *ir_vals) {
+      return (ir_vals[0] > THRESHOLD_BLACK) || (ir_vals[4] > THRESHOLD_BLACK);
+    }
+
+    bool left_turn_possible(uint16_t *ir_vals) {
+      return (ir_vals[0] > THRESHOLD_BLACK);
+    }
+    bool right_turn_possible(uint16_t *ir_vals) {
+      return (ir_vals[4] > THRESHOLD_BLACK);
+    }
+  =}
 
   motor = new Motors()
 
   line = new Line()
   disp = new Display()
 
-  timer t(0, 100 ms)
+  timer t(0, 20 ms)
   state count: int = 0
   logical action clear
 
   state leftPower: float = 0.1
   state rightPower: float = 0.1
 
+  state detectedLeft: bool = false
+  state detectedRight: bool = false
+
+  state err_prev: float = 0.0
+
   reaction(t) -> line.trigger {=
     lf_set(line.trigger, true);
   =}
 
-  initial mode calibrating {
+  initial mode CALIBRATE {
     timer seconds(0, 1 s)  // Timer used to display seconds.
-    timer end_calibration(10 s)
-    reaction(startup) -> notify, motor.left_power, motor.right_power, disp.line0, disp.line1, disp.line2 {=
-        lf_set(notify, "INIT");
-
-        lf_set(motor.left_power, 0);
-        lf_set(motor.right_power, 0);
-
-        lf_set(disp.line0, "CALIBRATING");
-        lf_set(disp.line1, "Roll robot over");
-        lf_set(disp.line2, "light and dark.");
+    timer end_calibration(5 s)
+    reaction(startup) -> motor.left_power, motor.right_power, disp.line0, disp.line1, disp.line2 {=
+      lf_set(motor.left_power, 0);
+      lf_set(motor.right_power, 0);
+      lf_set(disp.line0, "CALIBRATING");
+      lf_set(disp.line1, "Roll robot over");
+      lf_set(disp.line2, "light and dark.");
     =}
 
     reaction(seconds) -> disp.line3 {=
-        static char buf[17];
-        snprintf(buf, 17, "time:%8d s", self->count++);
-        lf_set(disp.line3, buf);
+      static char buf[17];
+      snprintf(buf, 17, "time:%8d s", self->count++);
+      lf_set(disp.line3, buf);
     =}
 
-    reaction(end_calibration) -> DRIVING, line.calibrate, motor.left_power, motor.right_power {=
-        lf_set(line.calibrate, false);
-        lf_set(motor.left_power, self->leftPower);
-        lf_set(motor.right_power, self->rightPower);
-        lf_set_mode(DRIVING);
-    =}
-
-  }
-
-
-  mode INTERSECT {
-    reaction(clear) -> DRIVING, motor.left_power, motor.right_power {=
-        self->leftPower = 0.1f;
-        self->rightPower = 0.1f;
-        lf_set(motor.left_power, 0.1f);
-        lf_set(motor.right_power, 0.1f);
-        lf_set_mode(DRIVING);
+    reaction(end_calibration) -> reset(DRIVING), line.calibrate, motor.left_power, motor.right_power {=
+      lf_set(line.calibrate, false);
+      lf_set_mode(DRIVING);
     =}
   }
 
   mode DRIVING {
-    reaction(line.reflect) -> INTERSECT, clear, motor.left_power, motor.right_power {=
-        if (line.reflect->value[0] > 50 && line.reflect->value[4] > 50) {
-            self->leftPower = -0.1f;
-            self->rightPower = 0.1f;
-            lf_schedule(clear, SEC(0.6));
-            lf_set_mode(INTERSECT);
-        }
-        else if (line.reflect->value[2] < 80) {
-          if (line.reflect->value[1] > 30 || line.reflect->value[0] > 30) {
-            self->leftPower = fmaxf(0.05f, self->leftPower - 0.01f);
-            self->rightPower = fminf(0.15f, self->rightPower + 0.01f);
-          }
-          else if (line.reflect->value[3] > 30 || line.reflect->value[4] > 30) {
-            self->leftPower = fminf(0.15f, self->leftPower + 0.01f);
-            self->rightPower = fmaxf(0.05f, self->rightPower - 0.01f);
-          }
-        }
-        else if (line.reflect->value[2] >= 80) {
-          self->leftPower = 0.1f;
-          self->rightPower = 0.1f;
-        }
+    reaction(line.reflect) -> reset(MOVE_FORWARD), clear, motor.left_power, motor.right_power {=
+      if (is_turn(line.reflect->value)) {
+        self->detectedLeft = left_turn_possible(line.reflect->value);
+        self->detectedRight = right_turn_possible(line.reflect->value);
+        lf_set_mode(MOVE_FORWARD);
+        return;
+      }
+
+      float correction = compute_pd(line.reflect->value, self->err_prev);
+      self->err_prev = _compute_err(line.reflect->value);
+
+      self->leftPower = _clamp(self->leftPower + correction);
+      self->rightPower = _clamp(self->rightPower - correction);
         
-        lf_set(motor.left_power, self->leftPower);
-        lf_set(motor.right_power, self->rightPower);
+      lf_set(motor.left_power, self->leftPower);
+      lf_set(motor.right_power, self->rightPower);
     =}
 
+    reaction(reset) -> motor.left_power, motor.right_power {=
+      self->leftPower = self->rightPower = 0.1f;
+      self->detectedLeft = self->detectedRight = false;
+      lf_set(motor.left_power, self->leftPower);
+      lf_set(motor.right_power, self->rightPower);
+    =}
+  }
+
+  mode MOVE_FORWARD {
+    reaction(line.reflect) -> motor.left_power, motor.right_power {=
+      float correction = compute_pd(line.reflect->value, self->err_prev);
+      self->err_prev = _compute_err(line.reflect->value);
+
+      self->leftPower = _clamp(self->leftPower + correction);
+      self->rightPower = _clamp(self->rightPower - correction);
+        
+      lf_set(motor.left_power, self->leftPower);
+      lf_set(motor.right_power, self->rightPower);  
+    =}
+
+    reaction(clear) -> reset(TURN), reset(DRIVING) {=
+      if (self->detectedLeft || self->detectedRight) {
+        lf_set_mode(TURN);
+      } else {
+        lf_set_mode(DRIVING);
+      }
+    =}
+
+    reaction(reset) -> clear, motor.left_power, motor.right_power {=
+      self->leftPower = self->rightPower = 0.1f;
+      lf_set(motor.left_power, self->leftPower);
+      lf_set(motor.right_power, self->rightPower);  
+      lf_schedule(clear, SEC(0.2));  
+    =}
+  }
+
+  mode TURN {
+    reaction(clear) -> reset(MOVE_FORWARD) {=
+      lf_set_mode(MOVE_FORWARD);  
+    =}
+
+    reaction(reset) -> clear, motor.left_power, motor.right_power {=
+      if (self->detectedLeft || self->detectedRight) {
+        bool choice = rand() % 2; // coinflip
+        if (choice && self->detectedLeft) {
+          self->leftPower = -0.1f;
+          self->rightPower = 0.1f;
+        } 
+        else if (self->detectedRight) {
+          self->leftPower = 0.1f;
+          self->rightPower = -0.1f;
+        }
+        else {
+          self->leftPower = -0.1f;
+          self->rightPower = 0.1f;
+        }
+      }
+
+      self->detectedLeft = self->detectedRight = false;
+      lf_set(motor.left_power, self->leftPower);
+      lf_set(motor.right_power, self->rightPower);
+      lf_schedule(clear, SEC(0.55));
+    =}
   }
 }
 
 main reactor {
-  timer t(0, 2 sec)
-  state drive: bool = false
   robot = new Robot()
   display = new Display()
-  robot.notify -> display.line0
-
-  reaction(t) -> robot.drive {=
-    lf_set(robot.drive, self->drive);
-    // Toggle the drive state variable for next time.
-    self->drive = !self->drive;
-  =}
 }
